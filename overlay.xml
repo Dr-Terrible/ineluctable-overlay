@@ -1,0 +1,25 @@
+<repositories version="1.0">
+	<repo quality="testing"
+	      status="unofficial">
+		<name>ineluctable-overlay</name>
+		<description lang="en">
+			Ineluctable Overlay offers a repository of Gentoo
+			ebuilds made by me (Mauro Toffanin, official Gentoo/FreeBSD
+			Arch Tester) for projects that I am interested in and
+			are not yet into Portage.
+		</description>
+		<description lang="it">
+			Ineluctable OVerlay è un repository di ebuild per
+			Gentoo realizzati da me (Mauro Toffanin, Gentoo/FreeBSD
+			Arch Tester ufficiale) per progetti che mi interessano
+			ma che non sono ancora presenti in Portage.
+		</description>
+		<homepage>https://github.com/toffanin/ineluctable-overlay</homepage>
+		<owner type="person">
+			<email>toffanin.mauro@gmail.com</email>
+			<name>Mauro Toffanin</name>
+		</owner>
+		<source type="git">git://github.com/toffanin/ineluctable-overlay</source>
+		<feed>https://github.com/toffanin/ineluctable-overlay/commits/master.atom</feed>
+	</repo>
+</repositories>
