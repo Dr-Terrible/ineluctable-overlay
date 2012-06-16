@@ -1,0 +1,224 @@
+--- zeromq-2.1.1/configure.in
++++ zeromq-2.1.1/configure.in
+@@ -263,89 +263,102 @@
+ AC_TYPE_UINT32_T
+ AC_C_VOLATILE
+ 
+-#  PGM extension
++# check for the presence of OpenPGM
+ ac_zmq_pgm_ext="no"
++AC_ARG_WITH([pgm], AS_HELP_STRING([--with-pgm], [Build libzmq with the OpenPGM Protocol Library support [default=no]]))
+ 
+-pgm_basename="libpgm-5.0.92~dfsg"
++AS_IF([test "x$with_pgm" = "xyes"], [
++	PKG_CHECK_MODULES([OpenPGM], [openpgm-5.1 >= 5.1])
+ 
+-AC_SUBST(pgm_basename)
++	# adding define for PGM
++	AC_DEFINE(ZMQ_HAVE_OPENPGM, 1, [Have OpenPGM extension])
+ 
+-AC_ARG_WITH([pgm], [AS_HELP_STRING([--with-pgm], 
+-    [build libzmq with PGM extension [default=no]])], 
+-    [with_pgm_ext=yes], [with_pgm_ext=no])
+-
+-if test "x$with_pgm_ext" != "xno"; then
+-
+-    if test "x$ac_cv_prog_cc_c99" = "xno"; then
+-        AC_MSG_WARN([The C compiler is not set to C99 mode. The build will most likely fail])
+-    fi
+-    
+-    AC_MSG_CHECKING([if the PGM extension is supported on this platform])
+-    # OpenPGM is only supported by the vendor on x86, AMD64, and SPARC platforms...
+-    case "${host_cpu}" in
+-        i*86|x86_64|amd64|*sparc*|s390*)
+-            # Supported
+-        ;;
+-        *)
+-            AC_MSG_ERROR([the PGM extension is not supported on the ${host_cpu} platform.])
+-        ;;
+-    esac
++	# adding CFLAGS and LIBS for PGM
++	LIBZMQ_EXTRA_CXXFLAGS="$OpenPGM_CFLAGS $LIBZMQ_EXTRA_CXXFLAGS"
++	LIBS="$OpenPGM_LIBS $LIBS"
++])
++
++
++# (Old and deprecated) PGM extension
++#pgm_basename="libpgm-5.0.92~dfsg"
++#AC_SUBST(pgm_basename)
++
++#AC_ARG_WITH([oldpgm], [AS_HELP_STRING([--with-oldpgm], 
++#    [build libzmq with PGM extension [default=no]])], 
++#    [with_oldpgm_ext=yes], [with_oldpgm_ext=no])
++
++if test "x$with_oldpgm_ext" != "xno"; then
++
++#    if test "x$ac_cv_prog_cc_c99" = "xno"; then
++#        AC_MSG_WARN([The C compiler is not set to C99 mode. The build will most likely fail])
++#    fi
++#    
++#    AC_MSG_CHECKING([if the PGM extension is supported on this platform])
++#    # OpenPGM is only supported by the vendor on x86, AMD64, and SPARC platforms...
++#    case "${host_cpu}" in
++#        i*86|x86_64|amd64|*sparc*|s390*)
++#            # Supported
++#        ;;
++#        *)
++#            AC_MSG_ERROR([the PGM extension is not supported on the ${host_cpu} platform.])
++#        ;;
++#    esac
+ 
+     # ... and on Linux/Windows/Solaris/FreeBSD/OSX systems.
+     case "${host_os}" in
+         *linux*|*mingw32*|*solaris*|*freebsd*|*darwin*)
+-            AC_MSG_RESULT([yes])
++#            AC_MSG_RESULT([yes])
++#
++#            AC_LANG_PUSH([C++])
++#            AC_ZMQ_CHECK_LANG_FLAG([-Wno-variadic-macros], [LIBZMQ_EXTRA_CXXFLAGS="-Wno-variadic-macros $LIBZMQ_EXTRA_CXXFLAGS"])
++#            AC_ZMQ_CHECK_LANG_FLAG([-Wno-long-long], [LIBZMQ_EXTRA_CXXFLAGS="-Wno-long-long $LIBZMQ_EXTRA_CXXFLAGS"])
++#            AC_LANG_POP([C++])
+ 
+-            AC_LANG_PUSH([C++])
+-            AC_ZMQ_CHECK_LANG_FLAG([-Wno-variadic-macros], [LIBZMQ_EXTRA_CXXFLAGS="-Wno-variadic-macros $LIBZMQ_EXTRA_CXXFLAGS"])
+-            AC_ZMQ_CHECK_LANG_FLAG([-Wno-long-long], [LIBZMQ_EXTRA_CXXFLAGS="-Wno-long-long $LIBZMQ_EXTRA_CXXFLAGS"])
+-            AC_LANG_POP([C++])
+-
+-            AC_LANG_PUSH([C])
+-            AC_ZMQ_LANG_STRICT([LIBZMQ_EXTRA_CFLAGS="$ac_zmq_cv_[]_AC_LANG_ABBREV[]_strict_flag $LIBZMQ_EXTRA_CFLAGS"])
++#            AC_LANG_PUSH([C])
++#            AC_ZMQ_LANG_STRICT([LIBZMQ_EXTRA_CFLAGS="$ac_zmq_cv_[]_AC_LANG_ABBREV[]_strict_flag $LIBZMQ_EXTRA_CFLAGS"])
+ 
+             if test "x$ac_zmq_cv_[]_AC_LANG_ABBREV[]_intel_compiler" = "xyes" -o \
+                     "x$ac_zmq_cv_[]_AC_LANG_ABBREV[]_sun_studio_compiler" = "xyes"; then
+                 LIBZMQ_EXTRA_CFLAGS="-Dasm=__asm__ $LIBZMQ_EXTRA_CFLAGS"
+             fi
+-            AC_LANG_POP([C])
+-        ;;
+-        *)
+-            AC_MSG_ERROR([the PGM extension is not supported on system ${host_os}.])
++#            AC_LANG_POP([C])
+         ;;
++#        *)
++#            AC_MSG_ERROR([the PGM extension is not supported on system ${host_os}.])
++#        ;;
+     esac
+ 
+-    #  Gzip, Perl and Python are required during PGM build
+-    AC_CHECK_PROG(ac_zmq_have_gzip, gzip, yes, no)
+-    if test "x$ac_zmq_have_gzip" != "xyes"; then
+-        AC_MSG_ERROR([gzip is required for building the PGM extension.])
+-    fi
+-    AC_CHECK_PROG(ac_zmq_have_perl, perl, yes, no)
+-    if test "x$ac_zmq_have_perl" != "xyes"; then
+-        AC_MSG_ERROR([perl is required for building the PGM extension.])
+-    fi
+-    AC_CHECK_PROG(ac_zmq_have_python, python, yes, no)
+-    if test "x$ac_zmq_have_python" != "xyes"; then
+-        AC_MSG_ERROR([python is required for building the PGM extension.])
+-    fi
+-
+-    #  Unpack libpgm
+-    AC_MSG_NOTICE([Unpacking ${pgm_basename}.tar.gz])
+-    ac_zmq_pwd=`pwd`
+-    cd foreign/openpgm
+-
+-    if ! (gzip -dc "${pgm_basename}.tar.gz" || echo "failed") | ${am__untar}; then
+-        AC_MSG_ERROR([cannot unpack the foreign/openpgm/${pgm_basename}.tar.gz file])
+-    fi
+-    cd "${ac_zmq_pwd}"
+-
+-    #  Success!
+-    AC_DEFINE(ZMQ_HAVE_OPENPGM, 1, [Have OpenPGM extension])
+-    ac_zmq_pgm_ext="yes"
+-
+-    # these break OpenPGM so don't specify them if we are building with it.
+-    ac_zmq_pedantic="no"
+-    ac_zmq_werror="no"
++#    #  Gzip, Perl and Python are required during PGM build
++#    AC_CHECK_PROG(ac_zmq_have_gzip, gzip, yes, no)
++#    if test "x$ac_zmq_have_gzip" != "xyes"; then
++#        AC_MSG_ERROR([gzip is required for building the PGM extension.])
++#    fi
++#    AC_CHECK_PROG(ac_zmq_have_perl, perl, yes, no)
++#    if test "x$ac_zmq_have_perl" != "xyes"; then
++#        AC_MSG_ERROR([perl is required for building the PGM extension.])
++#    fi
++#    AC_CHECK_PROG(ac_zmq_have_python, python, yes, no)
++#    if test "x$ac_zmq_have_python" != "xyes"; then
++#        AC_MSG_ERROR([python is required for building the PGM extension.])
++#    fi
++#
++#    #  Unpack libpgm
++#    AC_MSG_NOTICE([Unpacking ${pgm_basename}.tar.gz])
++#    ac_zmq_pwd=`pwd`
++#    cd foreign/openpgm
++#
++#    if ! (gzip -dc "${pgm_basename}.tar.gz" || echo "failed") | ${am__untar}; then
++#        AC_MSG_ERROR([cannot unpack the foreign/openpgm/${pgm_basename}.tar.gz file])
++#    fi
++#    cd "${ac_zmq_pwd}"
++#
++#    #  Success!
++#    AC_DEFINE(ZMQ_HAVE_OPENPGM, 1, [Have OpenPGM extension])
++#    ac_zmq_pgm_ext="yes"
++#
++#    # these break OpenPGM so don't specify them if we are building with it.
++#    ac_zmq_pedantic="no"
++#    ac_zmq_werror="no"
+ fi
+ 
+ # Set -Wall, -Werror and -pedantic
+@@ -371,52 +384,6 @@
+ AC_CHECK_FUNCS(perror gettimeofday memset socket getifaddrs freeifaddrs)
+ AC_CHECK_HEADERS([alloca.h])
+ 
+-if test "x$with_pgm_ext" != "xno"; then
+-
+-    # Check additional functions for PGM build
+-    AC_CHECK_FUNCS(poll epoll_create pselect getopt vasprintf getprotobyname_r2 getprotobyname_r)
+-
+-    if test "x$ac_cv_func_gettimeofday" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_GETTIMEOFDAY $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    if test "x$ac_cv_func_getprotobyname_r2" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_GETPROTOBYNAME_R2 $LIBZMQ_EXTRA_CFLAGS"
+-    fi    
+-    if test "x$ac_cv_func_poll" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_POLL $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    if test "x$ac_cv_func_epoll_create" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_EPOLL $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    if test "x$ac_cv_func_getifaddrs" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_GETIFADDRS $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    if test "x$ac_cv_func_getopt" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_GETOPT $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    if test "x$ac_cv_func_pselect" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_PSELECT $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    if test "x$ac_cv_header_alloca_h" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_ALLOCA_H $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    if test "x$ac_cv_c_compiler_gnu" = "xno"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_ISO_VARARGS $LIBZMQ_EXTRA_CFLAGS"
+-    else
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_GNU_VARARGS $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    if test "x$ac_cv_func_vasprintf" = "xyes"; then
+-        LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_VASPRINTF $LIBZMQ_EXTRA_CFLAGS"
+-    fi
+-    case "${host_cpu}" in
+-        i*86|x86_64|amd64|*sparc*)
+-            LIBZMQ_EXTRA_CFLAGS="-DCONFIG_HAVE_TSC -DCONFIG_HAVE_RTC -DCONFIG_HAVE_HPET $LIBZMQ_EXTRA_CFLAGS"
+-        ;;
+-        *sparc*|s390*)
+-        ;;
+-    esac
+-fi
+-
+ # Subst LIBZMQ_EXTRA_CFLAGS & CXXFLAGS & LDFLAGS
+ AC_SUBST(LIBZMQ_EXTRA_CFLAGS)
+ AC_SUBST(LIBZMQ_EXTRA_CXXFLAGS)

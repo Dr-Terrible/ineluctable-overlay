@@ -10,3 +10,15 @@
 # the original developer Jan Ciger.
 # See dev-games/libndofdev/TODO for more details
 dev-games/libndofdev
+
+
+# Toffanin Mauro <toffanin.mauro@gmail.com>
+# Mask vde because doesn't compile with gcc:4.6 and gcc:4.5
+net-misc/vde
+
+
+# Toffanin Mauro <toffanin.mauro@gmail.com>
+# Mask hoard because doesn't compile with gcc:4.6 and gcc:4.5;
+# this package isn't compatibile with modern glibc such as 2.14+, so use
+# it at your own risk.
+sys-libs/hoard

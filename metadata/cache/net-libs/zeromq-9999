@@ -1,0 +1,22 @@
+sys-apps/util-linux app-text/asciidoc app-text/xmlto pgm? ( dev-util/pkgconfig app-arch/gzip dev-lang/perl dev-lang/python:2.6 ) dev-vcs/git || ( >=sys-devel/automake-1.11.1:1.11 >=sys-devel/automake-1.12:1.12 ) >=sys-devel/autoconf-2.68 sys-devel/libtool
+sys-apps/util-linux
+0
+
+
+http://www.zeromq.org/
+LGPL-3
+ZeroMQ is a brokerless messaging kernel with extremely high performance.
+
+autotools git-2 libtool multilib multiprocessing toolchain-funcs
+pgm static-libs
+
+
+
+4
+
+configure install prepare unpack
+
+
+
+
+

@@ -1,0 +1,36 @@
+--- zeromq-2.1.6/configure.in
++++ zeromq-2.1.6/configure.in
+@@ -371,10 +371,9 @@
+ AC_SUBST(LIBZMQ_EXTRA_CXXFLAGS)
+ AC_SUBST(LIBZMQ_EXTRA_LDFLAGS)
+ 
+-AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile
++AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile \
+     perf/Makefile src/libzmq.pc \
+     builds/msvc/Makefile tests/Makefile \
+-    foreign/openpgm/Makefile \
+     builds/redhat/zeromq.spec])
+ AC_OUTPUT
+ 
+--- zeromq-2.1.6/Makefile.am
++++ zeromq-2.1.6/Makefile.am
+@@ -1,18 +1,13 @@
+ ACLOCAL_AMFLAGS = -I config
+ 
+-if BUILD_PGM
+-SUBDIRS = foreign/openpgm src doc perf tests
+-else
+ SUBDIRS = src doc perf tests
+-endif
+ 
+-DIST_SUBDIRS = foreign/openpgm src doc perf tests builds/msvc
++DIST_SUBDIRS = src doc perf tests builds/msvc
+ 
+ EXTRA_DIST = \
+ 	autogen.sh	\
+ 	version.sh	\
+ 	MAINTAINERS	\
+-	foreign/openpgm/@pgm_basename@.tar.gz	\
+ 	foreign/xmlParser/xmlParser.cpp		\
+ 	foreign/xmlParser/xmlParser.hpp
+ MAINTAINERCLEANFILES = \

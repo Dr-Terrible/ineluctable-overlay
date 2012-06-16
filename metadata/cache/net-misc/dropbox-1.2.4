@@ -1,0 +1,22 @@
+x11-libs/libXcursor x11-libs/libXfixes x11-libs/libXinerama x11-libs/libSM x11-libs/libXrandr x11-libs/libXext x11-libs/libXrender x11-libs/libXdamage x11-libs/libXcomposite x11-libs/libX11 x11-libs/libXi x11-libs/libXrandr x11-libs/gdk-pixbuf dev-libs/dbus-glib sys-apps/dbus dev-python/dbus-python dev-libs/atk media-libs/libpng:1.2 media-libs/fontconfig sys-libs/zlib app-arch/bzip2 x11-libs/pango x11-libs/gtk+:2 dev-libs/popt || ( =dev-lang/python-2.7* =dev-lang/python-2.6* ) || ( =dev-lang/python-2.7*[sqlite] =dev-lang/python-2.6*[sqlite] )
+x11-libs/libXcursor x11-libs/libXfixes x11-libs/libXinerama x11-libs/libSM x11-libs/libXrandr x11-libs/libXext x11-libs/libXrender x11-libs/libXdamage x11-libs/libXcomposite x11-libs/libX11 x11-libs/libXi x11-libs/libXrandr x11-libs/gdk-pixbuf dev-libs/dbus-glib sys-apps/dbus dev-python/dbus-python dev-libs/atk media-libs/libpng:1.2 media-libs/fontconfig sys-libs/zlib app-arch/bzip2 x11-libs/pango x11-libs/gtk+:2 dev-libs/popt sys-libs/ncurses net-misc/wget x11-libs/libnotify || ( =dev-lang/python-2.7* =dev-lang/python-2.6* ) || ( =dev-lang/python-2.7*[sqlite] =dev-lang/python-2.6*[sqlite] )
+0
+x86? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86-1.2.4.tar.gz ) amd64? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86_64-1.2.4.tar.gz )
+mirror strip
+http://dropbox.com
+dropbox-EULA
+Official Dropbox CLI
+
+eutils multilib python toolchain-funcs user
+server gtk
+
+
+
+3
+
+install postinst prepare setup
+
+
+
+
+

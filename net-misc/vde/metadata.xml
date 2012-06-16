@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>dang@gentoo.org</email>
+	</maintainer>
+	<maintainer>
+		<email>mlspamcb@noci.xs4all.nl</email>
+	</maintainer>
+	<maintainer>
+		<email>jmbsvicetto@gentoo.org</email>
+		<name>Jorge Manuel B. S. Vicetto</name>
+	</maintainer>
+	<longdescription lang="en">
+		VDE is an ethernet compliant virtual network that can be spawned over a set
+		of physical computer over the Internet.
+	</longdescription>
+	<use>
+		<flag name="pcap">
+			Enable the pcap-based plugin that allows creating a switch against a
+			real interface.
+		</flag>
+		<flag name="ssl">
+			Enable the cryptcab plugin that allows creating an encrypted
+			virtual cable.
+		</flag>
+		<flag name="experimental">
+			Enable experimental features (async notifies, plugin support,
+			packet counter).
+		</flag>
+</use>
+</pkgmetadata>
