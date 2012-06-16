@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<maintainer>
+		<email>flameeyes@gentoo.org</email>
+		<name>Diego Elio Pettenò</name>
+		<description>Proxy maintainer. CC him on bugs</description>
+	</maintainer>
+	<longdescription lang="en">
+		mod_qos is a quality of service module for the Apache Web Server. It
+		implements control mechanisms that can provide different priority to
+		different requests and controls server access based on available
+		resources.
+	</longdescription>
+</pkgmetadata>
+
