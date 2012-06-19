@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<longdescription lang="en">
+		Muddle is set of tools that aid building pluggable django apps. It
+		provides utilities to such as AggregateForms, Model View Resolvers, and
+		Plugin Loaders. It also provides some key components built on these
+		utilities such as Settings, Workflows, and Blocks.
+	</longdescription>
+</pkgmetadata>
+

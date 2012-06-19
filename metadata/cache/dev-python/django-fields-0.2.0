@@ -1,0 +1,22 @@
+=dev-lang/python-2*
+dev-python/django dev-python/pycrypto =dev-lang/python-2*
+0
+https://github.com/svetlyak40wt/django-fields/tarball/0.2.0 -> django-fields-0.2.0.tar.gz
+
+https://github.com/svetlyak40wt/django-fields
+as-is
+Fields pack for django framework.
+~amd64 ~x86
+distutils multilib python toolchain-funcs
+
+
+
+
+4
+
+compile install postinst postrm prepare setup
+
+
+
+
+

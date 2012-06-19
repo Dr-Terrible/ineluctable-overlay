@@ -1,0 +1,22 @@
+=dev-lang/python-2* dev-vcs/git
+dev-python/django =dev-lang/python-2*
+0
+
+
+http://code.osuosl.org/projects/django-object-permissions
+MIT
+This is an implementation of Django Object Permissions
+~amd64 ~x86
+distutils git-2 multilib python toolchain-funcs
+
+
+
+
+4
+
+compile install postinst postrm prepare setup unpack
+
+
+
+
+
