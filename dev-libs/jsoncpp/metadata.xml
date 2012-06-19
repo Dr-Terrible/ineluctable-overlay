@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<maintainer>
+		<email>flameeyes@gentoo.org</email>
+		<name>Diego Elio Pettenò</name>
+		<description>Proxy maintainer. CC him on bugs</description>
+	</maintainer>
+	<longdescription lang="en">
+		jsoncpp is an implementation of a JSON (http://json.org) reader and
+		writer in C++. JSON (JavaScript Object Notation) is a lightweight
+		data-interchange format. It is easy for humans to read and write. It is
+		easy for machines to parse and generate.
+	</longdescription>
+</pkgmetadata>
+
