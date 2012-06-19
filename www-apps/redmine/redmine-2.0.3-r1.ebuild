@@ -66,7 +66,7 @@ all_ruby_prepare() {
 	rm .gitignore .hgignore || die
 
 	rm Gemfile config/preinitializer.rb || die
-	epatch "${FILESDIR}/${PN}-1.4.1-bundler.patch" || die
+#	epatch "${FILESDIR}/${PN}-1.4.1-bundler.patch" || die
 
 	echo "CONFIG_PROTECT=\"${EPREFIX}${REDMINE_DIR}/config\"" > "${T}/50${PN}"
 	echo "CONFIG_PROTECT_MASK=\"${EPREFIX}${REDMINE_DIR}/config/locales ${EPREFIX}${REDMINE_DIR}/config/settings.yml\"" >> "${T}/50${PN}"
