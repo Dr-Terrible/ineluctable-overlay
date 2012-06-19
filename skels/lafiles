@@ -1,0 +1,5 @@
+# remove useless .la files
+find "${D}" -name '*.la' -delete
+
+# remove useless .a (only for non static compilation)
+use static-libs || find "${D}" -name '*.a' -delete
