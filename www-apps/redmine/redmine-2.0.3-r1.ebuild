@@ -24,7 +24,7 @@ ruby_add_rdepend "virtual/ruby-ssl
 	virtual/rubygems
 	>=dev-ruby/coderay-1.0.6
 	dev-ruby/i18n:0.6
-	>=dev-ruby/rack-1.3.6:1.3
+	>=dev-ruby/rack-1.3.6
 	>=dev-ruby/tzinfo-0.3.31
 	dev-ruby/rake
 	>=dev-ruby/rails-3.2.5:3.2
