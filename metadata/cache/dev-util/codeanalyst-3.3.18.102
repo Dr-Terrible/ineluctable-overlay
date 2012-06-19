@@ -1,0 +1,22 @@
+x11-libs/qt:3 dev-util/oprofile dev-libs/elfutils dev-libs/popt || ( >=sys-devel/automake-1.11.1:1.11 >=sys-devel/automake-1.12:1.12 ) >=sys-devel/autoconf-2.68 sys-devel/libtool
+x11-libs/qt:3 dev-util/oprofile dev-libs/elfutils dev-libs/popt
+0
+http://developer.amd.com/Downloads/CodeAnalyst3_3_18_0361Public.tar.gz
+fetch
+http://developer.amd.com/cpu/CodeAnalyst
+GPL-2
+AMD CodeAnalyst Performance Analyzer is an open source front-end to OProfile.
+~x86 ~amd64
+autotools eutils libtool linux-info multilib multiprocessing toolchain-funcs user versionator
+X static-libs debug java
+
+
+
+4
+
+configure install nofetch postinst prepare setup
+
+
+
+
+

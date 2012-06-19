@@ -1,0 +1,148 @@
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig/src/ca/group.pl CodeAnalyst-Linux-2.8.29.orig.oprofile/src/ca/group.pl
+--- CodeAnalyst-Linux-2.8.29.orig/src/ca/group.pl	2008-10-30 07:02:58.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.oprofile/src/ca/group.pl	2009-04-07 13:56:15.000000000 +0200
+@@ -19,76 +19,37 @@
+ @users_list = split(/,/, $users);
+ 
+ ############# Add oprofiled sudoer
+-$oprofiled = "$prefix/bin/oprofiled";
++$oprofiled = "$prefix/bin/opcontrol";
+ 
+ if ($oprofiled eq "") {
+ 	die("Oprofiled is no in the path!\n");
+ }
+ 
+-foreach $name (@users_list) {
+-    $bMatch=0;
+ 
+-	open(FILEREAD, "< /etc/sudoers");
+-	open(FILEWRITE, "> tempsudoer");
+-	
+-	while (<FILEREAD>)
+-	{
+-	    $match = "$name ALL=NOPASSWD: $oprofiled";
+-	
+-		print FILEWRITE;
++open(FILEREAD, "< /etc/sudoers");
++open(FILEWRITE, "> tempsudoer");
+ 	
+-	    if ($_ =~ $match)
+-	    {
+-	        $bMatch=1;
+-	    }
+-	}
++while (<FILEREAD>)
++{
++    $match = "[\\w\\d_]+ ALL=NOPASSWD: $oprofiled";
+ 	
+-	if ($bMatch == 0)
++    if ($_ !~ $match)
+     {
+-	    $newSudoLine = "$name ALL=NOPASSWD: $oprofiled\n";
+-        print FILEWRITE $newSudoLine;
++	print FILEWRITE;
+     }
+-	
+-	close FILEWRITE;
+-	close FILEREAD;
+-
+-    cp("tempsudoer", "/etc/sudoers");
+-    rm("tempsudoer");
+ }
+ 
+-############# Add oprofiled_cmd sudoer
+-$oprofiled_cmd = "/tmp/oprofiled_cmd";
+ foreach $name (@users_list) {
+-    $bMatch=0;
+-
+-	open(FILEREAD, "< /etc/sudoers");
+-	open(FILEWRITE, "> tempsudoer");
+-	
+-	while (<FILEREAD>)
+-	{
+-	    $match = "$name ALL=NOPASSWD: $oprofiled_cmd";
+-	
+-		print FILEWRITE;
+-	
+-	    if ($_ =~ $match)
+-	    {
+-	        $bMatch=1;
+-	    }
+-	}
+-	
+-	if ($bMatch == 0)
+-    {
+-	    $newSudoLine = "$name ALL=NOPASSWD: $oprofiled_cmd\n";
++	$newSudoLine = "$name ALL=NOPASSWD: $oprofiled\n";
+         print FILEWRITE $newSudoLine;
+-    }
+-	
+-	close FILEWRITE;
+-	close FILEREAD;
+-
+-    cp("tempsudoer", "/etc/sudoers");
+-    rm("tempsudoer");
+ }
+ 
++close FILEWRITE;
++close FILEREAD;
++
++cp("tempsudoer", "/etc/sudoers");
++rm("tempsudoer");
++
+ $group_file = "/etc/group";
+ $amd_group = "amdca";
+ open(HANDLE, "$group_file") || die("$group_file not found\n");
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig/src/ca/gui/oprofiled.sh CodeAnalyst-Linux-2.8.29.orig.oprofile/src/ca/gui/oprofiled.sh
+--- CodeAnalyst-Linux-2.8.29.orig/src/ca/gui/oprofiled.sh	2008-11-10 16:50:12.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.oprofile/src/ca/gui/oprofiled.sh	2009-04-07 09:01:03.000000000 +0200
+@@ -49,15 +49,32 @@
+ # (ROOT only) Uncomment to enable Oprofile Monitoring 
+ #enable_oprofile_monitor
+ 
+-#############################################################################
+-# Default Mode :
+-# NOTE: Oprofile-0.9.4 and later, we need to specify PATH to the daemon since
+-#       it will invoke the opjitconv tool. sudo overwrites the PATH variable
+-#       which will prevent daemon to locate opjitconv.
+-echo "#!/bin/bash" > $OPROFILED_CMD 
+-echo "PATH=$PATH ; $OPROFILED $@; rm -f $OPROFILED_CMD" >> $OPROFILED_CMD 
+-chmod +x $OPROFILED_CMD 
+-$SUDO $OPROFILED_CMD
++args=$@
++
++separate=
++echo $args | grep "\-\-separate-lib=1" &> /dev/null && separate="$separate,library"
++echo $args | grep "\-\-separate-kernel=1" &> /dev/null && separate="$separate,kernel"
++echo $args | grep "\-\-separate-thread=1" &> /dev/null && separate="$separate,thread"
++echo $args | grep "\-\-separate-cpu=1" &> /dev/null && separate="$separate,cpu"
++if [ -z "$separate" ]; then
++    separate="none"
++else
++    separate=`echo $separate | sed -e s/^,//`
++fi
++
++args=`echo $args | sed -e "s/--separate-[[:alnum:]]\+=[[:digit:]]\s*//g"`
++args=`echo $args | sed -e "s/\(--events=[^[:space:]]*\),/\\1 /"`
++
++echo $args | grep "\-\-events=[^[:space:]]*," &> /dev/null
++while [ $? -eq 0 ]; do
++    args=`echo $args | sed -e "s/\(--events=[^[:space:],]*\),/\\1 --event=/"`
++    echo $args | grep "\-\-events=[^[:space:]]*," &> /dev/null
++done
++args=`echo $args | sed -e "s/--events\?=\([^:]*\):[[:digit:]]\+:[[:digit:]]\+/--event=\\1/g"`
++
++args="$args --separate=$separate --start-daemon"
++$SUDO opcontrol $args
++exit;
+ 
+ #############################################################################
+ # Debugger Mode (ROOT only):
+@@ -65,7 +82,3 @@
+ #echo "continue" > /tmp/ca_debug
+ #$SUDO $OPROFILED $@
+ #xterm -e "gdb $OPROFILED -p `cat /var/lib/oprofile/lock` -x /tmp/ca_debug" &
+-
+-#############################################################################
+-# Old Mode: 
+-#$SUDO $OPROFILED $@

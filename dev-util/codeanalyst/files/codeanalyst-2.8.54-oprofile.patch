@@ -1,0 +1,24 @@
+--- m4/checkoprofileconfig.m4
++++ m4/checkoprofileconfig.m4
+@@ -17,8 +17,9 @@
+ 	if test "$OP_VERSION_BASE" != "0.9.3" ; then
+ 	if test "$OP_VERSION_BASE" != "0.9.4" ; then
+ 	if test "$OP_VERSION_BASE" != "0.9.5" ; then
++	if test "$OP_VERSION_BASE" != "0.9.6" ; then
+ 		AC_MSG_ERROR([Oprofile version $OP_VERSION is not supported.])
+-	fi fi fi
++	fi fi fi fi
+ 
+ 	dnl Convert version number to a value comparable by preprocessor 
+ 	AC_DEFINE_UNQUOTED(OP_VERSION_BASE, 0x`echo $OP_VERSION_BASE | sed 's/\./0/g'`, [Oprofile version])
+@@ -51,8 +52,9 @@
+         if test "$OP_VERSION_BASE" != "0.9.3" ; then
+         if test "$OP_VERSION_BASE" != "0.9.4" ; then
+         if test "$OP_VERSION_BASE" != "0.9.5" ; then
++	if test "$OP_VERSION_BASE" != "0.9.6" ; then
+                 AC_MSG_ERROR([Oprofile version $OP_VERSION is not supported.])
+-        fi fi fi
++        fi fi fi fi
+ 
+         dnl Convert version number to a value comparable by preprocessor 
+         AC_DEFINE_UNQUOTED(OP_VERSION_BASE, 0x`echo $OP_VERSION_BASE | sed 's/\./0/g'`, [Oprofile version])

@@ -1,0 +1,1533 @@
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/events_op2ca.pl CodeAnalyst-Linux-2.8.29.orig.intel/events_op2ca.pl
+--- CodeAnalyst-Linux-2.8.29.orig.fix/events_op2ca.pl	1970-01-01 01:00:00.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/events_op2ca.pl	2009-04-07 04:27:36.000000000 +0200
+@@ -0,0 +1,69 @@
++#! /usr/bin/perl
++
++use strict;
++use Fcntl qw[ :seek ];
++
++sub log2 {
++    my $n = $_[0];
++    my $sum = 0;
++    while ($n > 1) {
++	$n = $n / 2;
++	if ($n == int($n)) { $sum++; }
++	else { return -1; }
++    }
++
++    return $sum;
++}
++
++if (@ARGV < 1) {
++    print "$0 <event_dir>\n";
++    exit;
++}
++
++if (! -f "$ARGV[0]/events" || ! -f "$ARGV[0]/unit_masks") {
++    print "events or unit_masks are missing in $ARGV[0]\n";
++    exit;
++}
++
++open EVENTS, "$ARGV[0]/events";
++open MASKS, "$ARGV[0]/unit_masks";
++
++print "<cpu_events>\n";
++while (<EVENTS>) {
++    if ($_ =~ /^[^#]*event:\b0[xX]([\dabcdefABCDEF]+).*\bum:([\w\d_]+).*\bname:([\w\d_]+).*\s+:\s*(.*)$/i) {
++	my $event = uc($1);
++	my $mask = $2;
++	my $name = $3;
++	my $desc = $4;
++	
++	print "<event name=\"$desc\" value=\"$event\">\n";
++	if ($mask =~ /^x[\w\d_]*$/) {
++#	    print "\t<mask value=\"$mask\" name=\"$mask\" />\n";
++	} else {
++	    seek MASKS, 0, SEEK_SET;
++	    while (<MASKS>) {
++		if ($_ =~ /^[^#]*name:$mask/) {
++		    while ($mask = <MASKS>) {
++			if ($mask =~ /name:/) {
++			    last;
++		    	} elsif ($mask =~ /0x([\dabcdefABCDEF]+)\s*(.*)/i) {
++			    my $value = log2(hex($1));
++			    my $desc = $2;
++			    
++			    if (($value>=0)&&($desc !~ /no\s+unit\s+mask/i)) {
++			        print "\t<mask value=\"$value\" name=\"$desc\" />\n";
++			    }
++			}
++		    }
++		    last;
++		}
++	    }
++	} 
++	print "\t<op_name name=\"op\" value=\"$name\" />\n";
++	print "</event>\n\n";
++    }
++}
++print "</cpu_events>\n";
++
++close MASKS;
++close EVENTS;
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/application.cpp CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/application.cpp
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/application.cpp	2008-11-27 01:06:08.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/application.cpp	2009-04-07 08:46:57.000000000 +0200
+@@ -791,12 +791,12 @@
+ 		break;
+ 
+ 	case EVENT_TRIGGER:
+-		if (!isCpuAMD ())
++/*		if (!isCpuAMD ())
+ 		{
+ 			QMessageBox::critical (this, "CodeAnalyst Error",
+ 				"Your system is not supported for this type of profile.");
+ 			return;
+-		}
++		}*/
+ 		m_pSession = static_cast<SESSION_OPTIONS *>(new EBP_OPTIONS ());
+ 		if (NULL == m_pSession )
+ 		{
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/events/core2-events.xml CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/events/core2-events.xml
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/events/core2-events.xml	1970-01-01 01:00:00.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/events/core2-events.xml	2009-04-07 03:56:25.000000000 +0200
+@@ -0,0 +1,722 @@
++<cpu_events>
++<event name="Clock cycles when not halted" value="3C">
++	<mask value="0" name="Unhalted core cycles" />
++	<mask value="0" name="Unhalted bus cycles" />
++	<mask value="1" name="Unhalted bus cycles of this core while the other core is halted" />
++	<op_name name="op" value="CPU_CLK_UNHALTED" />
++</event>
++
++<event name="number of instructions retired" value="C0">
++	<op_name name="op" value="INST_RETIRED" />
++</event>
++
++<event name="number of L2 cache requests" value="2E">
++	<mask value="6" name="core: this core" />
++	<mask value="4" name="prefetch: Hardware prefetch only" />
++	<mask value="0" name="prefetch: exclude hardware prefetch" />
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L2_RQSTS" />
++</event>
++
++<event name="L2 cache demand requests from this core that missed the L2" value="2E">
++	<op_name name="op" value="LLC_MISSES" />
++</event>
++
++<event name="L2 cache demand requests from this core" value="2E">
++	<op_name name="op" value="LLC_REFS" />
++</event>
++
++<event name="events pertaining to loads" value="03">
++	<mask value="1" name="STA  Loads blocked by a preceding store with unknown address." />
++	<mask value="2" name="STD  Loads blocked by a preceding store with unknown data." />
++	<mask value="3" name="OVERLAP_STORE  Loads that partially overlap an earlier store, or 4K aliased with a previous store." />
++	<mask value="4" name="UNTIL_RETIRE  Loads blocked until retirement." />
++	<mask value="5" name="L1D  Loads blocked by the L1 data cache." />
++	<op_name name="op" value="LOAD_BLOCK" />
++</event>
++
++<event name="events pertaining to stores" value="04">
++	<mask value="0" name="SB_DRAIN_CYCLES	Cycles while stores are blocked due to store buffer drain." />
++	<mask value="1" name="ORDER	Cycles while store is waiting for a preceding store to be globally observed." />
++	<mask value="3" name="NOOP	A store is blocked due to a conflict with an external or internal snoop." />
++	<op_name name="op" value="STORE_BLOCK" />
++</event>
++
++<event name="number of misaligned data memory references" value="05">
++	<op_name name="op" value="MISALIGN_MEM_REF" />
++</event>
++
++<event name="number of segment register loads" value="06">
++	<op_name name="op" value="SEGMENT_REG_LOADS" />
++</event>
++
++<event name="number of SSE pre-fetch/weakly ordered insns retired" value="07">
++	<mask value="0" name="prefetch NTA instructions executed." />
++	<mask value="0" name="prefetch T1 instructions executed." />
++	<mask value="1" name="prefetch T1 and T2 instructions executed." />
++	<op_name name="op" value="SSE_PRE_EXEC" />
++</event>
++
++<event name="DTLB miss events" value="08">
++	<mask value="0" name="ANY	Memory accesses that missed the DTLB." />
++	<mask value="1" name="MISS_LD	DTLB misses due to load operations." />
++	<mask value="2" name="L0_MISS_LD L0 DTLB misses due to load operations." />
++	<mask value="3" name="MISS_ST	TLB misses due to store operations." />
++	<op_name name="op" value="DTLB_MISSES" />
++</event>
++
++<event name="Memory disambiguation reset cycles." value="09">
++	<mask value="0" name="RESET	Memory disambiguation reset cycles." />
++	<mask value="1" name="SUCCESS	Number of loads that were successfully disambiguated." />
++	<op_name name="op" value="MEMORY_DISAMBIGUATION" />
++</event>
++
++<event name="Page table walk events" value="0C">
++	<mask value="0" name="COUNT	Number of page-walks executed." />
++	<mask value="1" name="CYCLES	Duration of page-walks in core cycles." />
++	<op_name name="op" value="PAGE_WALKS" />
++</event>
++
++<event name="number of FP computational micro-ops executed" value="10">
++	<op_name name="op" value="FLOPS" />
++</event>
++
++<event name="number of FP assists" value="11">
++	<op_name name="op" value="FP_ASSIST" />
++</event>
++
++<event name="number of multiplies" value="12">
++	<op_name name="op" value="MUL" />
++</event>
++
++<event name="number of divides" value="13">
++	<op_name name="op" value="DIV" />
++</event>
++
++<event name="cycles divider is busy" value="14">
++	<op_name name="op" value="CYCLES_DIV_BUSY" />
++</event>
++
++<event name="cycles divider is busy and all other execution units are idle." value="18">
++	<op_name name="op" value="IDLE_DURING_DIV" />
++</event>
++
++<event name="Delayed bypass events" value="19">
++	<mask value="0" name="FP		Delayed bypass to FP operation." />
++	<mask value="0" name="SIMD	Delayed bypass to SIMD operation." />
++	<mask value="1" name="LOAD	Delayed bypass to load operation." />
++	<op_name name="op" value="DELAYED_BYPASS" />
++</event>
++
++<event name="Cycles the L2 address bus is in use." value="21">
++	<mask value="6" name="This core" />
++	<op_name name="op" value="L2_ADS" />
++</event>
++
++<event name="Cycles the L2 transfers data to the core." value="23">
++	<mask value="6" name="This core" />
++	<op_name name="op" value="L2_DBUS_BUSY_RD" />
++</event>
++
++<event name="number of allocated lines in L2" value="24">
++	<mask value="6" name="core: this core" />
++	<mask value="4" name="prefetch: Hardware prefetch only" />
++	<mask value="0" name="prefetch: exclude hardware prefetch" />
++	<op_name name="op" value="L2_LINES_IN" />
++</event>
++
++<event name="number of modified lines allocated in L2" value="25">
++	<mask value="6" name="This core" />
++	<op_name name="op" value="L2_M_LINES_IN" />
++</event>
++
++<event name="number of recovered lines from L2" value="26">
++	<mask value="6" name="core: this core" />
++	<mask value="4" name="prefetch: Hardware prefetch only" />
++	<mask value="0" name="prefetch: exclude hardware prefetch" />
++	<op_name name="op" value="L2_LINES_OUT" />
++</event>
++
++<event name="number of modified lines removed from L2" value="27">
++	<mask value="6" name="core: this core" />
++	<mask value="4" name="prefetch: Hardware prefetch only" />
++	<mask value="0" name="prefetch: exclude hardware prefetch" />
++	<op_name name="op" value="L2_M_LINES_OUT" />
++</event>
++
++<event name="number of L2 cacheable instruction fetches" value="28">
++	<mask value="6" name="core: this core" />
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L2_IFETCH" />
++</event>
++
++<event name="number of L2 data loads" value="29">
++	<mask value="6" name="core: this core" />
++	<mask value="4" name="prefetch: Hardware prefetch only" />
++	<mask value="0" name="prefetch: exclude hardware prefetch" />
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L2_LD" />
++</event>
++
++<event name="number of L2 data stores" value="2A">
++	<mask value="6" name="core: this core" />
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L2_ST" />
++</event>
++
++<event name="number of locked L2 data accesses" value="2B">
++	<mask value="6" name="core: this core" />
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L2_LOCK" />
++</event>
++
++<event name="Rejected L2 cache requests" value="30">
++	<mask value="6" name="core: this core" />
++	<mask value="4" name="prefetch: Hardware prefetch only" />
++	<mask value="0" name="prefetch: exclude hardware prefetch" />
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L2_REJECT_BUSQ" />
++</event>
++
++<event name="Cycles no L2 cache requests are pending" value="32">
++	<mask value="6" name="This core" />
++	<op_name name="op" value="L2_NO_REQ" />
++</event>
++
++<event name="Intel(tm) Enhanced SpeedStep(r) Technology transitions" value="3A">
++	<op_name name="op" value="EIST_TRANS_ALL" />
++</event>
++
++<event name="Number of thermal trips" value="3B">
++	<op_name name="op" value="THERMAL_TRIP" />
++</event>
++
++<event name="L1 cacheable data read operations" value="40">
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L1D_CACHE_LD" />
++</event>
++
++<event name="L1 cacheable data write operations" value="41">
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L1D_CACHE_ST" />
++</event>
++
++<event name="L1 cacheable lock read operations" value="42">
++	<mask value="3" name="(M)ESI: Modified" />
++	<mask value="2" name="M(E)SI: Exclusive" />
++	<mask value="1" name="ME(S)I: Shared" />
++	<mask value="0" name="MES(I): Invalid" />
++	<op_name name="op" value="L1D_CACHE_LOCK" />
++</event>
++
++<event name="Duration of L1 data cacheable locked operations" value="42">
++	<op_name name="op" value="L1D_CACHE_LOCK_DURATION" />
++</event>
++
++<event name="All references to the L1 data cache" value="43">
++	<op_name name="op" value="L1D_ALL_REF" />
++</event>
++
++<event name="L1 data cacheable reads and writes" value="43">
++	<op_name name="op" value="L1D_ALL_CACHE_REF" />
++</event>
++
++<event name="Cache lines allocated in the L1 data cache" value="45">
++	<op_name name="op" value="L1D_REPL" />
++</event>
++
++<event name="Modified cache lines allocated in the L1 data cache" value="46">
++	<op_name name="op" value="L1D_M_REPL" />
++</event>
++
++<event name="Modified cache lines evicted from the L1 data cache" value="47">
++	<op_name name="op" value="L1D_M_EVICT" />
++</event>
++
++<event name="Total number of outstanding L1 data cache misses at any cycle" value="48">
++	<op_name name="op" value="L1D_PEND_MISS" />
++</event>
++
++<event name="Cache line split load/stores" value="49">
++	<mask value="0" name="split loads" />
++	<mask value="1" name="split stores" />
++	<op_name name="op" value="L1D_SPLIT" />
++</event>
++
++<event name="SSE instructions that missed all caches" value="4B">
++	<mask value="0" name="PREFETCHNTA" />
++	<mask value="0" name="PREFETCHT0" />
++	<mask value="1" name="PREFETCHT1/PREFETCHT2" />
++	<op_name name="op" value="SSE_PREF_MISS" />
++</event>
++
++<event name="Load operations conflicting with a software prefetch to the same address" value="4C">
++	<op_name name="op" value="LOAD_HIT_PRE" />
++</event>
++
++<event name="L1 data cache prefetch requests" value="4E">
++	<op_name name="op" value="L1D_PREFETCH" />
++</event>
++
++<event name="Outstanding cacheable data read bus requests duration" value="60">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_REQ_OUTSTANDING" />
++</event>
++
++<event name="Number of Bus Not Ready signals asserted" value="61">
++	<mask value="0" name="this agent" />
++	<mask value="5" name="include all agents" />
++	<op_name name="op" value="BUS_BNR_DRV" />
++</event>
++
++<event name="Bus cycles when data is sent on the bus" value="62">
++	<mask value="0" name="this agent" />
++	<mask value="5" name="include all agents" />
++	<op_name name="op" value="BUS_DRDY_CLOCKS" />
++</event>
++
++<event name="Bus cycles when a LOCK signal is asserted" value="63">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_LOCK_CLOCKS" />
++</event>
++
++<event name="Bus cycles while processor receives data" value="64">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_DATA_RCV" />
++</event>
++
++<event name="Burst read bus transactions" value="65">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_BRD" />
++</event>
++
++<event name="number of completed read for ownership transactions" value="66">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_RFO" />
++</event>
++
++<event name="number of explicit writeback bus transactions" value="67">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_WB" />
++</event>
++
++<event name="number of instruction fetch transactions" value="68">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_IFETCH" />
++</event>
++
++<event name="number of invalidate transactions" value="69">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_INVAL" />
++</event>
++
++<event name="number of partial write bus transactions" value="6A">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_PWR" />
++</event>
++
++<event name="number of partial bus transactions" value="6B">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRANS_P" />
++</event>
++
++<event name="number of I/O bus transactions" value="6C">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRANS_IO" />
++</event>
++
++<event name="number of completed defer transactions" value="6D">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRANS_DEF" />
++</event>
++
++<event name="number of completed burst transactions" value="6E">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_BURST" />
++</event>
++
++<event name="number of completed memory transactions" value="6F">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_MEM" />
++</event>
++
++<event name="number of any completed bus transactions" value="70">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="BUS_TRAN_ANY" />
++</event>
++
++<event name="External snoops" value="77">
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<mask value="3" name="snoop: HITM snoops" />
++	<mask value="1" name="snoop: HIT snoops" />
++	<mask value="0" name="snoop: CLEAN snoops" />
++	<op_name name="op" value="EXT_SNOOP" />
++</event>
++
++<event name="L1 data cache is snooped by other core" value="78">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="snoop: CMP2I snoops" />
++	<mask value="1" name="snoop: CMP2S snoops" />
++	<op_name name="op" value="CMP_SNOOP" />
++</event>
++
++<event name="HIT signal asserted" value="7A">
++	<mask value="0" name="this agent" />
++	<mask value="5" name="include all agents" />
++	<op_name name="op" value="BUS_HIT_DRV" />
++</event>
++
++<event name="HITM signal asserted" value="7B">
++	<mask value="0" name="this agent" />
++	<mask value="5" name="include all agents" />
++	<op_name name="op" value="BUS_HITM_DRV" />
++</event>
++
++<event name="Bus queue is empty" value="7D">
++	<mask value="6" name="This core" />
++	<op_name name="op" value="BUSQ_EMPTY" />
++</event>
++
++<event name="Bus stalled for snoops" value="7E">
++	<mask value="6" name="core: this core" />
++	<mask value="0" name="bus: this agent" />
++	<mask value="5" name="bus: include all agents" />
++	<op_name name="op" value="SNOOP_STALL_DRV" />
++</event>
++
++<event name="IO requests waiting in the bus queue" value="7F">
++	<mask value="6" name="This core" />
++	<op_name name="op" value="BUS_IO_WAIT" />
++</event>
++
++<event name="number of instruction fetches" value="80">
++	<op_name name="op" value="L1I_READS" />
++</event>
++
++<event name="number of instruction fetch misses" value="81">
++	<op_name name="op" value="L1I_MISSES" />
++</event>
++
++<event name="number of ITLB misses" value="82">
++	<mask value="1" name="ITLB small page misses" />
++	<mask value="4" name="ITLB large page misses" />
++	<mask value="6" name="ITLB flushes" />
++	<op_name name="op" value="ITLB" />
++</event>
++
++<event name="cycles during which the instruction queue is full" value="83">
++	<op_name name="op" value="INST_QUEUE" />
++</event>
++
++<event name="cycles instruction fetch pipe is stalled" value="86">
++	<op_name name="op" value="IFU_MEM_STALL" />
++</event>
++
++<event name="cycles instruction length decoder is stalled" value="87">
++	<op_name name="op" value="ILD_STALL" />
++</event>
++
++<event name="Branch instructions executed (not necessarily retired)" value="88">
++	<op_name name="op" value="BR_INST_EXEC" />
++</event>
++
++<event name="Branch instructions executed that were mispredicted at execution" value="89">
++	<op_name name="op" value="BR_MISSP_EXEC" />
++</event>
++
++<event name="Branch instructions executed that were mispredicted at Front End (BAC)" value="8A">
++	<op_name name="op" value="BR_BAC_MISSP_EXEC" />
++</event>
++
++<event name="Conditional Branch instructions executed" value="8B">
++	<op_name name="op" value="BR_CND_EXEC" />
++</event>
++
++<event name="Conditional Branch instructions executed that were mispredicted" value="8C">
++	<op_name name="op" value="BR_CND_MISSP_EXEC" />
++</event>
++
++<event name="Indirect Branch instructions executed" value="8D">
++	<op_name name="op" value="BR_IND_EXEC" />
++</event>
++
++<event name="Indirect Branch instructions executed that were mispredicted" value="8E">
++	<op_name name="op" value="BR_IND_MISSP_EXEC" />
++</event>
++
++<event name="Return Branch instructions executed" value="8F">
++	<op_name name="op" value="BR_RET_EXEC" />
++</event>
++
++<event name="Return Branch instructions executed that were mispredicted at Execution" value="90">
++	<op_name name="op" value="BR_RET_MISSP_EXEC" />
++</event>
++
++<event name="Return Branch instructions executed that were mispredicted at Front End (BAC)" value="91">
++	<op_name name="op" value="BR_RET_BAC_MISSP_EXEC" />
++</event>
++
++<event name="CALL instruction executed" value="92">
++	<op_name name="op" value="BR_CALL_EXEC" />
++</event>
++
++<event name="CALL instruction executed and miss predicted" value="93">
++	<op_name name="op" value="BR_CALL_MISSP_EXEC" />
++</event>
++
++<event name="Indirect CALL instruction executed" value="94">
++	<op_name name="op" value="BR_IND_CALL_EXEC" />
++</event>
++
++<event name="Branch predicted taken with bubble 1" value="97">
++	<op_name name="op" value="BR_TKN_BUBBLE_1" />
++</event>
++
++<event name="Branch predicted taken with bubble 2" value="98">
++	<op_name name="op" value="BR_TKN_BUBBLE_2" />
++</event>
++
++<event name="Micro-ops dispatched for execution" value="A0">
++	<op_name name="op" value="RS_UOPS_DISPATCHED" />
++</event>
++
++<event name="No Micro-ops dispatched for execution" value="18000A0">
++	<op_name name="op" value="RS_UOPS_DISPATCHED_NONE" />
++</event>
++
++<event name="instructions decoded" value="AA">
++	<mask value="0" name="Instructions decoded" />
++	<mask value="3" name="CISC Instructions decoded" />
++	<op_name name="op" value="MACRO_INSTS" />
++</event>
++
++<event name="ESP register events" value="AB">
++	<mask value="0" name="ESP register content synchronizations" />
++	<mask value="1" name="ESP register automatic additions" />
++	<op_name name="op" value="ESP" />
++</event>
++
++<event name="SIMD micro-ops executed (excluding stores)" value="B0">
++	<op_name name="op" value="SIMD_UOPS_EXEC" />
++</event>
++
++<event name="number of SIMD saturating instructions executed" value="B1">
++	<op_name name="op" value="SIMD_SAT_UOP_EXEC" />
++</event>
++
++<event name="number of SIMD packing instructions" value="B3">
++	<mask value="0" name="SIMD packed multiplies" />
++	<mask value="1" name="SIMD packed shifts" />
++	<mask value="2" name="SIMD pack operations" />
++	<mask value="3" name="SIMD unpack operations" />
++	<mask value="4" name="SIMD packed logical" />
++	<mask value="5" name="SIMD packed arithmetic" />
++	<op_name name="op" value="SIMD_UOP_TYPE_EXEC" />
++</event>
++
++<event name="number of instructions retired" value="C0">
++	<mask value="0" name="Any" />
++	<mask value="0" name="Loads" />
++	<mask value="1" name="Stores" />
++	<mask value="2" name="Other" />
++	<op_name name="op" value="INST_RETIRED" />
++</event>
++
++<event name="number of computational FP operations retired" value="C1">
++	<mask value="0" name="FXCH instructions retired" />
++	<op_name name="op" value="X87_OPS_RETIRED" />
++</event>
++
++<event name="number of UOPs retired" value="C2">
++	<mask value="0" name="Fused load+op or load+indirect branch retired" />
++	<mask value="1" name="Fused store address + data retired" />
++	<mask value="2" name="Retired instruction pairs fused into one micro-op" />
++	<mask value="3" name="Non-fused micro-ops retired" />
++	<op_name name="op" value="UOPS_RETIRED" />
++</event>
++
++<event name="number of pipeline flushing events" value="C3">
++	<mask value="0" name="Self-Modifying Code detected" />
++	<mask value="2" name="Execution pipeline restart due to memory ordering conflict or memory disambiguation misprediction" />
++	<op_name name="op" value="MACHINE_NUKES" />
++</event>
++
++<event name="number of branch instructions retired" value="C4">
++	<mask value="0" name="predicted not-taken" />
++	<mask value="1" name="mispredicted not-taken" />
++	<mask value="2" name="predicted taken" />
++	<mask value="3" name="mispredicted taken" />
++	<op_name name="op" value="BR_INST_RETIRED" />
++</event>
++
++<event name="number of mispredicted branches retired (precise)" value="C5">
++	<op_name name="op" value="BR_MISS_PRED_RETIRED" />
++</event>
++
++<event name="cycles interrupts are disabled" value="C6">
++	<mask value="0" name="Interrupts disabled" />
++	<mask value="1" name="Interrupts pending and disabled" />
++	<op_name name="op" value="CYCLES_INT_MASKED" />
++</event>
++
++<event name="SSE/SSE2 instructions retired" value="C7">
++	<mask value="0" name="Retired SSE packed-single instructions" />
++	<mask value="1" name="Retired SSE scalar-single instructions" />
++	<mask value="2" name="Retired SSE2 packed-double instructions" />
++	<mask value="3" name="Retired SSE2 scalar-double instructions" />
++	<mask value="4" name="Retired SSE2 vector integer instructions" />
++	<op_name name="op" value="SIMD_INST_RETIRED" />
++</event>
++
++<event name="number of hardware interrupts received" value="C8">
++	<op_name name="op" value="HW_INT_RCV" />
++</event>
++
++<event name="Retired instructions that missed the ITLB" value="C9">
++	<op_name name="op" value="ITLB_MISS_RETIRED" />
++</event>
++
++<event name="Retired computational SSE/SSE2 instructions" value="CA">
++	<mask value="0" name="Retired computational SSE packed-single instructions" />
++	<mask value="1" name="Retired computational SSE scalar-single instructions" />
++	<mask value="2" name="Retired computational SSE2 packed-double instructions" />
++	<mask value="3" name="Retired computational SSE2 scalar-double instructions" />
++	<op_name name="op" value="SIMD_COMP_INST_RETIRED" />
++</event>
++
++<event name="Retired loads" value="CB">
++	<mask value="0" name="Retired loads that miss the L1 data cache (precise event)" />
++	<mask value="1" name="L1 data cache line missed by retired loads (precise event)" />
++	<mask value="2" name="Retired loads that miss the L2 cache (precise event)" />
++	<mask value="3" name="L2 cache line missed by retired loads (precise event)" />
++	<mask value="4" name="Retired loads that miss the DTLB (precise event)" />
++	<op_name name="op" value="MEM_LOAD_RETIRED" />
++</event>
++
++<event name="MMX-floating point transitions" value="CC">
++	<mask value="0" name="float->MMX transitions" />
++	<mask value="1" name="MMX->float transitions" />
++	<op_name name="op" value="FP_MMX_TRANS" />
++</event>
++
++<event name="number of EMMS instructions executed" value="CD">
++	<op_name name="op" value="MMX_ASSIST" />
++</event>
++
++<event name="number of SIMD instructions retired" value="CE">
++	<op_name name="op" value="SIMD_INSTR_RET" />
++</event>
++
++<event name="number of saturated arithmetic instructions retired" value="CF">
++	<op_name name="op" value="SIMD_SAT_INSTR_RET" />
++</event>
++
++<event name="Partial register stall cycles" value="D2">
++	<mask value="0" name="ROB read port" />
++	<mask value="1" name="Partial register" />
++	<mask value="2" name="Flag" />
++	<mask value="3" name="FPU status word" />
++	<op_name name="op" value="RAT_STALLS" />
++</event>
++
++<event name="Segment rename stalls" value="D4">
++	<mask value="0" name="ES" />
++	<mask value="1" name="DS" />
++	<mask value="2" name="FS" />
++	<mask value="3" name="GS" />
++	<op_name name="op" value="SEG_RENAME_STALLS" />
++</event>
++
++<event name="Segment renames" value="D5">
++	<mask value="0" name="ES" />
++	<mask value="1" name="DS" />
++	<mask value="2" name="FS" />
++	<mask value="3" name="GS" />
++	<op_name name="op" value="SEG_RENAMES" />
++</event>
++
++<event name="Cycles during which resource stalls occur" value="DC">
++	<mask value="0" name="when the ROB is full" />
++	<mask value="1" name="during which the RS is full" />
++	<mask value="2" name="during which the pipeline has exceeded the load or store limit or is waiting to commit all stores" />
++	<mask value="3" name="due to FPU control word write" />
++	<mask value="4" name="due to branch misprediction" />
++	<op_name name="op" value="RESOURCE_STALLS" />
++</event>
++
++<event name="number of branch instructions decoded" value="E0">
++	<op_name name="op" value="BR_INST_DECODED" />
++</event>
++
++<event name="number of bogus branches" value="E4">
++	<op_name name="op" value="BR_BOGUS" />
++</event>
++
++<event name="number of times BACLEAR is asserted" value="E6">
++	<op_name name="op" value="BACLEARS" />
++</event>
++
++<event name="Number of upward prefetches issued" value="F0">
++	<op_name name="op" value="PREF_RQSTS_UP" />
++</event>
++
++<event name="Number of downward prefetches issued" value="F8">
++	<op_name name="op" value="PREF_RQSTS_DN" />
++</event>
++
++</cpu_events>
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/Makefile.am CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/Makefile.am
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/Makefile.am	2008-11-13 20:30:40.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/Makefile.am	2009-04-07 12:16:19.000000000 +0200
+@@ -206,14 +206,16 @@
+ 	events/k7-events.xml \
+ 	events/k8-events.xml \
+ 	events/gh-events.xml \
+-	events/gr-events.xml
++	events/gr-events.xml \
++	events/core2-events.xml
+ 
+ eventsdir=$(CA_DATA_DIR)/events/
+ events_DATA= \
+ 	events/k7-events.xml \
+ 	events/k8-events.xml \
+ 	events/gh-events.xml \
+-	events/gr-events.xml
++	events/gr-events.xml \
++	events/core2-events.xml
+ 
+ splashdir=$(CA_DATA_DIR)
+ splash_DATA=CASplash.png
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/ProfileCollection.cpp CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/ProfileCollection.cpp
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/ProfileCollection.cpp	2009-04-07 08:31:15.000000000 +0200
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/ProfileCollection.cpp	2009-04-07 08:47:43.000000000 +0200
+@@ -112,6 +112,15 @@
+ 					path += "/Configs/DCConfig/";
+ 					break;
+ 		}
++	} else if (!strncmp(VendorId, "GenuineIntel",12)) {
++	    switch (family) {
++		case 6:
++		    path += "/Configs/DCConfig/Core2/";
++		break;
++		default:
++		    path += "/Configs/DCConfig/";
++		break;
++	    }
+ 	}
+ 	dir.setPath (path);
+ 
+@@ -273,8 +282,8 @@
+ 
+ 		//don't display profiles if not able to use them
+ 		DCConfigType type = pTemp->GetConfigType ();
+-		if (((DCConfigEBP == type) && (!isCpuAMD ()))
+-			|| ((DCConfigIBS == type) && (!isCpuIbsOk ())))
++		if (/*((DCConfigEBP == type) && (!isCpuAMD ()))
++			||*/ ((DCConfigIBS == type) && (!isCpuIbsOk ())))
+ 		{
+ 			delete pTemp;
+ 			continue;
+@@ -582,6 +591,7 @@
+ //This will strip all event-based profiles out of the available list.
+ void ProfileCollection::verifyAMDPlatform ()
+ {
++/*
+ 	if (!isCpuAMD ())
+ 	{
+ 		ConfigMap::Iterator it = m_configs.begin();
+@@ -604,6 +614,7 @@
+ 			}
+ 		}
+ 	}
++*/
+ }
+ 
+ QString ProfileCollection::getFileName (QString name)
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/ViewCollection.cpp CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/ViewCollection.cpp
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/gui/ViewCollection.cpp	2008-10-15 18:17:01.000000000 +0200
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/gui/ViewCollection.cpp	2009-04-07 08:46:57.000000000 +0200
+@@ -82,11 +82,22 @@
+ {
+ 	QString path;
+ 
++	char VendorId[15];
++	unsigned long family;
++	unsigned long model;
++	unsigned long stepping;
++	unsigned long features;
++
++
++	CpuId( VendorId, &family, &model, &stepping, &features );
++
+ 	// **************************************************************
+ 	// Read from user home/.CodeAnalyst/Configs/ViewConfig/<platform> directory
+ 	path = QDir::home ().path();
+ 	path += "/.CodeAnalyst/";
+ 
++	if ( 0 == strncmp (VendorId, "AuthenticAMD", 12) )
++	{
+ 	switch(cpuFamily) 
+ 	{
+ 	case ATHLON_FAMILY:
+@@ -104,6 +115,17 @@
+ 	default:
+ 		path += "/Configs/ViewConfig/";
+ 		break;
++
++	}
++	} else if (!strncmp(VendorId, "GenuineIntel",12)) {
++	    switch (family) {
++		case 6:
++		    path += "/Configs/ViewConfig/Core2/";
++		break;
++		default:
++		    path += "/Configs/ViewConfig/";
++		break;
++	    }
+ 	}
+ 
+ 	helpReadXmlFile(path);
+@@ -119,6 +141,9 @@
+ 	path = CA_DATA_DIR;
+ 
+ 	//read from install /Configs/ViewConfig/<platform> directory
++
++	if ( 0 == strncmp (VendorId, "AuthenticAMD", 12) )
++	{
+ 	switch(cpuFamily) 
+ 	{
+ 	case ATHLON_FAMILY:
+@@ -137,6 +162,16 @@
+ 		path += "/Configs/ViewConfig/";
+ 		break;
+ 	}
++	} else if (!strncmp(VendorId, "GenuineIntel",12)) {
++	    switch (family) {
++		case 6:
++		    path += "/Configs/ViewConfig/Core2/";
++		break;
++		default:
++		    path += "/Configs/ViewConfig/";
++		break;
++	    }
++	}
+ 
+ 	helpReadXmlFile(path);
+ 
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/libs/libca/xpwin.cpp CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/libs/libca/xpwin.cpp
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/ca/libs/libca/xpwin.cpp	2008-11-14 22:16:27.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/ca/libs/libca/xpwin.cpp	2009-04-07 08:49:00.000000000 +0200
+@@ -296,6 +296,12 @@
+ string helpGetEventFile(unsigned long cpuFamily,
+ 		        unsigned long cpuModel)
+ {
++	char VendorId[15];
++	unsigned long family;
++	unsigned long model;
++	unsigned long stepping;
++	unsigned long features;
++
+ 	Q_UNUSED(cpuModel);
+ 
+         char * dir = getenv("OPROFILE_EVENTS_DIR");
+@@ -305,7 +311,10 @@
+ 	else
+ 		file = dir;
+ 
+-        switch(cpuFamily) {
++	CpuId( VendorId, &family, &model, &stepping, &features );
++
++	if (!strncmp (VendorId, "AuthenticAMD", 12) ) {
++    	    switch(cpuFamily) {
+                 case OPTERON_FAMILY:
+                         file += K8_EVENTS_FILE;
+                         break;
+@@ -319,7 +328,17 @@
+                 default:
+ 			file += GH_EVENTS_FILE;
+                         break;
+-        }
++    	    }
++	} if (!strncmp (VendorId, "GenuineIntel", 12) ) {
++	    switch (cpuFamily) {
++		case 6:
++		    file += "core2-events.xml"; // should be in stdafx actually
++	    	    break;
++		default:
++		    break;
++	    }
++	}
++
+         return file;
+ }
+ 
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/oprofile/events/i386/core/events CodeAnalyst-Linux-2.8.29.orig.intel/src/oprofile/events/i386/core/events
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/oprofile/events/i386/core/events	1970-01-01 01:00:00.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/oprofile/events/i386/core/events	2007-07-16 20:22:17.000000000 +0200
+@@ -0,0 +1,115 @@
++# Core Solo / Duo events
++#
++# Architectural events
++#
++event:0x3c counters:0,1 um:nonhlt minimum:6000 name:CPU_CLK_UNHALTED : Unhalted clock cycles
++event:0xc0 counters:0,1 um:zero minimum:6000 name:INST_RETIRED : number of instructions retired
++event:0x2e counters:0,1 um:mesi minimum:6000 name:L2_RQSTS : number of L2 requests
++#
++# Model specific events
++#
++event:0x03 counters:0,1 um:zero minimum:500 name:LD_BLOCKS : number of store buffer blocks
++event:0x04 counters:0,1 um:zero minimum:500 name:SB_DRAINS : number of store buffer drain cycles
++event:0x05 counters:0,1 um:zero minimum:500 name:MISALIGN_MEM_REF : number of misaligned data memory references
++event:0x06 counters:0,1 um:zero minimum:500 name:SEGMENT_REG_LOADS : number of segment register loads
++event:0x07 counters:0,1 um:kni_prefetch minimum:500 name:EMON_KNI_PREF_DISPATCHED : number of SSE pre-fetch/weakly ordered insns retired
++event:0x10 counters:0 um:zero minimum:3000 name:FLOPS : number of computational FP operations executed
++event:0x11 counters:1 um:zero minimum:500 name:FP_ASSIST : number of FP exceptions handled by microcode
++event:0x12 counters:1 um:zero minimum:1000 name:MUL : number of multiplies
++event:0x13 counters:1 um:zero minimum:500 name:DIV : number of divides
++event:0x14 counters:0 um:zero minimum:1000 name:CYCLES_DIV_BUSY : cycles divider is busy
++event:0x21 counters:0,1 um:zero minimum:500 name:L2_ADS : number of L2 address strobes
++event:0x22 counters:0,1 um:zero minimum:500 name:L2_DBUS_BUSY : number of cycles data bus was busy
++event:0x23 counters:0,1 um:zero minimum:500 name:L2_DBUS_BUSY_RD : cycles data bus was busy in xfer from L2 to CPU
++event:0x24 counters:0,1 um:zero minimum:500 name:L2_LINES_IN : number of allocated lines in L2
++event:0x25 counters:0,1 um:zero minimum:500 name:L2_M_LINES_INM : number of modified lines allocated in L2
++event:0x26 counters:0,1 um:zero minimum:500 name:L2_LINES_OUT : number of recovered lines from L2
++event:0x27 counters:0,1 um:zero minimum:500 name:L2_M_LINES_OUTM : number of modified lines removed from L2
++event:0x28 counters:0,1 um:mesi minimum:500 name:L2_IFETCH : number of L2 instruction fetches
++event:0x29 counters:0,1 um:mesi minimum:500 name:L2_LD : number of L2 data loads
++event:0x2a counters:0,1 um:mesi minimum:500 name:L2_ST : number of L2 data stores
++event:0x30 counters:0,1 um:mesi minimum:500 name:L2_REJECT_CYCLES : Cycles L2 is busy and rejecting new requests
++event:0x32 counters:0,1 um:mesi minimum:500 name:L2_NO_REQUEST_CYCLES : Cycles there is no request to access L2
++event:0x3a counters:0,1 um:est_trans minimum:500 name:EST_TRANS_ALL : Intel(tm) Enhanced SpeedStep(r) Technology transitions
++event:0x3b counters:0,1 um:xc0 minimum:500 name:THERMAL_TRIP : Duration in a thremal trip based on the current core clock
++event:0x40 counters:0,1 um:mesi minimum:500 name:DCACHE_CACHE_LD : L1 cacheable data read operations
++event:0x41 counters:0,1 um:mesi minimum:500 name:DCACHE_CACHE_ST : L1 cacheable data write operations
++event:0x42 counters:0,1 um:mesi minimum:500 name:DCACHE_CACHE_LOCK : L1 cacheable lock read operations to invalid state
++event:0x43 counters:0,1 um:one minimum:500 name:DATA_MEM_REFS : all L1 memory references, cachable and non
++event:0x44 counters:0,1 um:two minimum:500 name:DATA_MEM_CACHE_REFS : L1 data cacheable read and write operations
++event:0x45 counters:0,1 um:x0f minimum:500 name:DCACHE_REPL : L1 data cache line replacements
++event:0x46 counters:0,1 um:zero minimum:500 name:DCACHE_M_REPL : L1 data M-state cache line allocated
++event:0x47 counters:0,1 um:zero minimum:500 name:DCACHE_M_EVICT : L1 data M-state cache line evicted
++event:0x48 counters:0,1 um:dc_pend_miss minimum:500 name:DCACHE_PEND_MISS : Weighted cycles of L1 miss outstanding
++event:0x49 counters:0,1 um:zero minimum:500 name:DTLB_MISS : Data references that missed TLB
++event:0x4b counters:0,1 um:sse_miss minimum:500 name:SSE_PREF_MISS : SSE instructions that missed all caches
++event:0x4f counters:0,1 um:zero minimum:500 name:L1_PREF_REQ : L1 prefetch requests due to DCU cache misses
++#
++event:0x60 counters:0,1 um:zero minimum:500 name:BUS_REQ_OUTSTANDING : weighted number of outstanding bus requests
++event:0x61 counters:0,1 um:zero minimum:500 name:BUS_BNR_DRV : External bus cycles this processor is driving BNR pin
++event:0x62 counters:0,1 um:zero minimum:500 name:BUS_DRDY_CLOCKS : External bus cycles DRDY is asserted
++event:0x63 counters:0,1 um:zero minimum:500 name:BUS_LOCK_CLOCKS : External bus cycles LOCK is asserted
++event:0x64 counters:0,1 um:x40 minimum:500 name:BUS_DATA_RCV : External bus cycles this processor is receiving data
++event:0x65 counters:0,1 um:zero minimum:500 name:BUS_TRAN_BRD : number of burst read transactions
++event:0x66 counters:0,1 um:zero minimum:500 name:BUS_TRAN_RFO : number of completed read for ownership transactions
++event:0x67 counters:0,1 um:xc0 minimum:500 name:BUS_TRAN_WB : number of completed writeback transactions
++event:0x68 counters:0,1 um:zero minimum:500 name:BUS_TRAN_IFETCH : number of completed instruction fetch transactions
++event:0x69 counters:0,1 um:zero minimum:500 name:BUS_TRAN_INVAL : number of completed invalidate transactions
++event:0x6a counters:0,1 um:zero minimum:500 name:BUS_TRAN_PWR : number of completed partial write transactions
++event:0x6b counters:0,1 um:zero minimum:500 name:BUS_TRANS_P : number of completed partial transactions
++event:0x6c counters:0,1 um:zero minimum:500 name:BUS_TRANS_IO : number of completed I/O transactions
++event:0x6d counters:0,1 um:x20 minimum:500 name:BUS_TRANS_DEF : number of completed defer transactions
++event:0x6e counters:0,1 um:xc0 minimum:500 name:BUS_TRAN_BURST : number of completed burst transactions
++event:0x6f counters:0,1 um:xc0 minimum:500 name:BUS_TRAN_MEM : number of completed memory transactions
++event:0x70 counters:0,1 um:xc0 minimum:500 name:BUS_TRAN_ANY : number of any completed bus transactions
++event:0x77 counters:0,1 um:zero minimum:500 name:BUS_SNOOPS : External bus cycles
++event:0x78 counters:0,1 um:one minimum:500 name:DCU_SNOOP_TO_SHARE : DCU snoops to share-state L1 cache line due to L1 misses
++event:0x7d counters:0,1 um:zero minimum:500 name:BUS_NOT_IN_USE : Number of cycles there is no transaction from the core
++event:0x7e counters:0,1 um:zero minimum:500 name:BUS_SNOOP_STALL : Number of bus cycles during bus snoop stall
++event:0x80 counters:0,1 um:zero minimum:500 name:ICACHE_READS : number of instruction fetches
++event:0x81 counters:0,1 um:zero minimum:500 name:ICACHE_MISSES : number of instruction fetch misses
++event:0x85 counters:0,1 um:zero minimum:500 name:ITLB_MISS : number of ITLB misses
++event:0x86 counters:0,1 um:zero minimum:500 name:IFU_MEM_STALL : cycles instruction fetch pipe is stalled
++event:0x87 counters:0,1 um:zero minimum:500 name:ILD_STALL : cycles instruction length decoder is stalled
++event:0x88 counters:0,1 um:zero minimum:3000 name:BR_INST_EXEC : Branch instructions executed (not necessarily retired)
++event:0x89 counters:0,1 um:zero minimum:3000 name:BR_MISSP_EXEC : Branch instructions executed that were mispredicted at execution
++event:0x8a counters:0,1 um:zero minimum:3000 name:BR_BAC_MISSP_EXEC : Branch instructions executed that were mispredicted at Front End (BAC)
++event:0x8b counters:0,1 um:zero minimum:3000 name:BR_CND_EXEC : Conditional Branch instructions executed
++event:0x8c counters:0,1 um:zero minimum:3000 name:BR_CND_MISSP_EXEC : Conditional Branch instructions executed that were mispredicted
++event:0x8d counters:0,1 um:zero minimum:3000 name:BR_IND_EXEC : Indirect Branch instructions executed
++event:0x8e counters:0,1 um:zero minimum:3000 name:BR_IND_MISSP_EXEC : Indirect Branch instructions executed that were mispredicted
++event:0x8f counters:0,1 um:zero minimum:3000 name:BR_RET_EXEC : Return Branch instructions executed
++event:0x90 counters:0,1 um:zero minimum:3000 name:BR_RET_MISSP_EXEC : Return Branch instructions executed that were mispredicted at Execution
++event:0x91 counters:0,1 um:zero minimum:3000 name:BR_RET_BAC_MISSP_EXEC :Return Branch instructions executed that were mispredicted at Front End (BAC)
++event:0x92 counters:0,1 um:zero minimum:3000 name:BR_CALL_EXEC : CALL instruction executed
++event:0x93 counters:0,1 um:zero minimum:3000 name:BR_CALL_MISSP_EXEC : CALL instruction executed and miss predicted
++event:0x94 counters:0,1 um:zero minimum:3000 name:BR_IND_CALL_EXEC : Indirect CALL instruction executed
++event:0xa2 counters:0,1 um:zero minimum:500 name:RESOURCE_STALLS : cycles during resource related stalls
++event:0xb0 counters:0,1 um:zero minimum:500 name:MMX_INSTR_EXEC : number of MMX instructions executed (not MOVQ and MOVD)
++event:0xb1 counters:0,1 um:zero minimum:3000 name:SIMD_SAT_INSTR_EXEC : number of SIMD saturating instructions executed
++event:0xb3 counters:0,1 um:mmx_instr_type_exec minimum:3000 name:MMX_INSTR_TYPE_EXEC : number of MMX packing instructions
++event:0xc1 counters:0 um:zero minimum:3000 name:COMP_FLOP_RET : number of computational FP operations retired
++event:0xc2 counters:0,1 um:zero minimum:6000 name:UOPS_RETIRED : number of UOPs retired
++event:0xc3 counters:0,1 um:zero minimum:500 name:SMC_DETECTED : number of times self-modifying code condition is detected
++event:0xc4 counters:0,1 um:zero minimum:500 name:BR_INST_RETIRED : number of branch instructions retired
++event:0xc5 counters:0,1 um:zero minimum:500 name:BR_MISS_PRED_RETIRED : number of mispredicted branches retired
++event:0xc6 counters:0,1 um:zero minimum:500 name:CYCLES_INT_MASKED : cycles interrupts are disabled
++event:0xc7 counters:0,1 um:zero minimum:500 name:CYCLES_INT_PENDING_AND_MASKED : cycles interrupts are disabled with pending interrupts
++event:0xc8 counters:0,1 um:zero minimum:500 name:HW_INT_RX : number of hardware interrupts received
++event:0xc9 counters:0,1 um:zero minimum:500 name:BR_TAKEN_RETIRED : number of taken branches retired
++event:0xca counters:0,1 um:zero minimum:500 name:BR_MISS_PRED_TAKEN_RET : number of taken mispredictions branches retired
++event:0xcc counters:0,1 um:mmx_trans minimum:3000 name:FP_MMX_TRANS : MMX-floating point transitions
++event:0xcd counters:0,1 um:zero minimum:500 name:MMX_ASSIST : number of EMMS instructions executed
++event:0xce counters:0,1 um:zero minimum:3000 name:MMX_INSTR_RET : number of MMX instructions retired
++event:0xd0 counters:0,1 um:zero minimum:6000 name:INST_DECODED : number of instructions decoded
++event:0xd7 counters:0,1 um:zero minimum:3000 name:ESP_UOPS : Number of ESP folding instructions decoded
++event:0xd8 counters:0,1 um:sse_sse2_inst_retired minimum:3000 name:EMON_SSE_SSE2_INST_RETIRED : Streaming SIMD Extensions Instructions Retired
++event:0xd9 counters:0,1 um:sse_sse2_inst_retired minimum:3000 name:EMON_SSE_SSE2_COMP_INST_RETIRED : Computational SSE Instructions Retired
++event:0xda counters:0,1 um:fused minimum:3000 name:EMON_FUSED_UOPS_RET : Number of retired fused micro-ops
++event:0xdb counters:0,1 um:zero minimum:3000 name:EMON_UNFUSION : Number of unfusion events in the ROB, happened on a FP exception to a fused uOp
++event:0xe0 counters:0,1 um:zero minimum:500 name:BR_INST_DECODED : number of branch instructions decoded
++event:0xe2 counters:0,1 um:zero minimum:500 name:BTB_MISSES : number of branches that miss the BTB
++event:0xe4 counters:0,1 um:zero minimum:500 name:BR_BOGUS : number of bogus branches
++event:0xe6 counters:0,1 um:zero minimum:500 name:BACLEARS : number of times BACLEAR is asserted
++event:0xf0 counters:0,1 um:zero minimum:3000 name:EMON_PREF_RQSTS_UP : Number of upward prefetches issued
++event:0xf8 counters:0,1 um:zero minimum:3000 name:EMON_PREF_RQSTS_DN : Number of downward prefetches issued
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/oprofile/events/i386/core/unit_masks CodeAnalyst-Linux-2.8.29.orig.intel/src/oprofile/events/i386/core/unit_masks
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/oprofile/events/i386/core/unit_masks	1970-01-01 01:00:00.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/oprofile/events/i386/core/unit_masks	2007-07-16 20:22:17.000000000 +0200
+@@ -0,0 +1,67 @@
++# Core Solo / Core Duo possible unit masks
++#
++name:zero type:mandatory default:0x0
++	0x0 No unit mask
++name:one type:mandatory default:0x1
++	0x1 No unit mask
++name:two type:mandatory default:0x2
++	0x2 No unit mask
++name:x0f type:mandatory default:0xf
++	0xf No unit mask
++name:x20 type:mandatory default:0x20
++	0x20 No unit mask
++name:x40 type:mandatory default:0x40
++	0x40 No unit mask
++name:xc0 type:mandatory default:0xc0
++	0xc0 No unit mask
++name:nonhlt type:exclusive default:0x0
++	0x0 Unhalted core cycles
++	0x1 Unhalted bus cycles
++	0x2 Unhalted bus cycles of this core while the other core is halted
++name:mesi type:bitmask default:0x0f
++	0x08 (M)odified cache state
++	0x04 (E)xclusive cache state
++	0x02 (S)hared cache state
++	0x01 (I)nvalid cache state
++	0x0f All cache states
++	0x10 HW prefetched line only
++	0x20 all prefetched line w/o regarding mask 0x10.
++name:est_trans type:exclusive default:0x00
++	0x00 any transitions
++	0x10 Intel(tm) Enhanced SpeedStep(r) Technology frequency transitions
++	0x20 any transactions
++name:kni_prefetch type:exclusive default:0x0
++	0x00 prefetch NTA
++	0x01 prefetch T1
++	0x02 prefetch T2
++	0x03 weakly-ordered stores
++# this bitmask can seems weirds but is correct, note there is no way to only
++# count scalar SIMD instructions
++name:sse_sse2_inst_retired type:exclusive default:0x0
++	0x00 SSE Packed Single
++	0x01 SSE Scalar-Single
++	0x02 SSE2 Packed-Double
++	0x03 SSE2 Scalar-Double
++name:mmx_instr_type_exec type:bitmask default:0x3f
++	0x01 MMX packed multiplies
++	0x02 MMX packed shifts
++	0x04 MMX pack operations
++	0x08 MMX unpack operations
++	0x10 MMX packed logical
++	0x20 MMX packed arithmetic
++	0x3f all of the above
++name:mmx_trans type:exclusive default:0x0
++	0x00 MMX->float operations
++	0x01 float->MMX operations
++name:fused type:exclusive default:0x0
++	0x00 All fused micro-ops
++	0x01 Only load+Op micro-ops
++	0x02 Only std+sta micro-ops
++name:dc_pend_miss type:exclusive default:0x0
++	0x00 Weighted cycles
++	0x01 Duration of cycles
++name:sse_miss type:exclusive default:0x0
++	0x00 PREFETCHNTA
++	0x01 PREFETCHT1
++	0x02 PREFETCHT2
++	0x03 SSE streaming store instructions
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/oprofile/events/i386/core_2/events CodeAnalyst-Linux-2.8.29.orig.intel/src/oprofile/events/i386/core_2/events
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/oprofile/events/i386/core_2/events	1970-01-01 01:00:00.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/oprofile/events/i386/core_2/events	2007-07-16 20:22:17.000000000 +0200
+@@ -0,0 +1,137 @@
++# Core 2 events
++#
++# Architectural events
++#
++event:0x3c counters:0,1 um:nonhlt minimum:6000 name:CPU_CLK_UNHALTED : Clock cycles when not halted
++event:0xc0 counters:0,1 um:zero minimum:6000 name:INST_RETIRED.ANY_P : number of instructions retired
++event:0x2e counters:0,1 um:core_prefetch_mesi minimum:500 name:L2_RQSTS : number of L2 cache requests
++event:0x2e counters:0,1 um:x41 minimum:6000 name:LLC_MISSES : L2 cache demand requests from this core that missed the L2
++event:0x2e counters:0,1 um:x4f minimum:6000 name:LLC_REFS : L2 cache demand requests from this core
++#
++# Model specific events
++#
++event:0x03 counters:0,1 um:load_block minimum:500 name:LOAD_BLOCK : events pertaining to loads
++event:0x04 counters:0,1 um:store_block minimum:500 name:STORE_BLOCK : events pertaining to stores
++event:0x05 counters:0,1 um:zero minimum:500 name:MISALIGN_MEM_REF : number of misaligned data memory references
++event:0x06 counters:0,1 um:zero minimum:500 name:SEGMENT_REG_LOADS : number of segment register loads
++event:0x07 counters:0,1 um:sse_prefetch minimum:500 name:SSE_PRE_EXEC : number of SSE pre-fetch/weakly ordered insns retired
++event:0x08 counters:0,1 um:dtlb_miss minimum:500 name:DTLB_MISSES : DTLB miss events
++event:0x09 counters:0,1 um:memory_dis minimum:1000 name:MEMORY_DISAMBIGUATION : Memory disambiguation reset cycles.
++event:0x0c counters:0,1 um:page_walks minimum:500 name:PAGE_WALKS : Page table walk events
++event:0x10 counters:0,1 um:zero minimum:3000 name:FLOPS : number of FP computational micro-ops executed
++event:0x11 counters:0,1 um:zero minimum:500 name:FP_ASSIST : number of FP assists
++event:0x12 counters:0,1 um:zero minimum:1000 name:MUL : number of multiplies
++event:0x13 counters:0,1 um:zero minimum:500 name:DIV : number of divides
++event:0x14 counters:0,1 um:zero minimum:1000 name:CYCLES_DIV_BUSY : cycles divider is busy
++event:0x18 counters:0,1 um:zero minimum:1000 name:IDLE_DURING_DIV : cycles divider is busy and all other execution units are idle.
++event:0x19 counters:0,1 um:delayed_bypass minimum:1000 name:DELAYED_BYPASS : Delayed bypass events
++event:0x21 counters:0,1 um:core minimum:500 name:L2_ADS : Cycles the L2 address bus is in use.
++event:0x23 counters:0,1 um:core minimum:500 name:L2_DBUS_BUSY_RD : Cycles the L2 transfers data to the core.
++event:0x24 counters:0,1 um:core_prefetch minimum:500 name:L2_LINES_IN : number of allocated lines in L2
++event:0x25 counters:0,1 um:core minimum:500 name:L2_M_LINES_IN : number of modified lines allocated in L2
++event:0x26 counters:0,1 um:core_prefetch minimum:500 name:L2_LINES_OUT : number of recovered lines from L2
++event:0x27 counters:0,1 um:core_prefetch minimum:500 name:L2_M_LINES_OUT : number of modified lines removed from L2
++event:0x28 counters:0,1 um:core_mesi minimum:500 name:L2_IFETCH : number of L2 cacheable instruction fetches
++event:0x29 counters:0,1 um:core_prefetch_mesi minimum:500 name:L2_LD : number of L2 data loads
++event:0x2a counters:0,1 um:core_mesi minimum:500 name:L2_ST : number of L2 data stores
++event:0x2b counters:0,1 um:core_mesi minimum:500 name:L2_LOCK : number of locked L2 data accesses
++event:0x30 counters:0,1 um:core_prefetch_mesi minimum:500 name:L2_REJECT_BUSQ : Rejected L2 cache requests
++event:0x32 counters:0,1 um:core minimum:500 name:L2_NO_REQ : Cycles no L2 cache requests are pending
++event:0x3a counters:0,1 um:zero minimum:500 name:EIST_TRANS_ALL : Intel(tm) Enhanced SpeedStep(r) Technology transitions
++event:0x3b counters:0,1 um:xc0 minimum:500 name:THERMAL_TRIP : Number of thermal trips
++event:0x40 counters:0,1 um:mesi minimum:500 name:L1D_CACHE_LD : L1 cacheable data read operations
++event:0x41 counters:0,1 um:mesi minimum:500 name:L1D_CACHE_ST : L1 cacheable data write operations
++event:0x42 counters:0,1 um:mesi minimum:500 name:L1D_CACHE_LOCK : L1 cacheable lock read operations
++event:0x42 counters:0,1 um:x10 minimum:500 name:L1D_CACHE_LOCK_DURATION : Duration of L1 data cacheable locked operations
++event:0x43 counters:0,1 um:x10 minimum:500 name:L1D_ALL_REF : All references to the L1 data cache
++event:0x43 counters:0,1 um:two minimum:500 name:L1D_ALL_CACHE_REF : L1 data cacheable reads and writes
++event:0x45 counters:0,1 um:x0f minimum:500 name:L1D_REPL : Cache lines allocated in the L1 data cache
++event:0x46 counters:0,1 um:zero minimum:500 name:L1D_M_REPL : Modified cache lines allocated in the L1 data cache
++event:0x47 counters:0,1 um:zero minimum:500 name:L1D_M_EVICT : Modified cache lines evicted from the L1 data cache
++event:0x48 counters:0,1 um:zero minimum:500 name:L1D_PEND_MISS : Total number of outstanding L1 data cache misses at any cycle
++event:0x49 counters:0,1 um:l1d_split minimum:500 name:L1D_SPLIT : Cache line split load/stores
++event:0x4b counters:0,1 um:sse_miss minimum:500 name:SSE_PREF_MISS : SSE instructions that missed all caches
++event:0x4c counters:0,1 um:zero minimum:500 name:LOAD_HIT_PRE : Load operations conflicting with a software prefetch to the same address
++event:0x4e counters:0,1 um:x10 minimum:500 name:L1D_PREFETCH : L1 data cache prefetch requests
++#
++event:0x60 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_REQ_OUTSTANDING : Outstanding cacheable data read bus requests duration
++event:0x61 counters:0,1 um:bus_agents minimum:500 name:BUS_BNR_DRV : Number of Bus Not Ready signals asserted
++event:0x62 counters:0,1 um:bus_agents minimum:500 name:BUS_DRDY_CLOCKS : Bus cycles when data is sent on the bus
++event:0x63 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_LOCK_CLOCKS : Bus cycles when a LOCK signal is asserted
++event:0x64 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_DATA_RCV : Bus cycles while processor receives data
++event:0x65 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_BRD : Burst read bus transactions
++event:0x66 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_RFO : number of completed read for ownership transactions
++event:0x67 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_WB : number of explicit writeback bus transactions
++event:0x68 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_IFETCH : number of instruction fetch transactions
++event:0x69 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_INVAL : number of invalidate transactions
++event:0x6a counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_PWR : number of partial write bus transactions
++event:0x6b counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRANS_P : number of partial bus transactions
++event:0x6c counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRANS_IO : number of I/O bus transactions
++event:0x6d counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRANS_DEF : number of completed defer transactions
++event:0x6e counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_BURST : number of completed burst transactions
++event:0x6f counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_MEM : number of completed memory transactions
++event:0x70 counters:0,1 um:core_and_bus_agents minimum:500 name:BUS_TRAN_ANY : number of any completed bus transactions
++event:0x77 counters:0,1 um:bus_agents_and_snoop minimum:500 name:EXT_SNOOP : External snoops
++event:0x78 counters:0,1 um:core_and_snoop minimum:500 name:CMP_SNOOP : L1 data cache is snooped by other core
++event:0x7a counters:0,1 um:bus_agents minimum:500 name:BUS_HIT_DRV : HIT signal asserted
++event:0x7b counters:0,1 um:bus_agents minimum:500 name:BUS_HITM_DRV : HITM signal asserted
++event:0x7d counters:0,1 um:core minimum:500 name:BUSQ_EMPTY : Bus queue is empty
++event:0x7e counters:0,1 um:core_and_bus_agents minimum:500 name:SNOOP_STALL_DRV : Bus stalled for snoops
++event:0x7f counters:0,1 um:core minimum:500 name:BUS_IO_WAIT : IO requests waiting in the bus queue
++event:0x80 counters:0,1 um:zero minimum:500 name:L1I_READS : number of instruction fetches
++event:0x81 counters:0,1 um:zero minimum:500 name:L1I_MISSES : number of instruction fetch misses
++event:0x82 counters:0,1 um:itlb_miss minimum:500 name:ITLB : number of ITLB misses
++event:0x83 counters:0,1 um:two minimum:500 name:INST_QUEUE.FULL : cycles during which the instruction queue is full
++event:0x86 counters:0,1 um:zero minimum:500 name:IFU_MEM_STALL : cycles instruction fetch pipe is stalled
++event:0x87 counters:0,1 um:zero minimum:500 name:ILD_STALL : cycles instruction length decoder is stalled
++event:0x88 counters:0,1 um:zero minimum:3000 name:BR_INST_EXEC : Branch instructions executed (not necessarily retired)
++event:0x89 counters:0,1 um:zero minimum:3000 name:BR_MISSP_EXEC : Branch instructions executed that were mispredicted at execution
++event:0x8a counters:0,1 um:zero minimum:3000 name:BR_BAC_MISSP_EXEC : Branch instructions executed that were mispredicted at Front End (BAC)
++event:0x8b counters:0,1 um:zero minimum:3000 name:BR_CND_EXEC : Conditional Branch instructions executed
++event:0x8c counters:0,1 um:zero minimum:3000 name:BR_CND_MISSP_EXEC : Conditional Branch instructions executed that were mispredicted
++event:0x8d counters:0,1 um:zero minimum:3000 name:BR_IND_EXEC : Indirect Branch instructions executed
++event:0x8e counters:0,1 um:zero minimum:3000 name:BR_IND_MISSP_EXEC : Indirect Branch instructions executed that were mispredicted
++event:0x8f counters:0,1 um:zero minimum:3000 name:BR_RET_EXEC : Return Branch instructions executed
++event:0x90 counters:0,1 um:zero minimum:3000 name:BR_RET_MISSP_EXEC : Return Branch instructions executed that were mispredicted at Execution
++event:0x91 counters:0,1 um:zero minimum:3000 name:BR_RET_BAC_MISSP_EXEC :Return Branch instructions executed that were mispredicted at Front End (BAC)
++event:0x92 counters:0,1 um:zero minimum:3000 name:BR_CALL_EXEC : CALL instruction executed
++event:0x93 counters:0,1 um:zero minimum:3000 name:BR_CALL_MISSP_EXEC : CALL instruction executed and miss predicted
++event:0x94 counters:0,1 um:zero minimum:3000 name:BR_IND_CALL_EXEC : Indirect CALL instruction executed
++event:0x97 counters:0,1 um:zero minimum:3000 name:BR_TKN_BUBBLE_1 : Branch predicted taken with bubble 1
++event:0x98 counters:0,1 um:zero minimum:3000 name:BR_TKN_BUBBLE_2 : Branch predicted taken with bubble 2
++event:0xa0 counters:0,1 um:zero minimum:1000 name:RS_UOPS_DISPATCHED : Micro-ops dispatched for execution
++# Set both the CMASK and INV fields to 1 -- which causes the counter to
++# increment on cycles in which fewer than 1 uop dispatches.  i.e. stall cycles.
++# It's a bit of a hack, but passes through the oprofile infrastructure just
++# fine.
++event:0x18000a0 counters:0,1 um:zero minimum:1000 name:RS_UOPS_DISPATCHED_NONE : No Micro-ops dispatched for execution
++event:0xaa counters:0,1 um:macro_insts minimum:500 name:MACRO_INSTS : instructions decoded
++event:0xab counters:0,1 um:esp minimum:500 name:ESP : ESP register events
++event:0xb0 counters:0,1 um:zero minimum:500 name:SIMD_UOPS_EXEC : SIMD micro-ops executed (excluding stores)
++event:0xb1 counters:0,1 um:zero minimum:3000 name:SIMD_SAT_UOP_EXEC : number of SIMD saturating instructions executed
++event:0xb3 counters:0,1 um:simd_instr_type_exec minimum:3000 name:SIMD_UOP_TYPE_EXEC : number of SIMD packing instructions
++event:0xc0 counters:0,1 um:inst_retired minimum:6000 name:INST_RETIRED : number of instructions retired
++event:0xc1 counters:0,1 um:x87_ops_retired minimum:500 name:X87_OPS_RETIRED : number of computational FP operations retired
++event:0xc2 counters:0,1 um:uops_retired minimum:6000 name:UOPS_RETIRED : number of UOPs retired
++event:0xc3 counters:0,1 um:machine_nukes minimum:500 name:MACHINE_NUKES.SMC : number of pipeline flushing events
++event:0xc4 counters:0,1 um:br_inst_retired minimum:500 name:BR_INST_RETIRED : number of branch instructions retired
++event:0xc5 counters:0,1 um:zero minimum:500 name:BR_MISS_PRED_RETIRED : number of mispredicted branches retired (precise)
++event:0xc6 counters:0,1 um:cycles_int_masked minimum:500 name:CYCLES_INT_MASKED : cycles interrupts are disabled
++event:0xc7 counters:0,1 um:simd_inst_retired minimum:500 name:SIMD_INST_RETIRED : SSE/SSE2 instructions retired
++event:0xc8 counters:0,1 um:zero minimum:500 name:HW_INT_RCV : number of hardware interrupts received
++event:0xc9 counters:0 um:zero minimum:500 name:ITLB_MISS_RETIRED : Retired instructions that missed the ITLB
++event:0xca counters:0,1 um:simd_comp_inst_retired minimum:500 name:SIMD_COMP_INST_RETIRED : Retired computational SSE/SSE2 instructions
++event:0xcb counters:0 um:mem_load_retired minimum:500 name:MEM_LOAD_RETIRED : Retired loads
++event:0xcc counters:0,1 um:mmx_trans minimum:3000 name:FP_MMX_TRANS : MMX-floating point transitions
++event:0xcd counters:0,1 um:zero minimum:500 name:MMX_ASSIST : number of EMMS instructions executed
++event:0xce counters:0,1 um:zero minimum:500 name:SIMD_INSTR_RET : number of SIMD instructions retired
++event:0xcf counters:0,1 um:zero minimum:500 name:SIMD_SAT_INSTR_RET : number of saturated arithmetic instructions retired
++event:0xd2 counters:0,1 um:rat_stalls minimum:6000 name:RAT_STALLS : Partial register stall cycles
++event:0xd4 counters:0,1 um:seg_regs minimum:500 name:SEG_RENAME_STALLS : Segment rename stalls
++event:0xd5 counters:0,1 um:seg_regs minimum:500 name:SEG_RENAMES : Segment renames
++event:0xdc counters:0,1 um:resource_stalls minimum:3000 name:RESOURCE_STALLS : Cycles during which resource stalls occur
++event:0xe0 counters:0,1 um:zero minimum:500 name:BR_INST_DECODED : number of branch instructions decoded
++event:0xe4 counters:0,1 um:zero minimum:500 name:BR_BOGUS : number of bogus branches
++event:0xe6 counters:0,1 um:zero minimum:500 name:BACLEARS : number of times BACLEAR is asserted
++event:0xf0 counters:0,1 um:zero minimum:3000 name:PREF_RQSTS_UP : Number of upward prefetches issued
++event:0xf8 counters:0,1 um:zero minimum:3000 name:PREF_RQSTS_DN : Number of downward prefetches issued
+diff -dPNur CodeAnalyst-Linux-2.8.29.orig.fix/src/oprofile/events/i386/core_2/unit_masks CodeAnalyst-Linux-2.8.29.orig.intel/src/oprofile/events/i386/core_2/unit_masks
+--- CodeAnalyst-Linux-2.8.29.orig.fix/src/oprofile/events/i386/core_2/unit_masks	1970-01-01 01:00:00.000000000 +0100
++++ CodeAnalyst-Linux-2.8.29.orig.intel/src/oprofile/events/i386/core_2/unit_masks	2007-07-16 20:22:17.000000000 +0200
+@@ -0,0 +1,195 @@
++# Core 2 possible unit masks
++#
++name:zero type:mandatory default:0x0
++	0x0 No unit mask
++#name:one type:mandatory default:0x1
++#	0x1 No unit mask
++name:two type:mandatory default:0x2
++	0x2 No unit mask
++name:x0f type:mandatory default:0xf
++	0xf No unit mask
++name:x10 type:mandatory default:0x10
++	0x10 No unit mask
++#name:x20 type:mandatory default:0x20
++#	0x20 No unit mask
++#name:x40 type:mandatory default:0x40
++#	0x40 No unit mask
++name:x41 type:mandatory default:0x41
++	0x41 No unit mask
++name:x4f type:mandatory default:0x4f
++	0x4f No unit mask
++name:xc0 type:mandatory default:0xc0
++	0xc0 No unit mask
++name:nonhlt type:exclusive default:0x0
++	0x0 Unhalted core cycles
++	0x1 Unhalted bus cycles
++	0x2 Unhalted bus cycles of this core while the other core is halted
++name:mesi type:bitmask default:0x0f
++	0x08	(M)ESI: Modified
++	0x04	M(E)SI: Exclusive
++	0x02	ME(S)I: Shared
++	0x01	MES(I): Invalid
++name:sse_prefetch type:exclusive default:0x0
++	0x00 prefetch NTA instructions executed.
++	0x01 prefetch T1 instructions executed.
++	0x02 prefetch T1 and T2 instructions executed.
++	0x03 SSE weakly-ordered stores
++name:simd_instr_type_exec type:bitmask default:0x3f
++	0x01 SIMD packed multiplies
++	0x02 SIMD packed shifts
++	0x04 SIMD pack operations
++	0x08 SIMD unpack operations
++	0x10 SIMD packed logical
++	0x20 SIMD packed arithmetic
++	0x3f all of the above
++name:mmx_trans type:bitmask default:0x3
++	0x01 float->MMX transitions
++	0x02 MMX->float transitions
++name:sse_miss type:exclusive default:0x0
++	0x00 PREFETCHNTA
++	0x01 PREFETCHT0
++	0x02 PREFETCHT1/PREFETCHT2
++name:load_block type:bitmask default:0x3e
++	0x02 STA  Loads blocked by a preceding store with unknown address.
++	0x04 STD  Loads blocked by a preceding store with unknown data.
++	0x08 OVERLAP_STORE  Loads that partially overlap an earlier store, or 4K aliased with a previous store.
++	0x10 UNTIL_RETIRE  Loads blocked until retirement.
++	0x20 L1D  Loads blocked by the L1 data cache.
++name:store_block type:bitmask default:0x0b
++	0x01 SB_DRAIN_CYCLES	Cycles while stores are blocked due to store buffer drain.
++	0x02 ORDER	Cycles while store is waiting for a preceding store to be globally observed.
++	0x08 NOOP	A store is blocked due to a conflict with an external or internal snoop.
++name:dtlb_miss type:bitmask default:0x0f
++	0x01 ANY	Memory accesses that missed the DTLB.
++	0x02 MISS_LD	DTLB misses due to load operations.
++	0x04 L0_MISS_LD L0 DTLB misses due to load operations.
++	0x08 MISS_ST	TLB misses due to store operations.
++name:memory_dis type:exclusive default:0x01
++	0x01 RESET	Memory disambiguation reset cycles.
++	0x02 SUCCESS	Number of loads that were successfully disambiguated.
++name:page_walks type:exclusive default:0x02
++	0x01 COUNT	Number of page-walks executed.
++	0x02 CYCLES	Duration of page-walks in core cycles.
++name:delayed_bypass type:exclusive default:0x00
++	0x00 FP		Delayed bypass to FP operation.
++	0x01 SIMD	Delayed bypass to SIMD operation.
++	0x02 LOAD	Delayed bypass to load operation.
++name:core type:exclusive default:0x40
++	0xc0	All cores
++	0x40	This core
++name:core_prefetch type:bitmask default:0x70
++	0xc0	core: all cores
++	0x40	core: this core
++	0x30	prefetch: all inclusive
++	0x10	prefetch: Hardware prefetch only
++	0x00	prefetch: exclude hardware prefetch
++name:core_mesi type:bitmask default:0x4f
++	0xc0	core: all cores
++	0x40	core: this core
++	0x08	(M)ESI: Modified
++	0x04	M(E)SI: Exclusive
++	0x02	ME(S)I: Shared
++	0x01	MES(I): Invalid
++name:core_prefetch_mesi type:bitmask default:0x7f
++	0xc0	core: all cores
++	0x40	core: this core
++	0x30	prefetch: all inclusive
++	0x10	prefetch: Hardware prefetch only
++	0x00	prefetch: exclude hardware prefetch
++	0x08	(M)ESI: Modified
++	0x04	M(E)SI: Exclusive
++	0x02	ME(S)I: Shared
++	0x01	MES(I): Invalid
++name:l1d_split type:exclusive default:0x1
++	0x1	split loads
++	0x2	split stores
++name:bus_agents type:exclusive default:0x00
++	0x00	this agent
++	0x20	include all agents
++name:core_and_bus_agents type:bitmask default:0x40
++	0xc0	core: all cores
++	0x40	core: this core
++	0x00	bus: this agent
++	0x20	bus: include all agents
++name:bus_agents_and_snoop type:bitmask default:0x0b
++	0x00	bus: this agent
++	0x20	bus: include all agents
++	0x08	snoop: HITM snoops
++	0x02	snoop: HIT snoops
++	0x01	snoop: CLEAN snoops
++name:core_and_snoop type:bitmask default:0x40
++	0xc0	core: all cores
++	0x40	core: this core
++	0x01	snoop: CMP2I snoops
++	0x02	snoop: CMP2S snoops
++name:itlb_miss type:bitmask default:0x12
++	0x02	ITLB small page misses
++	0x10	ITLB large page misses
++	0x40	ITLB flushes
++name:macro_insts type:bitmask default:0x09
++	0x01	Instructions decoded
++	0x08	CISC Instructions decoded
++name:esp type:bitmask default:0x01
++	0x01	ESP register content synchronizations
++	0x02	ESP register automatic additions
++name:inst_retired type:bitmask default:0x00
++	0x00	Any
++	0x01	Loads
++	0x02	Stores
++	0x04	Other
++name:x87_ops_retired type:exclusive default:0xfe
++	0x01	FXCH instructions retired
++	0xfe	Retired floating-point computational operations (precise)
++name:uops_retired type:bitmask default:0x0f
++	0x01	Fused load+op or load+indirect branch retired
++	0x02	Fused store address + data retired
++	0x04	Retired instruction pairs fused into one micro-op
++	0x07	Fused micro-ops retired
++	0x08	Non-fused micro-ops retired
++	0x0f	Micro-ops retired
++name:machine_nukes type:bitmask default:0x05
++	0x01	Self-Modifying Code detected
++	0x04	Execution pipeline restart due to memory ordering conflict or memory disambiguation misprediction
++name:br_inst_retired type:bitmask default:0xa
++	0x01	predicted not-taken
++	0x02	mispredicted not-taken
++	0x04	predicted taken
++	0x08	mispredicted taken
++name:cycles_int_masked type:exclusive default:0x02
++	0x01	Interrupts disabled
++	0x02	Interrupts pending and disabled
++name:simd_inst_retired type:bitmask default:0x1f
++	0x01	Retired SSE packed-single instructions
++	0x02	Retired SSE scalar-single instructions
++	0x04	Retired SSE2 packed-double instructions
++	0x08	Retired SSE2 scalar-double instructions
++	0x10	Retired SSE2 vector integer instructions
++	0x1f	Retired Streaming SIMD instructions (precise event)
++name:simd_comp_inst_retired type:bitmask default:0xf
++	0x01	Retired computational SSE packed-single instructions
++	0x02	Retired computational SSE scalar-single instructions
++	0x04	Retired computational SSE2 packed-double instructions
++	0x08	Retired computational SSE2 scalar-double instructions
++name:mem_load_retired type:exclusive default:0x01
++	0x01	Retired loads that miss the L1 data cache (precise event)
++	0x02	L1 data cache line missed by retired loads (precise event)
++	0x04	Retired loads that miss the L2 cache (precise event)
++	0x08	L2 cache line missed by retired loads (precise event)
++	0x10	Retired loads that miss the DTLB (precise event)
++name:rat_stalls type:bitmask default:0xf
++	0x01	ROB read port
++	0x02	Partial register
++	0x04	Flag
++	0x08	FPU status word
++	0x0f	All RAT
++name:seg_regs type:bitmask default:0x0f
++	0x01	ES
++	0x02	DS
++	0x04	FS
++	0x08	GS
++name:resource_stalls type:bitmask default:0x0f
++	0x01	when the ROB is full
++	0x02	during which the RS is full
++	0x04	during which the pipeline has exceeded the load or store limit or is waiting to commit all stores
++	0x08	due to FPU control word write
++	0x10	due to branch misprediction

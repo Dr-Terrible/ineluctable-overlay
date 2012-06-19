@@ -1,0 +1,201 @@
+#!/sbin/runscript
+# CodeAnalyst for Open Source
+# Copyright 2002 . 2006 Advanced Micro Devices, Inc.
+# You may redistribute this program and/or modify this program under the terms
+# of the GNU General Public License as published by the Free Software 
+# Foundation; either version 2 of the License, or (at your option) any later 
+# version.
+#
+# This program is distributed WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED 
+# WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.  See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+# Place, Suite 330, Boston, MA 02111-1307 USA.
+
+
+opts="status"
+
+MODPROBE=/sbin/modprobe 
+RMMOD=/sbin/rmmod
+
+DIR="/var/lib/oprofile"
+SAMPLE_DIR="$DIR/samples"
+JIT_SAMPLE_DIR="$DIR/jit"
+JAVA_DIR="$DIR/Java"
+SAMPLE_CURRENT="$SAMPLE_DIR/current"
+OP_LOG="${SAMPLE_DIR}/oprofiled.log"
+OP_MOUNT="/dev/oprofile/"
+
+create_dir()
+{
+	if test ! -d "$1"; then
+	       mkdir -p "$1"
+	       if test "$?" != "0"; then
+		       echo "Couldn't mkdir -p $1" >&2
+		       exit 1
+	       fi
+	       chmod 775 "$1"
+	fi
+}
+
+
+# ensure correct ownership of the dirs
+set_ownership() {
+    if [ ! -d ${DIR} ] ; then
+        mkdir $DIR
+    fi 
+
+    chmod 775 $DIR
+    chown -R root.amdca $DIR
+
+    if [ ! -d ${SAMPLE_DIR} ] ; then
+        mkdir $SAMPLE_DIR
+    fi
+
+    chmod 775 $SAMPLE_DIR 
+    chown -R root.amdca $SAMPLE_DIR
+
+    if [ ! -d ${JIT_SAMPLE_DIR} ] ; then
+        mkdir $JIT_SAMPLE_DIR
+    fi
+
+    chmod 775 $JIT_SAMPLE_DIR 
+    chown -R root.amdca $JIT_SAMPLE_DIR
+
+    if [ ! -d ${JAVA_DIR} ] ; then
+        mkdir $JAVA_DIR
+    fi
+
+    chmod 775 $JAVA_DIR 
+    chown -R root.amdca $JAVA_DIR
+
+
+
+    if [ ! -d ${SAMPLE_CURRENT} ] ; then
+        mkdir $SAMPLE_CURRENT
+    fi
+
+    chmod 775 $SAMPLE_CURRENT
+    chown -R root.amdca $SAMPLE_CURRENT
+
+
+    if [ ! -f ${OP_LOG} ] ; then
+        touch $OP_LOG
+    fi
+
+    chmod 664 $OP_LOG
+    chown -R root.amdca $OP_LOG
+
+
+    # Set mode for MOUNT area
+    chmod -R 775 $OP_MOUNT
+    chown -R root.amdca $OP_MOUNT
+
+    if [ -d $OP_MOUNT/ibs_fetch ]
+    then
+	    chmod 664 $OP_MOUNT/ibs_fetch/*
+    fi
+
+    if [ -d $OP_MOUNT/ibs_op ]
+    then
+	    chmod 664 $OP_MOUNT/ibs_op/*
+    fi
+}
+
+load_module_26()
+{
+    $MODPROBE oprofile
+	if test "$?" != "0"; then
+        # couldn't load a module
+	return
+	fi
+	    grep oprofile /proc/modules >/dev/null
+		if test "$?" != "0"; then
+			# didn't find module
+			return
+    fi
+
+	mkdir /dev/oprofile >/dev/null 2>&1
+	grep oprofilefs /etc/mtab >/dev/null
+	if test "$?" -ne 0; then
+		mount -t oprofilefs nodev /dev/oprofile >/dev/null
+	fi
+	KERNEL_SUPPORT=yes
+	OPROFILE_AVAILABLE=yes
+}
+
+load_module_24()
+{
+	grep oprof /proc/devices >/dev/null
+	if test "$?" -ne 0; then
+		$MODPROBE oprofile
+		if test "$?" != "0"; then
+			# couldn't load a module
+			return
+		fi
+		grep oprofile /proc/modules >/dev/null
+		if test "$?" != "0"; then
+			# didn't find module
+			return
+		fi
+	fi
+	KERNEL_SUPPORT=no
+	OPROFILE_AVAILABLE=yes
+}
+
+
+load_module()
+{
+    OPROFILE_AVAILABLE=no
+	load_module_26
+	if test "$OPROFILE_AVAILABLE" != "yes"; then
+		echo "Oprofile Driver can not be loaded" >&2
+		exit 1
+	fi
+}
+
+
+do_setup() {
+	create_dir "$DIR"
+	create_dir "$SAMPLE_CURRENT"
+	create_dir "$JIT_SAMPLE_DIR"
+	create_dir "$JAVA_DIR"
+	>$OP_LOG
+}
+
+start() {
+    ebegin "Loading OProfile sampling driver"
+    load_module
+    do_setup
+    set_ownership
+    
+    eend $RETVAL
+}
+
+# define function to unload the driver
+
+stop() {
+    ebegin "Unloading OProfile sampling driver"
+    umount /dev/oprofile
+    $RMMOD oprofile
+    RETVAL=$?
+    eend $RETVAL
+}
+
+# define function to query whether driver is loaded
+
+status() {
+    service_started codeanalyst_init
+    if [ $? -eq 0 ]; then 
+	ebegin "Checking if the OProfile sampling driver is loaded"
+	OP_DRV=`/sbin/lsmod | grep oprofile`
+	if [ "$OP_DRV"x = x ] ; then
+	    RETVAL=1
+	else
+    	    RETVAL=0
+	fi
+	eend $RETVAL
+    fi
+}
