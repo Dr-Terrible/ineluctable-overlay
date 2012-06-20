@@ -65,7 +65,7 @@ all_ruby_prepare() {
 	# bug #406605
 	rm .gitignore .hgignore || die
 
-	rm Gemfile config/preinitializer.rb || die
+#	rm Gemfile config/preinitializer.rb || die
 #	epatch "${FILESDIR}/${PN}-1.4.1-bundler.patch" || die
 
 	echo "CONFIG_PROTECT=\"${EPREFIX}${REDMINE_DIR}/config\"" > "${T}/50${PN}"
@@ -91,6 +91,7 @@ all_ruby_install() {
 		"${REDMINE_DIR}/files" \
 		"${REDMINE_DIR}/public/plugin_assets" \
 		"${REDMINE_DIR}/tmp" \
+		"${REDMINE_DIR}/log" \
 		/var/log/${PN} || die
 	# for SCM
 	fowners redmine:redmine "${REDMINE_DIR}" || die
@@ -158,7 +159,7 @@ pkg_config() {
 		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake db:migrate || die
 		einfo "Upgrade the plugin migrations."
 		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake db:migrate:upgrade_plugin_migrations # || die
-		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake db:migrate_plugins || die
+		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake redmine:plugins:migrate || die
 		einfo "Clear the cache and the existing sessions."
 		${RUBY} -S rake tmp:cache:clear || die
 		${RUBY} -S rake tmp:sessions:clear || die
