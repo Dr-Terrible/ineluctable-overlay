@@ -146,8 +146,10 @@ pkg_config() {
 		die
 	fi
 
-	local RAILS_ENV=${RAILS_ENV:-production}
-	local RUBY=${RUBY:-ruby18}
+	einfo "Using Rails Environment: ${RAILS_ENV}"
+	einfo "Using Ruby interpreter : ${RUBY}"
+	#local RAILS_ENV=${RAILS_ENV:-production}
+	#local RUBY=${RUBY:-ruby18}
 
 	cd "${EPREFIX}${REDMINE_DIR}"
 	if [ -e "${EPREFIX}${REDMINE_DIR}/config/initializers/session_store.rb" ] ; then
