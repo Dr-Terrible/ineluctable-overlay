@@ -1,0 +1,15 @@
+# Startup options for mongrel2 web server
+# To start a server with uuid = ABCD, just create a symlink with this name
+# pointing to /etc/init.d/mongrel2, eg:
+# ln -s /etc/init.d/mongrel2 /etc/init.d/ABCD
+# Now you just run /etc/init.d/ABCD {start,stop}
+
+
+# Use this db to find servers to start
+CONFIG_DB="/etc/mongrel2/config.sqlite"
+
+# Maximum tries for killing mongrel2
+KILL_TRIES="5"
+
+# Timeout in seconds between kill attempts
+TRIES_TIMEOUT="1"

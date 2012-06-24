@@ -1,0 +1,11 @@
+--- ./tools/config_modules/Makefile.orig	2012-06-23 15:31:08.108984252 +0200
++++ ./tools/config_modules/Makefile	2012-06-23 15:31:34.801984209 +0200
+@@ -1,6 +1,6 @@
+ PREFIX?=/usr/local
+-CFLAGS=-I../../src $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
+-LDFLAGS=$(OPTLIBS)
++CFLAGS+=-I../../src $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
++LDFLAGS+=$(OPTLIBS)
+ 
+ all: null.so zmq.so
+ 

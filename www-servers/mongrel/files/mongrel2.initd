@@ -1,0 +1,56 @@
+#!/sbin/runscript
+# Copyright 1999-2011 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+source /etc/conf.d/mongrel2
+
+opts="${opts} list"
+
+
+query(){
+  sqlite3 -line -noheader ${CONFIG_DB} "${1}"
+}
+
+depend(){ 
+  need net
+}
+
+start() {
+  server=${SVCNAME}
+  ebegin "Starting mongrel2 instance, server ${server}"
+  mongrel2 ${CONFIG_DB} ${server}
+  eend $?
+}
+
+
+
+stop() {
+  ebegin "Stopping mongrel2 instance, uuid=${SVCNAME}"
+  pid_file=`sqlite3 -noheader ${CONFIG_DB} "select pid_file from server where uuid='${SVCNAME}';"`
+  chr_dir=`sqlite3 -noheader ${CONFIG_DB} "select chroot from server where uuid='${SVCNAME}';"`
+  pid=`cat ${chr_dir}/${pid_file}`
+  ebegin "Stoping mongrel instance uuid=${SVCNAME}, pid=${pid}"
+  kill -2 ${pid}
+  sleep 1 # just give it some time
+  i=0
+  while [[ "x`ps -p ${pid} -o comm=`" == x"mongrel2" ]]; do
+    let i++
+    ebegin "Kill attempt ${i}/${KILL_TRIES}, sleeping ${TRIES_TIMEOUT} second(s)"
+    kill -2 ${pid}
+    sleep ${TRIES_TIMEOUT}
+    if [[ ${i} -ge ${KILL_TRIES} ]];then
+      eerror "mongrel2 did not stop, you should run kill -9 ${pid}"
+      break
+    fi
+  done
+  [[ "x`ps -p ${pid} -o comm=`" != x"mongrel2" ]]
+  eend $?
+}
+
+list(){
+  sql="select name, uuid as server, bind_addr, port from server;"
+  sqlite3 ${CONFIG_DB} "${sql}"
+}
+
+

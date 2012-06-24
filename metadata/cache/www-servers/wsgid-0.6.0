@@ -1,0 +1,22 @@
+|| ( =dev-lang/python-2.7* =dev-lang/python-2.6* )
+>=www-servers/mongrel-1.7.5:2 dev-python/plugnplay dev-python/pyzmq dev-python/python-daemon || ( =dev-lang/python-2.7* =dev-lang/python-2.6* )
+0
+http://wsgid.com/static/downloads/wsgid-0.6.0.tar.bz2
+
+http://wsgid.com
+GPL-2
+Wsgid is a generic WSGI handler for mongrel2 web server.
+
+distutils multilib python toolchain-funcs
+
+
+
+
+4
+
+compile install postinst postrm prepare setup
+
+
+
+
+

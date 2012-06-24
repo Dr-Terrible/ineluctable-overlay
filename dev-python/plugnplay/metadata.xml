@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<maintainer>
+		<email>flameeyes@gentoo.org</email>
+		<name>Diego Elio Pettenò</name>
+		<description>Proxy maintainer. CC him on bugs</description>
+	</maintainer>
+	<longdescription lang="en">
+		Plug n' PLay (PnP) is a Generic plug-in system inspired by Trac's
+		(http://trac.edgewall.org) internal component management. With PnP you can
+		turn any program into a pluggable software very easily.
+		You just have to define the Interfaces and let others implement them. When
+		your code is running you can dynamically retrieve who are the classes that
+		implement a certain Interface, and call the specific methods.
+	</longdescription>
+</pkgmetadata>
+

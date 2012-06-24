@@ -1,0 +1,45 @@
+--- Makefile.orig	2012-06-23 14:55:39.741987563 +0200
++++ Makefile	2012-06-23 15:24:10.896984911 +0200
+@@ -1,4 +1,4 @@
+-CFLAGS=-g -O2 -Wall -Wextra -Isrc -pthread -rdynamic -DNDEBUG $(OPTFLAGS) -D_FILE_OFFSET_BITS=64
++CFLAGS +=-g -O2 -Wall -Wextra -Isrc -pthread -rdynamic -DNDEBUG $(OPTFLAGS) -D_FILE_OFFSET_BITS=64
+ LIBS=-lzmq -ldl -lsqlite3 $(OPTLIBS)
+ PREFIX?=/usr/local
+ 
+@@ -14,7 +14,8 @@
+ LIB_OBJ=$(filter-out src/mongrel2.o,${OBJECTS})
+ TEST_SRC=$(wildcard tests/*_tests.c)
+ TESTS=$(patsubst %.c,%,${TEST_SRC})
+-MAKEOPTS=OPTFLAGS="${NOEXTCFLAGS} ${OPTFLAGS}" OPTLIBS="${OPTLIBS}" LIBS="${LIBS}" DESTDIR="${DESTDIR}" PREFIX="${PREFIX}"
++MAKEOPTS+=OPTFLAGS="${NOEXTCFLAGS} ${OPTFLAGS}" OPTLIBS="${OPTLIBS}" LIBS="${LIBS}" DESTDIR="${DESTDIR}" PREFIX="${PREFIX}"
++LDFLAGS+=
+ 
+ all: bin/mongrel2 tests m2sh
+ 
+@@ -26,7 +27,7 @@
+ 
+ 
+ bin/mongrel2: build/libm2.a src/mongrel2.o
+-	$(CC) $(CFLAGS) src/mongrel2.o -o $@ $< $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) src/mongrel2.o -o $@ $< $(LIBS)
+ 
+ build/libm2.a: CFLAGS += -fPIC
+ build/libm2.a: build ${LIB_OBJ}
+@@ -71,7 +72,7 @@
+ 	sqlite3 $@ < src/config/mimetypes.sql
+ 
+ $(TESTS): %: %.c build/libm2.a
+-	$(CC) $(CFLAGS) -o $@ $< build/libm2.a $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< build/libm2.a $(LIBS)
+ 
+ src/state.c: src/state.rl src/state_machine.rl
+ src/http11/http11_parser.c: src/http11/http11_parser.rl
+@@ -113,7 +114,7 @@
+ 	valgrind --leak-check=full --show-reachable=yes --log-file=valgrind.log --suppressions=tests/valgrind.sup ./bin/mongrel2 tests/config.sqlite localhost
+ 
+ %.o: %.S
+-	$(CC) $(CFLAGS) -c $< -o $@
++	$(CC) $(CFLAGS) $(LDFLAGS) -c $< -o $@
+ 
+ coverage: NOEXTCFLAGS += -fprofile-arcs -ftest-coverage
+ coverage: LIBS += -lgcov

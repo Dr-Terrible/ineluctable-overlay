@@ -1,0 +1,3 @@
+1- write a proper autoconf script and send it upstream;
+2- fix multilib-strict problems;
+3- make old mongrel <1.4 slotted;

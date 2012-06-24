@@ -1,0 +1,11 @@
+--- ./tests/filters/Makefile.orig	2012-06-23 15:34:02.826983980 +0200
++++ ./tests/filters/Makefile	2012-06-23 15:34:11.308983967 +0200
+@@ -1,6 +1,6 @@
+ PREFIX?=/usr/local
+-CFLAGS=-I../../src $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
+-LDFLAGS=$(OPTLIBS)
++CFLAGS+=-I../../src $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
++LDFLAGS+=$(OPTLIBS)
+ 
+ all: test_filter.so test_filter_a.so test_filter_b.so test_filter_c.so
+ 
