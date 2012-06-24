@@ -148,8 +148,14 @@ pkg_config() {
 
 	einfo "Using Rails Environment: ${RAILS_ENV}"
 	einfo "Using Ruby interpreter : ${RUBY}"
-	#local RAILS_ENV=${RAILS_ENV:-production}
-	#local RUBY=${RUBY:-ruby18}
+	RAILS_ENV=${RAILS_ENV:-production}
+
+	if [ -z ${RUBY} && -x ${RUBY} ]; then
+		eerror "The config process wasn't able to find a valid ruby interpreter."
+		eerror "Please use eselect to select a ruby installation:"
+		eerror "# eselect ruby list"
+		die
+	fi
 
 	cd "${EPREFIX}${REDMINE_DIR}"
 	if [ -e "${EPREFIX}${REDMINE_DIR}/config/initializers/session_store.rb" ] ; then

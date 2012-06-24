@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=4
 
 # jruby → needs to be tested because jruby-1.5.1 fails in multiple
 # ways unrelated to this package.
