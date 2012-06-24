@@ -16,7 +16,7 @@ SRC_URI="http://www.dexy.it/external-dependencies/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=">=dev-python/zapps-0.5
@@ -26,7 +26,7 @@ RDEPEND=">=dev-python/zapps-0.5
 	dev-python/pexpect
 	dev-python/ordereddict
 	dev-python/nose
-	dev-python/Jinja2
+	dev-python/jinja
 	dev-python/idiopidae
 	dev-python/mock"
 DEPEND="${RDEPEND}"

@@ -26,7 +26,7 @@ RDEPEND=">=dev-python/zapps-0.5
 	dev-python/pexpect
 	dev-python/ordereddict
 	dev-python/nose
-	dev-python/Jinja2
+	dev-python/jinja
 	dev-python/idiopidae
 	dev-python/mock"
 DEPEND="${RDEPEND}"

@@ -1,3 +1,7 @@
 1- write a proper autoconf script and send it upstream;
-2- fix multilib-strict problems;
+2- (done) fix multilib-strict problems;
 3- make old mongrel <1.4 slotted;
+4- (done) ebuild needs to generate and install documentation;
+5- ebuild needs to generate and install examples;
+6- improve init files;
+7- (done) fix Makefile macros to properly use CFLAGS/LDFLAGS;
