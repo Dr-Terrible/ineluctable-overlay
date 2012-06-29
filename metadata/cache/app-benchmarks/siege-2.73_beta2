@@ -1,0 +1,22 @@
+ssl? ( >=dev-libs/openssl-0.9.6d ) sys-devel/libtool =sys-devel/automake-1.9* >=sys-devel/autoconf-2.68 sys-devel/libtool
+ssl? ( >=dev-libs/openssl-0.9.6d )
+0
+http://www.joedog.org/pub/siege/beta/siege-2.73b2.tar.gz
+
+http://www.joedog.org/JoeDog/Siege
+GPL-2
+A HTTP regression testing and benchmarking utility
+~amd64 ~hppa ~mips ~ppc ~x86
+autotools bash-completion-r1 eutils libtool multilib multiprocessing toolchain-funcs user
+ssl static-libs
+
+
+
+4
+
+configure install postinst prepare
+
+
+
+
+
