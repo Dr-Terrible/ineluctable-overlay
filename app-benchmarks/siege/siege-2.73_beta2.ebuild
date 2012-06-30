@@ -40,13 +40,13 @@ src_configure() {
 }
 
 src_install() {
-	make DESTDIR="${D}" install
+	make DESTDIR="${ED}" install
 
 	# remove useless .la files
-	find "${D}" -name '*.la' -delete
+	find "${ED}" -name '*.la' -delete
 
 	# remove useless .a (only for non static compilation)
-	use static-libs || find "${D}" -name '*.a' -delete
+	use static-libs || find "${ED}" -name '*.a' -delete
 
 	# install doc
 	dodoc AUTHORS ChangeLog INSTALL MACHINES README* KNOWNBUGS \

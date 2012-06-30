@@ -91,7 +91,7 @@ src_compile() {
 }
 
 src_install() {
-	emake _INSTALLDIR="${D}usr/local/" install || die "emake install failed"
+	emake _INSTALLDIR="${ED}usr/local/" install || die "emake install failed"
 	#dodoc AUTHORS README
 }
 

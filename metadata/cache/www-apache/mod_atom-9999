@@ -1,0 +1,22 @@
+=www-servers/apache-2* || ( >=sys-devel/automake-1.11.1:1.11 >=sys-devel/automake-1.12:1.12 ) >=sys-devel/autoconf-2.68 sys-devel/libtool dev-vcs/subversion net-misc/rsync
+app-text/htmltidy =www-servers/apache-2*
+0
+
+
+http://http://code.google.com/p/mod-atom/
+Apache-2.0
+An Apache2 module providing an Atom Protocol implementation.
+
+apache-module autotools depend.apache eutils libtool multilib multiprocessing subversion toolchain-funcs user
+static-libs test
+
+
+
+3
+
+compile configure install postinst preinst prepare setup unpack
+
+
+
+
+

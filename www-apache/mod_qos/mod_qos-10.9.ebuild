@@ -12,15 +12,14 @@ SRC_URI="mirror://sourceforge/mod-qos/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc ssl"
+#IUSE="doc ssl"
+IUSE="doc"
 
 COMMON_DEPEND=">=dev-libs/libpcre-8.30
 	sys-libs/zlib
 	media-libs/libpng
-	ssl? (
-		dev-libs/openssl
-		www-servers/apache[ssl]
-	)"
+	dev-libs/openssl
+	www-servers/apache[ssl]"
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
 
@@ -38,10 +37,11 @@ src_prepare() {
 
 src_configure() {
 	cd "${S}/tools" || die
+
+	# $(use ssl || echo "--disable-ssl") \
 	econf \
 		--disable-dependency-tracking \
 		--disable-use-static \
-		$(use ssl || echo "--disable-ssl") \
 		${EXTRA_ECONF}
 }
 
@@ -56,8 +56,11 @@ src_install() {
 	apache-module_src_install
 
 	einfo "Installing module utilities ..."
-	emake -C "${S}/tools" install DESTDIR="${D}" || die "make install failed"
+	emake -C "${S}/tools" install DESTDIR="${ED}" || die "make install failed"
 
 	# installing html documentation
 	use doc && dohtml -r -x *.txt "${S}/doc/"
+
+	# remove useless .a / .la files
+	find "${ED}" "(" -name '*.la' -o -name '*.a' ")" -delete || die
 }
