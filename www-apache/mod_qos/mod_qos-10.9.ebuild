@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc ssl"
 
-COMMON_DEPEND="dev-libs/libpcre
+COMMON_DEPEND=">=dev-libs/libpcre-8.30
 	sys-libs/zlib
 	media-libs/libpng
 	ssl? (
