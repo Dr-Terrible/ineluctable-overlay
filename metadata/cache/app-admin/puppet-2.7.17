@@ -1,0 +1,22 @@
+test? ( ruby_targets_ruby18? ( >=dev-ruby/facter-1.5.6[ruby_targets_ruby18] augeas? ( dev-ruby/ruby-augeas[ruby_targets_ruby18] ) diff? ( dev-ruby/diff-lcs[ruby_targets_ruby18] ) doc? ( dev-ruby/rdoc[ruby_targets_ruby18] ) ldap? ( dev-ruby/ruby-ldap[ruby_targets_ruby18] ) shadow? ( dev-ruby/ruby-shadow[ruby_targets_ruby18] ) sqlite3? ( dev-ruby/sqlite3-ruby[ruby_targets_ruby18] ) virtual/ruby-ssl[ruby_targets_ruby18] ) ruby_targets_ruby19? ( >=dev-ruby/facter-1.5.6[ruby_targets_ruby19] augeas? ( dev-ruby/ruby-augeas[ruby_targets_ruby19] ) diff? ( dev-ruby/diff-lcs[ruby_targets_ruby19] ) doc? ( dev-ruby/rdoc[ruby_targets_ruby19] ) ldap? ( dev-ruby/ruby-ldap[ruby_targets_ruby19] ) shadow? ( dev-ruby/ruby-shadow[ruby_targets_ruby19] ) sqlite3? ( dev-ruby/sqlite3-ruby[ruby_targets_ruby19] ) virtual/ruby-ssl[ruby_targets_ruby19] ) ruby_targets_ree18? ( >=dev-ruby/facter-1.5.6[ruby_targets_ree18] augeas? ( dev-ruby/ruby-augeas[ruby_targets_ree18] ) diff? ( dev-ruby/diff-lcs[ruby_targets_ree18] ) doc? ( dev-ruby/rdoc[ruby_targets_ree18] ) ldap? ( dev-ruby/ruby-ldap[ruby_targets_ree18] ) shadow? ( dev-ruby/ruby-shadow[ruby_targets_ree18] ) sqlite3? ( dev-ruby/sqlite3-ruby[ruby_targets_ree18] ) virtual/ruby-ssl[ruby_targets_ree18] ) ) emacs? ( virtual/emacs ) xemacs? ( app-editors/xemacs ) selinux? ( sec-policy/selinux-puppet ) ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ree18? ( dev-lang/ruby-enterprise:1.8 ) ruby_targets_ruby18? ( test? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( test? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ree18? ( test? ( dev-ruby/rake[ruby_targets_ree18] ) ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_ree18? ( virtual/rubygems[ruby_targets_ree18] ) test? ( ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_ree18? ( virtual/rubygems[ruby_targets_ree18] ) )
+ruby_targets_ruby18? ( >=dev-ruby/facter-1.5.6[ruby_targets_ruby18] augeas? ( dev-ruby/ruby-augeas[ruby_targets_ruby18] ) diff? ( dev-ruby/diff-lcs[ruby_targets_ruby18] ) doc? ( dev-ruby/rdoc[ruby_targets_ruby18] ) ldap? ( dev-ruby/ruby-ldap[ruby_targets_ruby18] ) shadow? ( dev-ruby/ruby-shadow[ruby_targets_ruby18] ) sqlite3? ( dev-ruby/sqlite3-ruby[ruby_targets_ruby18] ) virtual/ruby-ssl[ruby_targets_ruby18] ) ruby_targets_ruby19? ( >=dev-ruby/facter-1.5.6[ruby_targets_ruby19] augeas? ( dev-ruby/ruby-augeas[ruby_targets_ruby19] ) diff? ( dev-ruby/diff-lcs[ruby_targets_ruby19] ) doc? ( dev-ruby/rdoc[ruby_targets_ruby19] ) ldap? ( dev-ruby/ruby-ldap[ruby_targets_ruby19] ) shadow? ( dev-ruby/ruby-shadow[ruby_targets_ruby19] ) sqlite3? ( dev-ruby/sqlite3-ruby[ruby_targets_ruby19] ) virtual/ruby-ssl[ruby_targets_ruby19] ) ruby_targets_ree18? ( >=dev-ruby/facter-1.5.6[ruby_targets_ree18] augeas? ( dev-ruby/ruby-augeas[ruby_targets_ree18] ) diff? ( dev-ruby/diff-lcs[ruby_targets_ree18] ) doc? ( dev-ruby/rdoc[ruby_targets_ree18] ) ldap? ( dev-ruby/ruby-ldap[ruby_targets_ree18] ) shadow? ( dev-ruby/ruby-shadow[ruby_targets_ree18] ) sqlite3? ( dev-ruby/sqlite3-ruby[ruby_targets_ree18] ) virtual/ruby-ssl[ruby_targets_ree18] ) emacs? ( virtual/emacs ) xemacs? ( app-editors/xemacs ) rrdtool? ( >=net-analyzer/rrdtool-1.2.23[ruby] ) selinux? ( sys-libs/libselinux[ruby] sec-policy/selinux-puppet ) >=app-portage/eix-0.18.0 ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ree18? ( dev-lang/ruby-enterprise:1.8 ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_ree18? ( virtual/rubygems[ruby_targets_ree18] )
+0
+http://puppetlabs.com/downloads/puppet/puppet-2.7.17.tar.gz
+
+http://puppetlabs.com
+Apache-2.0
+A system automation and configuration management software
+amd64 hppa ppc sparc x86
+elisp-common eutils java-utils-2 multilib ruby-fakegem ruby-ng toolchain-funcs user versionator xemacs-elisp-common
+augeas diff doc emacs ldap minimal rrdtool selinux shadow sqlite3 vim-syntax xemacs test elibc_FreeBSD ruby_targets_ruby18 ruby_targets_ruby19 ruby_targets_ree18 test test
+|| ( ruby_targets_ruby18 ruby_targets_ruby19 ruby_targets_ree18 )
+
+
+4
+
+compile configure install postinst postrm prepare setup test unpack
+
+
+
+
+
