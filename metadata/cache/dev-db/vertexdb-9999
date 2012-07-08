@@ -1,0 +1,22 @@
+=dev-libs/yajl-1.0.12 !>=dev-libs/yajl-2.0.0 dev-db/tokyocabinet dev-libs/libevent >=dev-util/cmake-2.8.4 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) dev-vcs/git
+=dev-libs/yajl-1.0.12 !>=dev-libs/yajl-2.0.0 dev-db/tokyocabinet dev-libs/libevent
+live
+
+
+http://www.dekorte.com/projects/opensource/vertexdb/
+BSD
+VertexDB is a high performance graph database server
+
+base cmake-utils eutils flag-o-matic git-2 multilib toolchain-funcs user
+utils server test
+
+
+
+4
+
+compile configure install prepare test unpack
+
+
+
+
+

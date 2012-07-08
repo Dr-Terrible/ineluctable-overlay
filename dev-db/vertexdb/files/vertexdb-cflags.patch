@@ -1,0 +1,11 @@
+--- vertexdb-9999/CMakeLists.txt
++++ vertexdb-9999/CMakeLists.txt
+@@ -3,7 +3,7 @@
+ project(vertexdb)
+ 
+ add_subdirectory(source/basekit)
+-add_definitions(-O0 -g)
++#add_definitions(-O0 -g)
+ 
+ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/modules/")
+ 

@@ -1,0 +1,22 @@
+--- source/VertexServer.c	2012-07-08 10:19:31.731994001 +0200
++++ source/VertexServer.c	2012-07-08 10:20:03.114993954 +0200
+@@ -72,6 +72,8 @@
+ #include <sys/time.h>
+ #include <sys/resource.h>
+ 
++#include <yajl/yajl_gen.h>
++
+ #define USER_ID_LENGTH 12
+ //#define COMMIT_PERIODICALLY 1
+ 
+--- source/VertexServer.h.orig	2012-07-08 10:29:21.880993084 +0200
++++ source/VertexServer.h	2012-07-08 10:29:37.575993059 +0200
+@@ -4,6 +4,8 @@
+ #include "Yajl_extras.h"
+ #include "HttpServer.h"
+ 
++#include <yajl/yajl_gen.h>
++
+ typedef struct
+ {
+ 	// the database

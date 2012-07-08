@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<maintainer>
+		<email>flameeyes@gentoo.org</email>
+		<name>Diego Elio Pettenò</name>
+		<description>Proxy maintainer. CC him on bugs</description>
+	</maintainer>
+	<longdescription lang="en">
+		Yet Another JSON Library. YAJL is a small event-driven (SAX-style) JSON
+		parser written in ANSI C, and a small validating JSON generator. YAJL is
+		released under the ISC license.
+	</longdescription>
+</pkgmetadata>
+
