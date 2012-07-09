@@ -25,7 +25,7 @@ start() {
 	ebegin "Starting puppet"
 	start-stop-daemon --start --quiet \
 		--pidfile "${PUPPET_PID_DIR}/agent.pid" \
-		--exec /usr/bin/puppetd -- ${options}
+		--exec /usr/sbin/puppetd -- ${options}
 	eend $? "Failed to start puppet"
 }
 

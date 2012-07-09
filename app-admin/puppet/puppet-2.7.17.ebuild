@@ -88,8 +88,8 @@ all_ruby_install() {
 	fowners -R puppet:puppet /var/{run,log}/puppet
 
 	if use minimal ; then
-		rm "${ED}/usr/bin/puppetmasterd"
-		rm "${ED}/etc/puppet/auth.conf"
+		rm "${ED}/usr/sbin/puppetmasterd" || die
+		rm "${ED}/etc/puppet/auth.conf" || die
 	else
 		newinitd "${FILESDIR}"/puppetmaster-2.7.6.init puppetmaster
 		newconfd "${FILESDIR}"/puppetmaster-2.7.6.confd puppetmaster

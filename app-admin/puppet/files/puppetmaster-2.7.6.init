@@ -15,7 +15,7 @@ if [ -n "${PUPPETMASTER_PORT}" ] ; then
 fi
 command_args="${command_args} ${PUPPETMASTER_EXTRA_OPTS}"
 
-command="/usr/bin/puppetmasterd"
+command="/usr/sbin/puppetmasterd"
 extra_started_commands="reload"
 
 depend() {

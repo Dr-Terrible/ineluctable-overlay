@@ -19,6 +19,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="dev-python/django
-	>=dev-python/Whoosh-0.3"
+	>=dev-python/whoosh-0.3"
 
 S="${WORKDIR}/toastdriven-${PN}-70e0985"
