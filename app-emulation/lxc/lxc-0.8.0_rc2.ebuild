@@ -1,12 +1,12 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-emulation/lxc/lxc-0.8.0_rc1-r5.ebuild,v 1.1 2012/06/07 12:59:27 flameeyes Exp $
+# $Header: $
 
 EAPI=4
 
 MY_P="${P/_/-}"
 
-BACKPORTS=""
+#BACKPORTS=1
 
 inherit eutils linux-info versionator flag-o-matic
 
@@ -17,7 +17,7 @@ fi
 DESCRIPTION="LinuX Containers userspace utilities"
 HOMEPAGE="http://lxc.sourceforge.net/"
 SRC_URI="http://lxc.sourceforge.net/download/lxc/${MY_P}.tar.gz
-	${BACKPORTS:+http://dev.gentoo.org/~flameeyes/${PN}/${MY_P}-backports-${BACKPORTS}.tar.xz}"
+	${BACKPORTS:+http://dev.gentoo.org/~flameeyes/${PN}/${PN}-0.8.0-rc1-backports-${BACKPORTS}.tar.xz}"
 S="${WORKDIR}/${MY_P}"
 
 KEYWORDS="~amd64 ~ppc64 ~x86"
@@ -94,7 +94,7 @@ src_prepare() {
 }
 
 src_configure() {
-	append-flags -fno-strict-aliasing
+#	append-flags -fno-strict-aliasing
 
 	econf \
 		--localstatedir=/var \
