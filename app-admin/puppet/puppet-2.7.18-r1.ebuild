@@ -27,7 +27,7 @@ ruby_add_rdepend "
 	doc? ( dev-ruby/rdoc )
 	ldap? ( dev-ruby/ruby-ldap )
 	shadow? ( dev-ruby/ruby-shadow )
-	sqlite3? ( dev-ruby/sqlite3-ruby )
+	sqlite3? ( dev-ruby/sqlite3 )
 	virtual/ruby-ssl"
 
 DEPEND="${DEPEND}
