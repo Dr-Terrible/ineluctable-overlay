@@ -74,7 +74,7 @@ all_ruby_prepare() {
 
 all_ruby_install() {
 	dodoc doc/{CHANGELOG,INSTALL,README_FOR_APP,RUNNING_TESTS,UPGRADING} || die
-	rm -fr doc || die
+	rm -r doc || die
 	dodoc README.rdoc || die
 	rm README.rdoc || die
 
@@ -91,7 +91,6 @@ all_ruby_install() {
 		"${REDMINE_DIR}/files" \
 		"${REDMINE_DIR}/public/plugin_assets" \
 		"${REDMINE_DIR}/tmp" \
-		"${REDMINE_DIR}/log" \
 		/var/log/${PN} || die
 	# for SCM
 	fowners redmine:redmine "${REDMINE_DIR}" || die
