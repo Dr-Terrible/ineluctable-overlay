@@ -8,7 +8,6 @@ USE_RUBY="ruby18 ruby19 ree18"
 RUBY_FAKEGEM_TASK_TEST="spec"
 
 inherit ruby-fakegem
-#inherit ruby-ng
 
 DESCRIPTION="A fast and very simple Ruby web server"
 HOMEPAGE="http://code.macournoyer.com/thin/"
@@ -28,7 +27,7 @@ RDEPEND="${RDEPEND}"
 # Rakefile loads thin!
 mydeps=">=dev-ruby/daemons-1.0.9
 	>=dev-ruby/rack-1.0.0
-	>=dev-ruby/eventmachine-1.0.0
+	>=dev-ruby/eventmachine-1.0.0_rc1
 	virtual/ruby-ssl"
 
 ruby_add_rdepend "${mydeps}"

@@ -1,16 +1,13 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=4
-# jruby → has shims for Java handling but tests fail badly, remaining
-# stuck; avoid that for now.
 USE_RUBY="ruby18 ree18 ruby19"
 
 RUBY_FAKEGEM_VERSION="${PV//_/.}"
 RUBY_FAKEGEM_VERSION="${RUBY_FAKEGEM_VERSION//rc/rc.}"
 RUBY_FAKEGEM_DOCDIR="rdoc"
-#RUBY_FAKEGEM_EXTRADOC="docs/ChangeLog README"
 
 inherit ruby-fakegem
 
@@ -26,17 +23,6 @@ DEPEND="${DEPEND}
 	dev-libs/openssl"
 RDEPEND="${RDEPEND}
 	dev-libs/openssl"
-
-#all_ruby_prepare() {
-	# fix building with RDoc 2.5.x (bug #317281) — upstream b12663e475514b02a28b60d4427a48be7d75faac
-	# fix tests with Ruby 1.9 — sent upstream
-	# fix tests on non-FreeBSD (where kqueue is missing) — sent upstream
-	# fix building when git is not available — sent upstream
-#	epatch "${FILESDIR}/${P}-gentoo.patch"
-
-	# Fix https test: bug 299782
-#	epatch "${FILESDIR}/${P}-https-test.patch"
-#}
 
 each_ruby_configure() {
 	for extdir in ext ext/fastfilereader; do
