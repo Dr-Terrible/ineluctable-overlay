@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<longdescription lang="en">
+		Feedzirra is a feed library that is designed to get and update many feeds as
+		quickly as possible. This includes using libcurl-multi through the curb gem
+		for faster http gets, and libxml through nokogiri and sax-machine for
+		faster parsing.
+	</longdescription>
+</pkgmetadata>
+
