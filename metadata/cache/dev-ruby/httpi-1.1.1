@@ -1,0 +1,22 @@
+dev-ruby/autotest-rails >=dev-ruby/mocha-0.9.9 >=dev-ruby/rake-0.9.2.2 >=dev-ruby/rspec-2.7 >=dev-ruby/webmock-1.6.4 >=dev-ruby/zentest-4.7.0 ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby18? ( doc? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( doc? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ruby18? ( test? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( test? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) test? ( ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) )
+dev-ruby/rake ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] )
+0
+mirror://rubygems/httpi-1.1.1.gem
+
+https://github.com/rubiii/httpi
+as-is
+HTTPI provides a common interface for Ruby HTTP libraries.
+~amd64 ~x86
+eutils java-utils-2 multilib ruby-fakegem ruby-ng toolchain-funcs user versionator
+elibc_FreeBSD ruby_targets_ruby18 ruby_targets_ruby19 doc test test
+|| ( ruby_targets_ruby18 ruby_targets_ruby19 )
+
+
+4
+
+compile configure install prepare setup test unpack
+
+
+
+
+
