@@ -1,0 +1,22 @@
+dev-ruby/rspec ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby18? ( doc? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( doc? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ruby18? ( test? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( test? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) test? ( ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) )
+>=dev-ruby/activesupport-3.1.1 dev-ruby/builder dev-ruby/curb >=dev-ruby/i18n-0.5.0 dev-ruby/loofah dev-ruby/nokogiri dev-ruby/rake =dev-ruby/sax-machine-0.1.0 ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] )
+0
+https://github.com/pauldix/feedzirra/tarball/v0.2.0.rc2 -> feedzirra-0.2.0_rc2.tgz
+
+https://github.com/pauldix/feedzirra
+as-is
+A feed fetching and parsing library for Ruby.
+~amd64 ~x86
+eutils java-utils-2 multilib ruby-fakegem ruby-ng toolchain-funcs user versionator
+elibc_FreeBSD ruby_targets_ruby18 ruby_targets_ruby19 doc test test
+|| ( ruby_targets_ruby18 ruby_targets_ruby19 )
+
+
+4
+
+compile configure install prepare setup test unpack
+
+
+
+
+
