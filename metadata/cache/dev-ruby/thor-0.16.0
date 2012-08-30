@@ -1,0 +1,22 @@
+ruby_targets_ruby18? ( test? ( dev-ruby/fakeweb[ruby_targets_ruby18] dev-ruby/rspec:2[ruby_targets_ruby18] dev-ruby/childlabor[ruby_targets_ruby18] ) doc? ( dev-ruby/rdoc[ruby_targets_ruby18] ) ) ruby_targets_ree18? ( test? ( dev-ruby/fakeweb[ruby_targets_ree18] dev-ruby/rspec:2[ruby_targets_ree18] dev-ruby/childlabor[ruby_targets_ree18] ) doc? ( dev-ruby/rdoc[ruby_targets_ree18] ) ) ruby_targets_ruby19? ( test? ( dev-ruby/fakeweb[ruby_targets_ruby19] dev-ruby/rspec:2[ruby_targets_ruby19] dev-ruby/childlabor[ruby_targets_ruby19] ) doc? ( dev-ruby/rdoc[ruby_targets_ruby19] ) ) ruby_targets_jruby? ( test? ( dev-ruby/fakeweb[ruby_targets_jruby] dev-ruby/rspec:2[ruby_targets_jruby] dev-ruby/childlabor[ruby_targets_jruby] ) doc? ( dev-ruby/rdoc[ruby_targets_jruby] ) ) ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ree18? ( dev-lang/ruby-enterprise:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_jruby? ( dev-java/jruby ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ree18? ( virtual/rubygems[ruby_targets_ree18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_jruby? ( virtual/rubygems[ruby_targets_jruby] ) test? ( ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ree18? ( virtual/rubygems[ruby_targets_ree18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_jruby? ( virtual/rubygems[ruby_targets_jruby] ) )
+ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ree18? ( dev-lang/ruby-enterprise:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_jruby? ( dev-java/jruby ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ree18? ( virtual/rubygems[ruby_targets_ree18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_jruby? ( virtual/rubygems[ruby_targets_jruby] )
+0
+http://github.com/wycats/thor/tarball/v0.16.0 -> thor-git-0.16.0.tgz
+
+http://github.com/wycats/thor
+MIT
+A scripting framework that replaces rake and sake
+~amd64
+eutils java-utils-2 multilib ruby-fakegem ruby-ng toolchain-funcs user versionator
+doc elibc_FreeBSD ruby_targets_ruby18 ruby_targets_ree18 ruby_targets_ruby19 ruby_targets_jruby doc test
+|| ( ruby_targets_ruby18 ruby_targets_ree18 ruby_targets_ruby19 ruby_targets_jruby )
+
+
+4
+
+compile configure install prepare setup test unpack
+
+
+
+
+

@@ -8,7 +8,10 @@ EAPI=4
 # ways unrelated to this package.
 USE_RUBY="ruby18 ruby19 ree18"
 
-RUBY_FAKEGEM_TASK_TEST="spec"
+RUBY_FAKEGEM_RECIPE_TEST="rspec"
+
+RUBY_FAKEGEM_VERSION="${PV//_/.}"
+RUBY_FAKEGEM_VERSION="${RUBY_FAKEGEM_VERSION//rc/rc.}"
 
 # No documentation task
 RUBY_FAKEGEM_TASK_DOC=""
@@ -17,7 +20,9 @@ RUBY_FAKEGEM_EXTRADOC="README.md CHANGELOG.md ISSUES.md UPGRADING.md"
 inherit ruby-fakegem
 
 DESCRIPTION="An easy way to vendor gem dependencies"
-HOMEPAGE="http://github.com/carlhuda/bundler"
+HOMEPAGE="https://github.com/carlhuda/bundler"
+SRC_URI="https://github.com/carlhuda/${PN}/tarball/v1.2.0.rc.2 -> ${P}.tgz"
+RUBY_S="carlhuda-bundler-*"
 
 LICENSE="MIT"
 SLOT="0"
@@ -26,31 +31,21 @@ IUSE=""
 
 ruby_add_rdepend virtual/rubygems
 
-ruby_add_bdepend "test? ( app-text/ronn dev-ruby/rspec:2 )"
+ruby_add_bdepend "test? ( app-text/ronn )"
 
-RDEPEND="${RDEPEND}
-	dev-vcs/git"
-DEPEND="${DEPEND}
-	test? ( dev-vcs/git )"
+RDEPEND+=" dev-vcs/git"
+DEPEND+=" test? ( dev-vcs/git )"
+
+#RUBY_PATCHES=( "${P}-nouserpriv.patch" )
 
 all_ruby_prepare() {
-	# Reported upstream: http://github.com/carlhuda/bundler/issues/issue/738
-	sed -i -e '726s/should/should_not/' spec/runtime/setup_spec.rb || die
+	# Bundler only supports running the specs from git:
+	# http://github.com/carlhuda/bundler/issues/issue/738
+	sed -i -e '751s/should/should_not/' spec/runtime/setup_spec.rb || die
 
 	# Fails randomly and no clear cause can be found. Might be related
 	# to bug 346357. This was broken in previous releases without a
 	# failing spec, so patch out this spec for now since it is not a
 	# regression.
-	sed -i -e '49,54d' spec/install/deploy_spec.rb || die
-}
-
-each_ruby_prepare() {
-	case ${RUBY} in
-		*ruby19)
-			# Account for different wording in ruby 1.9.3.
-			sed -i -e 's/no such file to load/cannot load such file/' spec/runtime/require_spec.rb spec/install/gems/groups_spec.rb || die
-			;;
-		*)
-			;;
-	esac
+	sed -i -e '/works when you bundle exec bundle/,/^  end/ s:^:#:' spec/install/deploy_spec.rb || die
 }
