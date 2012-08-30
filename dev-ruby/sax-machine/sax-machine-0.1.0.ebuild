@@ -11,7 +11,8 @@ inherit ruby-fakegem
 
 DESCRIPTION="Declarative SAX Parsing with Nokogiri"
 HOMEPAGE="https://github.com/pauldix/sax-machine"
-#SRC_URI="https://github.com/pauldix/${PN}/tarball/v${PV} -> ${P}.tgz"
+SRC_URI="https://github.com/pauldix/${PN}/tarball/v${PV} -> ${P}.tgz"
+RUBY_S="pauldix-${PN}-*"
 
 LICENSE="as-is"
 SLOT="0"

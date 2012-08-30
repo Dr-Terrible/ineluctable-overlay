@@ -5,8 +5,6 @@
 EAPI=4
 USE_RUBY="ruby18 ruby19"
 
-#RUBY_FAKEGEM_VERSION="${PV//_/.}"
-#RUBY_FAKEGEM_VERSION="${RUBY_FAKEGEM_VERSION//rc/rc.}"
 RUBY_FAKEGEM_DOCDIR="rdoc"
 
 inherit ruby-fakegem
