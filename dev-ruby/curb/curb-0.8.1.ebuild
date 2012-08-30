@@ -7,7 +7,7 @@ USE_RUBY="ruby18 ruby19"
 
 RUBY_FAKEGEM_DOCDIR="rdoc"
 
-inherit ruby-fakegem
+inherit multilib ruby-fakegem
 
 DESCRIPTION="Curb provides Ruby bindings for the libcurl(3), a fully-featured client-side URL transfer library."
 HOMEPAGE="http://curb.rubyforge.org"
@@ -18,4 +18,15 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="${DEPEND}"
-RDEPEND="${RDEPEND}"
+RDEPEND="${RDEPEND}
+	net-misc/curl"
+
+each_ruby_configure() {
+	pwd
+	${RUBY} -C ext extconf.rb || die
+}
+
+each_ruby_compile() {
+	emake -C ext || die
+	mv ext/curb_core$(get_modname) lib/ || die
+}
