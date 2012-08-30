@@ -22,11 +22,13 @@ RDEPEND="${RDEPEND}
 	net-misc/curl"
 
 each_ruby_configure() {
-	pwd
 	${RUBY} -C ext extconf.rb || die
 }
 
 each_ruby_compile() {
-	emake -C ext || die
+	emake -C ext \
+		CFLAGS="${CXXFLAGS} -fPIC" \
+		archflag="${LDFLAGS}" \
+		|| die "emake failed"
 	mv ext/curb_core$(get_modname) lib/ || die
 }
