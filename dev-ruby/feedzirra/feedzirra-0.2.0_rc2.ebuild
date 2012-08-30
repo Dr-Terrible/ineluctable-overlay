@@ -7,9 +7,10 @@ USE_RUBY="ruby18 ruby19"
 
 RUBY_FAKEGEM_VERSION="${PV//_/.}"
 RUBY_FAKEGEM_VERSION="${RUBY_FAKEGEM_VERSION//rc/rc.}"
+RUBY_FAKEGEM_GEMSPEC="feedzirra.gemspec"
 RUBY_FAKEGEM_DOCDIR="rdoc"
 
-inherit ruby-fakegem
+inherit ruby-fakegem eutils
 
 DESCRIPTION="A feed fetching and parsing library for Ruby."
 HOMEPAGE="https://github.com/pauldix/feedzirra"
@@ -33,3 +34,8 @@ RDEPEND="${RDEPEND}
 	dev-ruby/rake
 	>=dev-ruby/gorillib-0.1.9
 	>=dev-ruby/sax-machine-0.2.0_rc1"
+
+all_ruby_prepare() {
+	# FIX: gemspec is missing a require
+	epatch "${FILESDIR}/${PN}.gemspec.patch" || die
+}
