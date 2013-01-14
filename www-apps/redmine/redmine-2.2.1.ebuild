@@ -1,9 +1,12 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/www-apps/redmine/redmine-2.2.0.ebuild,v 1.1 2013/01/07 13:39:26 matsuu Exp $
 
-EAPI=5
-#RUBY_OPTIONAL="yes"
+EAPI="3"
+# ruby19: dev-ruby/rack has no ruby19
+# jruby: dev-ruby/rails has no jruby
+# rbx: dev-ruby/rails has no rbx
+#USE_RUBY="ruby18 ree18"
 USE_RUBY="ruby18 ruby19"
 inherit eutils depend.apache ruby-ng
 
@@ -17,17 +20,16 @@ SLOT="0"
 #IUSE="bazaar cvs darcs fastcgi git imagemagick mercurial mysql openid passenger postgres sqlite3 subversion"
 IUSE="fastcgi imagemagick ldap openid passenger"
 
-RDEPEND="$(ruby_implementation_depend ruby18 '>=' -1.8.7)[ssl]
-	$(ruby_implementation_depend ruby19 '>=' -1.9.3)[ssl]"
+#RDEPEND="$(ruby_implementation_depend ruby18 '>=' -1.8.6)[ssl]"
 
 ruby_add_rdepend "virtual/ruby-ssl
 	virtual/rubygems
 	>=dev-ruby/coderay-1.0.6
 	dev-ruby/i18n:0.6
-	>=dev-ruby/rack-1.3.6
-	>=dev-ruby/tzinfo-0.3.31
 	dev-ruby/rake
-	>=dev-ruby/rails-3.2.5:3.2
+	>=dev-ruby/rails-3.2.11:3.2
+	>=dev-ruby/jquery-rails-2.0.2
+	dev-ruby/builder:3
 	fastcgi? ( dev-ruby/fcgi )
 	imagemagick? ( >=dev-ruby/rmagick-2 )
 	ldap? ( >=dev-ruby/ruby-net-ldap-0.3.1 )
@@ -35,15 +37,40 @@ ruby_add_rdepend "virtual/ruby-ssl
 		>=dev-ruby/ruby-openid-2.1.4
 		>=dev-ruby/rack-openid-0.2.1
 	)
-	passenger? ( www-apache/passenger )"
-
-#USE_RUBY="ruby18" ruby_add_rdepend "ruby_targets_ruby18? ( >=dev-ruby/fastercsv-1.5 )"
+	passenger? ( www-apache/passenger )
+	"
+#	ruby_targets_ruby18? (
+#		>=dev-ruby/fastercsv-1.5
+#		postgres? ( >=dev-ruby/pg-0.11 )
+#		sqlite3? ( dev-ruby/sqlite3 )
+#		mysql? ( >=dev-ruby/mysql-ruby-2.8.1 )
+#	)
+#	ruby_targets_ruby19? (
+#		postgres? ( >=dev-ruby/pg-0.11 )
+#		sqlite3? ( dev-ruby/sqlite3 )
+#		mysql? ( dev-ruby/mysql2:0.3 )
+#	)
+#	ruby_targets_jruby? (
+#		dev-ruby/jruby-openssl
+#		>=dev-ruby/fastercsv-1.5
+#		mysql? ( dev-ruby/activerecord-jdbcmysql-adapter )
+#		postgres? ( dev-ruby/activerecord-jdbcpostgresql-adapter )
+#		sqlite3? ( dev-ruby/activerecord-jdbcsqlite3-adapter )
+#	)
 
 #ruby_add_bdepend ">=dev-ruby/rdoc-2.4.2
+#	yard
 #	test? (
-#		>=dev-ruby/shoulda-2.10.3
-#		>=dev-ruby/edavis10-object_daddy
-#		>=dev-ruby/mocha
+#		!ruby_targets_ruby19? (
+#			>=dev-ruby/shoulda-2.11
+#		)
+#		ruby_targets_ruby19? (
+#			dev-ruby/test-unit
+#		)
+#		ruby_targets_jruby? (
+#			dev-ruby/test-unit
+#		)
+#		>=dev-ruby/mocha-0.12.3
 #	)"
 
 #RDEPEND="${RDEPEND}
@@ -68,8 +95,7 @@ all_ruby_prepare() {
 	# bug #406605
 	rm .gitignore .hgignore || die
 
-#	rm Gemfile config/preinitializer.rb || die
-#	epatch "${FILESDIR}/${PN}-1.4.1-bundler.patch" || die
+	rm Gemfile config/preinitializer.rb || die
 
 	echo "CONFIG_PROTECT=\"${EPREFIX}${REDMINE_DIR}/config\"" > "${T}/50${PN}"
 	echo "CONFIG_PROTECT_MASK=\"${EPREFIX}${REDMINE_DIR}/config/locales ${EPREFIX}${REDMINE_DIR}/config/settings.yml\"" >> "${T}/50${PN}"
@@ -77,7 +103,7 @@ all_ruby_prepare() {
 
 all_ruby_install() {
 	dodoc doc/{CHANGELOG,INSTALL,README_FOR_APP,RUNNING_TESTS,UPGRADING} || die
-	rm -r doc || die
+	rm -fr doc || die
 	dodoc README.rdoc || die
 	rm README.rdoc || die
 
@@ -110,7 +136,7 @@ all_ruby_install() {
 		doins "${FILESDIR}/10_redmine_vhost.conf" || die
 	else
 		newconfd "${FILESDIR}/${PN}.confd" ${PN} || die
-		newinitd "${FILESDIR}/${PN}.initd" ${PN} || die
+		newinitd "${FILESDIR}/${PN}-2.initd" ${PN} || die
 		keepdir /var/run/${PN} || die
 		fowners -R redmine:redmine /var/run/${PN} || die
 		dosym /var/run/${PN}/ "${REDMINE_DIR}/tmp/pids" || die
@@ -120,7 +146,7 @@ all_ruby_install() {
 
 pkg_postinst() {
 	einfo
-	if [ -e "${EPREFIX}${REDMINE_DIR}/config/initializers/session_store.rb" ] ; then
+	if [ -e "${EPREFIX}${REDMINE_DIR}/config/initializers/session_store.rb" -o -e "${EPREFIX}${REDMINE_DIR}/config/initializers/secret_token.rb" ] ; then
 		elog "Execute the following command to upgrade environment:"
 		elog
 		elog "# emerge --config \"=${CATEGORY}/${PF}\""
@@ -148,19 +174,18 @@ pkg_config() {
 		die
 	fi
 
-	einfo "Using Rails Environment: ${RAILS_ENV}"
-	einfo "Using Ruby interpreter : ${RUBY}"
-	RAILS_ENV=${RAILS_ENV:-production}
-
-	if [ -z ${RUBY} && -x ${RUBY} ]; then
-		eerror "The config process wasn't able to find a valid ruby interpreter."
-		eerror "Please use eselect to select a ruby installation:"
-		eerror "# eselect ruby list"
-		die
-	fi
+	local RAILS_ENV=${RAILS_ENV:-production}
+	local RUBY=${RUBY:-ruby18}
 
 	cd "${EPREFIX}${REDMINE_DIR}"
 	if [ -e "${EPREFIX}${REDMINE_DIR}/config/initializers/session_store.rb" ] ; then
+		einfo
+		einfo "Generate secret token."
+		einfo
+		rm config/initializers/session_store.rb || die
+		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake generate_secret_token || die
+	fi
+	if [ -e "${EPREFIX}${REDMINE_DIR}/config/initializers/secret_token.rb" ] ; then
 		einfo
 		einfo "Upgrade database."
 		einfo
@@ -168,7 +193,6 @@ pkg_config() {
 		einfo "Migrate database."
 		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake db:migrate || die
 		einfo "Upgrade the plugin migrations."
-		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake db:migrate:upgrade_plugin_migrations # || die
 		RAILS_ENV="${RAILS_ENV}" ${RUBY} -S rake redmine:plugins:migrate || die
 		einfo "Clear the cache and the existing sessions."
 		${RUBY} -S rake tmp:cache:clear || die
