@@ -26,10 +26,12 @@ ruby_add_rdepend "virtual/ruby-ssl
 	virtual/rubygems
 	>=dev-ruby/coderay-1.0.6
 	dev-ruby/i18n:0.6
-	dev-ruby/rake
+	=dev-ruby/rake-10.0.3
 	>=dev-ruby/rails-3.2.11:3.2
 	>=dev-ruby/jquery-rails-2.0.2
 	dev-ruby/builder:3
+	dev-ruby/bundler
+	>=dev-ruby/mocha-0.12.7
 	fastcgi? ( dev-ruby/fcgi )
 	imagemagick? ( >=dev-ruby/rmagick-2 )
 	ldap? ( >=dev-ruby/ruby-net-ldap-0.3.1 )
@@ -92,7 +94,7 @@ all_ruby_prepare() {
 	# bug #406605
 	rm .gitignore .hgignore || die
 
-	rm Gemfile config/preinitializer.rb || die
+	#rm Gemfile config/preinitializer.rb || die
 
 	echo "CONFIG_PROTECT=\"${EPREFIX}${REDMINE_DIR}/config\"" > "${T}/50${PN}"
 	echo "CONFIG_PROTECT_MASK=\"${EPREFIX}${REDMINE_DIR}/config/locales ${EPREFIX}${REDMINE_DIR}/config/settings.yml\"" >> "${T}/50${PN}"
