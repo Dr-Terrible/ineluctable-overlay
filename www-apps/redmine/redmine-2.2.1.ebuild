@@ -8,7 +8,7 @@ EAPI="3"
 # rbx: dev-ruby/rails has no rbx
 #USE_RUBY="ruby18 ree18"
 USE_RUBY="ruby18 ruby19"
-inherit eutils depend.apache ruby-ng
+inherit eutils user depend.apache ruby-ng
 
 DESCRIPTION="Redmine is a flexible project management web application written using Ruby on Rails framework"
 HOMEPAGE="http://www.redmine.org/"
@@ -33,10 +33,7 @@ ruby_add_rdepend "virtual/ruby-ssl
 	fastcgi? ( dev-ruby/fcgi )
 	imagemagick? ( >=dev-ruby/rmagick-2 )
 	ldap? ( >=dev-ruby/ruby-net-ldap-0.3.1 )
-	openid? (
-		>=dev-ruby/ruby-openid-2.1.4
-		>=dev-ruby/rack-openid-0.2.1
-	)
+	openid? ( >=dev-ruby/ruby-openid-2.1.4 )
 	passenger? ( www-apache/passenger )
 	"
 #	ruby_targets_ruby18? (
