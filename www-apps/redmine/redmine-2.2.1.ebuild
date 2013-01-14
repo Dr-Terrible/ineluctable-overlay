@@ -3,7 +3,6 @@
 # $Header: /var/cvsroot/gentoo-x86/www-apps/redmine/redmine-2.2.0.ebuild,v 1.1 2013/01/07 13:39:26 matsuu Exp $
 
 EAPI="3"
-# ruby19: dev-ruby/rack has no ruby19
 # jruby: dev-ruby/rails has no jruby
 # rbx: dev-ruby/rails has no rbx
 #USE_RUBY="ruby18 ree18"
@@ -26,11 +25,12 @@ ruby_add_rdepend "virtual/ruby-ssl
 	virtual/rubygems
 	>=dev-ruby/coderay-1.0.6
 	dev-ruby/i18n:0.6
-	=dev-ruby/rake-10.0.3
+	>=dev-ruby/rake-10.0.3
 	>=dev-ruby/rails-3.2.11:3.2
 	>=dev-ruby/jquery-rails-2.0.2
 	dev-ruby/builder:3
 	dev-ruby/bundler
+	>=dev-ruby/rack-1.4.4
 	>=dev-ruby/mocha-0.12.7
 	fastcgi? ( dev-ruby/fcgi )
 	imagemagick? ( >=dev-ruby/rmagick-2 )
