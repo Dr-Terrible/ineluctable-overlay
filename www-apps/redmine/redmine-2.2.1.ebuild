@@ -31,7 +31,9 @@ ruby_add_rdepend "virtual/ruby-ssl
 	dev-ruby/builder:3
 	dev-ruby/bundler
 	>=dev-ruby/rack-1.4.4
+	>=dev-ruby/rack-test-0.6.2
 	>=dev-ruby/mocha-0.12.7
+	>=dev-ruby/treetop-1.4.12
 	fastcgi? ( dev-ruby/fcgi )
 	imagemagick? ( >=dev-ruby/rmagick-2 )
 	ldap? ( >=dev-ruby/ruby-net-ldap-0.3.1 )
