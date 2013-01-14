@@ -8,11 +8,11 @@ GOD_CONFIG_DIR="${GOD_CONFIG_DIR:-/etc/god}"
 GOD_LOG_FILE="${GOD_LOG_FILE:-/var/log/god/god.log}"
 GOD_LOG_LEVEL="${GOD_LOG_LEVEL:-debug}"
 GOD_EXECUTABLE="${GOD_EXECUTABLE:-/usr/local/bin/god}"
+GOD_PORT"${GOD_PORT}:-"
 PIDFILE="${PIDFILE:-/var/run/god/god.pid}"
 
 depend() {
-	need net
-	use logger
+	[[ -n ${GOD_PORT} ]] && need net
 }
 
 # check paths for pid / log files
