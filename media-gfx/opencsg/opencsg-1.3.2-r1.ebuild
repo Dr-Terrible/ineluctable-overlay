@@ -7,7 +7,7 @@ EAPI=4
 inherit qt4-r2
 
 DESCRIPTION="The Constructive Solid Geometry rendering library"
-HOMEPAGE="http://www.opencsg.org/"
+HOMEPAGE="http://www.opencsg.org"
 SRC_URI="http://www.opencsg.org/OpenCSG-${PV}.tar.gz"
 
 LICENSE="GPL-2"
@@ -21,18 +21,15 @@ RDEPEND="${CDEPEND}"
 
 S="${WORKDIR}/OpenCSG-${PV}"
 
-#src_unpack() {
-#	unpack ${A}
-#
-#	/bin/rm -Rf "${S}"/glew
-#}
-
 src_prepare() {
-	# We actually want to install somthing
+	# not sure why
+	rm -r "${S}"/glew || die
+
+	# We actually want to install something
 	cat << EOF >> src/src.pro
 include.path=/usr/include
 include.files=../include/*
-target.path=$(get_libdir)
+target.path=/usr/$(get_libdir)
 INSTALLS += target include
 EOF
 
