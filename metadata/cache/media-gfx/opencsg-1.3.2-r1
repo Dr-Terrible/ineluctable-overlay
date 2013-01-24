@@ -1,0 +1,22 @@
+media-libs/glew x11-libs/qt-core:4 sys-devel/gcc
+media-libs/glew x11-libs/qt-core:4
+0
+http://www.opencsg.org/OpenCSG-1.3.2.tar.gz
+
+http://www.opencsg.org/
+GPL-2
+The Constructive Solid Geometry rendering library
+~amd64 ~x86
+base eutils multilib qt4-r2 toolchain-funcs user
+
+
+
+
+4
+
+compile configure install prepare unpack
+
+
+
+
+
