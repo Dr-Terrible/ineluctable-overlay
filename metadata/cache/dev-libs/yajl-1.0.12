@@ -1,4 +1,4 @@
->=dev-util/cmake-2.8.4 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+>=dev-util/cmake-2.8.8 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
 
 0
 http://github.com/lloyd/yajl/tarball/1.0.12 -> yajl-1.0.12.tar.gz
