@@ -59,6 +59,9 @@ all_ruby_prepare() {
 
 	# nasty but too complex to fix up for now :(
 	use test || rm tasks/spec.rake
+
+	# FIX: Replace obsolete Rake::RDocTask with RDoc::Task and updated RDoc task
+	epatch "${FILESDIR}/${PN}".rake.patch
 }
 
 each_ruby_compile() {
