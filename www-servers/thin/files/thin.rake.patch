@@ -1,5 +1,5 @@
---- rdoc.rake.orig	2013-02-22 15:26:46.911131298 +0100
-+++ rdoc.rake	2013-02-22 15:28:19.845126578 +0100
+--- tasks/rdoc.rake
++++ tasks/rdoc.rake
 @@ -1,18 +1,18 @@
 -require 'rake/rdoctask'
 +require 'rdoc/task'
