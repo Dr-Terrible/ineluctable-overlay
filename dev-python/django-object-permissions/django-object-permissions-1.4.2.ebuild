@@ -1,13 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-SUPPORT_PYTHON_ABIS=1
-PYTHON_DEPEND=2
-RESTRICT_PYTHON_ABIS="3.*"
-
-inherit distutils
+EAPI=5
+PYTHON_COMPAT=( python{2_6,2_7} )
+inherit distutils-r1
 
 DESCRIPTION="This is an implementation of Django Object Permissions"
 HOMEPAGE="http://code.osuosl.org/projects/django-object-permissions"

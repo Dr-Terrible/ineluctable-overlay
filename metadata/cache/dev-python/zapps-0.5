@@ -1,20 +1,20 @@
-=dev-lang/python-2*
-=dev-lang/python-2*
+userland_GNU? ( >=sys-apps/coreutils-8.5 ) python_targets_python2_6? ( >=dev-lang/python-2.6.8-r3:2.6 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) dev-lang/python-exec:=[python_targets_python2_6(-)?,python_targets_python2_7(-)?,-python_single_target_python2_6(-),-python_single_target_python2_7(-)]
+python_targets_python2_6? ( >=dev-lang/python-2.6.8-r3:2.6 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) dev-lang/python-exec:=[python_targets_python2_6(-)?,python_targets_python2_7(-)?,-python_single_target_python2_6(-),-python_single_target_python2_7(-)]
 0
 http://www.dexy.it/external-dependencies/zapps-0.5.tar.gz
 
 http://pypi.python.org/pypi/zapps
-as-is
+HPND
 A book compiler for programmers where code and prose are separate (a Yapps fork).
 
-distutils multilib python toolchain-funcs
+distutils-r1 eutils multibuild multilib multiprocessing python-r1 python-utils-r1 toolchain-funcs user
+python_targets_python2_6 python_targets_python2_7
+|| ( python_targets_python2_6 python_targets_python2_7 )
 
 
+5
 
-
-4
-
-compile install postinst postrm prepare setup
+compile configure install prepare test
 
 
 
