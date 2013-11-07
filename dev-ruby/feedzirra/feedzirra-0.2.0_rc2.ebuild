@@ -19,12 +19,10 @@ RUBY_S="pauldix-${PN}-*"
 
 LICENSE="HPND"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
-DEPEND="${DEPEND}"
-RDEPEND="${RDEPEND}
-	>=dev-ruby/loofah-1.2.1
+ruby_add_rdepend ">=dev-ruby/loofah-1.2.1
 	>=dev-ruby/sax-machine-0.2.0_rc1
 	>=dev-ruby/curb-0.8.5
 	dev-ruby/nokogiri"

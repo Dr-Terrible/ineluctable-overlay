@@ -1,18 +1,18 @@
-dev-ruby/hoe dev-ruby/json virtual/ruby-minitest dev-ruby/rake dev-ruby/rr ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby18? ( doc? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( doc? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ruby18? ( test? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( test? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) test? ( ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) )
-dev-ruby/nokogiri ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] )
+test? ( ruby_targets_ruby18? ( dev-ruby/nokogiri[ruby_targets_ruby18] ) ruby_targets_ruby19? ( dev-ruby/nokogiri[ruby_targets_ruby19] ) ruby_targets_ruby20? ( dev-ruby/nokogiri[ruby_targets_ruby20] ) ) ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby20? ( dev-lang/ruby:2.0 ) ruby_targets_ruby18? ( doc? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( doc? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ruby20? ( doc? ( dev-ruby/rake[ruby_targets_ruby20] ) ) ruby_targets_ruby18? ( test? ( dev-ruby/rake[ruby_targets_ruby18] ) ) ruby_targets_ruby19? ( test? ( dev-ruby/rake[ruby_targets_ruby19] ) ) ruby_targets_ruby20? ( test? ( dev-ruby/rake[ruby_targets_ruby20] ) ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_ruby20? ( virtual/rubygems[ruby_targets_ruby20] ) test? ( ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_ruby20? ( virtual/rubygems[ruby_targets_ruby20] ) )
+ruby_targets_ruby18? ( dev-ruby/nokogiri[ruby_targets_ruby18] ) ruby_targets_ruby19? ( dev-ruby/nokogiri[ruby_targets_ruby19] ) ruby_targets_ruby20? ( dev-ruby/nokogiri[ruby_targets_ruby20] ) ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby20? ( dev-lang/ruby:2.0 ) ruby_targets_ruby18? ( virtual/rubygems[ruby_targets_ruby18] ) ruby_targets_ruby19? ( virtual/rubygems[ruby_targets_ruby19] ) ruby_targets_ruby20? ( virtual/rubygems[ruby_targets_ruby20] )
 0
-https://github.com/flavorjones/loofah/tarball/v1.2.1 -> loofah-1.2.1.tgz
+mirror://rubygems/loofah-1.2.1.gem
 
 https://github.com/flavorjones/loofah
-as-is
+MIT
 Loofah is a general library for manipulating and transforming HTML/XML documents and fragments.
-~amd64 ~x86
+~amd64 ~arm ~x86
 eutils java-utils-2 multilib ruby-fakegem ruby-ng toolchain-funcs user versionator
-elibc_FreeBSD ruby_targets_ruby18 ruby_targets_ruby19 doc test test
-|| ( ruby_targets_ruby18 ruby_targets_ruby19 )
+test elibc_FreeBSD ruby_targets_ruby18 ruby_targets_ruby19 ruby_targets_ruby20 doc test test
+|| ( ruby_targets_ruby18 ruby_targets_ruby19 ruby_targets_ruby20 )
 
 
-4
+5
 
 compile configure install prepare setup test unpack
 
