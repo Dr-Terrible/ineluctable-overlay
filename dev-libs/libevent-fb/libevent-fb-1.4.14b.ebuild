@@ -34,9 +34,7 @@ src_prepare() {
 }
 
 src_configure() {
-	econf \
-		$(use_enable static-libs static) \
-		$(use_enable ssl openssl)
+	econf $(use_enable static-libs static)
 }
 
 src_test() {
