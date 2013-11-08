@@ -34,8 +34,9 @@ src_prepare() {
 }
 
 src_configure() {
-	econf --prefix="${D}/usr/hhvm" \
-		$(use_enable static-libs static)
+	econf --prefix="/usr/hhvm/" \
+		--disable-shared \
+		--enable-static || die
 }
 
 src_test() {
