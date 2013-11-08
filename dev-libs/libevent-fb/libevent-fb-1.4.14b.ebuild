@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit eutils libtool
+inherit eutils autotools
 
 MY_P="${P//-fb/}-stable"
 MY_PN="${PN//-fb/}"
@@ -15,13 +15,9 @@ SRC_URI="mirror://github/${MY_PN}/${MY_PN}/${MY_P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="+ssl static-libs test"
+IUSE="static-libs test"
 
-DEPEND="ssl? ( dev-libs/openssl )"
-RDEPEND="
-	${DEPEND}
-	!<=dev-libs/9libs-1.0
-"
+RDEPEND="!<=dev-libs/9libs-1.0"
 
 S=${WORKDIR}/${MY_P}
 
@@ -29,7 +25,7 @@ DOCS=( README ChangeLog )
 
 src_prepare() {
 	epatch "${FILESDIR}/facebook-hhvm.patch" || die
-	elibtoolize
+	eautoreconf
 
 	# don't waste time building tests/samples
 	sed -i \
@@ -50,7 +46,7 @@ src_test() {
 	# emake -C test check | tee "${T}"/tests
 }
 
-src_install() {
-	default
-	prune_libtool_files
-}
+#src_install() {
+#	default
+#	prune_libtool_files
+#}
