@@ -34,7 +34,8 @@ src_prepare() {
 }
 
 src_configure() {
-	econf $(use_enable static-libs static)
+	econf --prefix="${D}/usr/hhvm" \
+		$(use_enable static-libs static)
 }
 
 src_test() {
@@ -44,7 +45,7 @@ src_test() {
 	# emake -C test check | tee "${T}"/tests
 }
 
-#src_install() {
-#	default
-#	prune_libtool_files
-#}
+src_install() {
+	default
+	prune_libtool_files
+}
