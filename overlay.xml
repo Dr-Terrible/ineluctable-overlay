@@ -1,5 +1,8 @@
-<repositories version="1.0">
-	<repo quality="testing"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+	<repo priority="50"
+	      quality="testing"
 	      status="unofficial">
 		<name>ineluctable-overlay</name>
 		<description lang="en">
