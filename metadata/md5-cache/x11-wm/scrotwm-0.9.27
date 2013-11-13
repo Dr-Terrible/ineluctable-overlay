@@ -1,7 +1,7 @@
 DEFINED_PHASES=compile install prepare
 DEPEND=x11-libs/libX11 x11-libs/libXrandr x11-misc/dmenu x11-libs/libXt x11-proto/xproto
 DESCRIPTION=Small dynamic tiling window manager for X11
-EAPI=3
+EAPI=5
 HOMEPAGE=http://www.scrotwm.org
 KEYWORDS=~amd64 ~x86
 LICENSE=ISC
@@ -9,4 +9,4 @@ RDEPEND=x11-libs/libX11 x11-libs/libXrandr
 SLOT=0
 SRC_URI=http://opensource.conformal.com/snapshots/scrotwm/scrotwm-0.9.27.tgz
 _eclasses_=eutils	4878e7f88afc0ba0866ac112190b0fd4	multilib	892e597faee02a5b94eb02ab512e7622	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953	user	d0a4d0735a6c0183d707ca919bd72f28
-_md5_=54d6ed391094adf971e97415bd0311e7
+_md5_=7939f38fa04fc963e72975be3967becf

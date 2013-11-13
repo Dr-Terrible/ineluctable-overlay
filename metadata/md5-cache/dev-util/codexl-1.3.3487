@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=CPU/GPU debugging and profiling suite by AMD
+EAPI=5
+HOMEPAGE=http://developer.amd.com/tools/heterogeneous-computing/codexl/
+KEYWORDS=~amd64
+LICENSE=AMD
+RESTRICT=strip
+SLOT=0
+SRC_URI=amd64? ( http://developer.amd.com/download/AMD_CodeXL_Linux_x86_64_1.3.3487.tar.gz )
+_md5_=f49439cb59725b455f1fba884bd471fd

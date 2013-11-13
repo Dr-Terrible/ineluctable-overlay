@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst prepare setup
+DEPEND=x11-libs/libXcursor x11-libs/libXfixes x11-libs/libXinerama x11-libs/libSM x11-libs/libXrandr x11-libs/libXext x11-libs/libXrender x11-libs/libXdamage x11-libs/libXcomposite x11-libs/libX11 x11-libs/libXi x11-libs/libXrandr x11-libs/gdk-pixbuf dev-libs/dbus-glib sys-apps/dbus dev-python/dbus-python dev-libs/atk media-libs/libpng:1.2 media-libs/fontconfig sys-libs/zlib app-arch/bzip2 x11-libs/pango x11-libs/gtk+:2 dev-libs/popt userland_GNU? ( >=sys-apps/coreutils-8.5 )
+DESCRIPTION=Official Dropbox CLI
+EAPI=5
+HOMEPAGE=http://dropbox.com
+IUSE=server gtk python_targets_python2_6 python_targets_python2_7
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=dropbox-EULA
+RDEPEND=x11-libs/libXcursor x11-libs/libXfixes x11-libs/libXinerama x11-libs/libSM x11-libs/libXrandr x11-libs/libXext x11-libs/libXrender x11-libs/libXdamage x11-libs/libXcomposite x11-libs/libX11 x11-libs/libXi x11-libs/libXrandr x11-libs/gdk-pixbuf dev-libs/dbus-glib sys-apps/dbus dev-python/dbus-python dev-libs/atk media-libs/libpng:1.2 media-libs/fontconfig sys-libs/zlib app-arch/bzip2 x11-libs/pango x11-libs/gtk+:2 dev-libs/popt sys-libs/ncurses net-misc/wget x11-libs/libnotify
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=x86? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86-1.2.13.tar.gz ) amd64? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86_64-1.2.13.tar.gz )
+_eclasses_=eutils	4878e7f88afc0ba0866ac112190b0fd4	multibuild	56d4120419072116417e8de1bd1040ff	multilib	892e597faee02a5b94eb02ab512e7622	multiprocessing	89580da5ec17ad687fcde876c542b91e	python-r1	b81583006559e9b008883355c9889e29	python-utils-r1	49ee0ca5e1019d8f256a23692dad2642	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953	user	d0a4d0735a6c0183d707ca919bd72f28
+_md5_=b21f593faa656371a3acc910baa77c79

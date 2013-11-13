@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=>=dev-lang/erlang-13.2.4 dev-ruby/rails dev-vcs/git ruby_targets_ruby18? ( dev-lang/ruby:1.8 )
+DEPEND=>=dev-lang/erlang-13.2.4 dev-ruby/rails dev-vcs/git ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby20? ( dev-lang/ruby:2.0 )
 DESCRIPTION=Reia is a Ruby-like scripting language for the Erlang virtual machine.
-EAPI=4
+EAPI=5
 HOMEPAGE=http://www.reia-lang.org
-IUSE=elibc_FreeBSD ruby_targets_ruby18
-LICENSE=as-is
-RDEPEND=>=dev-lang/erlang-13.2.4 dev-ruby/rails ruby_targets_ruby18? ( dev-lang/ruby:1.8 )
-REQUIRED_USE=|| ( ruby_targets_ruby18 )
+IUSE=elibc_FreeBSD ruby_targets_ruby18 ruby_targets_ruby19 ruby_targets_ruby20
+LICENSE=HPND
+RDEPEND=>=dev-lang/erlang-13.2.4 dev-ruby/rails ruby_targets_ruby18? ( dev-lang/ruby:1.8 ) ruby_targets_ruby19? ( dev-lang/ruby:1.9 ) ruby_targets_ruby20? ( dev-lang/ruby:2.0 )
+REQUIRED_USE=|| ( ruby_targets_ruby18 ruby_targets_ruby19 ruby_targets_ruby20 )
 SLOT=0
 _eclasses_=eutils	4878e7f88afc0ba0866ac112190b0fd4	git-2	2027b81a576527fa16bece425941e094	git-r3	536297c3f55d49069f6d2785b061e4d9	java-utils-2	8d0d93b7a8605ea346cce4604f6db516	multilib	892e597faee02a5b94eb02ab512e7622	ruby-ng	69c01a1b984ed066bc91b4397b002f6a	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953	user	d0a4d0735a6c0183d707ca919bd72f28	versionator	6601b4c5b3f019a993db59a50e1854e4
-_md5_=4a5f899e9898c48957dbc0bb036e6023
+_md5_=c7cdbc36c4109a812ad0aec231dbda20
