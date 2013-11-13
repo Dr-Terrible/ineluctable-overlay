@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-inherit linux-info eutils autotools
+EAPI=5
+inherit linux-info eutils autotools qt4-r2
 
 DESCRIPTION="AMD CodeAnalyst Performance Analyzer is an open source front-end to OProfile."
 HOMEPAGE="http://developer.amd.com/cpu/CodeAnalyst"
@@ -12,11 +12,10 @@ RESTRICT="fetch"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64"
 IUSE="X static-libs debug java"
 
-COMMON_DEPEND="x11-libs/qt:3
-	dev-util/oprofile
+COMMON_DEPEND="sdev-util/oprofile
 	dev-libs/elfutils
 	dev-libs/popt"
 DEPEND="${COMMON_DEPEND}"
@@ -75,7 +74,7 @@ src_configure() {
 		$(use_with X x) \
 		$(use_enable static-libs static) \
 		$(use_enable debug) \
-		--with-oprofile=${ROOT}/usr \
+		--with-oprofile="${ROOT}"/usr \
 		--disable-oprofile-lib \
 		--disable-dwarf \
 		${EXTRA_ECONF}
@@ -83,59 +82,58 @@ src_configure() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die "Install failed"
-	dodoc README ChangeLog AUTHORS INSTALL NEWS || die
+	dodoc README ChangeLog AUTHORS INSTALL NEWS
 
 	# Removing oprofile
-	rm -f "${D}"/${CA_DIR}/lib/libopagent* "${D}"/${CA_DIR}/lib64/libopagent* 
-	rm -f "${D}"/${CA_DIR}/lib/*.*a "${D}"/${CA_DIR}/lib64/*.*a
-	rm -rf "${D}"/${CA_DIR}/include/oprofile
-	rm -rf "${D}"/${CA_DIR}/share/oprofile
-	rm -rf "${D}"/${CA_DIR}/share/doc/oprofile
-	rm -f "${D}"/${CA_DIR}/share/man/man1/op*
+	rm "${D}"/${CA_DIR}/lib/libopagent* "${D}"/${CA_DIR}/lib64/libopagent* || die
+	rm "${D}"/${CA_DIR}/lib/*.*a "${D}"/${CA_DIR}/lib64/*.*a || die
+	rm -r "${D}"/${CA_DIR}/include/oprofile || die
+	rm -r "${D}"/${CA_DIR}/share/oprofile || die
+	rm -r "${D}"/${CA_DIR}/share/doc/oprofile || die
+	rm "${D}"/${CA_DIR}/share/man/man1/op* || die
 
 	# Setting links
-	rm "${D}"/${CA_DIR}/bin/op*.sh
+	rm "${D}"/${CA_DIR}/bin/op*.sh || die
 	for opfile in "${D}"/${CA_DIR}/bin/op*; do
 		name=`basename $opfile`
-		rm "${D}/${CA_DIR}/bin/$name"
-		ln -s /usr/bin/${name} "${D}"/${CA_DIR}/bin/$name
+		rm "${D}/${CA_DIR}/bin/$name" || die
+		ln -s /usr/bin/${name} "${D}"/${CA_DIR}/bin/$name || die
 	done
-    
-    # Install additional collectors and views
-    cp -r "${FILESDIR}/Configs" "${D}"/${CA_DIR}/share/codeanalyst || die
-    
-    # Fixing owners and permissions
-    fowners root.amdca ${CA_DIR}/bin/killdaemon
-    chmod ug+s "${D}"/${CA_DIR}/bin/killdaemon
-    
-    # Install missing things
-    dodir /etc/init.d
-    insopts -m0755
-    insinto /etc/init.d
-    newins "${FILESDIR}"/codeanalyst_init /etc/init.d/codeanalyst
 
-    insopts -m0755
-    insinto ${CA_DIR}/bin
-    doins src/ca/group.pl
-    doins src/ca/ca_setuser
-    doins src/ca/capackage.sh
-    doins src/ca/util/oprofiled_monitor.sh
-    doins src/ca/util/oprofile_drv_monitor.sh 
-    doins src/ca/gui/oprofiled.sh
+	# Install additional collectors and views
+	cp -r "${FILESDIR}/Configs" "${D}"/${CA_DIR}/share/codeanalyst || die
+
+	# Fixing owners and permissions
+	fowners root.amdca ${CA_DIR}/bin/killdaemon
+	chmod ug+s "${D}"/${CA_DIR}/bin/killdaemon || die
+
+	# Install missing things
+	dodir /etc/init.d
+	insopts -m0755
+	insinto /etc/init.d
+	newins "${FILESDIR}"/codeanalyst_init /etc/init.d/codeanalyst
+
+	insopts -m0755
+	insinto ${CA_DIR}/bin
+	doins src/ca/group.pl
+	doins src/ca/ca_setuser
+	doins src/ca/capackage.sh
+	doins src/ca/util/oprofiled_monitor.sh
+	doins src/ca/util/oprofile_drv_monitor.sh
+	doins src/ca/gui/oprofiled.sh
 #    ln -s family10h "${D}"/${CA_DIR}/share/oprofile/x86-64/family10
-    
-	cat <<EOF > ${D}/${CA_DIR}/bin/ca_setuser.sh
-#!/bin/bash 
+
+	cat <<EOF > "${D}"/${CA_DIR}/bin/ca_setuser.sh
+#!/bin/bash
 
 CA_DIR=${CA_DIR}
 \$CA_DIR/bin/group.pl "$1" \$CA_DIR
 EOF
 
-
-    dodir /etc/env.d
-    CA_LIB_DIR=`dirname ${D}/${CA_DIR}/lib*/libCA.so`
-    CA_LIB=`basename $CA_LIB_DIR`
-    echo "LDPATH=/${CA_DIR}/$CA_LIB" > "${D}"/etc/env.d/99codeanalyst
+	dodir /etc/env.d
+	CA_LIB_DIR=`dirname ${D}/${CA_DIR}/lib*/libCA.so`
+	CA_LIB=`basename $CA_LIB_DIR`
+	echo "LDPATH=/${CA_DIR}/$CA_LIB" > "${D}"/etc/env.d/99codeanalyst
 
 	# Setting link /usr/bin
 	dodir /usr/bin
@@ -151,17 +149,16 @@ pkg_setup() {
 }
 
 pkg_postinst() {
-	einfo ""
 	einfo "You need to setup users allowed to execute CodeAnalyst"
 	einfo "1. You can do it manually: add users to amdca group and allow to execute"
 	einfo "   opcontrol in sudo environment. Add to /etc/sudoers:"
 	einfo "       user ALL=NOPASSWD: ${CA_DIR}/bin/opcontrol"
 	einfo "2. Or use a script:"
 	einfo "       ${CA_DIR}/bin/ca_setuser.sh <coma separated users list>"
-	einfo ""
+	einfo
 	einfo "Add system service to autostart"
 	einfo "   rc-update add codeanalyst default"
 	einfo "   /etc/init.d/codeanalyst start"
-	einfo ""
+	einfo
 	einfo "Finally type CodeAnalyst to start profiling"
 }

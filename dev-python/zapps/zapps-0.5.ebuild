@@ -14,7 +14,7 @@ SRC_URI="http://www.dexy.it/external-dependencies/${P}.tar.gz"
 
 LICENSE="HPND"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 RDEPEND=""

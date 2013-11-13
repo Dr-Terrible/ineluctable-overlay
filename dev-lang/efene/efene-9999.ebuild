@@ -1,15 +1,15 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 inherit git-2
 
 DESCRIPTION="efene provides an alternative syntax to erlang similar to Java, C, C++, C#, Javascript"
 HOMEPAGE="http://www.efenelang.org"
 EGIT_REPO_URI="git://github.com/marianoguerra/efene.git"
 
-LICENSE="as-is"
+LICENSE="HPND"
 SLOT="0"
 KEYWORDS=""
 IUSE=""

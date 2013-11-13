@@ -7,11 +7,6 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
-	<maintainer>
-		<email>flameeyes@gentoo.org</email>
-		<name>Diego Elio Pettenò</name>
-		<description>Proxy maintainer. CC him on bugs</description>
-	</maintainer>
 	<longdescription lang="en">
 		Reia is a Ruby-like scripting language for the Erlang virtual machine.
 		Reia brings you the best of both worlds between Ruby's friendly syntax,

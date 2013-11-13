@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=5
 inherit multilib eutils toolchain-funcs
 
 DESCRIPTION="Small dynamic tiling window manager for X11"

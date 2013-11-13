@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,7 +11,7 @@
 #    it until libpgm can be packaged as a separate component;
 # 4- pkgconfig is an automagic dep (I'm fixing it with upstream);
 
-EAPI=4
+EAPI=5
 inherit git-2 autotools
 
 EGIT_REPO_URI="http://github.com/zeromq/zeromq2.git"
@@ -22,7 +22,7 @@ SRC_URI=""
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="pgm static-libs"
 
 RDEPEND="sys-apps/util-linux"
@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}
 	app-text/asciidoc
 	app-text/xmlto
 	pgm? (
-		dev-util/pkgconfig
+		virtual/pkgconfig
 		app-arch/gzip
 		dev-lang/perl
 		dev-lang/python:2.6

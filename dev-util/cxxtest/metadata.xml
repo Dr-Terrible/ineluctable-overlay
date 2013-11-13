@@ -7,11 +7,6 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
-	<maintainer>
-		<email>flameeyes@gentoo.org</email>
-		<name>Diego Elio Pettenò</name>
-		<description>Proxy maintainer. CC him on bugs</description>
-	</maintainer>
 	<longdescription lang="en">
 		CxxTest is a unit testing framework for C++ that is similar in spirit
 		to JUnit, CppUnit, and xUnit. 

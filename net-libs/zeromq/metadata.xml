@@ -7,11 +7,6 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
-	<maintainer>
-		<email>flameeyes@gentoo.org</email>
-		<name>Diego Elio Pettenò</name>
-		<description>Proxy maintainer. CC him on bugs</description>
-	</maintainer>
 	<upstream>
 		<maintainer>
 			<email>sustrik@fastmq.com</email>
@@ -36,7 +31,7 @@
 			0MQ is build with 'Pragmatic General Multicast' (RFC 3208) support
 			using the excellent OpenPGM implementation.
 		</flag>
-		<flag name='gcov'>Build GCOV coverage support for performance statistics.</flag>
+		<flag name="gcov">Build GCOV coverage support for performance statistics.</flag>
 	</use>
 </pkgmetadata>
 

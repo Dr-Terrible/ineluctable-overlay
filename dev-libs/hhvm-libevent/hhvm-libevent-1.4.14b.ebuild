@@ -52,7 +52,7 @@ src_test() {
 src_install() {
 
 	default
-	prune_libtool_files
+	use static-libs || prune_libtool_files
 
 	# these files aren't used by HHVM, so there isn't
 	# the need to install them

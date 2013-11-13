@@ -7,11 +7,6 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
-	<maintainer>
-		<email>flameeyes@gentoo.org</email>
-		<name>Diego Elio Pettenò</name>
-		<description>Proxy maintainer. CC him on bugs</description>
-	</maintainer>
 	<longdescription lang="en">
 		Mongrel is an application, language, and network architecture agnostic
 		web server that focuses on web applications using modern browser

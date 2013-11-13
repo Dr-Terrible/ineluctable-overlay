@@ -1,0 +1,53 @@
+#!/sbin/runscript
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License, v2 or later
+
+# NB: Config is in /etc/conf.d/dropboxd.conf
+
+# Provide a default value if there aren't in /etc/conf.d/dropboxd.conf
+DROPBOX_NICELEVEL=${DROPBOX_NICELEVEL:0}
+
+depend() {
+	need localmount net
+	after bootmisc
+}
+
+checkconfig() {
+	if [ -z "${DROPBOX_USER}" ]; then
+		eerror "Did you read the elog messages? You need to define the"
+		eerror "DROPBOX_USER variable in /etc/conf.d/dropboxd first."
+		return 1
+	fi
+}
+
+start() {
+	checkconfig || return 1
+
+	ebegin "Starting dropbox"
+		start-stop-daemon --start --quiet --background \
+			--user ${DROPBOX_USER} \
+			--pidfile /var/run/dropbox-${DROPBOX_USER}.pid \
+			--make-pidfile \
+			--nice ${DROPBOX_NICELEVEL} \
+			--env HOME="/home/${DROPBOX_USER}" \
+			--exec /opt/bin/dropboxd
+	eend $?
+}
+
+stop() {
+	checkconfig || return 1
+
+	ebegin "Stopping dropbox"
+		start-stop-daemon --stop --pidfile /var/run/dropbox-${DROPBOX_USER}.pid
+	eend $?
+}
+
+status() {
+	checkconfig || return 1
+
+	if [ -e /var/run/dropbox-${DROPBOX_USER}.pid ] ; then
+		echo "dropboxd running for user: ${DROPBOX_USER}"
+	else
+		echo "dropboxd for user '${DROPBOX_USER}' is not running."
+	fi
+}

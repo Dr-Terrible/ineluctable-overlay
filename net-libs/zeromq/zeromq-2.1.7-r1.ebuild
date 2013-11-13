@@ -1,11 +1,11 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 # NOTES:
 # 1- use flag 'pgm' (OpenPGM support) must be masked by profiles for ARM archs;
 
-EAPI=4
+EAPI=5
 WANT_AUTOCONF="2.5"
 inherit autotools eutils
 
@@ -15,7 +15,7 @@ SRC_URI="http://download.zeromq.org/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="pgm test doc static-libs gcov"
 
 COMMON_DEPEND="pgm? (
@@ -23,7 +23,7 @@ COMMON_DEPEND="pgm? (
 	)"
 RDEPEND="${COMMON_DEPEND}"
 DEPEND="${COMMON_DEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	doc? (
 		app-text/asciidoc
 		app-text/xmlto

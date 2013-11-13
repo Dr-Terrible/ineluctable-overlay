@@ -1,0 +1,22 @@
+--- docs/manual/Makefile
++++ docs/manual/Makefile
+@@ -4,7 +4,7 @@
+ FINAL=book-final
+ 
+ draft: book-final.dvi
+-	htlatex book-final.tex "book,index=1,2,next,fn-in"
++	mk4ht htlatex book-final.tex "book,index=1,2,next,fn-in"
+ 
+ book-final.dvi:
+ 	cp $(SOURCE).tex book-final.tex
+--- docs/ru/manual/Makefile	2012-07-06 11:25:36.561983688 +0200
++++ docs/ru/manual/Makefile	2012-07-06 11:26:16.303983622 +0200
+@@ -4,7 +4,7 @@
+ WEBSITE=zedshaw.com:/someplace
+ 
+ draft: book-final.dvi
+-	htlatex book-final.tex
++	mk4ht htlatex book-final.tex
+ 	tidy -quiet -ashtml -omit -ic -m book-final.html
+ 	sed -f clean.sed book-final.html > book.wiki
+ 

@@ -1,14 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-
-PYTHON_DEPEND="2"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="3.* *-jython 2.7-pypy-*"
-
-inherit distutils
+EAPI=5
+PYTHON_COMPAT=( python{2_6,2_7} )
+inherit distutils-r1
 
 DESCRIPTION="Dexy is a tool for writing documents which relate to code."
 HOMEPAGE="http://dexy.it"
@@ -16,7 +12,7 @@ SRC_URI="http://www.dexy.it/external-dependencies/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 RDEPEND=">=dev-python/zapps-0.5

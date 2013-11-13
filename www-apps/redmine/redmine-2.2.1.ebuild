@@ -2,11 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/www-apps/redmine/redmine-2.2.0.ebuild,v 1.1 2013/01/07 13:39:26 matsuu Exp $
 
-EAPI="3"
+EAPI=5
 # jruby: dev-ruby/rails has no jruby
 # rbx: dev-ruby/rails has no rbx
-#USE_RUBY="ruby18 ree18"
-USE_RUBY="ruby18 ruby19"
+USE_RUBY="ruby18 ruby19 ruby20"
 inherit eutils user depend.apache ruby-ng
 
 DESCRIPTION="Redmine is a flexible project management web application written using Ruby on Rails framework"

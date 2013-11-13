@@ -7,11 +7,6 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
-	<maintainer>
-		<email>flameeyes@gentoo.org</email>
-		<name>Diego Elio Pettenò</name>
-		<description>Proxy maintainer. CC him on bugs</description>
-	</maintainer>
 	<longdescription lang="en">
 		archivemount is a FUSE based file system for Unix variants, including Linux.
 		Its purpose is to mount archives (i.e. tar, tar.gz, etc.) to a mount point

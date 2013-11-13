@@ -1,0 +1,215 @@
+--- dmd2/src/phobos/etc/c/zlib/linux.mak
++++ dmd2/src/phobos/etc/c/zlib/linux.mak
+@@ -1,10 +1,10 @@
+ # Makefile for zlib
+ 
+-MODEL=32
++MODEL?=32
+ CC=gcc
+ LD=link
+-CFLAGS=-O -m$(MODEL)
+-LDFLAGS=
++CFLAGS += -m$(MODEL)
++LDFLAGS +=
+ O=.o
+ 
+ .c.o:
+--- dmd2/src/dmd/posix.mak
++++ dmd2/src/dmd/posix.mak
+@@ -29,7 +29,7 @@
+ TK=tk
+ ROOT=root
+ 
+-MODEL=32
++MODEL?=32
+ 
+ ifeq (OSX,$(TARGET))
+     ## See: http://developer.apple.com/documentation/developertools/conceptual/cross_development/Using/chapter_3_section_2.html#//apple_ref/doc/uid/20002000-1114311-BABGCAAB
+@@ -42,12 +42,12 @@
+     #-syslibroot is only passed to libtool, not ld.
+     #if gcc sees -isysroot it should pass -syslibroot to the linker when needed
+     #LDFLAGS=-lstdc++ -isysroot ${SDK} -Wl,-syslibroot,${SDK} -framework CoreServices
+-    LDFLAGS=-lstdc++ -isysroot ${SDK} -Wl -framework CoreServices
++    LDFLAGS +=-lstdc++ -isysroot ${SDK} -Wl -framework CoreServices
+ else
+-    LDFLAGS=-lm -lstdc++ -lpthread
++    LDFLAGS +=-lm -lstdc++ -lpthread
+ endif
+ 
+-CC=g++ -m$(MODEL) $(TARGET_CFLAGS)
++CC=$(CXX) -m$(MODEL) $(TARGET_CFLAGS)
+ 
+ #OPT=-g -g3
+ #OPT=-O2
+@@ -59,8 +59,8 @@
+ #GFLAGS = $(WARNINGS) -D__near= -D__pascal= -fno-exceptions -g -DDEBUG=1 -DUNITTEST $(COV)
+ GFLAGS = $(WARNINGS) -D__near= -D__pascal= -fno-exceptions -O2
+ 
+-CFLAGS = $(GFLAGS) -I$(ROOT) -DMARS=1 -DTARGET_$(TARGET)=1
+-MFLAGS = $(GFLAGS) -I$C -I$(TK) -DMARS=1 -DTARGET_$(TARGET)=1
++MFLAGS = $(CFLAGS) $(GFLAGS) -I$C -I$(TK) -DMARS=1 -DTARGET_$(TARGET)=1
++CFLAGS += $(GFLAGS) -I$(ROOT) -DMARS=1 -DTARGET_$(TARGET)=1
+ 
+ CH= $C/cc.h $C/global.h $C/oper.h $C/code.h $C/type.h \
+ 	$C/dt.h $C/cgcv.h $C/el.h $C/iasm.h
+@@ -141,7 +141,7 @@
+ all: dmd
+ 
+ dmd: $(DMD_OBJS)
+-	$(ENVP) g++ -o dmd -m$(MODEL) $(COV) $(DMD_OBJS) $(LDFLAGS)
++	$(ENVP) $(CXX) -o dmd -m$(MODEL) $(COV) $(DMD_OBJS) $(LDFLAGS)
+ 
+ clean:
+ 	rm -f $(DMD_OBJS) dmd optab.o id.o impcnvgen idgen id.c id.h \
+@@ -184,7 +184,7 @@
+ 	$(CC) -c $(MFLAGS) -I. $<
+ 
+ aav.o: $(ROOT)/aav.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ access.o: access.c
+ 	$(CC) -c $(CFLAGS) $<
+@@ -196,13 +196,13 @@
+ 	$(CC) -c $(CFLAGS) $<
+ 
+ array.o: $(ROOT)/array.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ arrayop.o: arrayop.c
+ 	$(CC) -c $(CFLAGS) $<
+ 
+ async.o: $(ROOT)/async.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ attrib.o: attrib.c
+ 	$(CC) -c $(CFLAGS) $<
+@@ -283,7 +283,7 @@
+ 	$(CC) -c $(MFLAGS) $< -o $@
+ 
+ dchar.o: $(ROOT)/dchar.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ cond.o: cond.c
+ 	$(CC) -c $(CFLAGS) $<
+@@ -364,7 +364,7 @@
+ 	$(CC) -c $(MFLAGS) -I$(ROOT) $<
+ 
+ gnuc.o: $(ROOT)/gnuc.c $(ROOT)/gnuc.h
+-	$(CC) -c $(GFLAGS) $<
++	$(CC) -c $(CFLAGS) $<
+ 
+ go.o: $C/go.c
+ 	$(CC) -c $(MFLAGS) $<
+@@ -427,7 +427,7 @@
+ 	$(CC) -c $(CFLAGS) $<
+ 
+ lstring.o: $(ROOT)/lstring.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ machobj.o: $C/machobj.c
+ 	$(CC) -c $(MFLAGS) -I. $<
+@@ -436,7 +436,7 @@
+ 	$(CC) -c $(CFLAGS) $<
+ 
+ man.o: $(ROOT)/man.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ mangle.o: mangle.c
+ 	$(CC) -c $(CFLAGS) $<
+@@ -445,7 +445,7 @@
+ 	$(CC) -c $(CFLAGS) $<
+ 
+ rmem.o: $(ROOT)/rmem.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ module.o: module.c $C/html.h
+ 	$(CC) -c $(CFLAGS) -I$C $<
+@@ -481,16 +481,16 @@
+ 	$(CC) -c $(MFLAGS) $<
+ 
+ port.o: $(ROOT)/port.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ ptrntab.o: $C/ptrntab.c $C/iasm.h
+ 	$(CC) -c $(MFLAGS) $<
+ 
+ response.o: $(ROOT)/response.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ root.o: $(ROOT)/root.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ rtlsym.o: $C/rtlsym.c $C/rtlsym.h
+ 	$(CC) -c $(MFLAGS) $<
+@@ -502,7 +502,7 @@
+ 	$(CC) -c $(CFLAGS) $<
+ 
+ speller.o: $(ROOT)/speller.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ statement.o: statement.c
+ 	$(CC) -c $(CFLAGS) $<
+@@ -511,10 +511,10 @@
+ 	$(CC) -c $(CFLAGS) $<
+ 
+ stringtable.o: $(ROOT)/stringtable.c
+-	$(CC) -c $(GFLAGS) -I$(ROOT) $<
++	$(CC) -c $(CFLAGS) -I$(ROOT) $<
+ 
+ strtold.o: $C/strtold.c
+-	gcc -m$(MODEL) -c $<
++	$(CC) -m$(MODEL) -c $<
+ 
+ struct.o: struct.c
+ 	$(CC) -c $(CFLAGS) $<
+--- dmd2/src/phobos/posix.mak
++++ dmd2/src/phobos/posix.mak
+@@ -61,9 +61,7 @@
+ 
+ # Variable defined in an OS-dependent manner (see below)
+ CC =
+-DMD =
+-DDOC =
+-CFLAGS =
++CFLAGS +=
+ DFLAGS =
+ 
+ # BUILD can be debug or release, but is unset by default; recursive
+@@ -83,14 +81,14 @@
+ # Set CC and DMD
+ ifeq ($(OS),win32wine)
+ 	CC = wine dmc.exe
+-	DMD = wine dmd.exe
++	DMD ?= wine dmd.exe
+ 	RUN = wine
+ else
+ 	ifeq ($(OS),win32remote)
+-		DMD = ssh 206.125.170.138 "cd code/dmd/phobos && dmd"
++		DMD ?= ssh 206.125.170.138 "cd code/dmd/phobos && dmd"
+ 		CC = ssh 206.125.170.138 "cd code/dmd/phobos && dmc"
+ 	else
+-		DMD = dmd
++		DMD ?= dmd
+ 		ifeq ($(OS),win32)
+ 			CC = dmc
+ 		else
+@@ -141,7 +139,7 @@
+ endif
+ 
+ # Set DDOC, the documentation generator
+-DDOC=dmd
++DDOC?=dmd
+ 
+ # Set LIB, the ultimate target
+ ifeq (,$(findstring win,$(OS)))

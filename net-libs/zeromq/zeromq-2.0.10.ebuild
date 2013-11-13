@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@
 #    and fully installable alone, so for now upstream has decided to bundle
 #    it until libpgm can be packaged as a separate component;
 
-EAPI=4
+EAPI=5
 inherit autotools
 
 DESCRIPTION="ZeroMQ is a brokerless messaging kernel with extremely high performance."
@@ -19,11 +19,11 @@ SRC_URI="http://www.zeromq.org/local--files/area:download/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE="pgm static-libs"
 
 RDEPEND=""
-DEPEND="pgm? ( dev-util/pkgconfig )
+DEPEND="pgm? ( virtual/pkgconfig )
 	sys-apps/util-linux"
 
 src_prepare() {

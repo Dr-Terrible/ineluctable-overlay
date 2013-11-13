@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<longdescription lang="en">
+		Ganeti Web Manager is a Django based web application that allows
+		administrators and clients access to their ganeti clusters. It includes
+		a permissions and quota system that allows administrators to grant
+		access to both clusters and virtual machines. It also includes user
+		groups for structuring access to organizations.
+	</longdescription>
+	<use>
+		<flag name='webserver'>
+			Enable internal webserver; disable this use if you want to serve
+			the application using Django with traditional webservers like:
+			<pkg>www-servers/apache</pkg>, <pkg>www-servers/nginx</pkg>,
+			<pkg>dev-python/twisted</pkg> or <pkg>www-servers/lighttpd</pkg>.
+		</flag>
+	</use>
+</pkgmetadata>
+

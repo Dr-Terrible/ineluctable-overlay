@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 inherit flag-o-matic
 
 DESCRIPTION="HOARD Memory Allocator"
@@ -32,14 +32,11 @@ src_compile() {
 
 	local target
 	case ${ARCH} in
-	x86)
+	x86*)
 		target="linux-gcc-x86"
 		;;
 	amd64)
 		target="linux-gcc-x86-64"
-		;;
-	x86-fbsd)
-		target="linux-gcc-x86"
 		;;
 	*)
 		target="generic-gcc"

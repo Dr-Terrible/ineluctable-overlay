@@ -1,0 +1,9 @@
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+# The user owning the running dropboxd daemon.
+DROPBOX_USER=""
+
+# DROPBOX_NICELEVEL lets you set the 'nice'ness of the running 
+# dropboxd process.
+DROPBOX_NICELEVEL="5"

@@ -19,7 +19,7 @@ RUBY_S="pauldix-${PN}-*"
 
 LICENSE="HPND"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 ruby_add_rdepend ">=dev-ruby/loofah-1.2.1

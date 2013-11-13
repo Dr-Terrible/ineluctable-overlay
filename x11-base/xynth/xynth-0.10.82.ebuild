@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 inherit toolchain-funcs eutils
 
 DESCRIPTION="Xynth is a portable embedded windowing system."
-HOMEPAGE="http://alperakcan.org/?open=projects&project=xynth"
+HOMEPAGE="http://alperakcan.net/?open=projects&project=xynth"
 SRC_URI="mirror://sourceforge/xynth/${P}.tar.bz2"
 
 LICENSE="LGPL-2"

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://wiki.dropbox.com</doc>
+		<bugs-to>https://www.dropbox.com/ticket</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Dropbox is a Web-based file hosting service operated by Dropbox, Inc.
+		which uses cloud computing to enable users to store and share files and
+		folders with others across the Internet using file synchronization.
+	</longdescription>
+	<use>
+		<flag name='server'>Install the daemon and init script of Dropbox</flag>
+		<flag name='gtk'>Enable the graphical user interface of Dropbox</flag>
+	</use>
+</pkgmetadata>
+

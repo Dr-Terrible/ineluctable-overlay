@@ -2,8 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-
+EAPI=5
 inherit qt4-r2
 
 DESCRIPTION="The Constructive Solid Geometry rendering library"
@@ -22,7 +21,7 @@ RDEPEND="${CDEPEND}"
 S="${WORKDIR}/OpenCSG-${PV}"
 
 src_prepare() {
-	# not sure why
+	# removes duplicated headers
 	rm -r "${S}"/glew || die
 
 	# We actually want to install something
