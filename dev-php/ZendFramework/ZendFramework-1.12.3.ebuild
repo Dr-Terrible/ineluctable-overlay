@@ -21,7 +21,7 @@ LICENSE="BSD"
 SLOT="0"
 IUSE="doc examples minimal cli"
 
-DEPEND="cli? ( dev-lang/php[simplexml,tokenizer] )"
+DEPEND="cli? ( dev-lang/php[simplexml,tokenizer,cli] )"
 RDEPEND="${DEPEND}"
 need_php_by_category
 
@@ -36,19 +36,24 @@ src_prepare() {
 
 src_install() {
 	if use cli ; then
+		einfo "Installing cli"
 		insinto /usr/bin
 		doins bin/zf.php
 		dobin bin/zf.sh
 		dosym /usr/bin/zf.sh /usr/bin/zf
 	fi
-	php-lib-r1_src_install library/Zend $(cd library/Zend ; find . -type f -print)
+	einfo "Installing library"
+	insinto /usr/share/php/"${PHP_LIB_NAME}"
+	doins -r library/Zend/*
 
 	if ! use minimal ; then
+		einfo "Installing Dojo toolkit"
 		insinto /usr/share/php
 		doins -r externals/dojo
 	fi
 
 	if use examples ; then
+		einfo "Installing examples"
 		insinto /usr/share/doc/${PF}
 
 		if ! use minimal ; then
@@ -58,6 +63,7 @@ src_install() {
 
 	dodoc README.txt
 	if use doc ; then
+		einfo "Installing documentations"
 		dohtml -r documentation/*
 	fi
 }
