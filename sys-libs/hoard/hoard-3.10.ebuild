@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit flag-o-matic
+inherit multilib flag-o-matic
 
 DESCRIPTION="HOARD Memory Allocator"
 HOMEPAGE="http://www.hoard.org"

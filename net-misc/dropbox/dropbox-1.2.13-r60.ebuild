@@ -10,7 +10,7 @@
 EAPI=5
 PYTHON_COMPAT=( python{2_6,2_7} )
 PYTHON_USE_WITH=sqlite
-inherit eutils python-r1
+inherit user eutils python-r1
 use gtk && inherit wxwidgets
 
 DESCRIPTION="Official Dropbox CLI"

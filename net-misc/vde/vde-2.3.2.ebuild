@@ -4,7 +4,7 @@
 
 EAPI=5
 PYTHON_COMPAT=( python{2_6,2_7} )
-inherit eutils python-r1
+inherit user eutils python-r1
 
 MY_P="${PN}2-${PV}"
 S="${WORKDIR}/${MY_P}"
