@@ -14,7 +14,7 @@ SRC_URI="http://code.osuosl.org/attachments/download/2457/${PN}.${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="vnc mysql postgres +sqlite test +webserver"
 REQUIRED_USE="|| ( mysql postgres sqlite )"
 
@@ -23,8 +23,8 @@ RDEPEND=">=dev-python/django-1.3.0[mysql?,postgres?,sqlite?]
 	>=dev-python/django-haystack-1.2.3
 	dev-python/django-muddle-users
 	dev-python/django-fields
-	>=dev-python/south-0.7
-	>=dev-python/Whoosh-1.8.3
+	dev-python/south
+	dev-python/whoosh
 	dev-python/pycurl
 	dev-python/pyopenssl
 	dev-python/simplejson
