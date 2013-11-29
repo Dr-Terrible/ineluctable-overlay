@@ -16,7 +16,7 @@ RUBY_S="macournoyer-${PN}-*"
 
 LICENSE="Ruby"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="${DEPEND}
@@ -55,13 +55,13 @@ all_ruby_prepare() {
 
 	# Pipelining specs don't work. Avoid them for now since this is not
 	# a regression. https://github.com/macournoyer/thin/issues/40
-	rm spec/server/pipelining_spec.rb || die
+#	rm spec/server/pipelining_spec.rb || die
 
 	# nasty but too complex to fix up for now :(
 	use test || rm tasks/spec.rake
 
 	# FIX: Replace obsolete Rake::RDocTask with RDoc::Task and updated RDoc task
-	epatch "${FILESDIR}/${PN}".rake.patch
+#	epatch "${FILESDIR}/${PN}".rake.patch
 }
 
 each_ruby_compile() {
