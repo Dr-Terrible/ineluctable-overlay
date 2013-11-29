@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20"
+USE_RUBY="ruby19 ruby20"
 
 RUBY_FAKEGEM_VERSION="${PV//_/.}"
 RUBY_FAKEGEM_VERSION="${RUBY_FAKEGEM_VERSION//rc/rc.}"
@@ -19,7 +19,7 @@ RUBY_S="pauldix-${PN}-*"
 
 LICENSE="HPND"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend ">=dev-ruby/loofah-1.2.1
