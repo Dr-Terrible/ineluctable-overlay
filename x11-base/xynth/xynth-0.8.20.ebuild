@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/xynth/${P}.tar.bz2"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86"
 IUSE="server client opengl debug vesa svga sdl fbdev"
 
 DEPEND=""
