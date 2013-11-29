@@ -18,7 +18,7 @@ RESTRICT="mirror"
 
 DEPEND="!dev-lang/dmd-bin
 	app-arch/unzip"
-PDEPEND="app-admin/eselect-dmd"
+#PDEPEND="app-admin/eselect-dmd"
 
 S="${WORKDIR}/${PN}"
 
