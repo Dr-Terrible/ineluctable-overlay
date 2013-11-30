@@ -20,5 +20,5 @@ before_install:
 
 script:
   - "$HOME/portage/bin/repoman -vx full"
-  - "$HOME/portage/bin/repoman -vx full --include-dev"
-  - "$HOME/portage/bin/repoman -vx full --include-dev --without-mask"
+#  - "$HOME/portage/bin/repoman -vx full --include-dev"
+#  - "$HOME/portage/bin/repoman -vx full --include-dev --without-mask"
