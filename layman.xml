@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layman>
+	<overlay contact="" name="ineluctable-overlay" src="git://github.com/toffanin/ineluctable-overlay.git" type="git">
+		<link>http://github.com/X4/gentoo-rebel</link>
+		<description>Ineluctable Overlay</description>
+	</overlay>
+</layman>
