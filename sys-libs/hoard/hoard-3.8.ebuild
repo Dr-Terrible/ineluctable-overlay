@@ -11,7 +11,7 @@ SRC_URI="http://www.cs.umass.edu/~emery/hoard/${P}/source/${PN}-${PV//./}.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64 ~x86-fbsd"
+KEYWORDS="~x86 ~amd64"
 IUSE="doc debug"
 
 DEPEND=""
