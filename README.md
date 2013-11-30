@@ -4,8 +4,6 @@
 
 Ineluctable Overlay offers a repository of Gentoo ebuilds made by me (Mauro Toffanin, official Gentoo/FreeBSD Arch Tester) for projects that I am interested in and are not yet available through Portage tree.
 
-Feel free to fork and add more ebuilds; pull requests are always welcome.
-
 
 ## Managing This Overlay
 
@@ -46,6 +44,13 @@ The process of removing this overlay from your Gentoo environment is quite strai
 ```rm -r /etc/layman/overlays/ineluctable-overlay```
 
 
+## Contributing
+
+This overlay is still under development. Feedbacks and suggestions are very welcome and I encourage you to use the [issues list](https://github.com/toffanin/ineluctable-overlay/issues) on GitHub to provide your contributions.
+
+Feel free to fork this repository and to commit your ebuilds; pull requests are always welcome (and I rarely reject them).
+
+
 ## Overlay Package Tree
 
 ```
@@ -72,7 +77,8 @@ The process of removing this overlay from your Gentoo environment is quite strai
 │   ├── hhvm-libevent
 │   ├── icu
 │   ├── libdwarf
-│   └── oniguruma
+│   ├── oniguruma
+│   └── shflags
 ├── dev-php
 │   └── ZendFramework
 ├── dev-python
@@ -104,6 +110,8 @@ The process of removing this overlay from your Gentoo environment is quite strai
 │   ├── codexl
 │   ├── cxxtest
 │   └── oprofile
+├── dev-vcs
+│   └── gitflow-avh
 ├── net-libs
 │   └── zeromq
 ├── net-misc
