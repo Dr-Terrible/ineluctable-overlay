@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>https://github.com/mruby/mruby/wiki/_pages</doc>
+		<bugs-to>https://github.com/mruby/mruby</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		mruby is the lightweight implementation of the Ruby language complying to (part of) the ISO standard. mruby can be linked and embedded within your application.
+	</longdescription>
+</pkgmetadata>
