@@ -1,0 +1,22 @@
+--- ArangoDB-1.4.3/arangosh/V8Client/arangosh.cpp
++++ ArangoDB-1.4.3/arangosh/V8Client/arangosh.cpp
+@@ -59,7 +59,7 @@
+ #include "V8Client/ImportHelper.h"
+ #include "V8Client/V8ClientConnection.h"
+ 
+-#include "3rdParty/valgrind/valgrind.h"
++#include "valgrind/valgrind.h"
+ 
+ using namespace std;
+ using namespace triagens::basics;
+--- ArangoDB-1.4.3/lib/V8/v8-utils.cpp
++++ ArangoDB-1.4.3/lib/V8/v8-utils.cpp
+@@ -63,7 +63,7 @@
+ 
+ #include "unicode/normalizer2.h"
+ 
+-#include "3rdParty/valgrind/valgrind.h"
++#include "valgrind/valgrind.h"
+ 
+ using namespace std;
+ using namespace triagens::arango;

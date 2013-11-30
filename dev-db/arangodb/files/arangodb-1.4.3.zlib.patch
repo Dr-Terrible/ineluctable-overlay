@@ -1,0 +1,71 @@
+--- ArangoDB-1.4.3/Makefile.am
++++ ArangoDB-1.4.3/Makefile.am
+@@ -470,12 +470,6 @@
+ ## -----------------------------------------------------------------------------
+ 
+ ################################################################################
+-### @brief zlib
+-################################################################################
+-
+-include 3rdParty/Makefile.zlib
+-
+-################################################################################
+ ### @brief libev
+ ################################################################################
+ 
+--- ArangoDB-1.4.3/configure.ac
++++ ArangoDB-1.4.3/configure.ac
+@@ -70,6 +70,17 @@
+ dnl ============================================================================
+ 
+ dnl ----------------------------------------------------------------------------
++dnl ZLIB
++dnl ----------------------------------------------------------------------------
++AC_ARG_ENABLE(all-in-one-zlib,
++  AS_HELP_STRING([--enable-all-in-one-zlib], [use supplied ZLIB from 3rdParty directory]),
++  [tr_ALL_IN_ONE_ZLIB="${enableval:-yes}"]
++  [tr_ALL_IN_ONE_ZLIB=yes]
++)
++
++AM_CONDITIONAL(ENABLE_ALL_IN_ONE_ZLIB, test "x$tr_ALL_IN_ONE_ZLIB" = xyes)
++
++dnl ----------------------------------------------------------------------------
+ dnl LIBEV
+ dnl ----------------------------------------------------------------------------
+ 
+@@ -168,7 +179,9 @@
+ dnl ZLIB
+ dnl ----------------------------------------------------------------------------
+ 
+-m4_include([m4/all-in-one.zlib])
++if test "x$tr_ALL_IN_ONE_ZLIB" = xyes;  then
++  m4_include([m4/all-in-one.zlib])
++fi
+ 
+ dnl ----------------------------------------------------------------------------
+ dnl LIBEV
+--- ArangoDB-1.4.3/m4/all-in-one.zlib
++++ ArangoDB-1.4.3/m4/all-in-one.zlib
+@@ -4,11 +4,9 @@
+ dnl --SECTION--                                                            LIBEV
+ dnl ----------------------------------------------------------------------------
+ 
+-TRI_ZLIB_VERSION="1.2.7"
+-
+ ZLIB_CPPFLAGS=""
+ ZLIB_LDFLAGS=""
+-ZLIB_LIBS="${srcdir}/3rdParty/zlib-${TRI_ZLIB_VERSION}/libz.a"
++ZLIB_LIBS="/usr/lib/libz.so"
+ 
+ dnl ----------------------------------------------------------------------------
+ dnl add substitutions
+@@ -22,9 +20,6 @@
+ dnl informational output
+ dnl ----------------------------------------------------------------------------
+ 
+-LIB_INFO="$LIB_INFO|ZLIB: 3rdParty version"
+-LIB_INFO="$LIB_INFO|ZLIB VERSION: ${TRI_ZLIB_VERSION}"
+-
+ LIB_INFO="$LIB_INFO|ZLIB_CPPFLAGS: ${ZLIB_CPPFLAGS}"
+ LIB_INFO="$LIB_INFO|ZLIB_LDFLAGS:  ${ZLIB_LDFLAGS}"
+ LIB_INFO="$LIB_INFO|ZLIB_LIBS:     ${ZLIB_LIBS}"

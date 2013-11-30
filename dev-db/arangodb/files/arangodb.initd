@@ -1,0 +1,23 @@
+#!/sbin/runscript
+
+depend() {
+	need net
+}
+
+start() {
+	ebegin "Starting ArangoDB"
+	start-stop-daemon \
+		--start \
+		--exec /usr/sbin/arangod \
+		--pidfile /var/run/arangod.pid \
+		--make-pidfile \
+		--user arangodb \
+		--background
+	eend $? "Failed to start ArangoDB"
+}
+
+stop() {
+	ebegin "Stopping ArangoDB"
+	start-stop-daemon --stop --pidfile /var/run/arangod.pid
+	eend $? "Failed to stop ArangoDB"
+}
