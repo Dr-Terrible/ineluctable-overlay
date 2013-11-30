@@ -3,6 +3,9 @@ language: python
 env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER
 
 before_install:
+  # Install development portage (it should have the latest suggestions)
+  - "git clone git://git.overlays.gentoo.org/proj/portage.git $HOME/portage"
+
   # Set default config
   - "sudo mkdir /usr/share/portage"
   - "sudo ln -s $HOME/portage/cnf /usr/share/portage/config"
@@ -15,8 +18,10 @@ before_install:
   - "rsync -arzp --safe-links rsync://rsync.gentoo.org/gentoo-portage/ /usr/portage/"
   - "mkdir /usr/portage/distfiles"
 
-  # Install development portage (it should have the latest suggestions)
-  - "git clone git://git.overlays.gentoo.org/proj/portage.git $HOME/portage"
+  # Set portage's profile
+  - "export USERLAND=GNU"
+  - "export USE_EXPAND=USERLAND"
+  - "export USE_EXPAND_HIDDEN=USERLAND"
 
 script:
   - "$HOME/portage/bin/repoman -vx full"
