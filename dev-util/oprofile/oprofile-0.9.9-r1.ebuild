@@ -17,7 +17,6 @@ IUSE="java pch qt4"
 
 DEPEND=">=dev-libs/popt-1.7-r1
 	>=sys-devel/binutils-2.14.90.0.6-r3
-	>=sys-libs/glibc-2.3.2-r1
 	qt4? ( dev-qt/qtgui:4[qt3support] )
 	java? ( >=virtual/jdk-1.5 )"
 RDEPEND="${DEPEND}"
