@@ -1,6 +1,6 @@
 language: python
 
-env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER
+env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER USERLAND=GNU USE_EXPAND=USERLAND USE_EXPAND_HIDDEN=USERLAND
 
 before_install:
   # Install development portage (it should have the latest suggestions)
@@ -19,11 +19,11 @@ before_install:
   - "mkdir /usr/portage/distfiles"
 
   # Set portage's profile
-  - "export USERLAND=GNU"
-  - "export USE_EXPAND=USERLAND"
-  - "export USE_EXPAND_HIDDEN=USERLAND"
+  #- "export USERLAND=GNU"
+  #- "export USE_EXPAND=USERLAND"
+  #- "export USE_EXPAND_HIDDEN=USERLAND"
 
 script:
   - "$HOME/portage/bin/repoman -vx full"
-#  - "$HOME/portage/bin/repoman -vx full --include-dev"
-#  - "$HOME/portage/bin/repoman -vx full --include-dev --without-mask"
+  - "$HOME/portage/bin/repoman -vx full --without-mask"
+  - "$HOME/portage/bin/repoman -vx full --include-dev --without-mask"
