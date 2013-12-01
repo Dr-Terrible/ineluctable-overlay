@@ -13,15 +13,10 @@ dev-games/libndofdev
 
 
 # Toffanin Mauro <toffanin.mauro@gmail.com>
-# Mask vde because doesn't compile with gcc:4.6 and gcc:4.5
-net-misc/vde
-
-
-# Toffanin Mauro <toffanin.mauro@gmail.com>
-# Mask hoard because doesn't compile with gcc:4.6 and gcc:4.5;
-# this package isn't compatibile with modern glibc such as 2.14+, so use
-# it at your own risk.
-sys-libs/hoard
+# Hoard 3.8 and 3.9 aren't compatibile with modern glibc such as 2.14+,
+# so use them at your own risk. Please, upgrade to v3.10
+=sys-libs/hoard-3.8
+=sys-libs/hoard-3.9
 
 
 # Toffanin Mauro <toffanin.mauro@gmail.com>

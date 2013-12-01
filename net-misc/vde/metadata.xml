@@ -28,5 +28,11 @@
 			Enable experimental features (async notifies, plugin support,
 			packet counter).
 		</flag>
+		<flag name="tuntap">
+			Enable tun/tap interfaces.
+		</flag>
+		<flag name="kernel-switch">
+			Enable kernel switch.
+		</flag>
 </use>
 </pkgmetadata>
