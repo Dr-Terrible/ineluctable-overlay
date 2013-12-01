@@ -9,11 +9,11 @@ Ineluctable Overlay offers a repository of Gentoo ebuilds made by me (Mauro Toff
 
 ### Introduction
 
-This section will show you how to install the _Ineluctable Overlay_ into your Gentoo system, hence the following instructions assume a certain level of expertise using _Portage_ and [_layman_]( http://layman.sourceforge.net).
+This section will show you how to install the _Ineluctable Overlay_ into your Gentoo system, hence the following instructions assume a certain level of expertise using [_Portage_](http://www.gentoo.org/doc/en/handbook/handbook-x86.xml?part=2&chap=1) and [_layman_]( http://layman.sourceforge.net).
 
 Keep in mind that this overlay provides packages that aren't in the Portage tree.
 
->> **If you do have troubles with an ebuild provided by this overlay, please take it up with the ebuild provider (the owner of this GitHub account) and not with the official Gentoo's developers. In short, in case of issues, please DO NOT report bugs at bugs.gentoo.org for these ebuilds.**
+> **If you do have troubles with an ebuild provided by this overlay, please take it up with the ebuild provider (the owner of this GitHub account) and not with the official Gentoo's developers. In short, in case of issues, please DO NOT report bugs at bugs.gentoo.org for these ebuilds.**
 
 
 ### Installing the overlay
@@ -55,12 +55,21 @@ layman -d ineluctable-overlay
 rm -r /etc/layman/overlays/ineluctable-overlay
 ```
 
+## Supported Architectures
+
+This repository offers packages that are known to work on the following architectures:
+
+1. x86 (32bit)
+2. amd64 (64bit)
+3. arm
+4. x86-fbsd (experimental)
+
 
 ## Contributing
 
-This overlay is still under development. Feedbacks and suggestions are very welcome and I encourage you to use the [issues list](https://github.com/toffanin/ineluctable-overlay/issues) on GitHub to provide your contributions.
+This overlay is still under development. Feedbacks and pull requests are very welcome and I encourage you to use the [issues list](https://github.com/toffanin/ineluctable-overlay/issues) on GitHub to provide your contributions.
 
-Feel free to fork this repository and to commit your ebuilds; pull requests are always welcome (and I rarely reject them).
+I rarely reject pull requests.
 
 
 ## Overlay Package Tree
