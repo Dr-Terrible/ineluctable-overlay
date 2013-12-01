@@ -1,6 +1,6 @@
 language: python
 
-env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER USERLAND=GNU USE_EXPAND=USERLAND USE_EXPAND_HIDDEN=USERLAND
+env: PORTAGE_GRPNAME=$USER PORTAGE_USERNAME=$USER
 
 before_install:
   # Install development portage (it should have the latest suggestions)
@@ -18,10 +18,10 @@ before_install:
   - "rsync -arzp --safe-links rsync://rsync.gentoo.org/gentoo-portage/ /usr/portage/"
   - "mkdir /usr/portage/distfiles"
 
-  # Set portage's profile
-  #- "export USERLAND=GNU"
-  #- "export USE_EXPAND=USERLAND"
-  #- "export USE_EXPAND_HIDDEN=USERLAND"
+  # Popultate /etc/profile
+  # note: this is required to satisfy env variables: USERLAND, USE_EXPAND and USE_EXPAND_HIDDEN
+  - "sudo mkdir /etc/portage"
+  - "sudo ln -s /usr/portage/profiles/default/linux/amd64/13.0/desktop /etc/portage/make.profile"
 
 script:
   - "$HOME/portage/bin/repoman -vx full"
