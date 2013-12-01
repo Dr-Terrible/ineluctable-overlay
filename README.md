@@ -52,7 +52,7 @@ The process of removing this overlay from your Gentoo environment is quite strai
 
 ```
 layman -d ineluctable-overlay
-rm -r /etc/layman/overlays/ineluctable-overlay
+rm -r /etc/layman/overlays/ineluctable-overlay.xml
 ```
 
 ## Supported Architectures
