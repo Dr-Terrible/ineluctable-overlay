@@ -4,12 +4,11 @@
 
 Ineluctable Overlay offers a repository of Gentoo ebuilds made by me (Mauro Toffanin, official Gentoo/FreeBSD Arch Tester) for projects that I am interested in and are not yet available through Portage tree.
 
-
 ## Managing This Overlay
 
-### Introduction
-
 This section will show you how to install the _Ineluctable Overlay_ into your Gentoo system, hence the following instructions assume a certain level of expertise using [_Portage_](http://www.gentoo.org/doc/en/handbook/handbook-x86.xml?part=2&chap=1) and [_layman_]( http://layman.sourceforge.net).
+
+### Disclaimer
 
 Keep in mind that this overlay provides packages that aren't in the Portage tree.
 
