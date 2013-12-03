@@ -20,7 +20,7 @@ SRC_URI="x86? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86-${PV}.tar.gz )
 
 LICENSE="dropbox-EULA"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="server gtk"
 RESTRICT="mirror strip"
 
@@ -122,8 +122,8 @@ src_install() {
 		fowners root:dropbox "${DESTDIR}"/dropboxd
 		fperms 0750 "${DESTDIR}"/dropboxd
 		dosym "${DESTDIR}"/dropboxd /opt/bin/dropboxd
-		newinitd "${FILESDIR}"/dropboxd-initd dropboxd
-		newconfd "${FILESDIR}"/dropboxd-confd dropboxd
+		newinitd "${FILESDIR}"/dropbox.initd dropboxd
+		newconfd "${FILESDIR}"/dropbox.confd dropboxd
 	else
 		rm "${D}"/"${DESTDIR}"/dropboxd || die
 	fi
