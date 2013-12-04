@@ -127,7 +127,7 @@ pkg_postinst() {
 
 	if use systemd; then
 		elog
-		elog "If you wanto to enable the service for a specific user, so that it will"
+		elog "If you want to enable the service for a specific user, so that it will"
 		elog "start when the user login into the system, then execute the following"
 		elog "commands (replace <USER> with the desired username):"
 		elog "   systemctl enable dropbox@<USER>"

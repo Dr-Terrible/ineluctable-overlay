@@ -17,8 +17,6 @@
 		folders with others across the Internet using file synchronization.
 	</longdescription>
 	<use>
-		<flag name='server'>Install the daemon and init script of Dropbox</flag>
-		<flag name='gtk'>Enable the graphical user interface of Dropbox</flag>
 		<flag name="librsync-bundled">Use bundled librsync library</flag>
 		<flag name="cli">Install the official Dropbox Command Line Interface</flag>
 	</use>
