@@ -70,10 +70,10 @@ src_prepare() {
 	else
 		rm librsync.so.1 || die
 	fi
-	mv cffi-0.6-py2.7-*.egg "${T}" || die
-	rm -r *.egg library.zip || die
-	mv "${T}"/cffi-0.6-py2.7-*.egg "${S}" || die
-	ln -s dropbox library.zip || die
+	#mv cffi-*.egg "${T}" || die
+	#rm -r *.egg library.zip || die
+	#mv "${T}"/cffi-*.egg "${S}" || die
+	#ln -s dropbox library.zip || die
 	pax-mark cm dropbox
 	mv README ACKNOWLEDGEMENTS "${T}" || die
 }
@@ -122,11 +122,13 @@ pkg_postinst() {
 	elog "You must be in the 'dropbox' group to use DropBox."
 	elog "Just run (replace <USER> with the desired username):"
 	elog "    gpasswd -a <USER> dropbox"
+	elog
+	elog "then have <USER> re-login."
 
 	if use systemd; then
 		elog
-		elog "If you wanto to enable the service for a specific user, so that"
-		elog "it will start when the user login into the system, execute the following"
+		elog "If you wanto to enable the service for a specific user, so that it will"
+		elog "start when the user login into the system, then execute the following"
 		elog "commands (replace <USER> with the desired username):"
 		elog "   systemctl enable dropbox@<USER>"
 		elog "   systemctl start dropbox@<USER>"
@@ -139,9 +141,6 @@ pkg_postinst() {
 			elog "Enable the USE flag 'X' if you want to have tray support."
 		fi
 	fi
-
-	elog
-	elog "then have <USER> re-login."
 }
 
 pkg_postrm() {
