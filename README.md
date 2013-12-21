@@ -32,6 +32,7 @@ wget -q -O /etc/layman/overlays/ineluctable-overlay.xml https://raw.github.com/t
 At this point you can execute:
 
 ```
+layman -Lk
 layman -a ineluctable-overlay
 ```
 
