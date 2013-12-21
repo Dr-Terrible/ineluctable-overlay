@@ -101,7 +101,10 @@ src_install() {
 cat <<EOF >> "${T}"/${PN}.service
 
 [Service]
-Environment=DISPLAY=:0
+Environment=DISPLAY=%i
+
+[Unit]
+After=xorg.target
 EOF
 		fi
 
