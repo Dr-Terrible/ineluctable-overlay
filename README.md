@@ -85,6 +85,8 @@ I rarely reject pull requests.
 │   ├── ganeti-webmgr
 │   ├── hhvm
 │   └── lxc
+├── app-misc
+│   ├── recoll
 ├── dev-db
 │   ├── arangodb
 │   └── vertexdb
