@@ -5,6 +5,7 @@ After=local-fs.target network.target
 [Service]
 Type=simple
 ExecStart=/opt/dropbox/dropboxd
+ReadOnlyDirectories=/opt/dropbox
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always
