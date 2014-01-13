@@ -24,8 +24,10 @@ DEPEND="virtual/libiconv
 	sys-libs/zlib
 	spell? ( app-text/aspell )
 	!inotify? ( fam? ( virtual/fam ) )
-	qt4? ( dev-qt/qtcore:4[qt3support] )
-	webkit? ( dev-qt/qtwebkit:4 )
+	qt4? (
+		dev-qt/qtcore:4[qt3support]
+		dev-qt/qtwebkit:4
+	)
 	session? (
 		inotify? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE )
 		!inotify? ( fam? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) )
