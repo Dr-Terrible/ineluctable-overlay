@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@ inherit eutils multilib
 
 DESCRIPTION="Mongrel is an agnostic web server that focuses on web applications using modern browser technologies"
 HOMEPAGE="https://mongrel2.org"
-SRC_URI="https://github.com/zedshaw/${PN}2/tarball/v${PV}"
+SRC_URI="https://github.com/zedshaw/${PN}2/archive/v${PV}.tar.gz"
 
 LICENSE="BSD"
 SLOT="2"
