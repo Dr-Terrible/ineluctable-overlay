@@ -1,0 +1,47 @@
+--- mongrel2-1.8.1/tools/m2sh/Makefile
++++ mongrel2-1.8.1/tools/m2sh/Makefile
+@@ -1,4 +1,4 @@
+-CFLAGS=-DNDEBUG -DNO_LINENOS -pthread -g -I../../src -Isrc -Wall $(OPTFLAGS)
++CFLAGS+=-DNDEBUG -DNO_LINENOS -pthread -g -I../../src -Isrc -Wall $(OPTFLAGS)
+ LIBS=-lzmq -lsqlite3 ../../build/libm2.a $(OPTLIBS)
+ 
+ PREFIX?=/usr/local
+@@ -24,10 +24,10 @@
+ 
+ build/m2sh: ../lemon/lemon ../../build/libm2.a ${OBJECTS}
+ 	mkdir -p build
+-	$(CC) $(CFLAGS) -o build/m2sh ${OBJECTS} ../../build/libm2.a $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o build/m2sh ${OBJECTS} ../../build/libm2.a $(LIBS)
+ 
+ ../lemon/lemon: ../lemon/lemon.c
+-	$(CC) -O2 ../lemon/lemon.c -o ../lemon/lemon
++	$(CC) $(CFLAGS) $(LDFLAGS) ../lemon/lemon.c -o ../lemon/lemon
+ 
+ tests: build/libm2sh.a ${TESTS}
+ 	sh ./tests/runtests.sh
+@@ -39,7 +39,7 @@
+ 	ragel -G2 $<
+ 
+ $(TESTS): %: %.c build/libm2sh.a
+-	$(CC) $(CFLAGS) -o $@ $< build/libm2sh.a ../../build/libm2.a $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< build/libm2sh.a ../../build/libm2.a $(LIBS)
+ 
+ ../../build/libm2.a:
+ 	cd ../.. && make clean all
+--- mongrel2-1.8.1/tools/procer/Makefile
++++ mongrel2-1.8.1/tools/procer/Makefile
+@@ -1,4 +1,4 @@
+-CFLAGS=-DNDEBUG -pthread -g -I../../src -Wall $(OPTFLAGS)
++CFLAGS+=-DNDEBUG -pthread -g -I../../src -Wall $(OPTFLAGS)
+ PREFIX?=/usr/local
+ LIBS?=-lzmq 
+ SOURCES=$(wildcard *.c)
+@@ -8,7 +8,7 @@
+ 
+ 
+ procer: ../../build/libm2.a ${OBJECTS}
+-	gcc $(OPTFLAGS) $(OPTLIBS) -o $@ ${OBJECTS} ../../build/libm2.a ${LIBS}
++	$(CC) $(CFLAGS) $(LDFLAGS) $(OPTLIBS) -o $@ ${OBJECTS} ../../build/libm2.a ${LIBS}
+ 
+ clean:
+ 	rm -f *.o procer

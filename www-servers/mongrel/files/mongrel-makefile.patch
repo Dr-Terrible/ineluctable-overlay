@@ -1,5 +1,5 @@
---- Makefile.orig	2012-06-23 14:55:39.741987563 +0200
-+++ Makefile	2012-06-23 15:24:10.896984911 +0200
+--- Makefile
++++ Makefile
 @@ -1,4 +1,4 @@
 -CFLAGS=-g -O2 -Wall -Wextra -Isrc -pthread -rdynamic -DNDEBUG $(OPTFLAGS) -D_FILE_OFFSET_BITS=64
 +CFLAGS +=-g -O2 -Wall -Wextra -Isrc -pthread -rdynamic -DNDEBUG $(OPTFLAGS) -D_FILE_OFFSET_BITS=64

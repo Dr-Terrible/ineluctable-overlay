@@ -1,0 +1,13 @@
+DEFINED_PHASES=install prepare test
+DEPEND=dev-util/ragel doc? ( <=app-doc/dexy-0.6.0 !>=app-doc/dexy-1.0.0 virtual/latex-base dev-texlive/texlive-fontsrecommended dev-tex/tex4ht dev-texlive/texlive-fontsextra )
+DESCRIPTION=Mongrel is an agnostic web server that focuses on web applications using modern browser technologies
+EAPI=5
+HOMEPAGE=https://mongrel2.org
+IUSE=examples doc test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=BSD
+RDEPEND=!www-servers/mongrel:0 dev-db/sqlite:3 >=net-libs/zeromq-2.1.4
+SLOT=2
+SRC_URI=https://github.com/zedshaw/mongrel2/archive/v1.8.1.tar.gz -> mongrel-1.8.1.tar.gz
+_eclasses_=eutils	40081e8c7e7f7c4f9db349a1d6d52925	multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
+_md5_=cde7970e4619b8ed7456d54b549aff69

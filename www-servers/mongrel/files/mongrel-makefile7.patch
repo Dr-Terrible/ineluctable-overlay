@@ -1,0 +1,11 @@
+--- mongrel2-1.8.1/Makefile
++++ mongrel2-1.8.1/Makefile
+@@ -17,7 +17,7 @@
+ MAKEOPTS+=OPTFLAGS="${NOEXTCFLAGS} ${OPTFLAGS}" OPTLIBS="${OPTLIBS}" LIBS="${LIBS}" DESTDIR="${DESTDIR}" PREFIX="${PREFIX}"
+ LDFLAGS+=
+ 
+-all: bin/mongrel2 tests m2sh procer
++all: bin/mongrel2 m2sh procer
+ 
+ dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS) -D_FILE_OFFSET_BITS=64
+ dev: all

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://inflection.readthedocs.org/en/latest/</doc>
+		<bugs-to>https://github.com/jpvanhal/inflection/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Inflection is a string transformation library. It singularizes and pluralizes English words, and transforms strings from CamelCase to underscored string. Inflection is a port of Ruby on Rails' inflector to Python.
+	</longdescription>
+</pkgmetadata>
+

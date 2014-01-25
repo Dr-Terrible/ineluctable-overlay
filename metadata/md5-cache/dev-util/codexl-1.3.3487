@@ -9,5 +9,5 @@ RDEPEND=dev-libs/glib dev-libs/libxml2 media-libs/fontconfig media-libs/freetype
 RESTRICT=strip mirror
 SLOT=0
 SRC_URI=amd64? ( http://developer.amd.com/download/AMD_CodeXL_Linux_x86_64_1.3.3487.tar.gz -> codexl-1.3.3487.x86_64.tar.gz )
-_eclasses_=multilib	892e597faee02a5b94eb02ab512e7622	toolchain-funcs	51e6c948e72c43bcc8edc7544411c953	user	d0a4d0735a6c0183d707ca919bd72f28
+_eclasses_=multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3	user	d0a4d0735a6c0183d707ca919bd72f28
 _md5_=3ff76c1af2f24c9cf2d48d394f746953

@@ -1,0 +1,34 @@
+--- mongrel2-1.8.1/tools/filters/Makefile
++++ mongrel2-1.8.1/tools/filters/Makefile
+@@ -1,4 +1,5 @@
+ PREFIX?=/usr/local
++LIBDIR?=/lib
+ CFLAGS+=-I../../src $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
+ LDFLAGS+=$(OPTLIBS)
+ 
+@@ -12,6 +13,6 @@
+ 	rm -f *.so
+ 
+ install:
+-	install -d $(DESTDIR)/$(PREFIX)/lib/mongrel2/filters/
+-	install *.so $(DESTDIR)/$(PREFIX)/lib/mongrel2/filters/
++	install -d $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/filters/
++	install *.so $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/filters/
+ 
+--- mongrel2-1.8.1/tools/config_modules/Makefile
++++ mongrel2-1.8.1/tools/config_modules/Makefile
+@@ -1,4 +1,5 @@
+ PREFIX?=/usr/local
++LIBDIR?=/lib
+ CFLAGS+=-I../../src $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
+ LDFLAGS+=$(OPTLIBS)
+ 
+@@ -33,6 +34,6 @@
+ 	rm -Rf mongo-c-driver
+ 
+ install:
+-	install -d $(DESTDIR)/$(PREFIX)/lib/mongrel2/config_modules/
+-	install *.so $(DESTDIR)/$(PREFIX)/lib/mongrel2/config_modules/
++	install -d $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/config_modules/
++	install *.so $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/config_modules/
+ 
