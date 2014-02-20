@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>https://code.google.com/p/uniconvertor/w/list</doc>
+		<bugs-to>https://code.google.com/p/uniconvertor/issues/list</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		UniConvertor is a universal vector graphics translator. Uses PDXF model to convert one format to another.
+	</longdescription>
+</pkgmetadata>
