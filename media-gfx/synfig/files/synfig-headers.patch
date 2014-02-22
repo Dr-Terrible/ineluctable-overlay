@@ -1,0 +1,10 @@
+--- synfig-0.64.1/src/modules/mod_png/trgt_png.cpp
++++ synfig-0.64.1/src/modules/mod_png/trgt_png.cpp
+@@ -39,6 +39,7 @@
+ #include <algorithm>
+ #include <functional>
+ #include <ETL/misc>
++#include <cstring>
+ 
+ #endif
+ 

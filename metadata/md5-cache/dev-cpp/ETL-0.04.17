@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure prepare
+DEPEND=!<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.68 sys-devel/libtool
+DESCRIPTION=ETL is a multi-platform class and template library
+EAPI=5
+HOMEPAGE=http://synfig.org
+IUSE=debug
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+SLOT=0
+SRC_URI=http://sourceforge.net/projects/synfig/files/releases/0.64.1/source/ETL-0.04.17.tar.gz
+_eclasses_=autotools	b0a4d5334d34abe7b6829eb87cf3c544	libtool	b9b3340e3a19510f0d9f05cfccbf209f	multilib	fac675dcccf94392371a6abee62d909f	multiprocessing	c2d96fb38f2596209e98fceda58ba1ed	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
+_md5_=7de2b7e508ff4ef3e61cc1d90b679e56
