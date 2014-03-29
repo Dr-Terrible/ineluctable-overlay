@@ -1,20 +1,28 @@
 [Unit]
-Description=Dropbox
-After=local-fs.target network.target
+Description=Dropbox service (sandboxed)
+After=local-fs.target network-online.target
 
 [Service]
 Type=simple
-ExecStart=/opt/dropbox/dropboxd
+
+# Hack to disable Dropbox's automatic update
+ExecStartPre=/usr/bin/install -dm0 %h/.dropbox-dist
+
+ExecStart=/opt/dropbox/dropbox
 ReadOnlyDirectories=/opt/dropbox
 ExecReload=/bin/kill -HUP $MAINPID
-KillMode=process
+;KillMode=control-group
 Restart=always
-User=%I
+User=%i
 Group=dropbox
 IOSchedulingClass=idle
+IOSchedulingPriority=7
 CPUSchedulingPolicy=idle
 NoNewPrivileges=true
 NonBlocking=true
+DevicePolicy=closed
+PrivateTmp=true
+Environment="DISPLAY=$DISPLAY"
 
 [Install]
 WantedBy=multi-user.target

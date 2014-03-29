@@ -38,6 +38,7 @@ RDEPEND="
 		x11-libs/pango[X]
 		x11-themes/hicolor-icon-theme
 	)
+	sys-apps/coreutils
 	app-arch/bzip2
 	dev-libs/popt
 	net-misc/wget
@@ -100,11 +101,8 @@ src_install() {
 		if use X; then
 cat <<EOF >> "${T}"/${PN}.service
 
-[Service]
-Environment=DISPLAY=%i
-
 [Unit]
-After=xorg.target
+Requires=graphical.target
 EOF
 		fi
 
