@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>https://github.com/okamstudio/godot/wiki</doc>
+		<bugs-to>https://github.com/okamstudio/godot/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Godot is a fully featured, open source, MIT licensed, game engine. It focuses on having great tools, and a visual oriented workflow that can export to PC, Mobile and Web platforms with no hassle. The editor,
+		language and APIs are feature rich, yet simple to learn, allowing you to become productive in a matter of hours.
+	</longdescription>
+	<use>
+		<flag name="tools">Build game engines tools and game editor</flag>
+	</use>
+</pkgmetadata>

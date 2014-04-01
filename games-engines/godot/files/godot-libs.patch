@@ -1,0 +1,19 @@
+--- ./platform/x11/detect.py.orig	2014-03-31 16:14:03.443586178 +0200
++++ ./platform/x11/detect.py	2014-03-31 17:41:38.077196173 +0200
+@@ -140,6 +140,16 @@
+ 		env["CC"]="clang"
+ 		env["LD"]="clang++"
+ 
++
++	if (env["musepack"]=="yes"):
++		env.Append(LIBS=['mpcdec'])
++
++	if (env["vorbis"]=="yes"):
++		env.Append(LIBS=['vorbis','vorbisfile','m','ogg'])
++
++	if (env["png"]=="yes"):
++		env.Append(LIBS=['libpng16'])
++
+ 	import methods
+ 
+ 	env.Append( BUILDERS = { 'GLSL120' : env.Builder(action = methods.build_legacygl_headers, suffix = 'glsl.h',src_suffix = '.glsl') } )
