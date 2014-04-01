@@ -28,6 +28,7 @@ dev-php/ZendFramework:examples - Installs the examples
 dev-php/ZendFramework:minimal - Installs the minimal version without Dojo toolkit, tests and demos
 dev-util/codexl:opencl - Enable OpenCL support (AMD only)
 dev-vcs/gitflow-avh:fish-completion - Enable fish completion support.
+games-engines/godot:tools - Build game engines tools and game editor
 media-gfx/synfigstudio:fmod - Enables support for music and sound effects
 net-libs/zeromq:gcov - Build GCOV coverage support for performance statistics.
 net-libs/zeromq:pgm - 0MQ is build with 'Pragmatic General Multicast' (RFC 3208) support using the excellent OpenPGM implementation.
