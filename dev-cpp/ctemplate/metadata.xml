@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://ctemplate.googlecode.com/svn/trunk/doc/index.html</doc>
+		<bugs-to>http://code.google.com/p/ctemplate/issues/list</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		CTemplate is a simple but powerful template language for C++. It
+		emphasizes separating logic from presentation: it is impossible to
+		embed application logic in this template language.
+	</longdescription>
+</pkgmetadata>
