@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://code.google.com/p/gperftools/wiki/GooglePerformanceTools</doc>
+		<bugs-to>http://code.google.com/p/gperftools/issues/list</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		These tools are for use by developers so that they can create more
+		robust applications. Especially of use to those developing
+		multi-threaded applications in C++ with templates. Includes TCMalloc,
+		heap-checker, heap-profiler and cpu-profiler.
+	</longdescription>
+	<use>
+		<flag name="cpu-profiler">Build the CPU profiler</flag>
+		<flag name="heap-profiler">Build the HEAP profiler</flag>
+		<flag name="heap-checker">Build the HEAP checker</flag>
+		<flag name="minimal">Build only the support for tcmalloc</flag>
+	</use>
+</pkgmetadata>
+
