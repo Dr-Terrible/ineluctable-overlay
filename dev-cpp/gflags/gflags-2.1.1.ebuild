@@ -12,13 +12,14 @@ SRC_URI="https://github.com/schuhschuh/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="static-libs doc"
+IUSE="static-libs doc test"
 
 DOCS=(AUTHORS.txt ChangeLog.txt NEWS.txt README.txt)
 src_configure() {
 	local mycmakeargs=(
 #		-DBUILD_SHARED_LIBS=ON
-		 $(cmake-utils_use_with static-libs BUILD_STATIC_LIBS)
+		$(cmake-utils_use static-libs BUILD_STATIC_LIBS)
+		$(cmake-utils_use test BUILD_TESTING)
 	)
 	cmake-multilib_src_configure
 }
