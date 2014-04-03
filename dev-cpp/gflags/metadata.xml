@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>https://gflags.googlecode.com/git-history/master/doc/gflags.html</doc>
+		<bugs-to>https://code.google.com/p/gflags/issues/list</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		The gflags package contains a library that implements commandline flags processing. As such it's a replacement for getopt(). It has increased flexibility, including built-in support for C++ types like string, and
+		the ability to define flags in the source file in which they are used.
+	</longdescription>
+</pkgmetadata>
