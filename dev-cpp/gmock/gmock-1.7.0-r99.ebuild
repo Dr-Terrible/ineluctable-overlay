@@ -14,7 +14,7 @@ SRC_URI="http://googlemock.googlecode.com/files/${P}.zip"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="static-libs test"
+IUSE="examples static-libs test"
 
 RDEPEND="=dev-cpp/gtest-${PV}*[${MULTILIB_USEDEP}]"
 DEPEND="${RDEPEND}
@@ -37,6 +37,11 @@ src_configure() {
 src_install() {
 	autotools-multilib_src_install
 	multilib_for_best_abi gmock-config_install
+
+	if use examples ; then
+		insinto /usr/share/doc/${PF}/examples
+		doins samples/*.{cc,h}
+	fi
 }
 
 gmock_src_configure() {
