@@ -24,4 +24,3 @@
 		<flag name="minimal">Build only the support for tcmalloc</flag>
 	</use>
 </pkgmetadata>
-
