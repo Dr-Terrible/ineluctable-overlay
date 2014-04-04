@@ -10,14 +10,16 @@ inherit autotools-utils
 
 DESCRIPTION="Fast, multi-threaded malloc() and nifty performance analysis tools"
 HOMEPAGE="https://code.google.com/p/gperftools/"
-SRC_URI="http://gperftools.googlecode.com/files/${P}.tar.gz"
+SRC_URI="http://gperftools.googlecode.com/files/${P//oogle-}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+cpu-profiler -debug heap-profiler heap-checker static-libs test doc minimal"
+IUSE="+cpu-profiler -debug heap-profiler heap-checker static-libs test minimal"
 
 RDEPEND="sys-libs/libunwind"
+
+S="${WORKDIR}/${PN//oogle-}"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 
@@ -31,9 +33,4 @@ src_configure() {
 		$(use_enable minimal)
 	)
 	autotools-utils_src_configure
-}
-
-src_install() {
-	autotools-utils_src_install
-	use doc && dohtml doc/*
 }

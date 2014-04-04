@@ -27,10 +27,10 @@ dev-php/ZendFramework:doc - Installs the documentation
 dev-php/ZendFramework:examples - Installs the examples
 dev-php/ZendFramework:minimal - Installs the minimal version without Dojo toolkit, tests and demos
 dev-util/codexl:opencl - Enable OpenCL support (AMD only)
-dev-util/gperftools:cpu-profiler - Build the CPU profiler
-dev-util/gperftools:heap-checker - Build the HEAP checker
-dev-util/gperftools:heap-profiler - Build the HEAP profiler
-dev-util/gperftools:minimal - Build only the support for tcmalloc
+dev-util/google-perftools:cpu-profiler - Build the CPU profiler
+dev-util/google-perftools:heap-checker - Build the HEAP checker
+dev-util/google-perftools:heap-profiler - Build the HEAP profiler
+dev-util/google-perftools:minimal - Build only the support for tcmalloc
 dev-vcs/gitflow-avh:fish-completion - Enable fish completion support.
 games-engines/godot:tools - Build game engines tools and game editor
 media-gfx/synfigstudio:fmod - Enables support for music and sound effects
