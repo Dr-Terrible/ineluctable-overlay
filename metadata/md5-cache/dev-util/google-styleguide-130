@@ -1,0 +1,10 @@
+DEFINED_PHASES=install preinst prepare unpack
+DEPEND=|| ( dev-vcs/subversion[http] dev-vcs/subversion[webdav-neon] dev-vcs/subversion[webdav-serf] ) net-misc/rsync
+DESCRIPTION=Style guides for Google-originated open-source projects
+EAPI=5
+HOMEPAGE=https://code.google.com/p/google-styleguide/
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=CC-BY-3.0
+SLOT=0
+_eclasses_=eutils	af81d52c25ec93fbdff71e0efb0de7b7	multilib	fac675dcccf94392371a6abee62d909f	subversion	c12bdf4fcc82f86ad89b14c8f76c4026	toolchain-funcs	48b38a216afb92db6314d6c3187abea3	versionator	a8a3963967d6140be9a14b08bb8f047f
+_md5_=eb4ac4d5b36a2a76ce994d199110a707
