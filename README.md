@@ -83,28 +83,32 @@ I rarely reject pull requests.
 │   └── dexy
 ├── app-emulation
 │   ├── ganeti-webmgr
-│   ├── hhvm
 │   └── lxc
 ├── app-misc
-│   ├── recoll
+│   └── recoll
+├── dev-cpp
+│   ├── ctemplate
+│   ├── ETL
+│   ├── gflags
+│   ├── gmock
+│   ├── gtest
+│   └── plustache
 ├── dev-db
-│   ├── arangodb
-│   └── vertexdb
-├── dev-embedded
+│   └── arangodb
 ├── dev-lang
-│   ├── dmd
 │   ├── efene
 │   ├── reia
 │   └── v8
 ├── dev-libs
 │   ├── hhvm-libevent
-│   ├── icu
 │   ├── libdwarf
 │   ├── oniguruma
 │   └── shflags
 ├── dev-php
 │   └── ZendFramework
 ├── dev-python
+│   ├── cashew
+│   ├── dexy-viewer
 │   ├── django-fields
 │   ├── django-haystack
 │   ├── django-muddle-users
@@ -112,6 +116,7 @@ I rarely reject pull requests.
 │   ├── django-object-permissions
 │   ├── ganeti-webmgr-layout
 │   ├── idiopidae
+│   ├── inflection
 │   ├── muddle
 │   ├── ordereddict
 │   ├── plugnplay
@@ -129,12 +134,25 @@ I rarely reject pull requests.
 │   ├── rspec
 │   └── sax-machine
 ├── dev-util
-│   ├── codeanalyst
 │   ├── codexl
 │   ├── cxxtest
+│   ├── google-perftools
+│   ├── google-styleguide
 │   └── oprofile
 ├── dev-vcs
 │   └── gitflow-avh
+├── games-engines
+│   ├── flare
+│   ├── godot
+│   └── openjk
+├── games-rpg
+│   └── flare
+├── media-gfx
+│   ├── printdesign
+│   ├── synfig
+│   ├── synfigstudio
+│   ├── uniconvertor
+│   └── wings
 ├── net-libs
 │   └── zeromq
 ├── net-misc

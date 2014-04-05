@@ -2,10 +2,10 @@ DEFINED_PHASES=install prepare unpack
 DEPEND=doc? ( app-doc/dexy virtual/latex-base dev-texlive/texlive-fontsextra dev-texlive/texlive-fontsrecommended dev-tex/tex4ht ) dev-vcs/git
 DESCRIPTION=Mongrel is an agnostic web server that focuses on web applications using modern browser technologies
 EAPI=5
-HOMEPAGE=https://mongrel2.org
+HOMEPAGE=http://mongrel2.org
 IUSE=examples doc
 LICENSE=BSD
 RDEPEND=!www-servers/mongrel:0 dev-db/sqlite:3 >=net-libs/zeromq-2.1.4
 SLOT=2
 _eclasses_=eutils	af81d52c25ec93fbdff71e0efb0de7b7	git-2	2027b81a576527fa16bece425941e094	git-r3	6b256c6cd82cd5989bcb82e80a0fbac9	multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
-_md5_=c9dc30837d64da1d5f734e6b80b04d69
+_md5_=24f5adce02490cb2c575a107830ee253

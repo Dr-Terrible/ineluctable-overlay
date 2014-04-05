@@ -12,10 +12,20 @@
 		<bugs-to>https://github.com/okamstudio/godot/issues</bugs-to>
 	</upstream>
 	<longdescription lang="en">
-		Godot is a fully featured, open source, MIT licensed, game engine. It focuses on having great tools, and a visual oriented workflow that can export to PC, Mobile and Web platforms with no hassle. The editor,
-		language and APIs are feature rich, yet simple to learn, allowing you to become productive in a matter of hours.
+		Godot is a fully featured, open source, MIT licensed, game engine. It
+		focuses on having great tools, and a visual oriented workflow that can
+		export to PC, Mobile and Web platforms with no hassle. The editor,
+		language and APIs are feature rich, yet simple to learn, allowing you
+		to become productive in a matter of hours.
 	</longdescription>
 	<use>
 		<flag name="tools">Build game engines tools and game editor</flag>
+		<flag name="squirrel">Enable support for the <pkg>dev-lang/squirrel</pkg> scripting language</flag>
+		<flag name="rfd">Enable support for the Remote Filesystem Driver</flag>
+		<flag name="minizip">Enable support for the minizip library</flag>
+		<flag name="webp">Enable support for the webp image format</flag>
+		<flag name="dds">Enable support for the DDS Texture loader</flag>
+		<flag name="pvr">Enable support for the PVR (PowerVR) Texture loader</flag>
+		<flag name="nedmalloc">Enable support for nedmalloc</flag>
 	</use>
 </pkgmetadata>

@@ -9,7 +9,7 @@ EGIT_BRANCH="develop"
 EGIT_REPO_URI="https://github.com/zedshaw/mongrel2.git"
 
 DESCRIPTION="Mongrel is an agnostic web server that focuses on web applications using modern browser technologies"
-HOMEPAGE="https://mongrel2.org"
+HOMEPAGE="http://mongrel2.org"
 
 LICENSE="BSD"
 SLOT="2"

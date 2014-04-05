@@ -6,7 +6,7 @@ EAPI=5
 inherit eutils multilib
 
 DESCRIPTION="Mongrel is an agnostic web server that focuses on web applications using modern browser technologies"
-HOMEPAGE="https://mongrel2.org"
+HOMEPAGE="http://mongrel2.org"
 SRC_URI="https://github.com/zedshaw/${PN}2/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"

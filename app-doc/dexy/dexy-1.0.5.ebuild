@@ -34,4 +34,5 @@ DOCS="README"
 src_prepare() {
 	# FIX: see http://comments.gmane.org/gmane.linux.gentoo.python/378
 	rm -r tests || die
+	distutils-r1_src_prepare
 }
