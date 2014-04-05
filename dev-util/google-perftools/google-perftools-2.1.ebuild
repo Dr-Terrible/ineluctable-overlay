@@ -19,7 +19,7 @@ IUSE="+cpu-profiler -debug heap-profiler heap-checker static-libs test minimal"
 
 RDEPEND="sys-libs/libunwind"
 
-S="${WORKDIR}/${PN//oogle-}"
+S="${WORKDIR}/${PNV//oogle-}"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 
