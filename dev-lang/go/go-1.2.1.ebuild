@@ -4,7 +4,7 @@
 
 EAPI=5
 export CTARGET=${CTARGET:-${CHOST}}
-inherit bash-completion-r1 elisp-common eutils flag-o-matic
+inherit bash-completion-r1 elisp-common eutils
 
 DESCRIPTION="A concurrent garbage collected and typesafe programming language"
 HOMEPAGE="http://www.golang.org"
@@ -39,9 +39,6 @@ src_compile() {
 	then
 		export GOARM=5
 	fi
-
-	# exporting system LDFLAGS
-	export GO_LDFLAGS="$(raw-ldflags)"
 
 	cd src
 	./make.bash || die "build failed"
