@@ -50,6 +50,7 @@ net-misc/vde:kernel-switch - Enable kernel switch.
 net-misc/vde:pcap - Enable the pcap-based plugin that allows creating a switch against a real interface.
 net-misc/vde:ssl - Enable the cryptcab plugin that allows creating an encrypted virtual cable.
 net-misc/vde:tuntap - Enable tun/tap interfaces.
+sys-apps/nix:boehm-gc - Enable Hans Boehm's garbage collector (dev-libs/boehm-gc)
 x11-base/xynth:client - compile Xynth X11 client
 x11-base/xynth:fbdev - compile X11 driver for frame buffer devices
 x11-base/xynth:server - compile Xynth X11 server

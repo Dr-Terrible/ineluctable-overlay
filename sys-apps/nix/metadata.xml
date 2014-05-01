@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://nixos.org/nix/docs.html</doc>
+		<bugs-to>https://github.com/NixOS/nix/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Nix is a purely functional package manager. This means that it treats packages like values in purely functional programming languages such as Haskell — they are built by functions that don’t have side-effects, and they never change after they have been built.
+	</longdescription>
+	<use>
+		<flag name="boehm-gc">Enable Hans Boehm's garbage collector (<pkg>dev-libs/boehm-gc</pkg>)</flag>
+	</use>
+</pkgmetadata>
