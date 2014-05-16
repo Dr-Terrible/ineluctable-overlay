@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI=5
-
 inherit cmake-utils games
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
@@ -16,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	media-libs/libsdl[X,audio,joystick,video]
+	>=media-libs/libsdl-1.2.15-r5[X,sound,joystick,video]
 	media-libs/sdl-image[png]
 	media-libs/sdl-mixer[vorbis]
 	media-libs/sdl-ttf"
