@@ -8,7 +8,8 @@ inherit bash-completion-r1 elisp-common eutils
 
 DESCRIPTION="A concurrent garbage collected and typesafe programming language"
 HOMEPAGE="http://www.golang.org"
-SRC_URI="http://go.googlecode.com/files/go${PV}.src.tar.gz"
+#SRC_URI="http://go.googlecode.com/files/go${PV}.src.tar.gz"
+SRC_URI="https://storage.googleapis.com/golang/go${PV}.src.tar.gz"
 
 # Upstream only supports go on amd64, arm and x86 architectures.
 KEYWORDS="-* amd64 arm x86 ~amd64-fbsd ~x86-fbsd ~x64-macos"
