@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://assimp.sourceforge.net/main_doc.html</doc>
+		<bugs-to>https://github.com/assimp/assimp/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Open Asset Import Library (short name: Assimp) is a cross-platform
+		library capable to loads more than thirty different 3D file formats into
+		one unified and clean data structure.
+	</longdescription>
+	<use>
+		<flag name="boost">Build Assimp with <pkg>dev-libs/boost</pkg> support</flag>
+        <flag name="samples">Build the official samples</flag>
+        <flag name="tools">Build supplementary tools for Assimp</flag>
+	</use>
+</pkgmetadata>
