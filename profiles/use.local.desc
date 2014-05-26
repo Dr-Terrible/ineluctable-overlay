@@ -40,6 +40,9 @@ games-engines/godot:rfd - Enable support for the Remote Filesystem Driver
 games-engines/godot:squirrel - Enable support for the dev-lang/squirrel scripting language
 games-engines/godot:tools - Build game engines tools and game editor
 games-engines/godot:webp - Enable support for the webp image format
+media-gfx/assimp:boost - Build Assimp with dev-libs/boost support
+media-gfx/assimp:samples - Build the official samples
+media-gfx/assimp:tools - Build supplementary tools for Assimp
 media-gfx/synfigstudio:fmod - Enables support for music and sound effects
 net-libs/zeromq:gcov - Build GCOV coverage support for performance statistics.
 net-libs/zeromq:pgm - 0MQ is build with 'Pragmatic General Multicast' (RFC 3208) support using the excellent OpenPGM implementation.
