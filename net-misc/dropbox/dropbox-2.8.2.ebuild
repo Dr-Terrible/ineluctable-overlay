@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit eutils gnome2-utils pax-utils systemd
+inherit user gnome2-utils pax-utils systemd
 
 DESCRIPTION="Dropbox daemon (pretends to be GUI-less)"
 HOMEPAGE="http://dropbox.com/"
