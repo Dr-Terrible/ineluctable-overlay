@@ -101,8 +101,11 @@ src_install() {
 		if use X; then
 cat <<EOF >> "${T}"/${PN}.service
 
+[Install]
+RequiredBy=graphical.target
+
 [Unit]
-Requires=graphical.target
+After=graphical.target
 EOF
 		fi
 

@@ -1,6 +1,7 @@
 [Unit]
 Description=Dropbox service (sandboxed)
-After=local-fs.target network-online.target
+Requisite=local-fs.target network.target multi-user.target
+After=multi-user.target
 
 [Service]
 Type=simple
@@ -10,8 +11,7 @@ ExecStartPre=/usr/bin/install -dm0 %h/.dropbox-dist
 
 ExecStart=/opt/dropbox/dropbox
 ReadOnlyDirectories=/opt/dropbox
-ExecReload=/bin/kill -HUP $MAINPID
-;KillMode=control-group
+KillSignal=SIGINT
 Restart=always
 User=%i
 Group=dropbox
@@ -22,7 +22,7 @@ NoNewPrivileges=true
 NonBlocking=true
 DevicePolicy=closed
 PrivateTmp=true
-Environment="DISPLAY=$DISPLAY"
+Environment=DISPLAY=:0.0
 
 [Install]
-WantedBy=multi-user.target
+RequiredBy=multi-user.target
