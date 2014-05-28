@@ -45,7 +45,7 @@ RDEPEND="
 	>=sys-devel/gcc-4.2.0
 	sys-libs/zlib
 	systemd? ( sys-apps/systemd )
-	cli? ( net-misc/dropbox-cli )
+	cli? ( >=net-misc/dropbox-cli-1.6.2 )
 	!librsync-bundled? ( net-libs/librsync )"
 
 pkg_setup() {
