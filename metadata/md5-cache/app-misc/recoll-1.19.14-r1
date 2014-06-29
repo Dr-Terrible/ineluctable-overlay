@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst prepare pretend setup test unpack
+DEPEND=virtual/libiconv >=dev-libs/xapian-1.0.12 sys-libs/zlib spell? ( app-text/aspell ) !inotify? ( fam? ( virtual/fam ) ) qt4? ( dev-qt/qtcore:4 webkit? ( dev-qt/qtwebkit:4 ) ) session? ( inotify? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) !inotify? ( fam? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) ) ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.68 sys-devel/libtool
+DESCRIPTION=A personal full text search package
+EAPI=5
+HOMEPAGE=http://www.recoll.org
+IUSE=+spell inotify +qt4 +session camelcase xattr webkit fam threads audio chm djvu dvi exif postscript ics info lyx msdoc msppt msxls pdf rtf tex wordperfect xml python_targets_python2_7
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libiconv >=dev-libs/xapian-1.0.12 sys-libs/zlib spell? ( app-text/aspell ) !inotify? ( fam? ( virtual/fam ) ) qt4? ( dev-qt/qtcore:4 webkit? ( dev-qt/qtwebkit:4 ) ) session? ( inotify? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) !inotify? ( fam? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) ) ) app-arch/unzip sys-apps/sed virtual/awk pdf? ( app-text/poppler ) postscript? ( app-text/pstotext ) msdoc? ( app-text/antiword ) msxls? ( app-text/catdoc ) msppt? ( app-text/catdoc ) wordperfect? ( app-text/libwpd:0.9 ) rtf? ( app-text/unrtf ) tex? ( dev-tex/detex ) dvi? ( virtual/tex-base ) djvu? ( >=app-text/djvu-3.5.15 ) exif? ( media-libs/exiftool ) chm? ( dev-python/pychm ) ics? ( dev-python/icalendar ) lyx? ( app-office/lyx ) audio? ( media-libs/mutagen ) xml? ( dev-libs/libxslt ) info? ( sys-apps/texinfo )
+REQUIRED_USE=session? ( || ( fam inotify ) )
+SLOT=0
+SRC_URI=http://www.lesbonscomptes.com/recoll/recoll-1.19.14p1.tar.gz
+_eclasses_=autotools	5256b4f4c1798109f39f308f9f7eaf5f	autotools-utils	fb74970befc9b65ceec689d2ccff3022	base	ec46b36a6f6fd1d0b505a33e0b74e413	eutils	025442f2eecab39ad0b4e541b6e142af	libtool	2964b38e7ad7f6998406386ad1c6dbcf	linux-info	90944ede7e9761bd7ef07602acdef9e3	multibuild	46527a4656956da3d58acff72c9b59b1	multilib	fac675dcccf94392371a6abee62d909f	multiprocessing	c2d96fb38f2596209e98fceda58ba1ed	python-r1	36d89a1c51cb1e624d5cdbea26adb9ad	python-utils-r1	6164ef644981c5dffdf4cf891caed613	qmake-utils	6f4ff01a55830f6d86647dc56dfaf3a7	qt4-r2	b40473dafd07d7c5fe4aef1c1b902f39	readme.gentoo	dd566be921cea0d8287de7039747b719	toolchain-funcs	48b38a216afb92db6314d6c3187abea3	versionator	a8a3963967d6140be9a14b08bb8f047f
+_md5_=8857abb11e73b44f4230f56e8603c10d

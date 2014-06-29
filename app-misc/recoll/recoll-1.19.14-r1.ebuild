@@ -4,6 +4,7 @@
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
+AUTOTOOLS_IN_SOURCE_BUILD=1
 AUTOTOOLS_AUTORECONF=1
 inherit toolchain-funcs qt4-r2 linux-info python-r1 readme.gentoo autotools-utils
 
@@ -140,7 +141,6 @@ src_configure() {
 	)
 	autotools-utils_src_configure
 
-	# NOTE: this is required to honor cflags
 	if use qt4 || use webkit; then
 		cd qtgui || die
 		eqmake4 ${PN}.pro
@@ -157,15 +157,13 @@ pkg_postinst() {
 
 	if [[ -n ${REPLACING_VERSIONS} ]]; then
 		elog
-		elog "1.18 introduces significant index formats changes to support optional"
-		elog "character case and diacritics sensitivity, and it will be advisable"
-		elog "to reset the index in most cases."
-		elog
-		elog "This will be best done by destroying the index directory:"
-		elog "  $ rm -rf ~/.recoll/xapiandb"
-		elog
-		elog "If 1.18 is not configured for case and diacritics sensitivity, it is"
-		elog "mostly compatible with 1.17 indexes."
+		elog "1.18 introduces significant index formats"
+		elog "changes to support optional character case and diacritics"
+		elog "sensitivity, and it will be advisable to reset the index in"
+		elog "most cases. This will be best done by destroying the index"
+		elog "directory (rm -rf ~/.recoll/xapiandb). If 1.18 is not configured"
+		elog "for case and diacritics sensitivity, it is mostly compatible"
+		elog "with 1.17 indexes."
 		elog
 	fi
 }
