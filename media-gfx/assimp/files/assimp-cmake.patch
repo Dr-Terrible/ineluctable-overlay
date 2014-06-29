@@ -3,7 +3,7 @@
 @@ -102,19 +102,7 @@
  # Search for external dependencies, and build them from source if not found
  # Search for zlib
- find_package(ZLIB)
+ find_package(ZLIB REQUIRED)
 -if( NOT ZLIB_FOUND )
 -  message(STATUS "compiling zlib from souces")
 -  include(CheckIncludeFile)
