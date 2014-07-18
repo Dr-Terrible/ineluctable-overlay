@@ -71,21 +71,22 @@ src_prepare() {
 	else
 		rm librsync.so.1 || die
 	fi
-	#mv cffi-*.egg "${T}" || die
-	#rm -r *.egg library.zip || die
-	#mv "${T}"/cffi-*.egg "${S}" || die
-	#ln -s dropbox library.zip || die
+
+	mv cffi-0.7.2-py2.7-*.egg dropbox_sqlite_ext-0.0-py2.7.egg distribute-0.6.26-py2.7.egg "${T}" || die
+	rm -rf *.egg library.zip || die
+	mv "${T}"/cffi-0.7.2-py2.7-*.egg "${T}"/dropbox_sqlite_ext-0.0-py2.7.egg "${T}"/distribute-0.6.26-py2.7.egg "${S}" || die
+	ln -s dropbox library.zip || die
 	pax-mark cm dropbox
 	mv README ACKNOWLEDGEMENTS "${T}" || die
 }
 
 src_install() {
-	local targetdir="/opt/dropbox"
+	local targetdir="/opt/${PN}"
 
 	# installing dropbox
 	insinto "${targetdir}"
 	doins -r *
-	dosym "${targetdir}/dropboxd" "/opt/bin/dropbox"
+	dosym "${targetdir}/${PN}d" "/opt/bin/${PN}d"
 	use X && doicon -s 16 -c status "${T}"/status
 
 	# fixing perms
@@ -102,7 +103,7 @@ src_install() {
 cat <<EOF >> "${T}"/${PN}.service
 
 [Install]
-RequiredBy=graphical.target
+WantedBy=graphical.target
 
 [Unit]
 After=graphical.target
@@ -110,7 +111,6 @@ EOF
 		fi
 
 		systemd_newunit "${T}"/${PN}.service "${PN}@.service"
-		systemd_install_serviced "${FILESDIR}"/${PN}.service.conf
 	fi
 
 	dodoc "${T}"/{README,ACKNOWLEDGEMENTS}
