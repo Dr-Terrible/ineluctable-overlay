@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install postinst prepare setup unpack
+DEPEND=cg? ( media-gfx/nvidia-cg-toolkit ) dev-libs/libtar doc? ( dev-python/epydoc ) ffmpeg? ( media-video/ffmpeg ) fftw? ( sci-libs/fftw ) fmod? ( media-libs/fmod ) gtk? ( x11-libs/gtk+ ) jpeg? ( virtual/jpeg ) ode? ( dev-games/ode ) openal? ( media-libs/openal ) opencv? ( media-libs/opencv ) png? ( media-libs/libpng ) python? ( dev-lang/python ) ssl? ( dev-libs/openssl ) tiff? ( media-libs/tiff ) truetype? ( media-libs/freetype ) virtual/opengl xml? ( dev-libs/tinyxml ) zlib? ( sys-libs/zlib ) sys-devel/automake:1.11 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.68 sys-devel/libtool dev-vcs/cvs
+DESCRIPTION=Panda3D is a framework for 3D rendering and game development.
+EAPI=5
+HOMEPAGE=http://www.panda3d.org
+IUSE=+cg doc ffmpeg fftw fmod +gtk jpeg ode +openal opencv png +python ssl +threads tiff truetype xml +zlib python_targets_python2_7 python_targets_python3_3 python_targets_python3_4 python_single_target_python2_7 python_single_target_python3_3 python_single_target_python3_4
+LICENSE=BSD
+RDEPEND=cg? ( media-gfx/nvidia-cg-toolkit ) dev-libs/libtar doc? ( dev-python/epydoc ) ffmpeg? ( media-video/ffmpeg ) fftw? ( sci-libs/fftw ) fmod? ( media-libs/fmod ) gtk? ( x11-libs/gtk+ ) jpeg? ( virtual/jpeg ) ode? ( dev-games/ode ) openal? ( media-libs/openal ) opencv? ( media-libs/opencv ) png? ( media-libs/libpng ) python? ( dev-lang/python ) ssl? ( dev-libs/openssl ) tiff? ( media-libs/tiff ) truetype? ( media-libs/freetype ) virtual/opengl xml? ( dev-libs/tinyxml ) zlib? ( sys-libs/zlib )
+RESTRICT=mirror
+SLOT=0
+_eclasses_=autotools	82621aada74cb2a492bd8e73d49e9f54	cvs	a4cb8da1bb586b224ade5b54f1d2fda0	eutils	06133990e861be0fe60c2b428fd025d9	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	python-single-r1	a71a169a881e0a11d04a7fe12dc39f6e	python-utils-r1	8c66c6dabd0295878b68b40dbd0b087b	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=62474028ef4643c163bd71e6fd9f181d

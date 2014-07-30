@@ -1,0 +1,16 @@
+#!/bin/sh
+
+
+export PRC_DIR="/opt/panda3d/etc"
+export PATH="/opt/panda3d/bin:$PATH"
+export LD_LIBRARY_PATH="/opt/panda3d/lib:${LD_LIBRARY_PATH}"
+
+usage() {
+	echo "usage: `basename $0` program [option...]"
+	echo "where 'program' is one of: "`/bin/ls /opt/panda3d/bin/* | cut -d '/' -f 5 | sort | tr '\n' ' '`
+}
+
+[ -z "$1" ] && { usage; exit 1; }
+
+type "$1" &>/dev/null && exec "$@" || { usage; exit 1; }
+

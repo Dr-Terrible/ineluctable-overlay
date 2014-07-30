@@ -42,10 +42,33 @@ games-engines/godot:rfd - Enable support for the Remote Filesystem Driver
 games-engines/godot:squirrel - Enable support for the dev-lang/squirrel scripting language
 games-engines/godot:tools - Build game engines tools and game editor
 games-engines/godot:webp - Enable support for the webp image format
+games-engines/panda3d:artoolkit - Enables support for augmented reality through package media-libs/artoolkit
+games-engines/panda3d:bullet - Enables physics support through package sci-physics/bullet, a collision detection and physics library
+games-engines/panda3d:cg - Adds support for nVidia's CG shaders through media-gfx/nvidia-cg-toolkit
+games-engines/panda3d:contrib - Builds additional contrib components (higlhy experimental)
+games-engines/panda3d:egl - Uses EGL instead of default GLX to manage OpenGL
+games-engines/panda3d:eigen - Enables optimised linear algebra library through package dev-cpp/eigen
+games-engines/panda3d:fmod - Enables support for package media-libs/fmod
+games-engines/panda3d:gles1 - Enables OpenGL GLESv1 backend for acceleration
+games-engines/panda3d:gles2 - Enables OpenGL GLESv2 backend for acceleration
+games-engines/panda3d:npapi - Enables Netscape plugin API (a set of interfaces to write browser plugins) through net-misc/npapi-sdk
+games-engines/panda3d:ode - Enables physics support through package Open Dynamics Engine SDK dev-games/ode
+games-engines/panda3d:opencv - Enables support for package media-libs/opencv
+games-engines/panda3d:osmesa - Adds support for OpenGL in bitmaps using libOSMesa from media-libs/mesa
+games-engines/panda3d:pstats - Builts the PStats viewer for graphical analysis of real-time performance
+games-engines/panda3d:rocket - Enables support of package dev-libs/libRocket
+games-engines/panda3d:squish - Enables support for DXT1, DXT3, DXT5 pre-compressed texture images through package
+games-engines/panda3d:xrandr - Enables XRandR window extension support
+games-strategy/ufo-ai:debug - Prepares for backtraces and debugging output
+games-strategy/ufo-ai:dedicated - Build the stuff necessary to run a dedicated server
+games-strategy/ufo-ai:editor - Build map editor
+games-strategy/ufo-ai:game - Build the stuff necessary to run and play the game
+games-strategy/ufo-ai:sse - Use the SSE instruction set
 media-gfx/assimp:boost - Build Assimp with dev-libs/boost support
 media-gfx/assimp:samples - Build the official samples
 media-gfx/assimp:tools - Build supplementary tools for Assimp
 media-gfx/synfigstudio:fmod - Enables support for music and sound effects
+media-libs/artoolkit:utils - Build utilities
 net-libs/zeromq:gcov - Build GCOV coverage support for performance statistics.
 net-libs/zeromq:pgm - 0MQ is build with 'Pragmatic General Multicast' (RFC 3208) support using the excellent OpenPGM implementation.
 net-misc/dropbox:cli - Install the official Dropbox Command Line Interface

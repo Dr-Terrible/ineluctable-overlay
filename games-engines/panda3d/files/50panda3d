@@ -1,0 +1,3 @@
+PATH="/opt/panda3d/bin"
+ROOTPATH="/opt/panda3d/bin"
+LDPATH="/opt/panda3d/lib"
