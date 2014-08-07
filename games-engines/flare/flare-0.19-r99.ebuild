@@ -27,7 +27,7 @@ S=${WORKDIR}/${PN}-engine-${PV}
 
 src_configure() {
 	local mycmakeargs=(
-		-USE_SDL2=ON
+		-DUSE_SDL2=ON
 		-DSDL1_FALLBACK=FALSE
 		-DBINDIR="${GAMES_BINDIR}"
 		-DDATADIR="${GAMES_DATADIR}/${PN}"
