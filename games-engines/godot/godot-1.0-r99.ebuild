@@ -6,6 +6,7 @@ EAPI=5
 inherit git-r3 scons-utils toolchain-funcs
 
 EGIT_REPO_URI="git://github.com/okamstudio/${PN}.git"
+EGIT_COMMIT="a1d6cd0"
 
 DESCRIPTION="Godot is a fully featured, open source, MIT licensed, game engine."
 HOMEPAGE="http://www.godotengine.org"
@@ -44,13 +45,12 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	# FIX: the mechanism used by 'spawn_jobs' to autodetect the job numbers
 	#      is borked; it's more appropriate to bypass it and use 'escons'
-	epatch "${FILESDIR}"/${PN}-scons.patch
+	epatch "${FILESDIR}"/${P}-scons.patch
 
 	# remove some bundled deps
 	#	drivers/png/png* \
 	rm -r \
 		drivers/builtin_zlib \
-		drivers/openssl \
 		drivers/mpc/{mpc*,minimax*,huffman*,internal*,stream*,synth*,requant*,reader*,decoder*,datatypes*} \
 		drivers/ogg/{*.c,*.h} \
 		drivers/vorbis/{*.c,books,modes,b*.h,c*.h,e*.h,h*.h,l*.h,m*.h,o*.h,p*.h,r*.h,s*.h,v*.h,w*.h} \
@@ -117,7 +117,7 @@ src_install() {
 	# installing documentation and examples
 	einstalldocs
 	if use doc; then
-		doc/make_doc.sh || die
+		sh doc/make_doc.sh || die
 		dohtml -r doc/html/
 		cd "${S}" || die
 	fi

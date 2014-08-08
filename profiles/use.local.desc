@@ -59,6 +59,9 @@ games-engines/panda3d:pstats - Builts the PStats viewer for graphical analysis o
 games-engines/panda3d:rocket - Enables support of package dev-libs/libRocket
 games-engines/panda3d:squish - Enables support for DXT1, DXT3, DXT5 pre-compressed texture images through package
 games-engines/panda3d:xrandr - Enables XRandR window extension support
+games-engines/redpanda:egl - Uses EGL instead of default GLX to manage OpenGL
+games-engines/redpanda:gles1 - Enables OpenGL GLESv1 backend for acceleration
+games-engines/redpanda:gles2 - Enables OpenGL GLESv2 backend for acceleration
 games-strategy/ufo-ai:debug - Prepares for backtraces and debugging output
 games-strategy/ufo-ai:dedicated - Build the stuff necessary to run a dedicated server
 games-strategy/ufo-ai:editor - Build map editor
