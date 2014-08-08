@@ -2,7 +2,7 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
-app-editors/liteide: - Enable support for sys-devel/gdb
+app-editors/liteide:gdb - Enables support for sys-devel/gdb
 app-emulation/ganeti-webmgr:webserver - Enable internal webserver; disable this use if you want to serve the application using Django with traditional webservers like: www-servers/apache, www-servers/nginx, dev-python/twisted or www-servers/lighttpd.
 app-misc/recoll:audio - Index audio files
 app-misc/recoll:camelcase - Enable indexing for camelCase sentences and words
@@ -34,6 +34,9 @@ dev-util/google-perftools:heap-checker - Build the HEAP checker
 dev-util/google-perftools:heap-profiler - Build the HEAP profiler
 dev-util/google-perftools:minimal - Build only the support for tcmalloc
 dev-vcs/gitflow-avh:fish-completion - Enable fish completion support.
+games-engines/Torque3D:asserts - Enables support for asserts
+games-engines/Torque3D:profiler - Enables support for the OpenGL profiler
+games-engines/Torque3D:tools - Builds game engines tools and game editor
 games-engines/godot:dds - Enable support for the DDS Texture loader
 games-engines/godot:minizip - Enable support for the minizip library
 games-engines/godot:nedmalloc - Enable support for nedmalloc
@@ -60,8 +63,8 @@ games-engines/panda3d:rocket - Enables support of package dev-libs/libRocket
 games-engines/panda3d:squish - Enables support for DXT1, DXT3, DXT5 pre-compressed texture images through package
 games-engines/panda3d:xrandr - Enables XRandR window extension support
 games-engines/redpanda:egl - Uses EGL instead of default GLX to manage OpenGL
-games-engines/redpanda:gles1 - Enables OpenGL GLESv1 backend for acceleration
-games-engines/redpanda:gles2 - Enables OpenGL GLESv2 backend for acceleration
+games-engines/redpanda:gles - Enables OpenGL ES 1.x/2.x backend for acceleration
+games-engines/redpanda:sfml - Enables Simple and Fast Multimedia Library (SFML) as a backend for acceleration
 games-strategy/ufo-ai:debug - Prepares for backtraces and debugging output
 games-strategy/ufo-ai:dedicated - Build the stuff necessary to run a dedicated server
 games-strategy/ufo-ai:editor - Build map editor
@@ -72,8 +75,6 @@ media-gfx/assimp:samples - Build the official samples
 media-gfx/assimp:tools - Build supplementary tools for Assimp
 media-gfx/synfigstudio:fmod - Enables support for music and sound effects
 media-libs/artoolkit:utils - Build utilities
-net-libs/zeromq:gcov - Build GCOV coverage support for performance statistics.
-net-libs/zeromq:pgm - 0MQ is build with 'Pragmatic General Multicast' (RFC 3208) support using the excellent OpenPGM implementation.
 net-misc/dropbox:cli - Install the official Dropbox Command Line Interface
 net-misc/dropbox:librsync-bundled - Use bundled librsync library
 net-misc/vde:experimental - Enable experimental features (async notifies, plugin support, packet counter).
