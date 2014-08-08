@@ -1,0 +1,14 @@
+DEFINED_PHASES=install prepare setup
+DEPEND=media-libs/freeglut virtual/opengl jpeg? ( virtual/jpeg ) gstreamer? ( media-libs/gstreamer media-libs/gst-plugins-base jpeg? ( media-plugins/gst-plugins-jpeg ) dv? ( media-plugins/gst-plugins-dv ) ieee1394? ( media-plugins/gst-plugins-raw1394 ) v4l? ( media-plugins/gst-plugins-v4l2 ) )
+DESCRIPTION=The ARToolKit library
+EAPI=5
+HOMEPAGE=http://www.hitl.washington.edu/artoolkit/
+IUSE=debug jpeg gstreamer dv v4l ieee1394 doc examples utils
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/freeglut virtual/opengl jpeg? ( virtual/jpeg ) gstreamer? ( media-libs/gstreamer media-libs/gst-plugins-base jpeg? ( media-plugins/gst-plugins-jpeg ) dv? ( media-plugins/gst-plugins-dv ) ieee1394? ( media-plugins/gst-plugins-raw1394 ) v4l? ( media-plugins/gst-plugins-v4l2 ) )
+REQUIRED_USE=dv? ( ieee1394 ) ieee1394? ( gstreamer )
+SLOT=0
+SRC_URI=mirror://sourceforge/artoolkit/ARToolKit-2.72.1.tgz
+_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	linux-info	2b8c53f6065bdee2d757472215a3088f	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402	versionator	cd0bcdb170807e4a1984115e9d53a26f
+_md5_=9fe67e5fa7e2e5748292425b4926fa5f

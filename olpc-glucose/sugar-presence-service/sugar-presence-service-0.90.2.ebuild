@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit python-r1
 
 DESCRIPTION="Artwork for Sugar look-and-feel"
@@ -16,8 +16,7 @@ KEYWORDS="x86 amd64"
 IUSE="static-libs"
 
 src_configure() {
-	econf \
-		--disable-dependency-tracking \
+	econf --disable-dependency-tracking \
 		$(use_enable static-libs static) \
 		${EXTRA_ECONF}
 }

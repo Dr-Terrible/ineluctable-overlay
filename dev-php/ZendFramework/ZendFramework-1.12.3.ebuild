@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,8 +10,8 @@ inherit php-lib-r1
 
 KEYWORDS="amd64 hppa ~ppc x86"
 
-DESCRIPTION="Zend Framework is a high quality and open source framework for developing Web Applications."
-HOMEPAGE="http://framework.zend.com/"
+DESCRIPTION="Zend Framework is a high quality and open source framework for developing Web Applications"
+HOMEPAGE="http://framework.zend.com"
 SRC_URI="!minimal? ( http://framework.zend.com/releases/${P}/${P}.tar.gz )
 	minimal? ( http://framework.zend.com/releases/${P}/${P}-minimal.tar.gz )
 	doc? (

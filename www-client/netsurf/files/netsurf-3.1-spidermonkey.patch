@@ -1,0 +1,22 @@
+--- netsurf-3.1/gtk/Makefile.target
++++ netsurf-3.1/gtk/Makefile.target
+@@ -29,7 +29,7 @@
+ $(eval $(call pkg_config_find_and_add_enabled,ROSPRITE,librosprite,Sprite))
+ $(eval $(call feature_enabled,WEBP,-DWITH_WEBP,-lwebp,WebP (libwebp)))
+ $(eval $(call pkg_config_find_and_add_enabled,MOZJS,mozjs185,JavaScript))
+-$(eval $(call pkg_config_find_and_add_enabled,JS,mozilla-js,JavaScript))
++$(eval $(call pkg_config_find_and_add_enabled,JS,mozjs-17.0,JavaScript))
+ $(eval $(call pkg_config_find_and_add_enabled,VIDEO,gstreamer-0.10,Video))
+ 
+ # GTK and GLIB flags to disable depricated usage
+--- netsurf-3.1/javascript/jsapi.h
++++ netsurf-3.1/javascript/jsapi.h
+@@ -25,7 +25,7 @@
+ 
+ /* include the correct header */
+ #ifdef WITH_MOZJS
+-#include "js/jsapi.h"
++#include "js-17.0/jsapi.h"
+ #else
+ #include "mozjs/jsapi.h"
+ #endif

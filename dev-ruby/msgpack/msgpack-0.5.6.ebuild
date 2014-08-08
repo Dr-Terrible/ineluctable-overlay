@@ -1,11 +1,11 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
 
 # jruby → uses a binary extension
-USE_RUBY="ruby18 ruby19 ruby20"
+USE_RUBY="ruby19 ruby20"
 
 RUBY_FAKEGEM_TASK_DOC="doc"
 RUBY_FAKEGEM_RECIPE_TEST="rspec"
@@ -14,7 +14,7 @@ RUBY_FAKEGEM_EXTRADOC="README.rdoc"
 inherit multilib ruby-fakegem
 
 DESCRIPTION="Binary-based efficient data interchange format for ruby binding"
-HOMEPAGE="http://msgpack.sourceforge.jp/"
+HOMEPAGE="http://msgpack.sourceforge.jp"
 
 LICENSE="Apache-2.0"
 SLOT="0"

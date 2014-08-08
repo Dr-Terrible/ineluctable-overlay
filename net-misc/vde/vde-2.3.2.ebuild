@@ -1,15 +1,15 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit user python-r1 linux-info
 
 MY_P="${PN}2-${PV}"
 S="${WORKDIR}/${MY_P}"
 
-DESCRIPTION="vde2 is a virtual distributed ethernet emulator for emulators like qemu, bochs, and uml."
+DESCRIPTION="vde2 is a virtual distributed ethernet emulator for emulators like qemu, bochs, and uml"
 SRC_URI="mirror://sourceforge/vde/${MY_P}.tar.bz2"
 HOMEPAGE="http://vde.sourceforge.net"
 SLOT="0"

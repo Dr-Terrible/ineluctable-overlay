@@ -3,13 +3,13 @@
 # $Header: $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 inherit git-2 distutils-r1
 
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 EGIT_COMMIT="ac33c5b0097e3f7a18fe98396a202d3a11dbc833"
 
-DESCRIPTION="Dexy is a tool for writing documents which relate to code."
+DESCRIPTION="Dexy is a tool for writing documents which relate to code"
 HOMEPAGE="http://dexy.it"
 #SRC_URI="http://www.dexy.it/external-dependencies/${P}.tar.gz"
 

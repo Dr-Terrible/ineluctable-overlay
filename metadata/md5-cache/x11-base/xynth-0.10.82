@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst
-DESCRIPTION=Xynth is a portable embedded windowing system.
+DESCRIPTION=Xynth is a portable embedded windowing system
 EAPI=5
 HOMEPAGE=http://alperakcan.net/?open=projects&project=xynth
 IUSE=server client opengl debug vesa svga sdl fbdev
@@ -8,5 +8,5 @@ LICENSE=LGPL-2
 RDEPEND=sdl? ( >=media-libs/libsdl-1.2.8-r1 ) svga? ( >=media-libs/svgalib-1.9.21-r1 ) vesa? ( >=sys-libs/lrmi-0.8 )
 SLOT=0
 SRC_URI=mirror://sourceforge/xynth/xynth-0.10.82.tar.bz2
-_eclasses_=eutils	af81d52c25ec93fbdff71e0efb0de7b7	multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
-_md5_=328d9324e246ba467df7fcbbd7a7efc5
+_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=56dd8471f72e99c34f3b48e0b0329109

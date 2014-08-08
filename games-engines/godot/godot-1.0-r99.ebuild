@@ -8,7 +8,7 @@ inherit git-r3 scons-utils toolchain-funcs
 EGIT_REPO_URI="git://github.com/okamstudio/${PN}.git"
 EGIT_COMMIT="a1d6cd0"
 
-DESCRIPTION="Godot is a fully featured, open source, MIT licensed, game engine."
+DESCRIPTION="Godot is a fully featured, open source, MIT licensed, game engine"
 HOMEPAGE="http://www.godotengine.org"
 
 LICENSE="MIT"

@@ -1,0 +1,10 @@
+--- netsurf-3.1/gtk/Makefile.target
++++ netsurf-3.1/gtk/Makefile.target
+@@ -34,7 +34,6 @@
+ 
+ # GTK and GLIB flags to disable depricated usage
+ GTKDEPFLAGS := -DG_DISABLE_SINGLE_INCLUDES \
+-		-DG_DISABLE_DEPRECATED \
+ 	       	-DGTK_DISABLE_SINGLE_INCLUDES \
+ 	       	-DGTK_DISABLE_DEPRECATED \
+ 		-DGTK_MULTIHEAD_SAFE \

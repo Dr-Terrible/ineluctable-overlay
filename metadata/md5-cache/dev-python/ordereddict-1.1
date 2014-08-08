@@ -1,6 +1,6 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=userland_GNU? ( >=sys-apps/coreutils-8.5 ) python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) dev-lang/python-exec:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
-DESCRIPTION=A drop-in substitute for Py2.7's new collections.OrderedDict that works in Python 2.4-2.6.
+DEPEND=python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) dev-lang/python-exec:=[python_targets_python2_7(-)?,-python_single_target_python2_7(-)]
+DESCRIPTION=A drop-in substitute for Py2.7's new collections.OrderedDict that works in Python 2.4-2.6
 EAPI=5
 HOMEPAGE=http://pypi.python.org/pypi/ordereddict
 IUSE=python_targets_python2_7
@@ -10,5 +10,5 @@ RDEPEND=python_targets_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) dev-lang/py
 REQUIRED_USE=|| ( python_targets_python2_7 )
 SLOT=0
 SRC_URI=mirror://pypi/o/ordereddict/ordereddict-1.1.tar.gz
-_eclasses_=distutils-r1	364122897f9dc771167ee5ff362e54e1	eutils	025442f2eecab39ad0b4e541b6e142af	multibuild	576bde67ccb00fe7175a23755deb2e66	multilib	fac675dcccf94392371a6abee62d909f	multiprocessing	c2d96fb38f2596209e98fceda58ba1ed	python-r1	1356c4bb8f56765cff4b74c0128d2a4f	python-utils-r1	30d5d7986d3f80d0f2c2726366426859	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
-_md5_=f0e7fcef0774f471658b2200eb69d076
+_eclasses_=distutils-r1	d48d51c220f1678179fc4ab13b534ec1	eutils	06133990e861be0fe60c2b428fd025d9	multibuild	46527a4656956da3d58acff72c9b59b1	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	python-r1	c820706d8b22c1d0fe215a9d4a47671d	python-utils-r1	8c66c6dabd0295878b68b40dbd0b087b	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=3670be7ccea94d391a7e6cf42f42ab23

@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
-USE_RUBY="ruby18 ruby19 ruby20 jruby"
+USE_RUBY="ruby19 ruby20 jruby"
 
 RUBY_FAKEGEM_TASK_TEST="spec"
 
@@ -36,7 +36,7 @@ RDEPEND="!<dev-ruby/rspec-rails-${PV}"
 # We should add nokogiri here to make sure that we test as much as
 # possible, but since it's yet unported to 1.9 and the nokogiri-due
 # tests fail for sure, we'll be waiting on it.
-USE_RUBY="ruby18 ruby19 ruby20" \
+USE_RUBY="ruby19 ruby20" \
 	ruby_add_bdepend "test? (
 		>=dev-ruby/hoe-2.0.0
 		dev-ruby/zentest

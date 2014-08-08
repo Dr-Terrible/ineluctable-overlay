@@ -7,7 +7,7 @@ EAPI=5
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
 # Python is required for tests and some build tasks.
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit eutils python-any-r1 autotools-multilib
 

@@ -7,5 +7,5 @@ LICENSE=MIT
 RDEPEND=dev-vcs/git
 SLOT=0
 SRC_URI=https://github.com/visionmedia/git-extras/archive/1.9.0.tar.gz -> git-extras-1.9.0.tar.gz
-_eclasses_=bash-completion-r1	db412e427e3317ffd3e15f17df269c5e	multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
-_md5_=a242f4b327d4362aecbf542754d2c0cf
+_eclasses_=bash-completion-r1	db412e427e3317ffd3e15f17df269c5e	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_md5_=2efe10c68a5845d09dee8fe2e6832278

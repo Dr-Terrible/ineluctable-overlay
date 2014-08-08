@@ -8,5 +8,5 @@ LICENSE=HPND
 RDEPEND=bash-completion? ( app-shells/bash-completion ) zsh-completion? ( app-shells/zsh-completion ) fish-completion? ( app-shells/fish ) sys-apps/util-linux >=dev-libs/shflags-1.0.3
 SLOT=0
 SRC_URI=https://github.com/petervanderdoes/gitflow/archive/1.7.0.tar.gz -> gitflow-avh-1.7.0.tar.gz https://github.com/petervanderdoes/git-flow-completion/archive/0.5.1.tar.gz -> gitflow-avh-completion-0.5.1.tar.gz
-_eclasses_=bash-completion-r1	db412e427e3317ffd3e15f17df269c5e	multilib	fac675dcccf94392371a6abee62d909f	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
+_eclasses_=bash-completion-r1	db412e427e3317ffd3e15f17df269c5e	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
 _md5_=a0e1670ffb005229ab772e5e46c37ad0

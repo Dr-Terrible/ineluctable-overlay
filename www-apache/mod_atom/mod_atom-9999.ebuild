@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI=5
 AT_NOELIBTOOLIZE="yes"
 inherit autotools apache-module subversion
 
-DESCRIPTION="An Apache2 module providing an Atom Protocol implementation."
+DESCRIPTION="An Apache2 module providing an Atom Protocol implementation"
 HOMEPAGE="http://http://code.google.com/p/mod-atom/"
 ESVN_REPO_URI="http://mod-atom.googlecode.com/svn/trunk/"
 

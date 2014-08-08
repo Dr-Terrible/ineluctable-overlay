@@ -7,10 +7,4 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
-	<longdescription lang="en">
-		Efene is a programming language that runs on the erlang virtual machine
-		and provides an alternative syntax to erlang that is most suitable
-		for people coming from languages like Java, C, C++, C#, Javascript.
-	</longdescription>
 </pkgmetadata>
-
