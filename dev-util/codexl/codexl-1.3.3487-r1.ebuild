@@ -19,7 +19,7 @@ IUSE="opencl doc examples"
 RESTRICT="strip mirror"
 
 # NOTE: opencl only works with AMD so no virtual is used
-RDEPEND="${DEPEND}
+RDEPEND="dev-util/oprofile
 	dev-libs/glib
 	dev-libs/libxml2
 	media-libs/fontconfig
@@ -37,7 +37,8 @@ RDEPEND="${DEPEND}
 	media-libs/libpng:1.2
 	dev-util/perf
 	amd64? ( dev-util/perf[unwind] )
-	opencl? ( >=x11-drivers/ati-drivers-13.11_beta )"
+	opencl? ( >=x11-drivers/ati-drivers-13.11_beta )
+	examples? ( x11-libs/gtkglext )"
 
 S="${WORKDIR}"/AMD_${APP_NAME}_Linux_x86_64_${PV}/bin
 
