@@ -6,7 +6,7 @@ EAPI=5
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 inherit autotools cvs eutils python-single-r1
 
-DESCRIPTION="Panda3D is a framework for 3D rendering and game development."
+DESCRIPTION="Panda3D is a framework for 3D rendering and game development"
 HOMEPAGE="http://www.panda3d.org"
 
 ECVS_SERVER="panda3d.cvs.sourceforge.net:/cvsroot/panda3d"

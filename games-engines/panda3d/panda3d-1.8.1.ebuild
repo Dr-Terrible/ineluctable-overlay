@@ -4,9 +4,9 @@
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
-inherit eutils multiprocessing python-single-r1
+inherit base flag-o-matic eutils multiprocessing python-single-r1
 
-DESCRIPTION="Panda3D is a framework for 3D rendering and game development."
+DESCRIPTION="Panda3D is a framework for 3D rendering and game development"
 HOMEPAGE="http://www.panda3d.org"
 SRC_URI="http://www.panda3d.org/download/${P}/${P}.tar.gz
 	doc? (
@@ -27,17 +27,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 # TODO: add static-libs
-IUSE="artoolkit bullet cg doc egl eigen +ffmpeg fftw fmod gles1 gles2 +jpeg npapi ode +openal opencv osmesa +png +python rocket examples contrib squish +ssl sse threads +tiff +truetype xml +zlib pstats +xrandr"
+IUSE="artoolkit bullet cg doc egl eigen +ffmpeg fftw fmod gles1 gles2 +jpeg npapi ode +openal opencv osmesa +png +python rocket examples contrib +squish +ssl sse threads +tiff +truetype xml +zlib pstats +xrandr"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RESTRICT="mirror"
 
 # TODO: create ebuild for artoolkit and libsquish
 # artoolkit? ( media-libs/artoolkit )
-# squish? ( media-libs/libsquish )
+# squish? ( media-libs/squish )
 COMMON_DEPEND="bullet? ( sci-physics/bullet )
 	cg? ( media-gfx/nvidia-cg-toolkit )
-	doc? ( dev-python/epydoc )
 	egl? ( media-libs/mesa[egl] )
 	eigen? ( dev-cpp/eigen:3 )
 	ffmpeg? ( virtual/ffmpeg )
@@ -68,10 +67,9 @@ RDEPEND="${COMMON_DEPEND}"
 DEPEND="sys-devel/bison
 	sys-devel/flex"
 
-#PATCHES=(
-#	"${FILESDIR}/${P}-pkgconfig.patch"
-#	"${FILESDIR}"/${PN}-jpegint.patch
-#)
+PATCHES=(
+	"${FILESDIR}"/${P}-pkgconfig.patch
+)
 
 use_no() {
 	local UWORD="$2"
@@ -91,6 +89,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	base_src_prepare
+
 	# move bullet samples together with all the other examples
 	if use examples; then
 		mv "${WORKDIR}"/bullet-samples "${S}"/samples || die
@@ -101,11 +101,17 @@ src_prepare() {
 	#TODO: remove bundled libs
 }
 
+# TODO: fix makepanda.py to use pkg-config for nvidia-cg
 src_compile() {
-	# --use-xf86dga
+	if use cg; then
+		append-flags "$($(tc-getPKG_CONFIG) --cflags nvidia-cg-toolkit)"
+		append-ldflags "$($(tc-getPKG_CONFIG) --libs-only-L nvidia-cg-toolkit)"
+	fi
+
+	# TODO --use-xf86dga
 	local myeconfargs=(
 		--nothing
-		--optimize=2
+		--optimize=3
 		--threads=$( makeopts_jobs )
 		--use-deploytools
 		--use-direct
@@ -125,6 +131,7 @@ src_compile() {
 		$(use_no egl)
 		$(use_no eigen)
 		$(use_no contrib)
+		$(use_no examples skel)
 		$(use_no ffmpeg)
 		$(use_no fftw)
 		$(use_no fmod fmodex)
@@ -145,6 +152,8 @@ src_compile() {
 		$(use_no zlib)
 		$(use_no xrandr)
 	)
+	einfo "CXXFLAGS: ${CXXFLAGS}"
+	einfo "LDFLAGS : ${LDFLAGS}"
 	${PYTHON} ./makepanda/makepanda.py ${myeconfargs[@]} || die
 }
 
@@ -153,6 +162,8 @@ src_install() {
 	${PYTHON} ./makepanda/installpanda.py \
 		--destdir="${ED}" \
 		--prefix=/usr || die "install failed"
+
+	# TODO: remove /usr/bin/ppython symlink
 
 	# install PAnda3D's mime types
 	domenu makepanda/panda3d.desktop
