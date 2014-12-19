@@ -10,7 +10,7 @@ inherit toolchain-funcs qt4-r2 linux-info python-r1 readme.gentoo autotools-util
 
 DESCRIPTION="A personal full text search package"
 HOMEPAGE="http://www.recoll.org"
-SRC_URI="http://www.lesbonscomptes.com/recoll/${P}p1.tar.gz"
+SRC_URI="http://www.lesbonscomptes.com/recoll/${P}p2.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 INDEX_HELPERS="audio chm djvu dvi exif postscript ics info lyx msdoc msppt msxls pdf rtf tex wordperfect xml"
 IUSE="+spell inotify +qt4 +session camelcase xattr webkit fam threads ${INDEX_HELPERS}"
 
-S="${WORKDIR}/${P}p1"
+S="${WORKDIR}/${P}p2"
 
 DEPEND="virtual/libiconv
 	>=dev-libs/xapian-1.0.12
