@@ -6,7 +6,7 @@ EAPI=5
 inherit cmake-utils games git-2
 
 EGIT_REPO_URI="https://github.com/clintbellanger/${PN}-engine.git"
-EGIT_COMMIT="12877da"
+EGIT_COMMIT="877776e"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
@@ -41,7 +41,6 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
-	rm "${D}"/usr/share/games/flare/mods/mods.txt || die
 
 	dodoc README.engine
 	prepgamesdirs
