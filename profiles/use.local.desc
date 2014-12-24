@@ -65,6 +65,8 @@ games-engines/panda3d:xrandr - Enables XRandR window extension support
 games-engines/redpanda:egl - Uses EGL instead of default GLX to manage OpenGL
 games-engines/redpanda:gles - Enables OpenGL ES 1.x/2.x backend for acceleration
 games-engines/redpanda:sfml - Enables Simple and Fast Multimedia Library (SFML) as a backend for acceleration
+games-engines/redpanda-docs:api - Generates RedPanda's Application Program Interface (API) documentation
+games-engines/redpanda-docs:manual - Generate RedPanda's Manual
 games-strategy/ufo-ai:debug - Prepares for backtraces and debugging output
 games-strategy/ufo-ai:dedicated - Build the stuff necessary to run a dedicated server
 games-strategy/ufo-ai:editor - Build map editor
