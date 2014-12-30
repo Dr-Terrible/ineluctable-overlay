@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby20 ruby21"
 RUBY_FAKEGEM_VERSION="${PV//_/.}"
 RUBY_FAKEGEM_VERSION="${RUBY_FAKEGEM_VERSION//rc/rc.}"
 RUBY_FAKEGEM_GEMSPEC="feedzirra.gemspec"

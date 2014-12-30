@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby21 ruby20"
 inherit ruby-fakegem
 
 DESCRIPTION="Loofah is a general library for manipulating and transforming

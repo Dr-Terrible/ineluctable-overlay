@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby21 ruby20"
 RUBY_FAKEGEM_DOCDIR="rdoc"
 inherit ruby-fakegem
 
@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/infochimps-labs/gorillib"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend "dev-ruby/multi_json
