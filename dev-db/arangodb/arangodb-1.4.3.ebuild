@@ -18,7 +18,6 @@ IUSE="ruby debug"
 DEPEND=">=sys-libs/readline-6.2_p1:0
 	>=dev-libs/openssl-1.0.0j
 	media-gfx/graphviz
-	sys-libs/readline
 	dev-libs/libev
 	dev-libs/icu
 	dev-util/valgrind
