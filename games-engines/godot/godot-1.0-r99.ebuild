@@ -26,7 +26,7 @@ DEPEND="media-libs/alsa-lib
 	x11-libs/libX11
 	x11-libs/libXcursor
 	squirrel? ( dev-lang/squirrel )
-	lua? ( dev-lang/lua )
+	lua? ( dev-lang/lua:0 )
 	vorbis? ( media-libs/libvorbis media-libs/libogg )
 	minizip? ( sys-libs/zlib[minizip] )
 	opengl? ( virtual/opengl )
@@ -36,7 +36,7 @@ DEPEND="media-libs/alsa-lib
 	)
 	truetype? ( media-libs/freetype:2 )
 	speex? ( >=media-libs/speex-1.2_beta3 )
-	png? ( media-libs/libpng )
+	png? ( media-libs/libpng:0 )
 	jpeg? ( virtual/jpeg )
 	webp? ( media-libs/libwebp )
 	musepack? ( >=media-sound/musepack-tools-444:0 )"

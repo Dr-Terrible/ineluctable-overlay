@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI=5
+WANT_AUTOMAKE="1.12"
 inherit eutils autotools
 
 DESCRIPTION="Film-Quality Vector Animation (core engine)"
@@ -16,14 +17,14 @@ IUSE="imagemagick ffmpeg dv openexr truetype jpeg tiff fontconfig debug"
 
 DEPEND="dev-libs/libsigc++:2
 	>=dev-cpp/libxmlpp-2.6.1
-	media-libs/libpng
+	media-libs/libpng:0
 	>=dev-cpp/ETL-0.04.17
 	ffmpeg? ( virtual/ffmpeg )
 	openexr? ( media-libs/openexr )
 	truetype? ( media-libs/freetype )
 	fontconfig? ( media-libs/fontconfig )
-	jpeg? ( virtual/jpeg )
-	tiff? ( media-libs/tiff )"
+	jpeg? ( virtual/jpeg:0 )
+	tiff? ( media-libs/tiff:0 )"
 RDEPEND="${DEPEND}
 	dv? ( media-libs/libdv )
 	imagemagick? ( media-gfx/imagemagick )"

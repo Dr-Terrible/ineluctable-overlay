@@ -18,7 +18,7 @@ DEPEND="
 	dev-cpp/gtkmm:2.4
 	>=media-gfx/synfig-${PV}
 	dev-libs/libsigc++:2
-	fmod? ( media-libs/fmod )"
+	fmod? ( media-libs/fmod:1 )"
 RDEPEND=${DEPEND}
 
 src_prepare() {

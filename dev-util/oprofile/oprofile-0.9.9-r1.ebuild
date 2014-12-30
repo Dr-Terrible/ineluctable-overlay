@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,9 +16,9 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE="java pch qt4"
 
 DEPEND=">=dev-libs/popt-1.7-r1
-	>=sys-devel/binutils-2.14.90.0.6-r3
+	>=sys-devel/binutils-2.14.90.0.6-r3:0
 	qt4? ( dev-qt/qtgui:4[qt3support] )
-	java? ( >=virtual/jdk-1.5 )"
+	java? ( >=virtual/jdk-1.5:* )"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"

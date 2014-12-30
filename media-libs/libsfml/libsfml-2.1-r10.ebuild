@@ -23,7 +23,7 @@ RDEPEND="media-libs/freetype:2
 	media-libs/mesa
 	media-libs/openal
 	sys-libs/zlib
-	virtual/jpeg
+	virtual/jpeg:0
 	x11-libs/libX11
 	x11-libs/libXrandr"
 DEPEND="${RDEPEND}

@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE="pcap ssl static-libs python experimental debug tuntap kernel-switch"
 
 RDEPEND="pcap? ( net-libs/libpcap )
-	ssl? ( dev-libs/openssl )"
+	ssl? ( dev-libs/openssl:0 )"
 DEPEND="${RDEPEND}"
 
 pkg_pretend() {

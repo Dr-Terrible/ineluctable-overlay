@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure postinst postrm prepare
-DEPEND=dev-cpp/gtkmm:2.4 >=media-gfx/synfig-0.64.1 dev-libs/libsigc++:2 fmod? ( media-libs/fmod ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.68 sys-devel/libtool
+DEPEND=dev-cpp/gtkmm:2.4 >=media-gfx/synfig-0.64.1 dev-libs/libsigc++:2 fmod? ( media-libs/fmod:1 ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.14:1.14 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=Main UI of synfig: Film-Quality Vector Animation
 EAPI=5
 HOMEPAGE=http://www.synfig.org/
 IUSE=fmod debug nls
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-cpp/gtkmm:2.4 >=media-gfx/synfig-0.64.1 dev-libs/libsigc++:2 fmod? ( media-libs/fmod )
+RDEPEND=dev-cpp/gtkmm:2.4 >=media-gfx/synfig-0.64.1 dev-libs/libsigc++:2 fmod? ( media-libs/fmod:1 )
 SLOT=0
 SRC_URI=mirror://sourceforge/synfig/synfigstudio-0.64.1.tar.gz
-_eclasses_=autotools	5256b4f4c1798109f39f308f9f7eaf5f	eutils	af81d52c25ec93fbdff71e0efb0de7b7	fdo-mime	0acfe1a88fd8751a1d5dc671168219fa	libtool	b9b3340e3a19510f0d9f05cfccbf209f	multilib	fac675dcccf94392371a6abee62d909f	multiprocessing	c2d96fb38f2596209e98fceda58ba1ed	toolchain-funcs	48b38a216afb92db6314d6c3187abea3
-_md5_=ba25fd03348392541ff7e5437d0919a0
+_eclasses_=autotools	c118b9a8e93bfef124f2d7a2fe56a95e	eutils	f99a767f569b1f0731b3a1edd17c1d11	fdo-mime	0acfe1a88fd8751a1d5dc671168219fa	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac
+_md5_=c392af242448487bfb7368e5667e6b50

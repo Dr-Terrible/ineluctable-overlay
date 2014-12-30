@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI=5
-
 inherit cmake-utils eutils
 
 MY_P=SFML-${PV}
@@ -24,7 +23,7 @@ RDEPEND="media-libs/freetype:2
 	media-libs/mesa
 	media-libs/openal
 	sys-libs/zlib
-	virtual/jpeg
+	virtual/jpeg:0
 	virtual/udev
 	x11-libs/libX11
 	x11-libs/libXrandr"
