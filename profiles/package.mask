@@ -28,8 +28,8 @@ dev-games/libndofdev
 
 # Toffanin Mauro <toffanin.mauro@gmail.com>
 # Mask live vcs ebuilds.
-# If you're luck the ebuild doesn't compile; if you're not luck
+# If you're lucky the ebuild doesn't compile; if you're not lucky
 # the ebuild is gonna erase all the data on your computers.
-# I warned you to stay away from that ebuilds!
+# I warned you to stay away from this ebuild!
 # Tron lives.
 =dev-db/vertex-db-9999
