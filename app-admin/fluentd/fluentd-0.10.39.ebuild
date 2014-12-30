@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-USE_RUBY="ruby20 ruby21"
+USE_RUBY="ruby19 ruby20 ruby21"
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_TASK_TEST="test"
 RUBY_FAKEGEM_EXTRADOC="AUTHORS ChangeLog"
@@ -16,12 +16,12 @@ SRC_URI="https://github.com/fluent/${PN}/archive/v${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 ruby_add_rdepend "dev-ruby/coolio
 	dev-ruby/iobuffer
-	>=dev-ruby/jeweler-1.8.8
+	>=dev-ruby/jeweler-2.0.1
 	>=dev-ruby/json-1.5.4
 	>=dev-ruby/msgpack-0.5.6
 	dev-ruby/yajl-ruby"
