@@ -1,6 +1,6 @@
 ## Ineluctable Overlay
 
-[![Build Status](https://travis-ci.org/toffanin/ineluctable-overlay.png)](https://travis-ci.org/toffanin/ineluctable-overlay)
+[![Build Status](https://travis-ci.org/Dr-Terrible/ineluctable-overlay.png)](https://travis-ci.org/Dr-Terrible/ineluctable-overlay)
 
 Ineluctable Overlay offers a repository of Gentoo ebuilds made by me (Mauro Toffanin, official Gentoo/FreeBSD Arch Tester) for projects that I am interested in and are not yet available through Portage tree.
 
