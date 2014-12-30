@@ -9,6 +9,6 @@ LICENSE=CC-BY-ND-3.0 FTL MIT LGPL-2 openssl dropbox
 RDEPEND=X? ( dev-libs/glib:2 media-libs/libpng:1.2 sys-libs/zlib virtual/jpeg x11-libs/gtk+:2 x11-libs/libSM x11-libs/libXinerama x11-libs/libXxf86vm x11-libs/pango[X] x11-themes/hicolor-icon-theme ) sys-apps/coreutils app-arch/bzip2 dev-libs/popt net-misc/wget >=sys-devel/gcc-4.2.0 sys-libs/zlib systemd? ( sys-apps/systemd ) cli? ( >=net-misc/dropbox-cli-1.6.2 ) !librsync-bundled? ( net-libs/librsync )
 RESTRICT=mirror strip
 SLOT=0
-SRC_URI=x86? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86-2.10.2.tar.gz ) amd64? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86_64-2.10.2.tar.gz )
-_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	gnome2-utils	f658eba3cc594a21cf6eef4af47daa90	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	pax-utils	51ad5130f4a69b1a118ca5296de276ae	systemd	090342761f573a8280dd5aa6b0345f3b	toolchain-funcs	0f1760274637a138b99bb649202ea402	user	f54e098dd38ba1c0847a13e685b87747
+SRC_URI=x86? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86-2.10.51.tar.gz ) amd64? ( http://dl-web.dropbox.com/u/17/dropbox-lnx.x86_64-2.10.51.tar.gz )
+_eclasses_=eutils	f99a767f569b1f0731b3a1edd17c1d11	gnome2-utils	5cdfd22a2163c9d3a891648bd19453a7	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	pax-utils	dfe060cb70d89757fde5c1ff8405e950	systemd	090342761f573a8280dd5aa6b0345f3b	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac	user	f54e098dd38ba1c0847a13e685b87747
 _md5_=fd533236645ccbb494d1eb3fdf47edd9
