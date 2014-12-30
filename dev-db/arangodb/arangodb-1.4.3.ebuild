@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~arm ~x86"
 
 IUSE="ruby debug"
 
-DEPEND=">=sys-libs/readline-6.2_p1
+DEPEND=">=sys-libs/readline-6.2_p1:0
 	>=dev-libs/openssl-1.0.0j
 	media-gfx/graphviz
 	sys-libs/readline
