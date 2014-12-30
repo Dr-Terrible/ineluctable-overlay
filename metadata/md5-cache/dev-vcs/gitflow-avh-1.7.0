@@ -5,8 +5,8 @@ HOMEPAGE=https://github.com/petervanderdoes/gitflow-avh
 IUSE=bash-completion zsh-completion fish-completion
 KEYWORDS=~amd64 ~x86
 LICENSE=HPND
-RDEPEND=bash-completion? ( app-shells/bash-completion ) zsh-completion? ( app-shells/zsh-completion ) fish-completion? ( app-shells/fish ) sys-apps/util-linux >=dev-libs/shflags-1.0.3
+RDEPEND=bash-completion? ( app-shells/bash-completion ) zsh-completion? ( app-shells/gentoo-zsh-completions ) fish-completion? ( app-shells/fish ) sys-apps/util-linux >=dev-libs/shflags-1.0.3
 SLOT=0
 SRC_URI=https://github.com/petervanderdoes/gitflow/archive/1.7.0.tar.gz -> gitflow-avh-1.7.0.tar.gz https://github.com/petervanderdoes/git-flow-completion/archive/0.5.1.tar.gz -> gitflow-avh-completion-0.5.1.tar.gz
-_eclasses_=bash-completion-r1	db412e427e3317ffd3e15f17df269c5e	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
-_md5_=a0e1670ffb005229ab772e5e46c37ad0
+_eclasses_=bash-completion-r1	c8399c7c7ecbcf7ed6e5bd3abb3d4af3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac
+_md5_=a7f753bba123b21c6ea7f6ac8c89c3b5

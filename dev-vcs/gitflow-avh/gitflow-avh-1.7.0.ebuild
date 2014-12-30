@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -24,7 +24,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="bash-completion zsh-completion fish-completion"
 
 RDEPEND="bash-completion? (  app-shells/bash-completion )
-	zsh-completion? ( app-shells/zsh-completion )
+	zsh-completion? ( app-shells/gentoo-zsh-completions )
 	fish-completion? ( app-shells/fish )
 	sys-apps/util-linux
 	>=dev-libs/shflags-1.0.3"
