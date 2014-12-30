@@ -62,7 +62,7 @@ RDEPEND="dev-libs/libxml2
 	mng? ( media-libs/libmng
 		amd64? ( abi_x86_32? ( app-emulation/emul-linux-x86-baselibs ) ) )
 	pdf-writer? ( media-libs/libharu )
-	png? ( media-libs/libpng
+	png? ( media-libs/libpng:0
 		amd64? ( abi_x86_32? ( app-emulation/emul-linux-x86-baselibs ) ) )
 	svg? ( svgtiny? ( >=media-libs/libsvgtiny-0.1.1[${MULTILIB_USEDEP}] )
 		!svgtiny? ( gnome-base/librsvg:2 ) )
