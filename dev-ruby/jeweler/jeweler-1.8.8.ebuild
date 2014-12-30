@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby20 ruby21"
 RUBY_FAKEGEM_TASK_DOC="-Ilib yard"
 RUBY_FAKEGEM_DOCDIR="doc"
 
@@ -24,7 +24,7 @@ IUSE=""
 
 ruby_add_bdepend "doc? ( dev-ruby/yard )"
 
-ruby_add_rdepend "dev-ruby/bundler dev-ruby/nokogiri >=dev-ruby/highline-1.6.20 dev-ruby/rdoc dev-ruby/builder dev-ruby/rake"
+ruby_add_rdepend "dev-ruby/bundler dev-ruby/nokogiri >=dev-ruby/highline-1.6.20 dev-ruby/rdoc dev-ruby/builder:* dev-ruby/rake"
 
 # We do not depend on all runtime dependencies since the usage of jeweler in
 # Rakefile's does not require this. However, the generator does, but it
