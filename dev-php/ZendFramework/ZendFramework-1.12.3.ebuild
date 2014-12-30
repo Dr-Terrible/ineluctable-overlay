@@ -21,7 +21,7 @@ LICENSE="BSD"
 SLOT="0"
 IUSE="doc examples minimal cli"
 
-DEPEND="cli? ( dev-lang/php[simplexml,tokenizer,cli] )"
+DEPEND="cli? ( dev-lang/php:*[simplexml,tokenizer,cli] )"
 RDEPEND="${DEPEND}"
 need_php_by_category
 
