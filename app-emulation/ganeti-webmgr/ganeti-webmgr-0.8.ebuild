@@ -28,7 +28,7 @@ RDEPEND=">=dev-python/django-1.3.0[mysql?,postgres?,sqlite?]
 	dev-python/pyopenssl
 	dev-python/simplejson
 	>=dev-python/ganeti-webmgr-layout-0.8
-	postgres? ( dev-python/psycopg )
+	postgres? ( dev-python/psycopg:0 )
 	vnc? ( dev-python/twisted-web )"
 DEPEND="${RDEPEND}
 	test? ( dev-python/unittest2 )"
