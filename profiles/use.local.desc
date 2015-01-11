@@ -72,6 +72,8 @@ games-strategy/ufo-ai:dedicated - Build the stuff necessary to run a dedicated s
 games-strategy/ufo-ai:editor - Build map editor
 games-strategy/ufo-ai:game - Build the stuff necessary to run and play the game
 games-strategy/ufo-ai:sse - Use the SSE instruction set
+games-strategy/wesnoth:server - Enable compilation of server
+games-strategy/wesnoth:tools - Enable compilation of tools for artists and WML maintainers
 media-gfx/assimp:boost - Build Assimp with dev-libs/boost support
 media-gfx/assimp:samples - Build the official samples
 media-gfx/assimp:tools - Build supplementary tools for Assimp
