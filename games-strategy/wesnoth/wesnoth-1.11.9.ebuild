@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -24,7 +24,7 @@ RDEPEND=">=media-libs/libsdl-1.2.7[joystick,video,X]
 		dbus? ( sys-apps/dbus )
 		sys-libs/zlib
 		x11-libs/pango
-		dev-lang/lua
+		dev-lang/lua:0
 		media-libs/fontconfig
 		tools? (
 			media-libs/libpng:0
