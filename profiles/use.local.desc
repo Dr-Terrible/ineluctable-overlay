@@ -85,16 +85,6 @@ net-misc/vde:pcap - Enable the pcap-based plugin that allows creating a switch a
 net-misc/vde:ssl - Enable the cryptcab plugin that allows creating an encrypted virtual cable.
 net-misc/vde:tuntap - Enable tun/tap interfaces.
 sys-apps/nix:boehm-gc - Enable Hans Boehm's garbage collector (dev-libs/boehm-gc)
-www-client/netsurf:bmp - BMP bitmap image support (media-libs/libnsbmp)
-www-client/netsurf:fbcon_frontend_able - Use framebuffer frontend able
-www-client/netsurf:fbcon_frontend_linux - Use framebuffer frontend linux
-www-client/netsurf:fbcon_frontend_sdl - Use framebuffer frontend sdl
-www-client/netsurf:fbcon_frontend_vnc - Use framebuffer frontend vnc
-www-client/netsurf:fbcon_frontend_x - Use framebuffer frontend X
-www-client/netsurf:pdf-writer - PDF output support (media-libs/libharu)
-www-client/netsurf:rosprite - RISC OS Sprite bitmap image support (media-libs/librosprite)
-www-client/netsurf:svgtiny - SVG image support via media-libs/svgatiny instead of gnome-base/librsvg
-www-client/netsurf:webp - WebP image support (media-libs/libwebp)
 x11-base/xynth:client - compile Xynth X11 client
 x11-base/xynth:fbdev - compile X11 driver for frame buffer devices
 x11-base/xynth:server - compile Xynth X11 server
