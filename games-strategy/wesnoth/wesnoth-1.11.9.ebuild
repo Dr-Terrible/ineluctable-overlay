@@ -24,7 +24,7 @@ RDEPEND=">=media-libs/libsdl-1.2.7[joystick,video,X]
 		dbus? ( sys-apps/dbus )
 		sys-libs/zlib
 		x11-libs/pango
-		dev-lang/lua:0
+		dev-lang/lua
 		media-libs/fontconfig
 		tools? (
 			media-libs/libpng:0
