@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI=5
 inherit cmake-utils games git-2
 
 EGIT_REPO_URI="https://github.com/clintbellanger/${PN}-engine.git"
-EGIT_COMMIT="877776e"
+EGIT_COMMIT="41c9892"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
@@ -24,6 +24,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${PN}-engine-${PV}
+DOCS=()
 
 src_configure() {
 	local mycmakeargs=(
@@ -42,6 +43,7 @@ src_compile() {
 src_install() {
 	cmake-utils_src_install
 
-	dodoc README.engine
+	docinto engine
+	dodoc README.engine README.md
 	prepgamesdirs
 }

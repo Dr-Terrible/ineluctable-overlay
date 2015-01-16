@@ -1,12 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
-inherit cmake-utils gnome2-utils games  git-2
+inherit cmake-utils gnome2-utils games git-2
 
 EGIT_REPO_URI="https://github.com/clintbellanger/${PN}-game.git"
-EGIT_COMMIT="79b1b38"
+EGIT_COMMIT="a6291e4"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-game"
@@ -19,6 +19,7 @@ IUSE=""
 RDEPEND="~games-engines/${P}"
 
 S=${WORKDIR}/${PN}-game-${PV}
+DOCS=()
 
 src_configure() {
 	local mycmakeargs=(
@@ -35,12 +36,10 @@ src_compile() {
 src_install() {
 	cmake-utils_src_install
 
-	# mods/mods.txt is a duplication of the mod provided by the engine
-	# see https://github.com/clintbellanger/flare-engine/issues/1268
-	rm "${D}"/usr/share/games/flare/mods/mods.txt || die
-
 	games_make_wrapper "flare-game" "flare --game=flare-game"
 	make_desktop_entry "flare-game" "Flare (game)"
+
+	docinto game
 	dodoc README
 	prepgamesdirs
 }

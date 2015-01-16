@@ -12,7 +12,7 @@ SRC_URI="https://github.com/wesnoth/wesnoth/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc ppc64 x86 ~x86-fbsd"
-IUSE="dbus debug dedicated doc nls openmp server tools"
+IUSE="dbus debug dedicated doc fribidi nls openmp server tools"
 
 RDEPEND=">=media-libs/libsdl-1.2.7:0[joystick,video,X]
 	media-libs/sdl-net
@@ -20,13 +20,14 @@ RDEPEND=">=media-libs/libsdl-1.2.7:0[joystick,video,X]
 		>=media-libs/sdl-ttf-2.0.8
 		>=media-libs/sdl-mixer-1.2[vorbis]
 		>=media-libs/sdl-image-1.2[jpeg,png]
+		fribidi? ( dev-libs/fribidi )
 		dbus? ( sys-apps/dbus )
 		sys-libs/zlib
 		x11-libs/pango
 		dev-lang/lua
 		media-libs/fontconfig
 	)
-	>=dev-libs/boost-1.36[nls?]
+	>=dev-libs/boost-1.48[nls?,threads]
 	virtual/libintl"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -42,9 +43,9 @@ pkg_pretend() {
 src_prepare() {
 	# FIX: Wesnoth reinforces a strict check on NDEBUG, but NDEBUG isn't used
 	#      internally by Wesnoth, thus breaking the compilation process.
-	sed -i \
-		-e "s:NDEBUG:_NDEBUG:" \
-		src/global.hpp || die
+#	sed -i \
+#		-e "s:NDEBUG:_NDEBUG:" \
+#		src/global.hpp || die
 
 	if use dedicated || use server ; then
 		sed \
@@ -76,6 +77,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# FIX: Wesnoth reinforces a strict check on NDEBUG, but NDEBUG isn't used
+	#      internally by Wesnoth, thus breaking the compilation process.
+	append-flags -UNDEBUG
 	filter-flags -ftracer -fomit-frame-pointer
 	if [[ $(gcc-major-version) -eq 3 ]] ; then
 		filter-flags -fstack-protector
@@ -106,9 +110,8 @@ src_configure() {
 		$(cmake-utils_use_enable debug DEBUG_WINDOW_LAYOUT)
 		$(cmake-utils_use_enable tools TOOLS)
 		$(cmake-utils_use_enable openmp OMP)
+		$(cmake-utils_use_enable fribidi FRIBIDI)
 		"-DCMAKE_VERBOSE_MAKEFILE=TRUE"
-		"-DENABLE_FRIBIDI=FALSE"
-		"-DENABLE_STRICT_COMPILATION=FALSE"
 		"-DCMAKE_INSTALL_PREFIX=${GAMES_PREFIX}"
 		"-DDATAROOTDIR=${GAMES_DATADIR}"
 		"-DBINDIR=${GAMES_BINDIR}"

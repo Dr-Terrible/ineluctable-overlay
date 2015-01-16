@@ -10,5 +10,6 @@
 	<use>
 		<flag name="server">Enable compilation of server</flag>
 		<flag name="tools">Enable compilation of tools for artists and WML maintainers</flag>
+		<flag name="fribidi">Enable FriBIDi support</flag>
 	</use>
 </pkgmetadata>
