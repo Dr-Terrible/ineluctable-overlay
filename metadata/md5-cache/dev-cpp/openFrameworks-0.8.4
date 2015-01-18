@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=openFrameworks is a robust C++ toolkit designed to assist the creative process.
+EAPI=5
+HOMEPAGE=http://openframeworks.cc
+IUSE=doc examples fmod generator
+KEYWORDS=~x86 ~amd64
+LICENSE=MIT
+RDEPEND=x11-libs/cairo sys-libs/zlib[minizip] media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0 media-libs/freeimage media-libs/freetype media-libs/fontconfig media-libs/libsndfile virtual/opengl virtual/libudev dev-libs/openssl x11-libs/gtk+:3 media-libs/rtaudio media-libs/openal[pulseaudio,alsa] fmod? ( media-libs/fmod:1 )
+SLOT=0
+SRC_URI=http://www.openframeworks.cc/versions/v0.8.4/of_v0.8.4_linux64_release.tar.gz doc? ( https://github.com/openframeworks/ofBook/releases/download/v0.3.0/ofBook.pdf -> openFrameworks-0.8.4-Book.pdf )
+_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	flag-o-matic	c263990f1b677b0f0be0a3299f179762	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac
+_md5_=f794607b43bed9056a9c05e7662c9de3
