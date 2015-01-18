@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DEPEND=sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) >=sys-apps/sed-4 dev-vcs/git
+DESCRIPTION=Free/Libre Action Roleplaying game
+EAPI=5
+HOMEPAGE=https://github.com/clintbellanger/flare-game
+KEYWORDS=~amd64 ~x86
+LICENSE=CC-BY-SA-3.0 GPL-2 GPL-3 OFL-1.1
+RDEPEND=~games-engines/flare-0.19 games-misc/games-envd
+SLOT=0
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	cmake-utils	0e29eadbd656185bce30d2449ab48035	eutils	998e5931fb95b10a6a11ec796ada2759	flag-o-matic	c263990f1b677b0f0be0a3299f179762	games	bc8839608d26ccd57ca4f2f01c67460f	git-2	e28f0d8a9b321431b1e699782851b827	gnome2-utils	5cdfd22a2163c9d3a891648bd19453a7	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0dfbfa13f57c6184f4728d12ac002aac	user	f54e098dd38ba1c0847a13e685b87747
+_md5_=0cf58ae7d74a7d4f0a05fc3c0d289e1e
