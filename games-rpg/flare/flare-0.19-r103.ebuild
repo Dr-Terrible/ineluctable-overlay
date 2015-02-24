@@ -3,22 +3,24 @@
 # $Header: $
 
 EAPI=5
-inherit cmake-utils gnome2-utils games git-2
+inherit cmake-utils gnome2-utils games
 
-EGIT_REPO_URI="https://github.com/clintbellanger/${PN}-game.git"
-EGIT_COMMIT="a6291e4"
+EGIT_PN="${PN}-game"
+EGIT_COMMIT="fe3ff82ff530bc0d0ab4587d4fa727f051d40874"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-game"
+SRC_URI="https://github.com/clintbellanger/${EGIT_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${EGIT_PN}-${EGIT_COMMIT}.tar.gz"
 
 LICENSE="CC-BY-SA-3.0 GPL-2 GPL-3 OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+RESTRICT="mirror"
 
 RDEPEND="~games-engines/${P}"
 
-S=${WORKDIR}/${PN}-game-${PV}
+S="${WORKDIR}/${EGIT_PN}-${EGIT_COMMIT}"
 DOCS=()
 
 src_configure() {

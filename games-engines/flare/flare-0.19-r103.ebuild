@@ -3,18 +3,20 @@
 # $Header: $
 
 EAPI=5
-inherit cmake-utils games git-2
+inherit cmake-utils games
 
-EGIT_REPO_URI="https://github.com/clintbellanger/${PN}-engine.git"
-EGIT_COMMIT="41c9892"
+EGIT_PN="${PN}-engine"
+EGIT_COMMIT="6cb89759831f6960605494f388f272a16f595121"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
+SRC_URI="https://github.com/clintbellanger/${EGIT_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${EGIT_PN}-${EGIT_COMMIT}.tar.gz"
 
 LICENSE="CC-BY-SA-3.0 GPL-3 OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+RESTRICT="mirror"
 
 RDEPEND="
 	>=media-libs/libsdl2-2.0.3[X,sound,joystick,video]
@@ -23,7 +25,7 @@ RDEPEND="
 	media-libs/sdl2-ttf"
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${PN}-engine-${PV}
+S="${WORKDIR}/${EGIT_PN}-${EGIT_COMMIT}"
 DOCS=()
 
 src_configure() {
