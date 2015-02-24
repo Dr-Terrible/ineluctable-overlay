@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,17 +18,11 @@ DOCS=(NEWS README CHANGES)
 
 S=${WORKDIR}/dwarf-${PV}/${PN}
 
-src_prepare() {
-	append-cflags -fPIC || die
-}
-
 src_configure() {
-	econf --enable-shared \
-		--disable-nonshared || die
+	econf --enable-shared
 }
 
 src_install() {
-#	dolib.a libdwarf.a || die
 	dolib.so libdwarf.so || die
 
 	insinto /usr/include
