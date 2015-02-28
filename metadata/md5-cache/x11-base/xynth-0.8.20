@@ -8,5 +8,5 @@ LICENSE=LGPL-2
 RDEPEND=sdl? ( >=media-libs/libsdl-1.2.8-r1 ) svga? ( >=media-libs/svgalib-1.9.21-r1 ) vesa? ( >=sys-libs/lrmi-0.8 )
 SLOT=0
 SRC_URI=mirror://sourceforge/xynth/xynth-0.8.20.tar.bz2
-_eclasses_=eutils	06133990e861be0fe60c2b428fd025d9	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	0f1760274637a138b99bb649202ea402
+_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
 _md5_=56dd8471f72e99c34f3b48e0b0329109

@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=>=dev-python/sphinx-1.2.2 sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DESCRIPTION=HTML documentation for RedPanda
+EAPI=5
+HOMEPAGE=http://example.com
+IUSE=+manual api python_targets_python2_7
+KEYWORDS=amd64 x86
+LICENSE=CC-BY-3.0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=redpanda.tar.xz
+_eclasses_=cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	998e5931fb95b10a6a11ec796ada2759	flag-o-matic	c263990f1b677b0f0be0a3299f179762	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	python-single-r1	f782db6207752efeca1d59c016d8c813	python-utils-r1	e3288bc2e6e487674ce218b632701c9e	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
+_md5_=ea2dc78b876545ba10dfd224a396b55b
