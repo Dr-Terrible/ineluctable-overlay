@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/libsigc++:2 >=dev-cpp/libxmlpp-2.6.1 media-libs/libpng:0 >=dev-cpp/ETL-0.04.17 dev-cpp/glibmm:2 dev-libs/boost:0 dev-libs/glib:2 dev-libs/libltdl:0 media-libs/ilmbase:0 openexr? ( media-libs/openexr:0 ) ffmpeg? ( virtual/ffmpeg ) truetype? ( media-libs/freetype ) fontconfig? ( media-libs/fontconfig ) jpeg? ( virtual/jpeg:0 ) tiff? ( media-libs/tiff:0 ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DESCRIPTION=Film-Quality Vector Animation (core engine)
+EAPI=5
+HOMEPAGE=http://www.synfig.org
+IUSE=imagemagick ffmpeg dv openexr truetype jpeg tiff fontconfig debug static-libs nls examples ffmpeg avcodec swscale abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_ppc_32 abi_ppc_64 abi_s390_32 abi_s390_64
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/libsigc++:2 >=dev-cpp/libxmlpp-2.6.1 media-libs/libpng:0 >=dev-cpp/ETL-0.04.17 dev-cpp/glibmm:2 dev-libs/boost:0 dev-libs/glib:2 dev-libs/libltdl:0 media-libs/ilmbase:0 openexr? ( media-libs/openexr:0 ) ffmpeg? ( virtual/ffmpeg ) truetype? ( media-libs/freetype ) fontconfig? ( media-libs/fontconfig ) jpeg? ( virtual/jpeg:0 ) tiff? ( media-libs/tiff:0 ) !<media-video/ffmpeg-1.2:0 avcodec? ( virtual/ffmpeg:0 ) swscale? ( virtual/ffmpeg:0 ) dv? ( media-libs/libdv ) imagemagick? ( media-gfx/imagemagick[cxx] )
+REQUIRED_USE=ffmpeg? ( avcodec swscale )
+SLOT=0
+SRC_URI=mirror://sourceforge/synfig/synfig-0.64.3.tar.gz
+_eclasses_=autotools	8fc2dd333ef9346c906ffd9a523d8211	autotools-multilib	037c4046d25f29e78dd44dccabd5d66b	autotools-utils	3727db64c7b960903d5033280f108080	eutils	998e5931fb95b10a6a11ec796ada2759	libtool	52d0e17251d04645ffaa61bfdd858944	multibuild	6d4858dc00f8bc51caf3f957f8430eb0	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multilib-build	0983c7893df461213a05f791cc7dea6d	multilib-minimal	13dd976916c35a1e2c8d170e840c7018	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
+_md5_=8ecce3b94ef15c0aca685aa07b3dda7c
