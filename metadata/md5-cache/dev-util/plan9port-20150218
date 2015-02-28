@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile configure install postinst prepare unpack
+DEPEND=X? ( x11-apps/xauth ) >=dev-vcs/git-1.8.2.1
+DESCRIPTION=Port of many Plan 9 programs and libraries
+EAPI=5
+HOMEPAGE=http://swtch.com/plan9port/
+IUSE=X
+KEYWORDS=~amd64 ~x86
+LICENSE=9base BSD-4 MIT LGPL-2.1 BigelowHolmes
+RDEPEND=X? ( x11-apps/xauth )
+SLOT=0
+_eclasses_=eutils	998e5931fb95b10a6a11ec796ada2759	git-r3	3a2bd0ae504c33a50061885480f3def3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multiprocessing	d7f2985a2c76c365ee20269db5261414	toolchain-funcs	a3db8057ea0903a9ebea4e46aab28ff9
+_md5_=99d9b4165e215dbf6ba76c292d1aff54
