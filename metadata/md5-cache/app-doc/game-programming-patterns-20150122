@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install
+DEPEND=dev-python/markdown[pygments] dev-python/smartypants >=dev-ruby/sass-3.4.0:3.4
+DESCRIPTION=Game Programming Patterns
+EAPI=5
+HOMEPAGE=http://gameprogrammingpatterns.com
+KEYWORDS=~amd64 ~arm ~m68k ~s390 ~sh ~x86
+LICENSE=CC-BY-SA-2.0
+RESTRICT=binchecks strip test mirror
+SLOT=0
+SRC_URI=https://github.com/munificent/game-programming-patterns/archive/30e8afd4aee46e6f9cc233b35d81be22f5eab542.tar.gz -> game-programming-patterns-20150122.tar.gz
+_md5_=9cab692f7d004cae4e8a1a9956c590b0
