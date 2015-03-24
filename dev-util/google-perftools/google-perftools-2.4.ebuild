@@ -46,3 +46,11 @@ src_configure() {
 	)
 	autotools-multilib_src_configure
 }
+
+src_install() {
+	autotools-multilib_src_install
+
+	if ! use doc; then
+		rm -r "${ED}/usr/share/doc/${PF}/html" || die
+	fi
+}
