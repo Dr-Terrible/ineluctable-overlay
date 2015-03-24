@@ -1,0 +1,12 @@
+--- gperftools-2.4/Makefile.am
++++ gperftools-2.4/Makefile.am
+@@ -138,8 +138,7 @@
+ # Add your documentation files (in doc/) in addition to these
+ # top-level boilerplate files.  Also add a TODO file if you have one.
+ # We'll add to this later, on a library-by-library basis
+-dist_doc_DATA = AUTHORS COPYING ChangeLog INSTALL NEWS README README_windows.txt \
+-                TODO
++dist_doc_DATA =
+ 
+ # The libraries (.so's) you want to install
+ # We'll add to this later, on a library-by-library basis
