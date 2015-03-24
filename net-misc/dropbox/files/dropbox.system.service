@@ -1,0 +1,43 @@
+[Unit]
+Description=Dropbox service (sandboxed for user @%i)
+After=local-fs.target network.target
+AssertPathIsDirectory=/home/%i
+AssertPathIsDirectory=/home/%i/Dropbox
+AssertPathIsReadWrite=/home/%i/Dropbox
+
+[Service]
+Type=simple
+#EnvironmentFile=/etc/conf.d/dropbox
+
+# Ensure that user's home and Dropbox's directories exist and are properly configured
+#ExecStartPre=/usr/bin/test -d /home/%i -a -r /home/%i -a -O /home/%i
+#ExecStartPre=/usr/bin/test -d /home/%i/Dropbox -a -r /home/%i/Dropbox -a -O /home/%i/Dropbox
+
+# Hack to disable Dropbox's automatic update
+ExecStartPre=/usr/bin/install -dm0 /home/%i/.dropbox-dist
+
+# Set up file system namespace
+WorkingDirectory=/home/%i/Dropbox
+ReadOnlyDirectories=/opt/dropbox
+#InaccessibleDirectories=/home/%i/.dropbox-dist
+ProtectSystem=full
+
+# Service's properties
+ExecStart=/opt/dropbox/dropbox
+SendSIGHUP=yes
+Restart=on-failure
+User=%i
+#Group=%I
+#IOSchedulingClass=idle
+#IOSchedulingPriority=7
+#CPUSchedulingPolicy=idle
+NoNewPrivileges=true
+#NonBlocking=true
+DevicePolicy=closed
+CapabilityBoundingSet=~CAP_SYS_ADMIN
+PrivateTmp=true
+Environment=XDG_CURRENT_DESKTOP=Unity
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=multi-user.target
