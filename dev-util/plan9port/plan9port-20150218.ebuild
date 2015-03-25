@@ -11,7 +11,6 @@ HOMEPAGE="http://swtch.com/plan9port/"
 EGIT_REPO_URI="git://github.com/9fans/plan9port"
 EGIT_COMMIT="3aca221"
 
-
 LICENSE="9base BSD-4 MIT LGPL-2.1 BigelowHolmes"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
