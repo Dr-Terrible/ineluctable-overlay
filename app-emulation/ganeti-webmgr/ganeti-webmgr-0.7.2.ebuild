@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 IUSE="vnc mysql postgres +sqlite test +webserver"
 REQUIRED_USE="|| ( mysql postgres sqlite )"
 
-RDEPEND=">=dev-python/django-1.3.0[mysql?,postgres?,sqlite?]
+RDEPEND="dev-python/django[${PYTHON_USEDEP},sqlite?]
 	dev-python/django-registration
 	>=dev-python/django-haystack-1.2.3
 	dev-python/django-muddle-users
