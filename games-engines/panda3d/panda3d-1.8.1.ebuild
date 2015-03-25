@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -27,7 +27,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 # TODO: add static-libs
-IUSE="artoolkit bullet cg doc egl eigen +ffmpeg fftw fmod gles1 gles2 +jpeg npapi ode +openal opencv osmesa +png +python rocket examples contrib +squish +ssl sse threads +tiff +truetype xml +zlib pstats +xrandr"
+IUSE="artoolkit bullet cg doc egl eigen +ffmpeg fftw fmod gles1 gles2 +jpeg npapi ode +openal opencv osmesa +png +python rocket examples contrib +squish +ssl cpu_flags_x86_sse threads +tiff +truetype xml +zlib pstats +xrandr"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RESTRICT="mirror"
@@ -145,7 +145,7 @@ src_compile() {
 		$(use_no pstats gtk2)
 		$(use_no rocket)
 		$(use_no squish)
-		$(use_no sse sse2)
+		$(use_no cpu_flags_x86_sse sse2)
 		$(use_no ssl openssl)
 		$(use_no tiff)
 		$(use_no truetype freetype)
