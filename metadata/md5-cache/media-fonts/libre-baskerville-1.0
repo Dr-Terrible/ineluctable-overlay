@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm setup
+DEPEND=X? ( x11-apps/mkfontdir media-fonts/encodings )
+DESCRIPTION=Libre Baskerville is a web font optimized for body text.
+EAPI=5
+HOMEPAGE=http://www.impallari.com/projects/overview/libre-baskerville
+IUSE=X
+KEYWORDS=amd64 x86 arm
+LICENSE=OFL-1.1
+RESTRICT=binchecks strip test mirror
+SLOT=0
+SRC_URI=http://www.google.com/fonts/download?kit=4ozF6MzjnDLW7G0aKe2bkTqy0YPSWWIczvXDfclDmfg -> libre-baskerville-1.0.zip
+_eclasses_=eutils	9fb270e417e0e83d64ca52586c4a79de	font	b3239d2dc442d1717b9725e2be7cb5d6	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	b99aa37f734b5d426efd83b2f271cece
+_md5_=53ecfebaa1c1481f65ec524216ad2cd3
