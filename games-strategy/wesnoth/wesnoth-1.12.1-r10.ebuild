@@ -11,7 +11,7 @@ SRC_URI="https://github.com/wesnoth/wesnoth/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="dbus debug dedicated doc fribidi nls openmp server tools"
 
 RDEPEND=">=media-libs/libsdl-1.2.7:0[joystick,video,X]
