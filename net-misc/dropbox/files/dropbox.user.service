@@ -11,7 +11,7 @@ Type=simple
 ExecStartPre=/usr/bin/install -dm0 %h/.dropbox-dist
 
 # Set up file system namespace
-WorkingDirectory=/%h/Dropbox
+#WorkingDirectory=/%h/Dropbox
 ReadOnlyDirectories=/opt/dropbox
 #InaccessibleDirectories=/%h/.dropbox-dist
 

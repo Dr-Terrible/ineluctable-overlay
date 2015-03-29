@@ -17,7 +17,7 @@ Type=simple
 ExecStartPre=/usr/bin/install -dm0 /home/%i/.dropbox-dist
 
 # Set up file system namespace
-WorkingDirectory=/home/%i/Dropbox
+#WorkingDirectory=/home/%i/Dropbox
 ReadOnlyDirectories=/opt/dropbox
 #InaccessibleDirectories=/home/%i/.dropbox-dist
 ProtectSystem=full
@@ -36,8 +36,8 @@ NoNewPrivileges=true
 DevicePolicy=closed
 CapabilityBoundingSet=~CAP_SYS_ADMIN
 PrivateTmp=true
-Environment=XDG_CURRENT_DESKTOP=Unity
-Environment=DISPLAY=:0
+#Environment=XDG_CURRENT_DESKTOP=Unity
+#Environment=DISPLAY=:0
 
 [Install]
 WantedBy=multi-user.target

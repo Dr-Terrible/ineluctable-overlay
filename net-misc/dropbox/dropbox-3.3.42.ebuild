@@ -3,7 +3,8 @@
 # $Header: $
 
 EAPI=5
-inherit user gnome2-utils pax-utils systemd
+PYTHON_COMPAT=( python2_7)
+inherit user python-r1 gnome2-utils pax-utils systemd
 
 DESCRIPTION="Dropbox daemon (pretends to be GUI-less)"
 HOMEPAGE="http://dropbox.com/"
@@ -14,13 +15,13 @@ SRC_URI="
 LICENSE="CC-BY-ND-3.0 FTL MIT LGPL-2 openssl dropbox"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~x86-linux"
-IUSE="+librsync-bundled X systemd cli"
+IUSE="system-librsync X systemd cli"
 RESTRICT="mirror strip"
 
 QA_PREBUILT="opt/.*"
 QA_EXECSTACK="opt/dropbox/dropbox"
 
-DEPEND="librsync-bundled? ( dev-util/patchelf )"
+DEPEND="!system-librsync? ( dev-util/patchelf )"
 
 # Be sure to have GLIBCXX_3.4.9, #393125
 # USE=X require wxGTK's dependencies. system-library cannot be used due to
@@ -44,9 +45,11 @@ RDEPEND="
 	net-misc/wget
 	>=sys-devel/gcc-4.2.0
 	sys-libs/zlib
-	systemd? ( sys-apps/systemd )
+	systemd? ( >=sys-apps/systemd-219 )
 	cli? ( >=net-misc/dropbox-cli-1.6.2 )
-	!librsync-bundled? ( net-libs/librsync )"
+	system-librsync? ( net-libs/librsync )"
+
+DOCS=(README,ACKNOWLEDGEMENTS)
 
 pkg_setup() {
 	enewgroup dropbox
@@ -62,17 +65,19 @@ src_unpack() {
 src_prepare() {
 	pushd "${PN}-lnx.x86_64-${PV}"
 
-	rm libpopt.so.0 || die
+#	rm libpopt.so.0 || die
 	if use X ; then
 		mv images/hicolor/16x16/status "${T}" || die
-	else
-		rm -r *wx* images || die
 	fi
-	if use librsync-bundled ; then
+#	else
+#		rm -r *wx* images || die
+#	fi
+	if ! use system-librsync ; then
 		patchelf --set-rpath '$ORIGIN' _librsync.so || die
-	else
-		rm librsync.so.1 || die
 	fi
+#	else
+#		rm librsync.so.1 || die
+#	fi
 
 	#mv cffi-0.7.2-py2.7-*.egg dropbox_sqlite_ext-0.0-py2.7.egg distribute-0.6.26-py2.7.egg "${T}" || die
 	#rm -rf *.egg library.zip || die
@@ -85,24 +90,21 @@ src_prepare() {
 src_install() {
 	local targetdir="/opt/${PN}"
 
+	rm "${PN}-lnx.x86_64-${PV}/${PN}d" || die
+
 	# installing dropbox
 	insinto "${targetdir}"
-	doins -r *
-	dosym "${targetdir}/${PN}d" "/opt/bin/${PN}d"
-	use X && doicon -s 16 -c status "${T}"/status
+	doins -r "${PN}-lnx.x86_64-${PV}"/*
 
 	# fixing perms
-	fperms ug+x "${targetdir}/${PN}d" \
-		"${targetdir}/${PN}-lnx.x86_64-${PV}/${PN}" \
-		"${targetdir}/${PN}-lnx.x86_64-${PV}/${PN}d"
+	fperms 755 "${targetdir}/${PN}"
 	fowners -R root:dropbox "${targetdir}"
 
 	# installing init scripts
 	newinitd "${FILESDIR}"/${PN}.initd dropbox
 	newconfd "${FILESDIR}"/${PN}.confd dropbox
 	if use systemd; then
-#		cp "${FILESDIR}"/${PN}.service "${T}"/${PN}.service
-#
+
 #		if use X; then
 #cat <<EOF >> "${T}"/${PN}.service
 #

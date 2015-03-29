@@ -130,11 +130,11 @@ src_install() {
 }
 
 pkg_preinst() {
-	gnome2_icon_savelist
+	use X && gnome2_icon_savelist
 }
 
 pkg_postinst() {
-	gnome2_icon_cache_update
+	use X && gnome2_icon_cache_update
 
 	elog
 	elog "You must be in the 'dropbox' group to use DropBox."
@@ -185,5 +185,5 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	gnome2_icon_cache_update
+	use X && gnome2_icon_cache_update
 }
