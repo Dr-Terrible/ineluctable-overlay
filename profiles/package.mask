@@ -5,11 +5,11 @@
 #
 # NOTE: Please add your entry at the top!
 
-# Toffanin Mauro <toffanin.mauro@gmail.com> (1 Feb 2015)
+# Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
 # Hard masked all the testing branches of dropbox.
 # They are notoriously buggy and unpredictable,
 # use them at your own rick.
->=net-misc/dropbox-3.3.0
+>=net-misc/dropbox-3.5.0
 
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (30 Oct 2010)
