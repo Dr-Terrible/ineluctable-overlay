@@ -2,7 +2,6 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
-app-editors/liteide:gdb - Enables support for sys-devel/gdb
 app-emulation/ganeti-webmgr:webserver - Enable internal webserver; disable this use if you want to serve the application using Django with traditional webservers like: www-servers/apache, www-servers/nginx, dev-python/twisted or www-servers/lighttpd.
 app-misc/recoll:audio - Index audio files
 app-misc/recoll:camelcase - Enable indexing for camelCase sentences and words
