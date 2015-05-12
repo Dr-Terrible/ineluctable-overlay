@@ -5,26 +5,33 @@
 EAPI=5
 inherit cmake-utils games
 
+EGIT_PN="${PN}-engine"
+EGIT_COMMIT="d5ece3149093d8f07d0738d69d2db194883f7b08"
+
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
-SRC_URI="https://github.com/clintbellanger/flare-engine/archive/v${PV}.tar.gz -> ${P}-engine.tar.gz"
+SRC_URI="https://github.com/clintbellanger/${EGIT_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${EGIT_PN}-${EGIT_COMMIT}.tar.gz"
 
 LICENSE="CC-BY-SA-3.0 GPL-3 OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+RESTRICT="mirror"
 
 RDEPEND="
-	>=media-libs/libsdl-1.2.15-r5[X,sound,joystick,video]
-	media-libs/sdl-image[png]
-	media-libs/sdl-mixer[vorbis]
-	media-libs/sdl-ttf"
+	>=media-libs/libsdl2-2.0.3[X,sound,joystick,video]
+	media-libs/sdl2-image[png]
+	media-libs/sdl2-mixer[vorbis]
+	media-libs/sdl2-ttf"
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${PN}-engine-${PV}
+S="${WORKDIR}/${EGIT_PN}-${EGIT_COMMIT}"
+DOCS=()
 
 src_configure() {
 	local mycmakeargs=(
+		-DUSE_SDL2=ON
+		-DSDL1_FALLBACK=FALSE
 		-DBINDIR="${GAMES_BINDIR}"
 		-DDATADIR="${GAMES_DATADIR}/${PN}"
 	)
@@ -37,6 +44,8 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
-	dodoc README.engine
+
+	docinto engine
+	dodoc README.md
 	prepgamesdirs
 }
