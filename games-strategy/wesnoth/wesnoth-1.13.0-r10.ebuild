@@ -38,6 +38,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	sys-devel/gettext"
 
+RESTRICT="mirror"
+
 pkg_pretend() {
 	if use openmp && ! tc-has-openmp; then
 		eerror "You are using gcc built without 'openmp' USE."
@@ -46,12 +48,6 @@ pkg_pretend() {
 	fi
 }
 src_prepare() {
-	# FIX: Wesnoth reinforces a strict check on NDEBUG, but NDEBUG isn't used
-	#      internally by Wesnoth, thus breaking the compilation process.
-#	sed -i \
-#		-e "s:NDEBUG:_NDEBUG:" \
-#		src/global.hpp || die
-
 	if use dedicated || use server ; then
 		sed \
 			-e "s:GAMES_BINDIR:${GAMES_BINDIR}:" \
@@ -97,12 +93,12 @@ src_configure() {
 			"-DSERVER_UID=${GAMES_USER_DED}"
 			"-DSERVER_GID=${GAMES_GROUP}"
 			"-DFIFO_DIR=${GAMES_STATEDIR}/run/wesnothd"
-			)
+		)
 	else
 		mycmakeargs=(
 			"-DENABLE_CAMPAIGN_SERVER=FALSE"
 			"-DENABLE_SERVER=FALSE"
-			)
+		)
 	fi
 	mycmakeargs+=(
 		$(cmake-utils_use_enable !dedicated GAME)
@@ -125,7 +121,7 @@ src_configure() {
 		"-DLOCALEDIR=/usr/share/locale"
 		"-DMANDIR=/usr/share/man"
 		"-DDOCDIR=/usr/share/doc/${PF}"
-		)
+	)
 	cmake-utils_src_configure
 }
 
