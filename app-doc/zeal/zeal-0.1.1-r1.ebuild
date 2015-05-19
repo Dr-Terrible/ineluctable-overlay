@@ -15,9 +15,13 @@ KEYWORDS="~amd64 ~x86 ~arm"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-qt/qtgui:5=
+RDEPEND="app-arch/libarchive:0
+	dev-qt/qtgui:5=
+	dev-qt/qtnetwork:5=
+	dev-qt/qtsql:5=
+	dev-qt/qtwebkit:5=
 	dev-qt/qtwidgets:5=
-	dev-qt/qtsql:5="
+	x11-libs/xcb-util-keysyms"
 
 src_configure() {
 	local myeqmakeargs=(
