@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<longdescription lang="en">
+		Cheat allow you to create and view interactive cheatsheets on the
+		command-line. It was designed to help remind *nix system administrators
+		of options for commands that they use frequently, but not frequently
+		enough to remember.
+	</longdescription>
+</pkgmetadata>
