@@ -51,3 +51,4 @@ dev-games/libndofdev
 =www-apache/mod_atom-9999
 =www-servers/mongrel-9999
 =app-editors/liteide-9999
+dev-util/flint

@@ -17,8 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="static-libs test"
 
-CEPEND="dev-libs/double-conversion
-	dev-libs/boost:=[context]
+CDEPEND="dev-libs/double-conversion
+	!elibc_uclibc? ( dev-libs/boost:=[threads,context] )
 	app-arch/lz4:0
 	app-arch/snappy:0
 	app-arch/xz-utils:0
