@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test unpack
-DEPEND=virtual/libiconv >=dev-libs/xapian-1.0.12 sys-libs/zlib spell? ( app-text/aspell ) !inotify? ( fam? ( virtual/fam ) ) qt4? ( dev-qt/qtcore:4 webkit? ( dev-qt/qtwebkit:4 ) ) session? ( inotify? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) !inotify? ( fam? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) ) ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.13:1.13 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEPEND=virtual/libiconv >=dev-libs/xapian-1.0.12 sys-libs/zlib spell? ( app-text/aspell ) !inotify? ( fam? ( virtual/fam ) ) qt4? ( dev-qt/qtcore:4 webkit? ( dev-qt/qtwebkit:4 ) ) session? ( inotify? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) !inotify? ( fam? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE ) ) ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.14.1:1.14 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=A personal full text search package
 EAPI=5
 HOMEPAGE=http://www.recoll.org
@@ -10,5 +10,5 @@ RDEPEND=virtual/libiconv >=dev-libs/xapian-1.0.12 sys-libs/zlib spell? ( app-tex
 REQUIRED_USE=session? ( || ( fam inotify ) )
 SLOT=0
 SRC_URI=http://www.lesbonscomptes.com/recoll/recoll-1.19.14p1.tar.gz
-_eclasses_=autotools	999c8f6cf5d91495cb0779588f20716c	autotools-utils	3727db64c7b960903d5033280f108080	base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	libtool	52d0e17251d04645ffaa61bfdd858944	linux-info	2b8c53f6065bdee2d757472215a3088f	multibuild	6d4858dc00f8bc51caf3f957f8430eb0	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	python-r1	6d3a3cb5705b9fff1aeb7cfa4e3336fe	python-utils-r1	096f8247eae93026af13ab88cf4305cd	qmake-utils	ea709b525d28e3087eddedb2f884dbbe	qt4-r2	7199e3db5b5908325487d379c6f67cf0	readme.gentoo	106edea5533517715013de909a333abd	toolchain-funcs	b99aa37f734b5d426efd83b2f271cece	versionator	cd0bcdb170807e4a1984115e9d53a26f
+_eclasses_=autotools	b49fe68f65ef8b751164926d42b30e60	autotools-utils	3727db64c7b960903d5033280f108080	base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	libtool	52d0e17251d04645ffaa61bfdd858944	linux-info	25e9476cdec14dfb0af32f4c83c3f297	multibuild	6d4858dc00f8bc51caf3f957f8430eb0	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	python-r1	6d3a3cb5705b9fff1aeb7cfa4e3336fe	python-utils-r1	096f8247eae93026af13ab88cf4305cd	qmake-utils	b9c5231d68391b53f154f7643e94605c	qt4-r2	7199e3db5b5908325487d379c6f67cf0	readme.gentoo	106edea5533517715013de909a333abd	toolchain-funcs	c961250d50160cd37d6b7fd9e8429c92	versionator	cd0bcdb170807e4a1984115e9d53a26f
 _md5_=9686b8ee9f23d11d5998eaec0822b0af
