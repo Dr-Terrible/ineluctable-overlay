@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_COMPAT=( python2_7 )
 inherit autotools cvs eutils python-single-r1
 
 DESCRIPTION="Panda3D is a framework for 3D rendering and game development"
@@ -31,7 +31,7 @@ RDEPEND="cg? ( media-gfx/nvidia-cg-toolkit )
 		openal? ( media-libs/openal )
 		opencv? ( media-libs/opencv )
 		png? ( media-libs/libpng:0 )
-		python? ( dev-lang/python )
+		python? ( ${PYTHON_DEPS} )
 		ssl? ( dev-libs/openssl:0 )
 		tiff? ( media-libs/tiff:0 )
 		truetype? ( media-libs/freetype )

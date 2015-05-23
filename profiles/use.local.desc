@@ -39,6 +39,7 @@ games-engines/Torque3D:profiler - Enables support for the OpenGL profiler
 games-engines/Torque3D:tools - Builds game engines tools and game editor
 games-engines/featherkit:sfml - Build media-libs/libsfml backend.
 games-engines/godot:dds - Enable support for the DDS Texture loader
+games-engines/godot:etc - Enable support for texture compression
 games-engines/godot:minizip - Enable support for the minizip library
 games-engines/godot:nedmalloc - Enable support for nedmalloc
 games-engines/godot:pvr - Enable support for the PVR (PowerVR) Texture loader
