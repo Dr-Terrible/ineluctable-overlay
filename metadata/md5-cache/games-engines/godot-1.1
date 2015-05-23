@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare unpack
+DEPEND=media-sound/pulseaudio:0[alsa] media-libs/alsa-lib x11-libs/libX11 x11-libs/libXcursor x11-libs/libXinerama squirrel? ( dev-lang/squirrel ) lua? ( dev-lang/lua:0 ) vorbis? ( media-libs/libvorbis media-libs/libogg ) minizip? ( sys-libs/zlib[minizip] ) opengl? ( virtual/opengl ) ssl? ( dev-libs/openssl:0 ) theora? ( >=media-libs/libtheora-1.1.1[encode] media-libs/libogg ) truetype? ( media-libs/freetype:2 ) speex? ( >=media-libs/speex-1.2_beta3 ) png? ( media-libs/libpng:0 ) jpeg? ( virtual/jpeg:0 ) webp? ( media-libs/libwebp ) musepack? ( >=media-sound/musepack-tools-444:0 ) dev-util/scons
+DESCRIPTION=Godot is a fully featured, open source, MIT licensed, game engine
+EAPI=5
+HOMEPAGE=http://www.godotengine.org
+IUSE=+etc python squirrel +tools lua rfd +vorbis +minizip +opengl +theora +truetype +speex +png +jpeg +webp +dds +pvr +musepack doc examples ssl
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=media-sound/pulseaudio:0[alsa] media-libs/alsa-lib x11-libs/libX11 x11-libs/libXcursor x11-libs/libXinerama squirrel? ( dev-lang/squirrel ) lua? ( dev-lang/lua:0 ) vorbis? ( media-libs/libvorbis media-libs/libogg ) minizip? ( sys-libs/zlib[minizip] ) opengl? ( virtual/opengl ) ssl? ( dev-libs/openssl:0 ) theora? ( >=media-libs/libtheora-1.1.1[encode] media-libs/libogg ) truetype? ( media-libs/freetype:2 ) speex? ( >=media-libs/speex-1.2_beta3 ) png? ( media-libs/libpng:0 ) jpeg? ( virtual/jpeg:0 ) webp? ( media-libs/libwebp ) musepack? ( >=media-sound/musepack-tools-444:0 )
+REQUIRED_USE=examples? ( doc )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/okamstudio/godot/archive/1.1-stable.tar.gz -> godot-1.1.tar.gz
+_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	eutils	9fb270e417e0e83d64ca52586c4a79de	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	scons-utils	988e24b9e2e4642189b4e97c03e5ae71	toolchain-funcs	c961250d50160cd37d6b7fd9e8429c92
+_md5_=ef7460927159ef4b1bc9b531ee6937a6

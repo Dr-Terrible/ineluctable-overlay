@@ -1,0 +1,18 @@
+--- godot-1.1-stable/platform/x11/detect.py.orig	2015-05-23 20:29:26.998373723 +0200
++++ godot-1.1-stable/platform/x11/detect.py	2015-05-23 20:31:52.839797795 +0200
+@@ -91,6 +91,15 @@
+ 			if sys.stdout.isatty():
+ 				env.Append(CXXFLAGS=["-fcolor-diagnostics"])
+ 
++        if (env["musepack"]=="yes"):
++            env.Append(LIBS=['mpcdec'])
++
++        if (env["vorbis"]=="yes"):
++            env.Append(LIBS=['vorbis','vorbisfile','m','ogg'])
++
++        if (env["png"]=="yes"):
++            env.Append(LIBS=['libpng16'])
++
+ 	if (env["use_sanitizer"]=="yes"):
+ 		env.Append(CXXFLAGS=['-fsanitize=address','-fno-omit-frame-pointer'])
+ 		env.Append(LINKFLAGS=['-fsanitize=address'])

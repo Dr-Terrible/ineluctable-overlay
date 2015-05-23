@@ -27,5 +27,6 @@
 		<flag name="dds">Enable support for the DDS Texture loader</flag>
 		<flag name="pvr">Enable support for the PVR (PowerVR) Texture loader</flag>
 		<flag name="nedmalloc">Enable support for nedmalloc</flag>
+		<flag name="etc">Enable support for texture compression</flag>
 	</use>
 </pkgmetadata>

@@ -3,33 +3,46 @@
 # $Header: $
 
 EAPI=5
-inherit git-r3 scons-utils toolchain-funcs
-
-EGIT_REPO_URI="git://github.com/okamstudio/${PN}.git"
-EGIT_COMMIT="a1d6cd0"
+inherit base scons-utils toolchain-funcs
 
 DESCRIPTION="Godot is a fully featured, open source, MIT licensed, game engine"
 HOMEPAGE="http://www.godotengine.org"
+SRC_URI="https://github.com/okamstudio/${PN}/archive/${PV}-stable.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE_MODULES="server"
-IUSE="python squirrel +tools lua rfd +vorbis +minizip +opengl +theora +truetype +speex +png +jpeg +webp +dds +pvr +musepack +nedmalloc doc examples"
+IUSE="+etc python squirrel +tools lua rfd +vorbis +minizip +opengl +theora +truetype +speex +png +jpeg +webp +dds +pvr +musepack doc examples ssl"
+
+S="${WORKDIR}/${P}-stable"
+
+RESTRICT="mirror"
 
 REQUIRED_USE="
 	examples? ( doc )"
 
 DOCS=()
 
-DEPEND="media-libs/alsa-lib
+PATCHES=(
+	# FIX: the mechanism used by 'spawn_jobs' to autodetect the job numbers
+	#      is borked; it's more appropriate to bypass it and use 'escons'
+#	"${FILESDIR}"/${PN}-1.0-scons.patch
+	"${FILESDIR}"/${P}-bundled.patch
+	"${FILESDIR}"/${P}-libs.patch
+)
+
+DEPEND="media-sound/pulseaudio:0[alsa]
+	media-libs/alsa-lib
 	x11-libs/libX11
 	x11-libs/libXcursor
+	x11-libs/libXinerama
 	squirrel? ( dev-lang/squirrel )
 	lua? ( dev-lang/lua:0 )
 	vorbis? ( media-libs/libvorbis media-libs/libogg )
 	minizip? ( sys-libs/zlib[minizip] )
 	opengl? ( virtual/opengl )
+	ssl? ( dev-libs/openssl:0 )
 	theora? (
 		>=media-libs/libtheora-1.1.1[encode]
 		media-libs/libogg
@@ -43,10 +56,6 @@ DEPEND="media-libs/alsa-lib
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	# FIX: the mechanism used by 'spawn_jobs' to autodetect the job numbers
-	#      is borked; it's more appropriate to bypass it and use 'escons'
-	epatch "${FILESDIR}"/${P}-scons.patch
-
 	# remove some bundled deps
 	#	drivers/png/png* \
 	rm -r \
@@ -56,14 +65,14 @@ src_prepare() {
 		drivers/vorbis/{*.c,books,modes,b*.h,c*.h,e*.h,h*.h,l*.h,m*.h,o*.h,p*.h,r*.h,s*.h,v*.h,w*.h} \
 		drivers/png/{png*,example*,filter*} \
 		|| die
-	epatch "${FILESDIR}"/${P}-bundled.patch
-	epatch "${FILESDIR}"/${P}-libs.patch
 
 #	ewarn "$(echo "Remaining bundled dependencies:"; ( find drivers -mindepth 1 -maxdepth 1 -type d; ) | sed 's|^|- |')"
 
 	# FIX: filter all hardcoded compilers flags
 	sed -e "s/'-O2',//" \
 		-i platform/x11/detect.py || die
+
+	base_src_prepare
 }
 
 src_configure() {
@@ -76,15 +85,17 @@ src_configure() {
 		CCFLAGS="${CXXFLAGS}"
 		CFLAGS="${CFLAGS}"
 		LINKFLAGS="${LDFLAGS}"
-		gdscript=yes
-		squish=yes
-		xml=yes
 		builtin_zlib=no
+		colored=yes
 		default_gui_theme=yes
 		disable_3d=no
 		disable_advanced_gui=no
+		gdscript=yes
 		old_scenes=yes
 		spawn_jobs=no
+		squish=yes
+		use_theoraplayer_binary=no
+		xml=yes
 		$(use_scons python)
 		$(use_scons squirrel)
 		$(use_scons tools)
@@ -101,8 +112,12 @@ src_configure() {
 		$(use_scons webp)
 		$(use_scons dds)
 		$(use_scons pvr)
+		$(use_scons etc etc1)
+		$(use_scons ssl openssl)
 		$(use_scons musepack)
-		$(use_scons nedmalloc)
+	)
+	use tools && myesconsargs+=(
+		target=release_debug
 	)
 }
 
@@ -112,6 +127,7 @@ src_compile() {
 
 src_install() {
 	# installing binaries and libraries
+	cp "bin/${PN}.x11.opt.$(use tools && echo 'tools.')64" bin/${PN} || die
 	dobin bin/${PN}
 
 	# installing documentation and examples

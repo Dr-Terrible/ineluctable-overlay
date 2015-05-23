@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=media-libs/alsa-lib x11-libs/libX11 x11-libs/libXcursor squirrel? ( dev-lang/squirrel ) lua? ( dev-lang/lua:0 ) vorbis? ( media-libs/libvorbis media-libs/libogg ) minizip? ( sys-libs/zlib[minizip] ) opengl? ( virtual/opengl ) theora? ( >=media-libs/libtheora-1.1.1[encode] media-libs/libogg ) truetype? ( media-libs/freetype:2 ) speex? ( >=media-libs/speex-1.2_beta3 ) png? ( media-libs/libpng:0 ) jpeg? ( virtual/jpeg ) webp? ( media-libs/libwebp ) musepack? ( >=media-sound/musepack-tools-444:0 ) >=dev-vcs/git-1.8.2.1 dev-util/scons
+DEPEND=media-libs/alsa-lib x11-libs/libX11 x11-libs/libXcursor squirrel? ( dev-lang/squirrel ) lua? ( dev-lang/lua:0 ) vorbis? ( media-libs/libvorbis media-libs/libogg ) minizip? ( sys-libs/zlib[minizip] ) opengl? ( virtual/opengl ) theora? ( >=media-libs/libtheora-1.1.1[encode] media-libs/libogg ) truetype? ( media-libs/freetype:2 ) speex? ( >=media-libs/speex-1.2_beta3 ) png? ( media-libs/libpng:0 ) jpeg? ( virtual/jpeg:0 ) webp? ( media-libs/libwebp ) musepack? ( >=media-sound/musepack-tools-444:0 ) >=dev-vcs/git-1.8.2.1 dev-util/scons
 DESCRIPTION=Godot is a fully featured, open source, MIT licensed, game engine
 EAPI=5
 HOMEPAGE=http://www.godotengine.org
 IUSE=python squirrel +tools lua rfd +vorbis +minizip +opengl +theora +truetype +speex +png +jpeg +webp +dds +pvr +musepack +nedmalloc doc examples
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=media-libs/alsa-lib x11-libs/libX11 x11-libs/libXcursor squirrel? ( dev-lang/squirrel ) lua? ( dev-lang/lua:0 ) vorbis? ( media-libs/libvorbis media-libs/libogg ) minizip? ( sys-libs/zlib[minizip] ) opengl? ( virtual/opengl ) theora? ( >=media-libs/libtheora-1.1.1[encode] media-libs/libogg ) truetype? ( media-libs/freetype:2 ) speex? ( >=media-libs/speex-1.2_beta3 ) png? ( media-libs/libpng:0 ) jpeg? ( virtual/jpeg ) webp? ( media-libs/libwebp ) musepack? ( >=media-sound/musepack-tools-444:0 )
+RDEPEND=media-libs/alsa-lib x11-libs/libX11 x11-libs/libXcursor squirrel? ( dev-lang/squirrel ) lua? ( dev-lang/lua:0 ) vorbis? ( media-libs/libvorbis media-libs/libogg ) minizip? ( sys-libs/zlib[minizip] ) opengl? ( virtual/opengl ) theora? ( >=media-libs/libtheora-1.1.1[encode] media-libs/libogg ) truetype? ( media-libs/freetype:2 ) speex? ( >=media-libs/speex-1.2_beta3 ) png? ( media-libs/libpng:0 ) jpeg? ( virtual/jpeg:0 ) webp? ( media-libs/libwebp ) musepack? ( >=media-sound/musepack-tools-444:0 )
 REQUIRED_USE=examples? ( doc )
 SLOT=0
-_eclasses_=eutils	9fb270e417e0e83d64ca52586c4a79de	git-r3	3a2bd0ae504c33a50061885480f3def3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	scons-utils	988e24b9e2e4642189b4e97c03e5ae71	toolchain-funcs	b99aa37f734b5d426efd83b2f271cece
-_md5_=9ceac4c6aaacf74ac56e0e9aa8392af5
+_eclasses_=eutils	9fb270e417e0e83d64ca52586c4a79de	git-r3	3a2bd0ae504c33a50061885480f3def3	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	scons-utils	988e24b9e2e4642189b4e97c03e5ae71	toolchain-funcs	c961250d50160cd37d6b7fd9e8429c92
+_md5_=6928bf690790d0fccae942b711451ada
