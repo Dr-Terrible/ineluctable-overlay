@@ -1,0 +1,11 @@
+--- mruby-1.1.0/mrbgems/mruby-bin-mirb/mrbgem.rake
++++ mruby-1.1.0/mrbgems/mruby-bin-mirb/mrbgem.rake
+@@ -9,7 +9,7 @@
+       if MRUBY_BUILD_HOST_IS_CYGWIN then
+         spec.linker.libraries << 'ncurses'
+       else
+-        spec.linker.libraries << 'termcap'
++        spec.linker.libraries << 'ncurses'
+       end
+     end
+     spec.linker.libraries << 'readline'
