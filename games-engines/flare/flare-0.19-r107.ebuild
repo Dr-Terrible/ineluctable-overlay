@@ -6,7 +6,7 @@ EAPI=5
 inherit cmake-utils games
 
 EGIT_PN="${PN}-engine"
-EGIT_COMMIT="6cb89759831f6960605494f388f272a16f595121"
+EGIT_COMMIT="8c41a08f8cf678a7f0a2e1aea46fb69ab94dee28"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
@@ -15,11 +15,10 @@ SRC_URI="https://github.com/clintbellanger/${EGIT_PN}/archive/${EGIT_COMMIT}.tar
 LICENSE="CC-BY-SA-3.0 GPL-3 OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="cpu_flags_x86_sse"
 RESTRICT="mirror"
 
-RDEPEND="
-	>=media-libs/libsdl2-2.0.3[X,sound,joystick,video]
+RDEPEND=">=media-libs/libsdl2-2.0.3[X,sound,joystick,video,cpu_flags_x86_sse?]
 	media-libs/sdl2-image[png]
 	media-libs/sdl2-mixer[vorbis]
 	media-libs/sdl2-ttf"
@@ -46,6 +45,6 @@ src_install() {
 	cmake-utils_src_install
 
 	docinto engine
-	dodoc README.engine README.md
+	dodoc README.md
 	prepgamesdirs
 }

@@ -6,7 +6,7 @@ EAPI=5
 inherit cmake-utils gnome2-utils games
 
 EGIT_PN="${PN}-game"
-EGIT_COMMIT="4139d87185500e3c4ac43967657d76a96c3103ca"
+EGIT_COMMIT="045c3ed3bc564cb8c19749d04aea1d4054be0896"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-game"
