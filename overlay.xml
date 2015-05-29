@@ -17,12 +17,12 @@
 			Arch Tester ufficiale) per progetti che mi interessano
 			ma che non sono ancora presenti in Portage.
 		</description>
-		<homepage>https://github.com/toffanin/ineluctable-overlay</homepage>
+		<homepage>https://github.com/Dr-Terrible/ineluctable-overlay</homepage>
 		<owner type="person">
 			<email>toffanin.mauro@gmail.com</email>
 			<name>Mauro Toffanin</name>
 		</owner>
-		<source type="git">git://github.com/toffanin/ineluctable-overlay.git</source>
-		<feed>https://github.com/toffanin/ineluctable-overlay/commits/master.atom</feed>
+		<source type="git">git://github.com/Dr-Terrible/ineluctable-overlay.git</source>
+		<feed>https://github.com/Dr-Terrible/ineluctable-overlay/commits/master.atom</feed>
 	</repo>
 </repositories>

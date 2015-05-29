@@ -26,7 +26,7 @@ emerge -av app-portage/layman
 If the installation of _layman_ was successfully completed, then you are ready to add this overlay by fetching its remote list as showed below:
 
 ```
-wget -q -O /etc/layman/overlays/ineluctable-overlay.xml https://raw.github.com/toffanin/ineluctable-overlay/master/overlay.xml
+wget -q -O /etc/layman/overlays/ineluctable-overlay.xml https://raw.github.com/Dr-Terrible/ineluctable-overlay/master/overlay.xml
 ```
 
 At this point you can execute:
@@ -67,7 +67,7 @@ This repository offers packages that are known to work on the following architec
 
 ## Contributing
 
-This overlay is still under development. Feedbacks and pull requests are very welcome and I encourage you to use the [issues list](https://github.com/toffanin/ineluctable-overlay/issues) on GitHub to provide your contributions.
+This overlay is still under development. Feedbacks and pull requests are very welcome and I encourage you to use the [issues list](https://github.com/Dr-Terrible/ineluctable-overlay/issues) on GitHub to provide your contributions.
 
 I rarely reject pull requests.
 
