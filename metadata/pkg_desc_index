@@ -1,0 +1,100 @@
+app-admin/fluentd 0.10.6 0.10.39: Fluentd is a log collector daemon written in Ruby
+app-arch/archivemount 0.6.1 0.8.3: mount an archive as filesystem using fuse and libarchive
+app-doc/dexy 0.6.0 0.9.9.7 1.0.5: Dexy is a tool for writing documents which relate to code
+app-doc/game-programming-patterns 20150122: Game Programming Patterns
+app-doc/zeal 0.1.1-r1: Offline documentation browser inspired by Dash
+app-emulation/ganeti-webmgr 0.7.2 0.8: Ganeti Web Manager is an application for Ganeti clusters administration
+app-misc/recoll 1.19.14 1.19.14-r2: A personal full text search package
+app-text/FlightCrew 0.7.2: FlightCrew is a C++, cross-platform, native code EPUB validator.
+app-text/sigil 0.7.4: Sigil is a multi-platform WYSIWYG ebook editor for ePub format.
+dev-cpp/ETL 0.04.17-r1: ETL is a multi-platform class and template library
+dev-cpp/cereal 1.0.0: Cereal is a header-only C++11 serialization library
+dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
+dev-cpp/ctemplate 2.3: A simple but powerful template language for C++
+dev-cpp/folly 0.38.0 0.39.0: An open-source C++ library developed and used at Facebook
+dev-cpp/gflags 2.1.1: Google's C++ argument parsing library
+dev-cpp/gmock 1.7.0-r99: Google's C++ mocking framework
+dev-cpp/gtest 1.7.0-r99: Google C++ Testing Framework
+dev-cpp/openFrameworks 0.8.4 9999: openFrameworks is a robust C++ toolkit designed to assist the creative process.
+dev-cpp/plustache 0.3.0: Mustache templating for C++
+dev-db/arangodb 1.4.3: The universal nosql database
+dev-lang/luajit 2.0.3: Just-In-Time Compiler for the Lua programming language
+dev-lang/v8 3.21.12.1: Google's open source JavaScript engine
+dev-libs/hhvm-libevent 1.4.14b: A customized dev-libs/libevent used by HipHop Virtual Manager
+dev-libs/jsoncpp 1.4.4: C++ JSON reader and writer
+dev-libs/libcss 0.3.0 0.4.0-r10: CSS parser and selection engine, written in C
+dev-libs/libdwarf 20120410 20130729 20150115: Library to deal with DWARF Debugging Information Format
+dev-libs/libparserutils 0.2.0 0.2.0-r10: library for building efficient parsers, written in C
+dev-libs/libsass 3.0.2 3.1.0: LibSaas is a C/C++ port of the Sass engine.
+dev-libs/libwapcaplet 0.2.1 0.2.1-r10: string internment library, written in C
+dev-libs/nsgenbind 0.1.0: generate javascript to dom bindings from w3c webidl files
+dev-libs/shflags 1.0.3: Simplified handling of command-line flags in Bourne based shells
+dev-php/hhvm 3.5.1 3.6.2 3.7.0: Virtual Machine, Runtime, and JIT for PHP
+dev-python/cashew 0.2.7: Cashew is a plugin system for python
+dev-python/cheat 2.1.8: Cheat allows you to create and view interactive cheatsheets on the command-line
+dev-python/dexy-viewer 0.0.5: A Dexy's plugin for runnning a local web server for previewing your docs and snippets
+dev-python/django-fields 0.2.0: Fields pack for django framework
+dev-python/django-haystack 1.2.6: Modular search for django
+dev-python/django-muddle-users 0.5: Muddle Users is an django app that provides management interface for Users and Groups
+dev-python/django-object-log 0.7: This app provides the ability to log user actions on model instances
+dev-python/django-object-permissions 1.4.2 9999: This is an implementation of Django Object Permissions
+dev-python/ganeti-webmgr-layout 0.8: Muddled layout for Ganeti Web Manager
+dev-python/idiopidae 0.5.4: A book compiler for programmers where code and prose are separate
+dev-python/inflection 0.2.0: A port of Ruby on Rails inflector to Python
+dev-python/muddle 0.1 9999: Muddle is set of tools that aid building pluggable django apps
+dev-python/ordereddict 1.1: A drop-in substitute for Py2.7's new collections.OrderedDict that works in Python 2.4-2.6
+dev-python/plugnplay 0.4.2: A Generic plug-in system for python
+dev-python/python-modargs 1.7: modargs is a command line argument parsing library that infers arguments from functions in a module
+dev-python/smartypants 1.8.6: A port of SmartyPants PHP to Python
+dev-python/zapps 0.5.1: A book compiler for programmers where code and prose are separate (a Yapps fork)
+dev-ruby/feedzirra 0.2.0_rc2: A feed fetching and parsing library for Ruby
+dev-ruby/god 0.13.1 0.13.3: A process monitoring framework in Ruby
+dev-ruby/gorillib 0.5.0: Gorillib is a lightweight subset of ruby convenience methods
+dev-ruby/loofah 1.2.1: Loofah is a general library for manipulating and transforming HTML/XML documents and fragments
+dev-ruby/mruby 1.1.0 9999: mruby is the lightweight implementation of the Ruby language complying to part of the ISO standard
+dev-ruby/sax-machine 0.2.0_rc1: Declarative SAX Parsing with Nokogiri
+dev-util/codexl 1.3.3487-r1 1.4.5728 1.6.7247: CPU/GPU debugging and profiling suite by AMD
+dev-util/cxxtest 4.0.3 4.3: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
+dev-util/flint 2015.03.26: An open-source lint program for C++ developed by, and used at Facebook
+dev-util/flint++ 2014.12.15: Flint++ is cross-platform, zero-dependency port of Facebook's flint
+dev-util/google-perftools 2.4: Fast, multi-threaded malloc() and nifty performance analysis tools
+dev-util/google-styleguide 130: Style guides for Google-originated open-source projects
+dev-util/oprofile 0.9.9-r1: A transparent low-overhead system-wide profiler
+dev-util/plan9port 20150218: Port of many Plan 9 programs and libraries
+dev-util/sassc 3.0.2: SaasC is an implementer for LibSaas
+dev-vcs/git-extras 1.9.0 2.2.0: Little git extras
+dev-vcs/gitflow-avh 1.7.0: Git extensions to provide repository operations for Vincent Driessen's branching model (AVH edition)
+games-engines/Torque3D 3.5 3.5.1: Torque3D is an cross-platform and open-source game engine
+games-engines/featherkit 1.0.0_rc4 9999: Feather Kit is a lightweight, open source framework for game development in C++
+games-engines/flare 0.19 0.19-r107: Free/Libre Action Roleplaying game
+games-engines/gameplay3d 2.0.0 3.0.0 9999: GamePlay3D is an open-source, cross-platform 3D game framework written in C++.
+games-engines/godot 1.0-r99 1.1: Godot is a fully featured, open source, MIT licensed, game engine
+games-engines/panda3d 1.8.1 9999: Panda3D is a framework for 3D rendering and game development
+games-engines/redpanda 0.1.0: An open-source 3D framework
+games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
+games-rpg/flare 0.19 0.19-r107: Free/Libre Action Roleplaying game
+games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
+games-strategy/wesnoth 1.12.1-r10 1.13.0-r10: Battle for Wesnoth - A fantasy turn-based strategy game
+media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
+media-gfx/synfig 0.64.1 0.64.3: Film-Quality Vector Animation (core engine)
+media-gfx/synfigstudio 0.64.1 0.64.3: Main UI of synfig: Film-Quality Vector Animation
+media-gfx/wings 1.5.3: excellent 3D polygon mesh modeler
+media-libs/artoolkit 2.72.1-r10: The ARToolKit library
+media-libs/libnsbmp 0.1.1-r10: decoding library for BMP and ICO image file formats, written in C
+media-libs/libnsgif 0.1.1-r10: decoding library for the GIF image file format, written in C
+media-libs/librosprite 0.1.1-r10: framebuffer abstraction library, written in C
+media-libs/libsfml 2.1-r10 2.2-r10: Simple and Fast Multimedia Library (SFML)
+media-libs/libsvgtiny 0.1.1 0.1.2-r10: framebuffer abstraction library, written in C
+net-libs/libdom 0.1.0 0.1.1-r10: implementation of the W3C DOM, written in C
+net-libs/libhubbub 0.3.0 0.3.0-r10: HTML5 compliant parsing library, written in C
+net-misc/dropbox 2.10.51 3.0.5 3.2.9 3.3.42 3.4.6: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox-cli 2.10.0-r2: Cli interface for dropbox (python), part of nautilus-dropbox
+net-misc/vde 2.3.2: vde2 is a virtual distributed ethernet emulator for emulators like qemu, bochs, and uml
+sys-apps/nix 1.7: A purely functional package manager
+sys-libs/hoard 3.8 3.9 3.10: HOARD Memory Allocator
+www-apache/mod_atom 9999: An Apache2 module providing an Atom Protocol implementation
+www-apache/mod_qos 11.7: A QOS module for the apache webserver
+www-servers/mongrel 1.8.1 9999: Mongrel is an agnostic web server that focuses on web applications using modern browser technologies
+www-servers/wsgid 0.6.0 0.7.1: Wsgid is a generic WSGI handler for mongrel2 web server
+x11-base/xynth 0.8.20 0.10.82: Xynth is a portable embedded windowing system
+x11-wm/scrotwm 0.9.27: Small dynamic tiling window manager for X11
