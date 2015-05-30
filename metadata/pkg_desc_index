@@ -4,6 +4,7 @@ app-doc/dexy 0.6.0 0.9.9.7 1.0.5: Dexy is a tool for writing documents which rel
 app-doc/game-programming-patterns 20150122: Game Programming Patterns
 app-doc/zeal 0.1.1-r1: Offline documentation browser inspired by Dash
 app-emulation/ganeti-webmgr 0.7.2 0.8: Ganeti Web Manager is an application for Ganeti clusters administration
+app-emulation/vagrant 1.7.2: A tool for building and distributing virtual machines
 app-misc/recoll 1.19.14 1.19.14-r2: A personal full text search package
 app-text/FlightCrew 0.7.2: FlightCrew is a C++, cross-platform, native code EPUB validator.
 app-text/sigil 0.7.4: Sigil is a multi-platform WYSIWYG ebook editor for ePub format.
