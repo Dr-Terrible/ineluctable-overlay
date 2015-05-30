@@ -89,6 +89,7 @@ net-libs/libdom 0.1.0 0.1.1-r10: implementation of the W3C DOM, written in C
 net-libs/libhubbub 0.3.0 0.3.0-r10: HTML5 compliant parsing library, written in C
 net-misc/dropbox 2.10.51 3.0.5 3.2.9 3.3.42 3.4.6: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2.10.0-r2: Cli interface for dropbox (python), part of nautilus-dropbox
+net-misc/syncthing 0.11.6: Syncthing is an application that lets you synchronize your files across multiple devices
 net-misc/vde 2.3.2: vde2 is a virtual distributed ethernet emulator for emulators like qemu, bochs, and uml
 sys-apps/nix 1.7: A purely functional package manager
 sys-libs/hoard 3.8 3.9 3.10: HOARD Memory Allocator
