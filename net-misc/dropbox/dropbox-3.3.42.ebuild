@@ -57,7 +57,7 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-	mkdir -p "${S}"
+	mkdir -p "${S}" || die
 	mv "${WORKDIR}"/.dropbox-dist/* "${S}" || die
 	rmdir .dropbox-dist || die
 }
