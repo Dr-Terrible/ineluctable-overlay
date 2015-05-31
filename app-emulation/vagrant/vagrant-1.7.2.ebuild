@@ -15,7 +15,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-# Missing ebuild for contest
 RESTRICT="mirror strip"
 
 RDEPEND="!<app-emulation/vagrant-1.7.0
@@ -24,5 +23,5 @@ RDEPEND="!<app-emulation/vagrant-1.7.0
 S="${WORKDIR}"
 
 src_install() {
-	mv {opt,usr} "${ED}" || die 'install failed'
+	cp -r "${S}"/* "${ED}" || die 'install failed'
 }
