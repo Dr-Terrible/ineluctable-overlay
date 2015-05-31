@@ -13,12 +13,15 @@ SRC_URI="amd64? ( https://dl.bintray.com/mitchellh/vagrant/vagrant_${PV}_x86_64.
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="+virtualbox"
 
 RESTRICT="mirror strip"
 
+# virtualbox support is used by the Vagrant utils, and it's
+# non-optional, so it's part of RDEPEND.
 RDEPEND="!<app-emulation/vagrant-1.7.0
-	net-misc/curl:0"
+	net-misc/curl:0
+	virtualbox? ( || ( app-emulation/virtualbox >=app-emulation/virtualbox-bin-2.2.0 ) )"
 
 S="${WORKDIR}"
 

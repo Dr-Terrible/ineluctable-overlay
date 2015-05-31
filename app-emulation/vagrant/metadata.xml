@@ -7,4 +7,11 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
+	<use>
+		<flag name="virtualbox">
+			Support management of VirtualBox virtualisation (one of
+			<pkg>app-emulation/virtualbox</pkg> or
+			<pkg>app-emulation/virtualbox-ose</pkg>)
+		</flag>
+	</use>
 </pkgmetadata>
