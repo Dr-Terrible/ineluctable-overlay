@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<use>
+		<flag name="crash">Enables support for Red Hat crash utility <pkg>dev-util/crash</pkg>
+		</flag>
+		<flag name="server">Enables building of stap-server</flag>
+		<flag name="libvirt">Enables support for Virtual Machine management
+	through <pkg>app-emulation/libvirt</pkg>
+		</flag>
+	</use>
+</pkgmetadata>
