@@ -14,7 +14,7 @@ SRC_URI="http://www.sourceware.org/${PN}/ftp/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
-IUSE="crash +sqlite nls pie hardened +server libvirt selinux java examples test"
+IUSE="crash +sqlite nls pie hardened +server libvirt selinux java examples test doc"
 
 CDEPEND="${PYTHON_DEPS}
 	|| (
@@ -29,11 +29,19 @@ CDEPEND="${PYTHON_DEPS}
 		dev-libs/nss
 		net-dns/avahi
 	)
+	java? ( >=virtual/jre-1.6:* )
 	sqlite? ( dev-db/sqlite:3 )"
 RDEPEND="${CDEPEND}
-	crash? ( dev-util/crash )
-	sys-libs/libcap"
+	crash? ( dev-util/crash )"
 DEPEND="${CDEPEND}
+	dev-libs/boost
+	doc? (
+		virtual/latex-base
+		dev-texlive/texlive-latexextra
+		dev-tex/latex2html
+		dev-texlive/texlive-fontsrecommended
+		app-text/xmlto
+	)
 	nls? ( >=sys-devel/gettext-0.18.2 )
 	test? (
 		dev-tcltk/expect
@@ -62,8 +70,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	python_fix_shebang .
-
 	# NOTE: avoid to filter -Werror from buildrun.cxx
 	#       see https://bugs.gentoo.org/522908#c4
 	sed -i \
@@ -80,7 +86,18 @@ src_prepare() {
 		testsuite/systemtap.base/sdt.exp \
 		scripts/kprobes_test/gen_code.py \
 		|| die "Failed to clean up sources"
+
+	# FIX: install path for reference documentation
+	sed -i \
+		-e "s:^DOC_INSTALL_DIR =.*:DOC_INSTALL_DIR = \$(DESTDIR)\$(datadir)/doc/${PF}:" \
+		-e "s:^HTML_INSTALL_DIR =.*:HTML_INSTALL_DIR = \$(DESTDIR)\$(datadir)/doc/${PF}/html/reference:" \
+		doc/Makefile.am \
+		doc/beginners/Makefile.am \
+		doc/SystemTap_Tapset_Reference/Makefile.am \
+		|| die
+
 	autotools-utils_src_prepare
+	python_fix_shebang .
 }
 
 src_configure() {
@@ -88,11 +105,12 @@ src_configure() {
 		--docdir="${EPREFIX}/usr/share/doc/${PF}"
 		--without-rpm
 		--without-dyninst
-		--disable-docs
 		--disable-publican
-		--disable-refdocs
 		--disable-grapher
+		--disable-prologues
 		$(use_enable crash)
+		$(use_enable doc docs)
+		$(use_enable doc refdocs)
 		$(use_enable nls)
 		$(use_enable pie)
 		$(use_enable hardened ssp)
