@@ -3,6 +3,7 @@
 # * generated automatically using egencache *
 
 app-emulation/ganeti-webmgr:webserver - Enable internal webserver; disable this use if you want to serve the application using Django with traditional webservers like: www-servers/apache, www-servers/nginx, dev-python/twisted or www-servers/lighttpd.
+app-emulation/vagrant:virtualbox - Support management of VirtualBox virtualisation (one of app-emulation/virtualbox or app-emulation/virtualbox-ose)
 app-misc/recoll:audio - Index audio files
 app-misc/recoll:camelcase - Enable indexing for camelCase sentences and words
 app-misc/recoll:chm - Index chm files
@@ -29,10 +30,14 @@ dev-php/hhvm:jsonc - Use dev-libs/json-c
 dev-php/hhvm:xen - Enables support for app-emulation/xen backends
 dev-php/hhvm:zend-compat - Enables Zend source compatibility
 dev-util/codexl:opencl - Enable OpenCL support (AMD only)
+dev-util/crash:extensions - Build the extesions library
 dev-util/google-perftools:cpu-profiler - Build the CPU profiler
 dev-util/google-perftools:heap-checker - Build the HEAP checker
 dev-util/google-perftools:heap-profiler - Build the HEAP profiler
 dev-util/google-perftools:minimal - Build only the support for tcmalloc
+dev-util/systemtap:crash - Enables support for Red Hat crash utility dev-util/crash
+dev-util/systemtap:libvirt - Enables support for Virtual Machine management through app-emulation/libvirt
+dev-util/systemtap:server - Enables building of stap-server
 dev-vcs/gitflow-avh:fish-completion - Enable fish completion support.
 games-engines/Torque3D:asserts - Enables support for asserts
 games-engines/Torque3D:profiler - Enables support for the OpenGL profiler
@@ -64,9 +69,11 @@ games-engines/panda3d:pstats - Builts the PStats viewer for graphical analysis o
 games-engines/panda3d:rocket - Enables support of package dev-libs/libRocket
 games-engines/panda3d:squish - Enables support for DXT1, DXT3, DXT5 pre-compressed texture images through package
 games-engines/panda3d:xrandr - Enables XRandR window extension support
+games-engines/redpanda:aio - Enables asynchronous IO support
 games-engines/redpanda:egl - Uses EGL instead of default GLX to manage OpenGL
 games-engines/redpanda:gles - Enables OpenGL ES 1.x/2.x backend for acceleration
 games-engines/redpanda:sfml - Enables Simple and Fast Multimedia Library (SFML) as a backend for acceleration
+games-engines/redpanda:tools - Build sgame engines tools
 games-engines/redpanda-docs:api - Generates RedPanda's Application Program Interface (API) documentation
 games-engines/redpanda-docs:manual - Generate RedPanda's Manual
 games-strategy/ufo-ai:debug - Prepares for backtraces and debugging output
@@ -85,6 +92,7 @@ media-gfx/synfig:avcodec - Enables libavcodec support for video/audio encoding/d
 media-gfx/synfig:swscale - Enables image scaling and conversion via libswscale (part of FFmpeg).
 media-gfx/synfigstudio:fmod - Enables support for music and sound effects
 media-libs/artoolkit:utils - Build utilities
+media-libs/libsfml:gles1 - Enables OpenGL ES 1.x backend for acceleration instead of standard desktop OpenGL
 net-misc/dropbox:cli - Install the official Dropbox Command Line Interface
 net-misc/dropbox:librsync-bundled - Use bundled librsync library
 net-misc/dropbox:system-librsync - Use the system-wide net-libs/librsync instead of bundled

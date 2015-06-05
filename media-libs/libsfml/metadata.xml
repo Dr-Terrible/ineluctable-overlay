@@ -7,13 +7,13 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
-	<upstream>
-		<doc></doc>
-		<bugs-to></bugs-to>
-	</upstream>
 	<longdescription lang="en">
 		SFML provides a simple interface to the various components of your PC,
 		to ease the development of games and multimedia applications. It is
-		composed of five modules: system, window, graphics, audio and network. 
+		composed of five modules: system, window, graphics, audio and network.
 	</longdescription>
+	<use>
+		<flag name="gles1">Enables OpenGL ES 1.x backend for
+    acceleration instead of standard desktop OpenGL</flag>
+	</use>
 </pkgmetadata>

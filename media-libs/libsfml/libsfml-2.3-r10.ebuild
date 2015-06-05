@@ -14,54 +14,47 @@ SRC_URI="https://github.com/LaurentGomila/SFML/archive/${PV}.tar.gz -> ${P}.tar.
 LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc examples static-libs"
+IUSE="debug doc examples gles1 static-libs"
 
-RDEPEND="media-libs/freetype:2
-	media-libs/glew:=
-	media-libs/libpng:0=
-	media-libs/libsndfile
-	media-libs/mesa
+RDEPEND="media-libs/flac
+	media-libs/freetype:2
+	media-libs/libogg:0
+	media-libs/libvorbis:0
 	media-libs/openal
-	sys-libs/zlib
 	virtual/jpeg:0
 	virtual/udev
+	media-libs/mesa[egl]
+	gles1? (
+		media-libs/mesa[gles1]
+	)
 	x11-libs/libX11
-	x11-libs/libXrandr"
+	x11-libs/libxcb
+	x11-libs/libXrandr
+	x11-libs/xcb-util-image"
 DEPEND="${RDEPEND}
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
 DOCS="changelog.txt readme.txt"
 
 S=${WORKDIR}/${MY_P}
 
-PATCHES=(
-	"${FILESDIR}"/${P}-no-docs.patch
-	"${FILESDIR}"/${P}-shared-glew.patch
-)
-
 src_prepare() {
 	sed -i "s:DESTINATION .*:DESTINATION ${EPREFIX}/usr/share/doc/${PF}:" \
 		doc/CMakeLists.txt || die
+	sed -i "s:share/SFML:share/${PF}:" \
+		cmake/Config.cmake || die
 	cmake-utils_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
+		-DINSTALL_MISC_DIR="${EPREFIX}/usr/share/doc/${PF}"
+		-DSFML_INSTALL_PKGCONFIG_FILES="TRUE"
+		$(cmake-utils_use gles1 SFML_OPENGL_ES)
 		$(cmake-utils_use doc SFML_BUILD_DOC)
+		$(cmake-utils_use examples SFML_BUILD_EXAMPLES)
 		$(cmake-utils_use !static-libs BUILD_SHARED_LIBS)
 	)
 	cmake-utils_src_configure
-}
-
-src_install() {
-	cmake-utils_src_install
-
-	insinto /usr/share/cmake/Modules
-	doins cmake/Modules/FindSFML.cmake
-
-	if use examples ; then
-		docompress -x /usr/share/doc/${PF}/examples
-		dodoc -r examples
-		find "${ED}"/usr/share/doc/${PF}/examples -name CMakeLists.txt -delete
-	fi
 }
