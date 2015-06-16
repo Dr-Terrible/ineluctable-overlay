@@ -9,6 +9,6 @@ LICENSE=CC-BY-SA-3.0 GPL-3 OFL-1.1
 RDEPEND=media-libs/libsdl2:=[X,sound,joystick,video,cpu_flags_x86_sse?] media-libs/sdl2-image[png] media-libs/sdl2-mixer[vorbis] media-libs/sdl2-ttf games-misc/games-envd
 RESTRICT=mirror
 SLOT=0
-SRC_URI=https://github.com/clintbellanger/flare-engine/archive/8c41a08f8cf678a7f0a2e1aea46fb69ab94dee28.tar.gz -> flare-engine-8c41a08f8cf678a7f0a2e1aea46fb69ab94dee28.tar.gz
+SRC_URI=https://github.com/clintbellanger/flare-engine/archive/22b2247eeacedf9e025c67be4c8632b7ac64be3b.tar.gz -> flare-engine-22b2247eeacedf9e025c67be4c8632b7ac64be3b.tar.gz
 _eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	9fb270e417e0e83d64ca52586c4a79de	flag-o-matic	c9602887773166fe300444712fc7ff98	games	1ad3205dbf62a2c98249f2f59b0a2d39	multilib	62927b3db3a589b0806255f3a002d5d3	toolchain-funcs	42408102d713fbad60ca21349865edb4	user	f54e098dd38ba1c0847a13e685b87747
-_md5_=4347b426667eaaec069b3da319f1071a
+_md5_=09561a48d4aac1392a21291ae6b20865

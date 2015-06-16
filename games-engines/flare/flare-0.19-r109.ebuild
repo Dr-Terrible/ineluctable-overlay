@@ -6,7 +6,7 @@ EAPI=5
 inherit cmake-utils games
 
 EGIT_PN="${PN}-engine"
-EGIT_COMMIT="8c41a08f8cf678a7f0a2e1aea46fb69ab94dee28"
+EGIT_COMMIT="28ab56f5a54de51ff4b38a4915c1ea63a13cf6bf"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
