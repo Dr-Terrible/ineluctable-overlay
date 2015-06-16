@@ -1,0 +1,21 @@
+--- tools/config_modules/Makefile
++++ tools/config_modules/Makefile
+@@ -1,6 +1,7 @@
+ PREFIX?=/usr/local
+-CFLAGS=-I../../src -I../../src/polarssl/include $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
+-LDFLAGS=$(OPTLIBS)
++LIBDIR?=/lib
++CFLAGS+=-I../../src -I../../src/polarssl/include $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
++LDFLAGS+=$(OPTLIBS)
+
+ MONGO_SRC = mongo-c-driver/src/bson.c \
+             mongo-c-driver/src/encoding.c \
+@@ -33,6 +34,6 @@
+ 	rm -Rf mongo-c-driver
+
+ install:
+-	install -d $(DESTDIR)/$(PREFIX)/lib/mongrel2/config_modules/
+-	install *.so $(DESTDIR)/$(PREFIX)/lib/mongrel2/config_modules/
++	install -d $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/config_modules/
++	install *.so $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/config_modules/
+

@@ -1,0 +1,36 @@
+--- ./src/io.c.orig	2015-06-15 12:32:40.805995740 +0200
++++ ./src/io.c	2015-06-15 12:33:20.252707032 +0200
+@@ -41,8 +41,8 @@
+ #include "register.h"
+ #include "mem/halloc.h"
+ #include "dbg.h"
+-#include "polarssl/havege.h"
+-#include "polarssl/ssl.h"
++#include <polarssl/havege.h>
++#include <polarssl/ssl.h>
+ #include "task/task.h"
+ #include "adt/darray.h"
+ 
+--- ./src/server.c.orig	2015-06-15 13:01:17.252872663 +0200
++++ ./src/server.c	2015-06-15 13:01:41.331290571 +0200
+@@ -47,7 +47,7 @@
+ #include "config/config.h"
+ #include "unixy.h"
+ #include <signal.h>
+-#include "polarssl/config.h"
++#include <polarssl/config.h>
+ 
+ darray_t *SERVER_QUEUE = NULL;
+ int RUNNING=1;
+--- ./tests/cert_tests.c.orig	2015-06-15 13:04:16.559986855 +0200
++++ ./tests/cert_tests.c	2015-06-15 13:04:54.094639350 +0200
+@@ -1,7 +1,7 @@
+ #include "minunit.h"
+ #include "stdio.h"
+-#include "polarssl/x509_crt.h"
+-#include "polarssl/error.h"
++#include <polarssl/x509_crt.h>
++#include <polarssl/error.h>
+ char *test_SSL_verify_cert() 
+ {
+ 

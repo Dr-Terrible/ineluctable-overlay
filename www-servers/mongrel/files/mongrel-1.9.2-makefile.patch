@@ -1,0 +1,130 @@
+--- Makefile.orig	2015-06-15 12:18:49.878854443 +0200
++++ Makefile	2015-06-15 14:07:00.623157643 +0200
+@@ -1,6 +1,8 @@
+-CFLAGS=-g -O2 -Wall -Wextra -Isrc -Isrc/polarssl/include -pthread -rdynamic -DNDEBUG $(OPTFLAGS) -D_FILE_OFFSET_BITS=64
+-LIBS=-lzmq -ldl -lsqlite3 $(OPTLIBS)
++CFLAGS+=-g -O2 -Wall -Wextra -Isrc -I/usr/include -pthread -rdynamic -DNDEBUG $(OPTFLAGS) 
++-D_FILE_OFFSET_BITS=64
++LIBS=-lzmq -ldl -lsqlite3 -lmbedtls $(OPTLIBS)
+ PREFIX?=/usr/local
++LDFLAGS+=
+ 
+ get_objs = $(addsuffix .o,$(basename $(wildcard $(1))))
+ 
+@@ -22,16 +24,16 @@
+ #   upon every make invocation, and must be done before the SOURCES variable, above
+ #   is lazily evaluated, or none of the src/polarssl source files will be found
+ 
+-ifdef $($(shell									\
+-	if git submodule status | grep '^-'; then				\
+-	    echo "PolarSSL; init and update git submodule" 1>&2;		\
+-	    git submodule init && git submodule update;				\
+-	fi ))
+-endif
++#ifdef $($(shell									\
++#	if git submodule status | grep '^-'; then				\
++#	    echo "PolarSSL; init and update git submodule" 1>&2;		\
++#	    git submodule init && git submodule update;				\
++#	fi ))
++#endif
+ 
+ all: bin/mongrel2 tests m2sh procer
+ 
+-dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS) -D_FILE_OFFSET_BITS=64
++dev: CFLAGS+=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS) -D_FILE_OFFSET_BITS=64
+ dev: all
+ 
+ ${OBJECTS_NOEXT}: CFLAGS += ${NOEXTCFLAGS}
+@@ -62,30 +64,30 @@
+ # 
+ #         git diff -- include/polarssl/config.h > ../polarssl_config.patch.X.Y.Z
+ FORCE:
+-src/polarssl/include/polarssl/config.h: src/polarssl/include/polarssl/version.h FORCE
+-	@POLARSSL_VERSION=$$( $(CC) $(CFLAGS_DEFS) $<				\
+-	    | sed -n -e 's/^.*POLARSSL_VERSION_STRING[\t ]*"\([^"]*\)".*/\1/p' ); \
+-	if $(CC) $(CFLAGS_DEFS) $@ | grep -q POLARSSL_HAVEGE_C; then		\
+-	    echo "PolarSSL $${POLARSSL_VERSION}; already configured";		\
+-	else									\
+-	    echo "PolarSSL $${POLARSSL_VERSION}; defining POLARSSL_HAVEGE_C...";\
+-	    POLARSSL_PATCH=src/polarssl_config.patch.$${POLARSSL_VERSION};	\
+-	    if ! patch -d src/polarssl -p 1 < $${POLARSSL_PATCH}; then		\
+-		echo "*** Failed to apply $${POLARSSL_PATCH}";			\
+-		exit 1;								\
+-	    fi;									\
+-	fi
++#src/polarssl/include/polarssl/config.h: src/polarssl/include/polarssl/version.h FORCE
++#	@POLARSSL_VERSION=$$( $(CC) $(CFLAGS_DEFS) $<				\
++#	    | sed -n -e 's/^.*POLARSSL_VERSION_STRING[\t ]*"\([^"]*\)".*/\1/p' ); \
++#	if $(CC) $(CFLAGS_DEFS) $@ | grep -q POLARSSL_HAVEGE_C; then		\
++#	    echo "PolarSSL $${POLARSSL_VERSION}; already configured";		\
++#	else									\
++#	    echo "PolarSSL $${POLARSSL_VERSION}; defining POLARSSL_HAVEGE_C...";\
++#	    POLARSSL_PATCH=src/polarssl_config.patch.$${POLARSSL_VERSION};	\
++#	    if ! patch -d src/polarssl -p 1 < $${POLARSSL_PATCH}; then		\
++#		echo "*** Failed to apply $${POLARSSL_PATCH}";			\
++#		exit 1;								\
++#	    fi;									\
++#	fi
+ 
+ 
+ bin/mongrel2: build/libm2.a src/mongrel2.o
+-	$(CC) $(CFLAGS) src/mongrel2.o -o $@ $< $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) src/mongrel2.o -o $@ $< $(LIBS)
+ 
+ build/libm2.a: CFLAGS += -fPIC
+ build/libm2.a: build ${LIB_OBJ}
+ 	ar rcs $@ ${LIB_OBJ}
+ 	ranlib $@
+ 
+-build: src/polarssl/include/polarssl/config.h
++build: 
+ 	@mkdir -p build
+ 	@mkdir -p bin
+ 
+@@ -119,7 +121,7 @@
+ 
+ .PHONY: tests
+ tests: tests/config.sqlite ${TESTS} test_filters filters config_modules
+-	sh ./tests/runtests.sh
++#	sh ./tests/runtests.sh
+ 
+ tests/config.sqlite: src/config/config.sql src/config/example.sql src/config/mimetypes.sql
+ 	sqlite3 $@ < src/config/config.sql
+@@ -127,7 +129,7 @@
+ 	sqlite3 $@ < src/config/mimetypes.sql
+ 
+ $(TESTS): %: %.c build/libm2.a
+-	$(CC) $(CFLAGS) -o $@ $< build/libm2.a $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< build/libm2.a $(LIBS)
+ 
+ src/state.c: src/state.rl src/state_machine.rl
+ src/http11/http11_parser.c: src/http11/http11_parser.rl
+@@ -154,9 +156,10 @@
+ 
+ # Try to install first before creating target directory and trying again
+ install: all
++	mkdir -p $(DESTDIR)/$(PREFIX)/bin
+ 	install bin/mongrel2 $(DESTDIR)/$(PREFIX)/bin/ \
+ 	    || ( install -d $(DESTDIR)/$(PREFIX)/bin/ \
+-	        && install bin/mongrel2 $(DESTDIR)/$(PREFIX)/bin/ )
++		&& install bin/mongrel2 $(DESTDIR)/$(PREFIX)/bin/ )
+ 	${MAKE} ${MAKEOPTS} -C tools/m2sh install
+ 	${MAKE} ${MAKEOPTS} -C tools/config_modules install
+ 	${MAKE} ${MAKEOPTS} -C tools/filters install
+@@ -177,7 +180,7 @@
+ 	VALGRIND="strace" ${MAKE}
+ 
+ %.o: %.S
+-	$(CC) $(CFLAGS) -c $< -o $@
++	$(CC) $(CFLAGS) $(LDFLAGS) -c $< -o $@
+ 
+ coverage: NOEXTCFLAGS += -fprofile-arcs -ftest-coverage
+ coverage: LIBS += -lgcov
+@@ -196,6 +199,7 @@
+ 
+ manual:
+ 	dexy
++	mkdir -p output/docs/manual/
+ 	cp docs/manual/Makefile output/docs/manual/
+ 	cp docs/manual/pastie.sty output/docs/manual/
+ 	${MAKE} -C output/docs/manual clean book-final.pdf

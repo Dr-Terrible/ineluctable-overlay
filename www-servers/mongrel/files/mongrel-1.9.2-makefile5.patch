@@ -1,0 +1,21 @@
+--- tests/filters/Makefile.orig	2015-06-15 13:08:42.539614736 +0200
++++ tests/filters/Makefile	2015-06-15 13:11:56.405993561 +0200
+@@ -1,6 +1,7 @@
+ PREFIX?=/usr/local
+-CFLAGS=-I../../src -I../../src/polarssl/include $(OPTFLAGS) -fPIC -shared -nostartfiles -L../../build
+-LDFLAGS=$(OPTLIBS)
++LIBDIR?=/lib
++CFLAGS+=-I../../src -I/usr/include $(OPTFLAGS) -fPIC -shared -nostartfiles -L/$(PREFIX)/$(LIBDIR)
++LDFLAGS+=$(OPTLIBS)
+ 
+ all: test_filter.so test_filter_a.so test_filter_b.so test_filter_c.so
+ 
+@@ -12,6 +13,6 @@
+ 	rm -f *.so
+ 
+ install:
+-	install -d $(DESTDIR)/$(PREFIX)/lib/mongrel2/filters/
+-	install *.so $(DESTDIR)/$(PREFIX)/lib/mongrel2/filters/
++	install -d $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/filters/
++	install *.so $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/filters/
+ 

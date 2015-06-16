@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -28,6 +28,8 @@ RDEPEND="!www-servers/mongrel:0
 	>=net-libs/zeromq-2.1.4"
 
 S="${WORKDIR}/${PN}2-${PV}"
+
+RESTRICT="mirror"
 
 src_prepare() {
 	epatch "${FILESDIR}"/mongrel-makefile.patch

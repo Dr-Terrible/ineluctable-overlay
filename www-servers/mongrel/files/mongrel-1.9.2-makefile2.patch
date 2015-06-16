@@ -1,0 +1,43 @@
+--- ./tools/m2sh/Makefile.orig	2015-06-15 13:39:56.020600016 +0200
++++ ./tools/m2sh/Makefile	2015-06-15 13:42:22.958120078 +0200
+@@ -1,4 +1,4 @@
+-CFLAGS=-DNDEBUG -DNO_LINENOS -pthread -g -I../../src -Isrc -Wall $(OPTFLAGS)
++CFLAGS+=-DNDEBUG -DNO_LINENOS -pthread -g -I../../src -Isrc -Wall $(OPTFLAGS)
+ LIBS=-lzmq -lsqlite3 ../../build/libm2.a $(OPTLIBS)
+ 
+ PREFIX?=/usr/local
+@@ -11,7 +11,7 @@
+ 
+ all: ../lemon/lemon tests build/m2sh
+ 
+-dev: CFLAGS=-g -Wall -Wextra -Isrc -I../../src $(OPTFLAGS)
++dev: CFLAGS+=-g -Wall -Wextra -Isrc -I../../src $(OPTFLAGS)
+ dev: all
+ 
+ install: build/m2sh
+@@ -24,13 +24,13 @@
+ 
+ build/m2sh: ../lemon/lemon ../../build/libm2.a ${OBJECTS}
+ 	mkdir -p build
+-	$(CC) $(CFLAGS) -o build/m2sh ${OBJECTS} ../../build/libm2.a $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o build/m2sh ${OBJECTS} ../../build/libm2.a $(LIBS)
+ 
+ ../lemon/lemon: ../lemon/lemon.c
+-	$(CC) -O2 ../lemon/lemon.c -o ../lemon/lemon
++	$(CC) $(CFLAGS) $(LDFLAGS) ../lemon/lemon.c -o ../lemon/lemon
+ 
+ tests: build/libm2sh.a ${TESTS}
+-	sh ./tests/runtests.sh
++#	sh ./tests/runtests.sh
+ 
+ %.c: %.y
+ 	../lemon/lemon -s $< 
+@@ -39,7 +39,7 @@
+ 	ragel -G2 $<
+ 
+ $(TESTS): %: %.c build/libm2sh.a
+-	$(CC) $(CFLAGS) -o $@ $< build/libm2sh.a ../../build/libm2.a $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< build/libm2sh.a ../../build/libm2.a $(LIBS)
+ 
+ ../../build/libm2.a:
+ 	cd ../.. && make clean all

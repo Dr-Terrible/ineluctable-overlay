@@ -1,0 +1,21 @@
+--- tools/filters/Makefile
++++ tools/filters/Makefile
+@@ -1,6 +1,7 @@
+ PREFIX?=/usr/local
+-CFLAGS=-I../../src -I../../src/polarssl/include $(OPTFLAGS) -g -fPIC -shared -nostartfiles -L../../build
+-LDFLAGS=$(OPTLIBS)
++LIBDIR?=/lib
++CFLAGS+=-I../../src -I../../src/polarssl/include $(OPTFLAGS) -g -fPIC -shared -nostartfiles -L../../build
++LDFLAGS+=$(OPTLIBS)
+
+ all: null.so rewrite.so sendfile.so
+
+@@ -12,6 +13,6 @@
+ 	rm -f *.so
+
+ install:
+-	install -d $(DESTDIR)/$(PREFIX)/lib/mongrel2/filters/
+-	install *.so $(DESTDIR)/$(PREFIX)/lib/mongrel2/filters/
++	install -d $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/filters/
++	install *.so $(DESTDIR)/$(PREFIX)/$(LIBDIR)/mongrel2/filters/
+

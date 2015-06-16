@@ -1,0 +1,17 @@
+--- tools/procer/Makefile
++++ tools/procer/Makefile
+@@ -1,4 +1,4 @@
+-CFLAGS=-DNDEBUG -pthread -g -I../../src -Wall $(OPTFLAGS)
++CFLAGS+=-DNDEBUG -pthread -g -I../../src -Wall $(OPTFLAGS)
+ PREFIX?=/usr/local
+ LIBS?=-lzmq
+ SOURCES=$(wildcard *.c)
+@@ -8,7 +8,7 @@
+
+
+ procer: ../../build/libm2.a ${OBJECTS}
+-	$(CC) $(OPTFLAGS) $(OPTLIBS) -o $@ ${OBJECTS} ../../build/libm2.a ${LIBS}
++	$(CC) $(OPTFLAGS) $(LDFLAGS) $(OPTLIBS) -o $@ ${OBJECTS} ../../build/libm2.a ${LIBS}
+
+ clean:
+ 	rm -f *.o procer
