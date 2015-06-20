@@ -12,7 +12,7 @@ dev-cpp/ETL 0.04.17-r1: ETL is a multi-platform class and template library
 dev-cpp/cereal 1.0.0: Cereal is a header-only C++11 serialization library
 dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
 dev-cpp/ctemplate 2.3: A simple but powerful template language for C++
-dev-cpp/folly 0.38.0 0.39.0: An open-source C++ library developed and used at Facebook
+dev-cpp/folly 0.38.0 0.39.0 0.45.0: An open-source C++ library developed and used at Facebook
 dev-cpp/gflags 2.1.1: Google's C++ argument parsing library
 dev-cpp/gmock 1.7.0-r99: Google's C++ mocking framework
 dev-cpp/gtest 1.7.0-r99: Google C++ Testing Framework
@@ -30,7 +30,7 @@ dev-libs/libsass 3.0.2 3.1.0: LibSaas is a C/C++ port of the Sass engine.
 dev-libs/libwapcaplet 0.2.1 0.2.1-r10: string internment library, written in C
 dev-libs/nsgenbind 0.1.0: generate javascript to dom bindings from w3c webidl files
 dev-libs/shflags 1.0.3: Simplified handling of command-line flags in Bourne based shells
-dev-php/hhvm 3.5.1 3.6.2 3.7.1: Virtual Machine, Runtime, and JIT for PHP
+dev-php/hhvm 3.7.2: Virtual Machine, Runtime, and JIT for PHP
 dev-python/cashew 0.2.7: Cashew is a plugin system for python
 dev-python/cheat 2.1.8: Cheat allows you to create and view interactive cheatsheets on the command-line
 dev-python/dexy-viewer 0.0.5: A Dexy's plugin for runnning a local web server for previewing your docs and snippets
@@ -69,13 +69,13 @@ dev-vcs/git-extras 1.9.0 2.2.0: Little git extras
 dev-vcs/gitflow-avh 1.7.0: Git extensions to provide repository operations for Vincent Driessen's branching model (AVH edition)
 games-engines/Torque3D 3.5 3.5.1: Torque3D is an cross-platform and open-source game engine
 games-engines/featherkit 1.0.0_rc4 9999: Feather Kit is a lightweight, open source framework for game development in C++
-games-engines/flare 0.19 0.19-r107: Free/Libre Action Roleplaying game
+games-engines/flare 0.19 0.19-r107 0.19-r108 0.19-r109: Free/Libre Action Roleplaying game
 games-engines/gameplay3d 2.0.0 3.0.0 9999: GamePlay3D is an open-source, cross-platform 3D game framework written in C++.
 games-engines/godot 1.0-r99 1.1: Godot is a fully featured, open source, MIT licensed, game engine
 games-engines/panda3d 1.8.1 9999: Panda3D is a framework for 3D rendering and game development
 games-engines/redpanda 0.1.0: An open-source 3D framework
 games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
-games-rpg/flare 0.19 0.19-r107: Free/Libre Action Roleplaying game
+games-rpg/flare 0.19 0.19-r107 0.19-r108 0.19-r109: Free/Libre Action Roleplaying game
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 games-strategy/wesnoth 1.12.1-r10 1.13.0-r10: Battle for Wesnoth - A fantasy turn-based strategy game
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
@@ -90,15 +90,16 @@ media-libs/libsfml 2.1-r10 2.2-r10 2.3-r10: Simple and Fast Multimedia Library (
 media-libs/libsvgtiny 0.1.1 0.1.2-r10: framebuffer abstraction library, written in C
 net-libs/libdom 0.1.0 0.1.1-r10: implementation of the W3C DOM, written in C
 net-libs/libhubbub 0.3.0 0.3.0-r10: HTML5 compliant parsing library, written in C
+net-libs/polarssl 1.3.11: Cryptographic library for embedded systems
 net-misc/dropbox 2.10.51 3.0.5 3.2.9 3.3.42 3.4.6: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2.10.0-r2: Cli interface for dropbox (python), part of nautilus-dropbox
-net-misc/syncthing 0.11.7: Syncthing is an application that lets you synchronize your files across multiple devices
+net-misc/syncthing 0.11.8: Syncthing is an application that lets you synchronize your files across multiple devices
 net-misc/vde 2.3.2: vde2 is a virtual distributed ethernet emulator for emulators like qemu, bochs, and uml
 sys-apps/nix 1.7: A purely functional package manager
 sys-libs/hoard 3.8 3.9 3.10: HOARD Memory Allocator
 www-apache/mod_atom 9999: An Apache2 module providing an Atom Protocol implementation
 www-apache/mod_qos 11.7: A QOS module for the apache webserver
-www-servers/mongrel 1.8.1 9999: Mongrel is an agnostic web server that focuses on web applications using modern browser technologies
+www-servers/mongrel 1.8.1 1.9.2 9999: Mongrel is an agnostic web server that focuses on web applications using modern browser technologies
 www-servers/wsgid 0.6.0 0.7.1: Wsgid is a generic WSGI handler for mongrel2 web server
 x11-base/xynth 0.8.20 0.10.82: Xynth is a portable embedded windowing system
 x11-wm/scrotwm 0.9.27: Small dynamic tiling window manager for X11

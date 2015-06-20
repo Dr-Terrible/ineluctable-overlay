@@ -5,6 +5,9 @@
 #
 # NOTE: Please add your entry at the top!
 
+# Toffanin Mauro <toffanin.mauro@gmail.com> (10 Jun 2015)
+dev-php/hhvm
+
 # Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
 # Hard masked all the testing branches of dropbox.
 # They are notoriously buggy and unpredictable,

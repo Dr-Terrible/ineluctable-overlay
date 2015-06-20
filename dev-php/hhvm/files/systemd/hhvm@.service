@@ -1,0 +1,19 @@
+[Unit]
+Description=HHVM Application Server (@%i)
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=hhvm
+Group=hhvm
+
+PIDFile=/run/hhvm/%I.pid
+ExecStart=/usr/bin/hhvm --mode=daemon --config=/etc/hhvm/server.ini --config=/etc/hhvm/%I.ini -vPidFile=/run/hhvm/%I.pid
+
+Restart=on-failure
+RuntimeDirectory=hhvm
+
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

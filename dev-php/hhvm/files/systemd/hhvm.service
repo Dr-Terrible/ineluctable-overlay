@@ -1,0 +1,18 @@
+[Unit]
+Description=HHVM Application Server (FastCGI)
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=hhvm
+Group=hhvm
+
+ExecStart=/usr/bin/hhvm --mode=daemon --config=/etc/hhvm/server.ini
+
+Restart=on-failure
+RuntimeDirectory=hhvm
+
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

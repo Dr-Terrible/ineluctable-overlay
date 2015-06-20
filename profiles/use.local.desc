@@ -93,6 +93,8 @@ media-gfx/synfig:swscale - Enables image scaling and conversion via libswscale (
 media-gfx/synfigstudio:fmod - Enables support for music and sound effects
 media-libs/artoolkit:utils - Build utilities
 media-libs/libsfml:gles1 - Enables OpenGL ES 1.x backend for acceleration instead of standard desktop OpenGL
+net-libs/polarssl:havege - Enables the sys-apps/haveged random number generator. Warning: the HAVEGE random generator is not suitable for virtualized environments
+net-libs/polarssl:programs - Build PolarSSL programs
 net-misc/dropbox:cli - Install the official Dropbox Command Line Interface
 net-misc/dropbox:librsync-bundled - Use bundled librsync library
 net-misc/dropbox:system-librsync - Use the system-wide net-libs/librsync instead of bundled
