@@ -1,0 +1,14 @@
+DEFINED_PHASES=install unpack
+DEPEND=!app-editors/atom || ( >=net-libs/nodejs-0.10.30[npm] net-libs/iojs[npm] ) dev-libs/atk:0 dev-libs/expat:0 dev-libs/glib:2 dev-libs/libgpg-error:0 dev-libs/nspr:0 dev-libs/nss:0 gnome-base/gconf:2 gnome-base/libgnome-keyring:0 media-libs/alsa-lib:0 media-libs/fontconfig:1.0 media-libs/freetype:2 net-print/cups:0 sys-apps/dbus:0 sys-libs/libcap:0 x11-libs/cairo:0 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libnotify:0 x11-libs/libX11:0 x11-libs/libXcomposite:0 x11-libs/libXcursor:0 x11-libs/libXdamage:0 x11-libs/libXext:0 x11-libs/libXfixes:0 x11-libs/libXi:0 x11-libs/libXrandr:0 x11-libs/libXrender:0 x11-libs/libXtst:0 x11-libs/pango:0 >=app-arch/rpm2targz-9.0.0.3g
+DESCRIPTION=A hackable text editor for the 21st Century
+EAPI=5
+HOMEPAGE=https://atom.io
+IUSE=doc
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=!app-editors/atom || ( >=net-libs/nodejs-0.10.30[npm] net-libs/iojs[npm] ) dev-libs/atk:0 dev-libs/expat:0 dev-libs/glib:2 dev-libs/libgpg-error:0 dev-libs/nspr:0 dev-libs/nss:0 gnome-base/gconf:2 gnome-base/libgnome-keyring:0 media-libs/alsa-lib:0 media-libs/fontconfig:1.0 media-libs/freetype:2 net-print/cups:0 sys-apps/dbus:0 sys-libs/libcap:0 x11-libs/cairo:0 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libnotify:0 x11-libs/libX11:0 x11-libs/libXcomposite:0 x11-libs/libXcursor:0 x11-libs/libXdamage:0 x11-libs/libXext:0 x11-libs/libXfixes:0 x11-libs/libXi:0 x11-libs/libXrandr:0 x11-libs/libXrender:0 x11-libs/libXtst:0 x11-libs/pango:0
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/atom/atom/releases/download/v1.0.0/atom.x86_64.rpm doc? ( http://orm-atlas2-prod.s3.amazonaws.com/html/b521a5963a9d32543e07dd7cbaab4c09.zip -> atom-flight-manual-v1.0.0.zip )
+_eclasses_=eutils	9fb270e417e0e83d64ca52586c4a79de	multilib	62927b3db3a589b0806255f3a002d5d3	rpm	b94b54b44f14d6bee3e966c8f5c86fba	toolchain-funcs	42408102d713fbad60ca21349865edb4
+_md5_=b21196d4b12bd00f727ab091898eae9a
