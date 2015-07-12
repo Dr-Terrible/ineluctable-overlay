@@ -69,8 +69,7 @@ src_prepare() {
 	# respect LINGUAS (bug #483316)
 	if [[ ${LINGUAS+set} ]] ; then
 		local langs
-		for lang in $(cat po/LINGUAS)
-		do
+		for lang in $(cat po/LINGUAS); do
 			has $lang $LINGUAS && langs+="$lang "
 		done
 		echo "$langs" > po/LINGUAS || die
@@ -130,7 +129,7 @@ src_compile() {
 }
 
 src_install() {
-	DOCS="README changelog players_changelog" cmake-utils_src_install
+	DOCS="changelog players_changelog" cmake-utils_src_install
 	if use dedicated || use server; then
 		keepdir "${GAMES_STATEDIR}/run/wesnothd"
 		doinitd "${T}"/wesnothd || die
