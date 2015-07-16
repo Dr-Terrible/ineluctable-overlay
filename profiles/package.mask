@@ -6,18 +6,21 @@
 # NOTE: Please add your entry at the top!
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (10 Jun 2015)
+# USE flags 'hack-tools' and 'emacs' are known to not compile,
+# or to not work at all. Use them at your own risk.
 dev-php/hhvm
+
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
 # Hard masked all the testing branches of dropbox.
 # They are notoriously buggy and unpredictable,
-# use them at your own rick.
+# use them at your own risk.
 >=net-misc/dropbox-3.5.0
 
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (30 Oct 2010)
 # Mask libndofdev because is a dead project and not more maintained by
-# the original developer Jan Ciger.
+# the original developer, Jan Ciger.
 # See dev-games/libndofdev/TODO for more details
 dev-games/libndofdev
 

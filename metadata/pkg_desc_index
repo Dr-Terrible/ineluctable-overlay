@@ -31,7 +31,7 @@ dev-libs/libsass 3.0.2 3.1.0: LibSaas is a C/C++ port of the Sass engine.
 dev-libs/libwapcaplet 0.2.1 0.2.1-r10: string internment library, written in C
 dev-libs/nsgenbind 0.1.0: generate javascript to dom bindings from w3c webidl files
 dev-libs/shflags 1.0.3: Simplified handling of command-line flags in Bourne based shells
-dev-php/hhvm 3.7.2: Virtual Machine, Runtime, and JIT for PHP
+dev-php/hhvm 3.7.3: Virtual Machine, Runtime, and JIT for PHP
 dev-python/cashew 0.2.7: Cashew is a plugin system for python
 dev-python/cheat 2.1.8: Cheat allows you to create and view interactive cheatsheets on the command-line
 dev-python/dexy-viewer 0.0.5: A Dexy's plugin for runnning a local web server for previewing your docs and snippets

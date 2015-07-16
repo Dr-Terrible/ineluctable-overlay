@@ -24,9 +24,10 @@ app-misc/recoll:xml - Index several XML-based formats (Abiword, FictionBook, Kwo
 dev-cpp/openFrameworks:fmod - Enables support for package media-libs/fmod
 dev-cpp/openFrameworks:generator - Enables compilation of a tool, called projectGenerator, which can be used to automate the process of creating new openFrameworks projects and add-ons.
 dev-lang/luajit:lua52compat - Enable some upwards-compatible features from Lua 5.2 that are unlikely to break existing code.
-dev-php/hhvm:hack - 
-dev-php/hhvm:jemalloc - Use dev-libs/jemalloc for allocation
-dev-php/hhvm:jsonc - Use dev-libs/json-c
+dev-php/hhvm:hack - Includes support for the HACK language
+dev-php/hhvm:hack-tools - Includes support for the HACK tools
+dev-php/hhvm:jemalloc - Uses dev-libs/jemalloc for allocation
+dev-php/hhvm:jsonc - Uses dev-libs/json-c
 dev-php/hhvm:xen - Enables support for app-emulation/xen backends
 dev-php/hhvm:zend-compat - Enables Zend source compatibility
 dev-util/codexl:opencl - Enable OpenCL support (AMD only)

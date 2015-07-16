@@ -9,9 +9,10 @@
 	</maintainer>
 	<use>
 		<flag name="xen">Enables support for <pkg>app-emulation/xen</pkg> backends</flag>
-        <flag name="jemalloc">Use <pkg>dev-libs/jemalloc</pkg> for allocation</flag>
-        <flag name="jsonc">Use <pkg>dev-libs/json-c</pkg></flag>
-        <flag name="hack"></flag>
+        <flag name="jemalloc">Uses <pkg>dev-libs/jemalloc</pkg> for allocation</flag>
+        <flag name="jsonc">Uses <pkg>dev-libs/json-c</pkg></flag>
+        <flag name="hack">Includes support for the HACK language</flag>
+        <flag name="hack-tools">Includes support for the HACK tools</flag>
         <flag name="zend-compat">Enables Zend source compatibility</flag>
 	</use>
 </pkgmetadata>

@@ -4,7 +4,7 @@
 
 EAPI=5
 CMAKE_IN_SOURCE_BUILD=1
-inherit systemd versionator eutils user linux-info cmake-utils git-r3
+inherit elisp-common eutils user systemd versionator linux-info cmake-utils git-r3
 
 EGIT_REPO_URI="git://github.com/${PN}/${PN}-third-party"
 EGIT_BRANCH="HHVM-$(get_version_component_range 1-2)"
@@ -18,7 +18,7 @@ SRC_URI="https://github.com/facebook/${PN}/archive/HHVM-${PV}.tar.gz -> ${P}.tar
 LICENSE="PHP-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug hack +jemalloc +jsonc xen +zend-compat cpu_flags_x86_avx kernel_linux elibc_uclibc test systemd emacs"
+IUSE="debug hack hack-tools +jemalloc +jsonc xen +zend-compat cpu_flags_x86_avx kernel_linux elibc_uclibc test systemd emacs"
 
 RESTRICT="mirror"
 
@@ -36,7 +36,8 @@ RDEPEND="
 	amd64? ( dev-cpp/glog[unwind] )
 	dev-cpp/tbb
 	dev-db/sqlite:3
-	hack? ( >=dev-lang/ocaml-4.01.0[ocamlopt] )
+	hack? ( >=dev-lang/ocaml-4.02.2[ocamlopt] )
+	hack-tools? ( >=dev-ml/findlib-1.5.5-r1[ocamlopt] )
 	>=dev-libs/boost-1.49[threads]
 	!elibc_uclibc? ( >=dev-libs/boost-1.49[context] )
 	dev-libs/cloog
@@ -111,9 +112,9 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	ebegin "Creating hhvm user and group"
-		enewgroup hhvm
-		enewuser hhvm -1 -1 "/var/lib/hhvm" hhvm
+	ebegin "Creating ${PN} user and group"
+		enewgroup ${PN}
+		enewuser ${PN} -1 -1 "/var/lib/${PN}" ${PN}
 	eend $?
 }
 
@@ -126,6 +127,7 @@ src_unpack() {
 
 src_configure() {
 	local mycmakeargs=(
+		-Wno-dev
 		-DALWAYS_ASSERT=OFF
 		-DDEBUG_MEMORY_LEAK=OFF
 		-DDEBUG_APC_LEAK=OFF
@@ -152,6 +154,20 @@ src_configure() {
 	cmake-utils_src_configure
 }
 
+src_compile() {
+	cmake-utils_src_compile
+
+	if use hack-tools; then
+		einfo "Building HACK tools ..."
+
+		for tool in hackificator remove_soft_types; do
+			cd "${S}"/hphp/hack/tools/${tool} || die
+			emake depend || die
+			emake || die
+		done
+	fi
+}
+
 src_install() {
 	cmake-utils_src_install
 
@@ -164,12 +180,18 @@ src_install() {
 		# Install man pages
 		doman hphp/hack/man/*.1
 
-		# Install binaries and tools
+		# Install HACK binaries
 		local HACK_DIR="${S}/hphp/hack/bin"
 		for BIN in ${HACK_DIR}/hh_* ; do
 			dobin ${BIN}
 		done
-		cp -a "${S}"/hphp/hack/tools "${D}"/usr/share/${PN}/hack/ || die
+
+		# Install HACK tools
+		if use hack-tools; then
+			for BIN in ${HACK_DIR}/tools/* ; do
+				dobin ${BIN}
+			done
+		fi
 
 		# Install emacs plugins
 		if use emacs; then
@@ -191,8 +213,8 @@ src_install() {
 	fi
 
 	# Install init scripts
-	newinitd "${FILESDIR}"/openrc/hhvm.initd-r4 hhvm
-	newconfd "${FILESDIR}"/openrc/hhvm.confd-r4 hhvm
+	newinitd "${FILESDIR}"/openrc/${PN}.initd ${PN}
+	newconfd "${FILESDIR}"/openrc/${PN}.confd ${PN}
 	if use systemd; then
 		systemd_newunit "${FILESDIR}"/systemd/${PN}.service ${PN}.service
 		systemd_newunit "${FILESDIR}"/systemd/${PN}@.service ${PN}@.service
@@ -200,11 +222,19 @@ src_install() {
 	fi
 
 	# Install configuration files
-	insinto /etc/hhvm
+	insinto /etc/${PN}
 	doins  "${FILESDIR}"/php.ini
 	newins "${FILESDIR}"/php.ini php.ini.dist
 	doins  "${FILESDIR}"/server.ini
 	newins "${FILESDIR}"/server.ini server.ini.dist
 
 	keepdir /etc/${PN} /var/log/${PN} /run/${PN} /var/lib/${PN}
+}
+
+pkg_postinst() {
+	use emacs && elisp-site-regen
+}
+
+pkg_postrm() {
+	use emacs && elisp-site-regen
 }
