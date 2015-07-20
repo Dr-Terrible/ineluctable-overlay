@@ -20,6 +20,7 @@ RESTRICT="strip mirror test"
 
 # NOTE: opencl only works with AMD CPU/GPU so no virtual is used
 # NOTE: x11-libs/qscintilla:0/11
+# DEPRECATED: >=x11-libs/gtkglext-1.2.0-r2:0
 RDEPEND="dev-libs/boost
 	dev-db/sqlite:3
 	dev-util/oprofile
@@ -47,15 +48,16 @@ RDEPEND="dev-libs/boost
 	media-sound/pulseaudio:0
 	media-libs/libpng:1.2
 	sys-libs/zlib:0
-	>=x11-libs/gtkglext-1.2.0-r2:0
 	x11-libs/gtk+:2
 	x11-libs/libICE:0
 	x11-libs/libSM:0
 	x11-libs/libX11:0
-	x11-libs/libxcb:0/1.11
-	x11-libs/libXcomposite:0
+	x11-libs/libXcursor:0
 	x11-libs/libXext:0
+	x11-libs/libXfixes:0
+	x11-libs/libXft:0
 	x11-libs/libXi:0
+	x11-libs/libXinerama:0
 	x11-libs/libXrender:0
 	>=dev-util/perf-3.15.0[unwind]
 	opencl? ( >=x11-drivers/ati-drivers-14.12 )"
@@ -75,7 +77,7 @@ pkg_setup() {
 	enewgroup amdcxl
 }
 src_prepare() {
-	einfo "Removing bundled libs"
+	einfo "Removing bundled libs ..."
 	rm -r libGLEW.so* || die
 	rm -r libboost* || die
 	rm -r libQt* || die
@@ -92,11 +94,13 @@ src_prepare() {
 }
 src_install() {
 	# installing documentation
-	dodoc "${DOCS[@]}" || die
+	dodoc "${DOCS[@]}"
 	if use doc; then
-		dodoc Help/CodeXL_Quick_Start_Guide.pdf || die
-		dohtml -r "${S}"/webhelp/ || die
+		dodoc AMDTActivityLogger/doc/AMDTActivityLogger.pdf
+		dodoc Help/CodeXL_Quick_Start_Guide.pdf
+		dohtml -r "${S}"/webhelp/*
 	fi
+	rm "${S}"/AMDTActivityLogger/doc/AMDTActivityLogger.pdf || die
 	rm "${S}"/Help/CodeXL_Quick_Start_Guide.pdf || die
 	rm -r "${DOCS[@]}" || die
 	rm -r "${S}"/webhelp/ || die
@@ -121,7 +125,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog
 	elog "For non-root users to run CodeXL CPU profiling,"
 	elog "you need to set:"
 	elog "  echo '-1' > /proc/sys/kernel/perf_event_paranoid"
