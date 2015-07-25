@@ -3,35 +3,28 @@
 # $Header: $
 
 EAPI=5
-CMAKE_IN_SOURCE_BUILD=1
-inherit cmake-utils games
+inherit cmake-utils gnome2-utils games
 
-EGIT_PN="${PN}-engine"
-EGIT_COMMIT="47df48011434308935915ea2a426d12ebb293635"
+EGIT_PN="${PN}-game"
+EGIT_COMMIT="60669b1c29b94f42c293f1b5e180b302cdf17105"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
-HOMEPAGE="https://github.com/clintbellanger/flare-engine"
+HOMEPAGE="https://github.com/clintbellanger/flare-game"
 SRC_URI="https://github.com/clintbellanger/${EGIT_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${EGIT_PN}-${EGIT_COMMIT}.tar.gz"
 
-LICENSE="CC-BY-SA-3.0 GPL-3 OFL-1.1"
+LICENSE="CC-BY-SA-3.0 GPL-2 GPL-3 OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="cpu_flags_x86_sse"
+IUSE=""
 RESTRICT="mirror"
 
-RDEPEND="media-libs/libsdl2:=[X,sound,joystick,video,cpu_flags_x86_sse?]
-	media-libs/sdl2-image[png]
-	media-libs/sdl2-mixer[vorbis]
-	media-libs/sdl2-ttf"
-DEPEND="${RDEPEND}"
+RDEPEND="~games-engines/${P}"
 
 S="${WORKDIR}/${EGIT_PN}-${EGIT_COMMIT}"
 DOCS=()
 
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_SDL2=ON
-		-DSDL1_FALLBACK=FALSE
 		-DBINDIR="${GAMES_BINDIR}"
 		-DDATADIR="${GAMES_DATADIR}/${PN}"
 	)
@@ -45,7 +38,24 @@ src_compile() {
 src_install() {
 	cmake-utils_src_install
 
-	docinto engine
-	dodoc README.md
+	games_make_wrapper "flare-game" "flare --game=flare-game"
+	make_desktop_entry "flare-game" "Flare (game)"
+
+	docinto game
+	dodoc README
 	prepgamesdirs
+}
+
+pkg_preinst() {
+	games_pkg_preinst
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	games_pkg_postinst
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_icon_cache_update
 }
