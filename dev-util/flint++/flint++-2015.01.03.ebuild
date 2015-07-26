@@ -7,7 +7,7 @@ AUTOTOOLS_IN_SOURCE_BUILD=1
 inherit autotools-utils
 
 EGIT_PN="FlintPlusPlus"
-EGIT_COMMIT="e9181139afcbc3c756a169b8b7fd29e8be4d5b8f"
+EGIT_COMMIT="49b523e0cb116b2a585d86bafda5e95dcaa7195f"
 
 DESCRIPTION="Flint++ is cross-platform, zero-dependency port of Facebook's flint"
 HOMEPAGE="https://github.com/L2Program/FlintPlusPlus"
