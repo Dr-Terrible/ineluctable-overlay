@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-cpp/folly || ( >=dev-lang/dmd-bin-2.008 >=dev-lang/dmd-2.008.0:* ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.14.1:1.14 >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEPEND=dev-cpp/folly || ( >=dev-lang/dmd-bin-2.008 >=dev-lang/dmd-2.008.0:* ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=An open-source lint program for C++ developed by, and used at Facebook
 EAPI=5
 HOMEPAGE=https://github.com/facebook/flint
@@ -9,5 +9,5 @@ RDEPEND=dev-cpp/folly || ( >=dev-lang/dmd-bin-2.008 >=dev-lang/dmd-2.008.0:* )
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/facebook/flint/archive/275b1253743aae7e5318575fd931d5e3313b8d0f.tar.gz -> flint-275b1253743aae7e5318575fd931d5e3313b8d0f.tar.gz
-_eclasses_=autotools	b49fe68f65ef8b751164926d42b30e60	autotools-utils	3727db64c7b960903d5033280f108080	eutils	9fb270e417e0e83d64ca52586c4a79de	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	toolchain-funcs	c961250d50160cd37d6b7fd9e8429c92
+_eclasses_=autotools	2264f05fbbbaaf83d34ec81e72b38ffd	autotools-utils	dbce0f7913bd240fdf0ef428149855c0	eutils	9fb270e417e0e83d64ca52586c4a79de	libtool	52d0e17251d04645ffaa61bfdd858944	multilib	62927b3db3a589b0806255f3a002d5d3	toolchain-funcs	42408102d713fbad60ca21349865edb4
 _md5_=2736a734bb11ef20ae44e838dadc58fa

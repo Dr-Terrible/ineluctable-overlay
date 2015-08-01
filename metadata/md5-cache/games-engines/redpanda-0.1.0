@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=doc? ( =game-engines/redpanda-docs-0.1.0 ) python? ( =dev-lang/python-2.7* ) sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DEPEND=doc? ( =games-engines/redpanda-docs-0.1.0 ) sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
 DESCRIPTION=An open-source 3D framework
 EAPI=5
 HOMEPAGE=http://example.com
-IUSE=+aio doc egl examples gles opengl cpu_flags_x86_sse2 static-libs test tools sdl sfml lua python abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_ppc_32 abi_ppc_64 abi_s390_32 abi_s390_64
+IUSE=+aio doc egl examples gles opengl cpu_flags_x86_sse2 static-libs test tools sdl sfml lua python python_targets_python2_7 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_ppc_32 abi_ppc_64 abi_s390_32 abi_s390_64
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=opengl? ( virtual/opengl ) egl? ( media-libs/mesa[egl] ) gles? ( media-libs/mesa[gles1,gles2] ) cpu_flags_x86_sse2? ( dev-lang/orc ) media-libs/glm media-libs/glfw[egl?] dev-libs/libRocket media-gfx/assimp[tools] >=dev-cpp/cereal-1.0.0 sdl? ( >=media-libs/libsdl2-2.0.3[cpu_flags_x86_sse2?,opengl?,gles?,threads] ) sfml? ( media-libs/libsfml ) aio? ( >=dev-libs/libuv-0.11.27 ) python? ( =dev-lang/python-2.7* )
-REQUIRED_USE=python? ( ) egl? ( opengl ) gles? ( opengl )
+RDEPEND=opengl? ( virtual/opengl ) egl? ( media-libs/mesa[egl] ) gles? ( media-libs/mesa[gles1,gles2] ) cpu_flags_x86_sse2? ( dev-lang/orc ) media-libs/glm media-libs/glfw[egl?] dev-libs/libRocket media-gfx/assimp[tools] >=dev-cpp/cereal-1.0.0 sdl? ( >=media-libs/libsdl2-2.0.3[cpu_flags_x86_sse2?,opengl?,gles?,threads] ) sfml? ( media-libs/libsfml ) aio? ( >=dev-libs/libuv-0.11.27 )
+REQUIRED_USE=python? ( python_targets_python2_7 ) egl? ( opengl ) gles? ( opengl )
 RESTRICT=mirror
 SLOT=0
 SRC_URI=redpanda.tar.xz
-_eclasses_=cmake-multilib	ca4c6ecda3062bf851d951987568fdae	cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	9fb270e417e0e83d64ca52586c4a79de	flag-o-matic	5d5921a298e95441da2f85be419894c0	multibuild	6d4858dc00f8bc51caf3f957f8430eb0	multilib	3bf24e6abb9b76d9f6c20600f0b716bf	multilib-build	0983c7893df461213a05f791cc7dea6d	multilib-minimal	13dd976916c35a1e2c8d170e840c7018	python	3a270b7b1d1e679847ff0faeac25c5a3	toolchain-funcs	c961250d50160cd37d6b7fd9e8429c92
-_md5_=06c7e5b75267ec123e191249b7db9c85
+_eclasses_=cmake-multilib	ca4c6ecda3062bf851d951987568fdae	cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	9fb270e417e0e83d64ca52586c4a79de	flag-o-matic	c9602887773166fe300444712fc7ff98	multibuild	6d4858dc00f8bc51caf3f957f8430eb0	multilib	62927b3db3a589b0806255f3a002d5d3	multilib-build	e733e978b7fa70607cc221fd9c070db6	multilib-minimal	13dd976916c35a1e2c8d170e840c7018	python-single-r1	351da1aa73960a282591217fb57c1bb8	python-utils-r1	68e010c13e97b7b2c7bf403ee9c51e1b	toolchain-funcs	42408102d713fbad60ca21349865edb4
+_md5_=2df6a64114a1128d3abc81d4ebc7714e

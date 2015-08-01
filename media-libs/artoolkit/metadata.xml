@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>http://www.hitl.washington.edu/artoolkit/documentation/</doc>
+		<bugs-to>http://sourceforge.net/p/artoolkit/bugs/</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		ARToolKit is a software library for building Augmented Reality (AR) applications. These are applications that involve the overlay of virtual imagery on the real world.
+	</longdescription>
+	<use>
+		<flag name="utils">Build utilities</flag>
+	</use>
+</pkgmetadata>
