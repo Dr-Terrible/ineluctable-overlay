@@ -62,7 +62,7 @@ dev-util/flint 2015.03.26: An open-source lint program for C++ developed by, and
 dev-util/flint++ 2015.01.03: Flint++ is cross-platform, zero-dependency port of Facebook's flint
 dev-util/google-perftools 2.4: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-util/google-styleguide 130: Style guides for Google-originated open-source projects
-dev-util/oprofile 0.9.9-r1: A transparent low-overhead system-wide profiler
+dev-util/oprofile 1.0.0-r10 1.1.0-r10: A transparent low-overhead system-wide profiler
 dev-util/plan9port 20150218: Port of many Plan 9 programs and libraries
 dev-util/sassc 3.0.2: SaasC is an implementer for LibSaas
 dev-util/systemtap 2.7: A linux trace/probe tool
