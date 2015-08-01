@@ -5,6 +5,13 @@
 #
 # NOTE: Please add your entry at the top!
 
+
+# Toffanin Mauro <toffanin.mauro@gmail.com> (1 Aug 2015)
+# Hard masked all ganeti-webmgr version due to CVE issues
+# with dev-python/south
+app-emulation/ganeti-webmgr
+
+
 # Toffanin Mauro <toffanin.mauro@gmail.com> (10 Jun 2015)
 # USE flags 'hack-tools' and 'emacs' are known to not compile,
 # or to not work at all. Use them at your own risk.
