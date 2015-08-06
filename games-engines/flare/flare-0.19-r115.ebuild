@@ -7,7 +7,7 @@ CMAKE_IN_SOURCE_BUILD=1
 inherit cmake-utils games
 
 EGIT_PN="${PN}-engine"
-EGIT_COMMIT="122b1409a8e1775b84a39f9335676ec18d05bcd5"
+EGIT_COMMIT="757e1c743b71c0eb60c71c81c831d7dd204a0361"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
