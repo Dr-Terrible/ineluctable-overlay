@@ -96,7 +96,7 @@ net-misc/dropbox 2.10.51 3.0.5 3.2.9 3.3.42 3.4.6: Dropbox daemon (pretends to b
 net-misc/dropbox-cli 2.10.0-r2: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/vde 2.3.2: vde2 is a virtual distributed ethernet emulator for emulators like qemu, bochs, and uml
 sys-apps/nix 1.7: A purely functional package manager
-sys-libs/hoard 3.8 3.9 3.10: HOARD Memory Allocator
+sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
 www-apache/mod_qos 11.7: A QOS module for the apache webserver
 www-servers/lwan 20150703: Experimental, scalable, high performance HTTP server
 www-servers/mongrel 1.8.1 1.9.2 9999: Mongrel is an agnostic web server that focuses on web applications using modern browser technologies

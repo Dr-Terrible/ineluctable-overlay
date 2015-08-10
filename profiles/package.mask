@@ -34,7 +34,7 @@ dev-games/libndofdev
 
 # Toffanin Mauro <toffanin.mauro@gmail.com>
 # Hoard 3.8 and 3.9 aren't compatibile with modern glibc such as 2.14+,
-# so use them at your own risk. Please, upgrade to v3.10
+# so use them at your own risk. Please, upgrade to v3.11
 =sys-libs/hoard-3.8
 =sys-libs/hoard-3.9
 

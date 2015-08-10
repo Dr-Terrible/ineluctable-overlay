@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@ inherit multilib flag-o-matic
 
 DESCRIPTION="HOARD Memory Allocator"
 HOMEPAGE="http://www.hoard.org"
-SRC_URI="https://github.com/emeryberger/Hoard/releases/download/${PV}/Hoard-${PV}-source.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/emeryberger/Hoard/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
