@@ -102,4 +102,3 @@ www-servers/lwan 20150703: Experimental, scalable, high performance HTTP server
 www-servers/mongrel 1.8.1 1.9.2 9999: Mongrel is an agnostic web server that focuses on web applications using modern browser technologies
 www-servers/wsgid 0.6.0 0.7.1: Wsgid is a generic WSGI handler for mongrel2 web server
 x11-base/xynth 0.8.20 0.10.82: Xynth is a portable embedded windowing system
-x11-wm/scrotwm 0.9.27: Small dynamic tiling window manager for X11
