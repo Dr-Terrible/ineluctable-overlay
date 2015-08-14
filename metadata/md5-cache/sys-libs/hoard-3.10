@@ -8,4 +8,4 @@ LICENSE=GPL-2
 SLOT=0
 SRC_URI=https://github.com/emeryberger/Hoard/archive/3.10.tar.gz -> hoard-3.10.tar.gz
 _eclasses_=eutils	351a78113be5b393c09a2c948701ad36	flag-o-matic	02090c5a622458303e6bf68837ac6b96	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
-_md5_=d5e0c899dbf6acd6a4e2491e031aa913
+_md5_=5f1cec3e55ce12b887d01be710357835

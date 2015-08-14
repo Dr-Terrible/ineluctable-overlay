@@ -1,6 +1,6 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 inherit multilib flag-o-matic
@@ -27,14 +27,16 @@ RESTRICT="mirror"
 src_prepare() {
 	mv "${WORKDIR}"/Heap-Layers-${HL_ECOMMIT}/* "${S}"/src/Heap-Layers/ || die
 
-	# Makefile forces hardcode -march cflags (pentium4 and nocona), so we
-	# need to substitue these values with the one supplied by the user into
-	# the make.conf.
-	# NOTE: this is necessary to avoid binary breakage and to fix runtime text
-	# relocations too
+	# Makefile forces hardcode cflags, so we need to substitue these values with
+	# the one supplied by the user into the make.conf.
+	# NOTE: this is necessary to avoid binary breakage, to fix runtime text
+	# relocations, and to fix a lacking SONAME.
 	sed -i \
 		-e "s:-march=pentium4:-march=$(get-flag march) -fPIC:" \
 		-e "s:-march=nocona:-march=$(get-flag march) -fPIC:" \
+		-e "s:-shared:-shared \$\(CXXFLAGS\) \$\(LDFLAGS\) -Wl,-soname,lib${PN}.so.0.0.0:" \
+		-e "s:-o libhoard.so:-o libhoard.so.0.0.0:" \
+		-e "s: g++ : \$\(CXX\) :" \
 		src/Makefile || die "seding src/Makefile failed."
 }
 
@@ -53,20 +55,21 @@ src_compile() {
 	esac
 
 	use debug && target="${target}-debug"
-	pushd src/
-	emake ${target} || die "emake failed."
-	popd
+	emake ${target} -C src/ || die "emake failed."
 }
 
 src_install() {
 	# installing env.d
-	cat <<EOF > "${T}"/01hoard
-LD_PRELOAD=/usr/$(get_libdir)/libhoard.so
+	cat <<EOF > "${T}"/01${PN}
+LD_PRELOAD=/usr/$(get_libdir)/lib${PN}.so
 EOF
-	doenvd "${T}"/01hoard
+	doenvd "${T}"/01${PN}
 
 	# installing libhoard
-	dolib.so src/libhoard.so
+	pushd src
+		ln -sf lib${PN}.so.0.0.0 lib${PN}.so || die
+	popd
+	dolib.so src/lib${PN}.so*
 
 	# installing docs
 	dodoc {AUTHORS,COPYING,NEWS,README.md,THANKS}
