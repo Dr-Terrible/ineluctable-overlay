@@ -1,9 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
-inherit qmake-utils
+inherit base qmake-utils
 
 DESCRIPTION="Offline documentation browser inspired by Dash"
 HOMEPAGE="http://zealdocs.org"
@@ -22,6 +22,10 @@ RDEPEND="app-arch/libarchive:0
 	dev-qt/qtwebkit:5=
 	dev-qt/qtwidgets:5=
 	x11-libs/xcb-util-keysyms"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-qt5.5.patch
+)
 
 src_configure() {
 	local myeqmakeargs=(
