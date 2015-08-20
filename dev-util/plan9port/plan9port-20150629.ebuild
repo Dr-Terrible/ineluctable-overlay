@@ -1,15 +1,16 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
-inherit eutils multiprocessing git-r3
+inherit eutils multiprocessing
+
+#EGIT_REPO_URI="git://github.com/9fans/plan9port"
+EGIT_COMMIT="71de840f054e52a8a077b2333edc1f4243480359"
 
 DESCRIPTION="Port of many Plan 9 programs and libraries"
 HOMEPAGE="http://swtch.com/plan9port/"
-
-EGIT_REPO_URI="git://github.com/9fans/plan9port"
-EGIT_COMMIT="3aca221"
+SRC_URI="https://github.com/9fans/plan9port/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="9base BSD-4 MIT LGPL-2.1 BigelowHolmes"
 SLOT="0"
@@ -19,7 +20,7 @@ IUSE="X"
 DEPEND="X? ( x11-apps/xauth )"
 RDEPEND="${DEPEND}"
 
-#S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 
 PLAN9=/usr/lib/plan9
 QA_MULTILIB_PATHS="${PLAN9}/.*/.*"
