@@ -1,15 +1,16 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
-inherit versionator subversion
+
+EGIT_COMMIT="43d738ab8bb0c797f78506945729946aacbab17d"
 
 DESCRIPTION="Style guides for Google-originated open-source projects"
-HOMEPAGE="https://code.google.com/p/google-styleguide/"
+HOMEPAGE="https://github.com/google/styleguide"
+SRC_URI="https://github.com/google/styleguide/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
-REV="$( get_version_component_range 1 )"
-ESVN_REPO_URI="http://${PN}.googlecode.com/svn/trunk@${REV}"
+S="${WORKDIR}/${PN//google-}-${EGIT_COMMIT}"
 
 LICENSE="CC-BY-3.0"
 SLOT="0"

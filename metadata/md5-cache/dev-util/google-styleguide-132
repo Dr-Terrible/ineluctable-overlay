@@ -1,0 +1,9 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=Style guides for Google-originated open-source projects
+EAPI=5
+HOMEPAGE=https://github.com/google/styleguide
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=CC-BY-3.0
+SLOT=0
+SRC_URI=https://github.com/google/styleguide/archive/43d738ab8bb0c797f78506945729946aacbab17d.tar.gz -> google-styleguide-132.tar.gz
+_md5_=be66baff2e130c07d110a6612dc08c8d
