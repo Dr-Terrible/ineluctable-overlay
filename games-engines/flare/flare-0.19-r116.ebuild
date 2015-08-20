@@ -1,13 +1,13 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 CMAKE_IN_SOURCE_BUILD=1
 inherit cmake-utils games
 
 EGIT_PN="${PN}-engine"
-EGIT_COMMIT="757e1c743b71c0eb60c71c81c831d7dd204a0361"
+EGIT_COMMIT="d2a10ed4e7e96e9e6aad8c8839a514ff991d49dc"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
