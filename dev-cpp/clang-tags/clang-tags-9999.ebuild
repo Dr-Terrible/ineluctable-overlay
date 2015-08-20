@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -10,7 +10,6 @@ DESCRIPTION="http://ffevotte.github.io/clang-tags/"
 HOMEPAGE="https://github.com/ffevotte/clang-tags"
 
 EGIT_REPO_URI="https://github.com/ffevotte/${PN}.git"
-#EGIT_COMMIT="7d2497f"
 
 LICENSE="BSD"
 SLOT="0"
@@ -24,8 +23,7 @@ RDEPEND="${DEPEND}
 	>=sys-devel/clang-3.2
 	dev-db/sqlite:3
 	net-misc/socat
-	dev-util/strace
-"
+	dev-util/strace"
 
 src_prepare() {
 	python_fix_shebang . || die
