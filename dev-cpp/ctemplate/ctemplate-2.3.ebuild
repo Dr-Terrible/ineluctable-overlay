@@ -1,19 +1,17 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-AM_OPTS="--force-missing"
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
 PYTHON_COMPAT=( python2_7 )
-inherit subversion autotools-utils elisp-common python-any-r1
+inherit autotools-utils elisp-common python-any-r1
 
 DESCRIPTION="A simple but powerful template language for C++"
 HOMEPAGE="http://code.google.com/p/ctemplate/"
-#SRC_URI="http://dev.gentoo.org/~pinkbyte/distfiles/snapshots/${P}.tar.bz2"
-ESVN_REPO_URI="http://${PN}.googlecode.com/svn/tags/${P}"
+SRC_URI="https://github.com/OlafvdSpek/${PN}/archive/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -23,6 +21,10 @@ IUSE="doc emacs vim-syntax static-libs test"
 DEPEND="test? ( ${PYTHON_DEPS} )"
 RDEPEND="vim-syntax? ( >=app-editors/vim-core-7 )
 	emacs? ( virtual/emacs )"
+
+S="${WORKDIR}/${PN}-${PN}-${PV}"
+
+RESTRICT="mirror"
 
 DOCS=( AUTHORS ChangeLog NEWS README )
 
@@ -45,16 +47,18 @@ src_install() {
 	use doc && dohtml doc/*
 
 	if use vim-syntax ; then
-		cd "${S}/contrib" || die
+		pushd "${S}/contrib"
 		sh highlighting.vim || die "unpacking vim scripts failed"
 		insinto /usr/share/vim/vimfiles
 		doins -r .vim/*
+		popd
 	fi
 
 	if use emacs ; then
-		cd "${S}/contrib" || die
+		pushd "${S}/contrib"
 		elisp-install ${PN} tpl-mode.el tpl-mode.elc || die "elisp-install failed"
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
+		popd
 	fi
 }
 
