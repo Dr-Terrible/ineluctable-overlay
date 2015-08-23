@@ -76,7 +76,7 @@ games-engines/godot 1.0-r99 1.1: Godot is a fully featured, open source, MIT lic
 games-engines/panda3d 1.8.1 9999: Panda3D is a framework for 3D rendering and game development
 games-engines/redpanda 0.1.0: An open-source 3D framework
 games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
-games-rpg/flare 0.19 0.19-r116: Free/Libre Action Roleplaying game
+games-rpg/flare 0.19 0.19-r117: Free/Libre Action Roleplaying game
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 games-strategy/wesnoth 1.12.1-r10 1.13.1-r10: Battle for Wesnoth - A fantasy turn-based strategy game
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
