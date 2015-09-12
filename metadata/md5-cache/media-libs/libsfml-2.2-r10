@@ -9,5 +9,5 @@ LICENSE=ZLIB
 RDEPEND=media-libs/freetype:2 media-libs/glew:= media-libs/libpng:0= media-libs/libsndfile media-libs/mesa media-libs/openal sys-libs/zlib virtual/jpeg:0 virtual/udev x11-libs/libX11 x11-libs/libXrandr
 SLOT=0
 SRC_URI=https://github.com/LaurentGomila/SFML/archive/2.2.tar.gz -> libsfml-2.2.tar.gz
-_eclasses_=cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	9fb270e417e0e83d64ca52586c4a79de	flag-o-matic	c9602887773166fe300444712fc7ff98	multilib	62927b3db3a589b0806255f3a002d5d3	toolchain-funcs	42408102d713fbad60ca21349865edb4
-_md5_=cbba7bac12d8a4e4766ef83686fd8550
+_eclasses_=cmake-utils	f474224ef49d530640a43a04ae94928e	eutils	351a78113be5b393c09a2c948701ad36	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_md5_=c2699ba0c598b35a44454d899702074d
