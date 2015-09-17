@@ -21,6 +21,7 @@ app-misc/recoll:session - Stop monitoring file alterations when X11 session term
 app-misc/recoll:tex - Index TeX files
 app-misc/recoll:wordperfect - Index WordPerfect documents
 app-misc/recoll:xml - Index several XML-based formats (Abiword, FictionBook, Kword, Office OpenXML, OpenDocument, SVG)
+app-misc/watchman:ssp - Enables the use of Stack Protection
 dev-cpp/openFrameworks:fmod - Enables support for package media-libs/fmod
 dev-cpp/openFrameworks:generator - Enables compilation of a tool, called projectGenerator, which can be used to automate the process of creating new openFrameworks projects and add-ons.
 dev-lang/luajit:lua52compat - Enable some upwards-compatible features from Lua 5.2 that are unlikely to break existing code.
