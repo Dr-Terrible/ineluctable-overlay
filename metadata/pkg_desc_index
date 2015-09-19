@@ -28,7 +28,7 @@ dev-libs/jsoncpp 1.4.4: C++ JSON reader and writer
 dev-libs/libcss 0.3.0 0.4.0-r10: CSS parser and selection engine, written in C
 dev-libs/libdwarf 20120410 20130729 20150115: Library to deal with DWARF Debugging Information Format
 dev-libs/libparserutils 0.2.0 0.2.0-r10: library for building efficient parsers, written in C
-dev-libs/libsass 3.0.2 3.1.0: LibSaas is a C/C++ port of the Sass engine.
+dev-libs/libsass 3.0.2 3.2.5: LibSaas is a C/C++ port of the Sass engine.
 dev-libs/libwapcaplet 0.2.1 0.2.1-r10: string internment library, written in C
 dev-libs/nsgenbind 0.1.0: generate javascript to dom bindings from w3c webidl files
 dev-libs/shflags 1.0.3: Simplified handling of command-line flags in Bourne based shells
