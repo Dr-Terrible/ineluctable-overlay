@@ -13,17 +13,22 @@ SRC_URI="https://github.com/sass/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="static-libs"
+IUSE="static-libs test"
 
 src_prepare() {
+	# Fix makefiles
+	rm Makefile || die
 	sed -i \
 		-e "s:-Wall -fPIC::" \
 		-e "s:-Wall::" \
 		Makefile.am || die
-	sed -i \
-		-e "s:-Wall -fPIC::" \
-		-e "s:-Wall::" \
-		Makefile || die
+
+	# Fix versioning
+	cat <<EOF > VERSION
+${PV}
+EOF
+
+	# Fix autoconf
 	autotools-utils_src_prepare
 }
 

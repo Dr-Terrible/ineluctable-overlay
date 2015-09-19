@@ -12,19 +12,31 @@ SRC_URI="https://github.com/sass/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="static-libs"
+KEYWORDS="amd64 x86"
 
-RDEPEND="=dev-libs/libsass-${PV}"
+DEPEND="=dev-libs/libsass-${PV}[static-libs]"
 
 src_prepare() {
+	# Fix makefiles
+	rm Makefile || die
 	sed -i \
 		-e "s:-Wall -fPIC::" \
 		-e "s:-Wall::" \
 		Makefile.am || die
-	sed -i \
-		-e "s:-Wall -fPIC::" \
-		-e "s:-Wall::" \
-		Makefile || die
+
+	# Fix versioning
+	cat <<EOF > VERSION
+${PV}
+EOF
+
+	# Fix autoconf
 	autotools-utils_src_prepare
+}
+
+src_configure() {
+	local myeconfargs=(
+		--disable-shared
+		--enable-static
+	)
+	autotools-utils_src_configure
 }
