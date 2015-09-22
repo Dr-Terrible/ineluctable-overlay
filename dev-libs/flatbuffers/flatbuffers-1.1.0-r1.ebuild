@@ -4,7 +4,7 @@
 
 EAPI=5
 CMAKE_IN_SOURCE_BUILD=1
-inherit java-pkg-2 java-ant-2 cmake-utils
+inherit java-pkg-2 cmake-utils
 
 DESCRIPTION="FlatBuffers is a serialization library for memory constrained apps."
 HOMEPAGE="https://google.github.io/${PN}"
@@ -87,10 +87,12 @@ src_install() {
 	# Installs JARs and JavaDoc
 	if use java; then
 		java-pkg_dojar java/target/classes/${PN}.jar
-		use doc && java-pkg_dojavadoc javadoc
-		mv \
-			"${ED}"/usr/share/doc/${PF}/html/api \
-			"${ED}"/usr/share/doc/${PF}/html/java-api \
-			|| die
+		if use doc; then
+			java-pkg_dojavadoc javadoc
+			mv \
+				"${ED}"/usr/share/doc/${PF}/html/api \
+				"${ED}"/usr/share/doc/${PF}/html/java-api \
+				|| die
+		fi
 	fi
 }

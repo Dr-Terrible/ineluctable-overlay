@@ -23,7 +23,7 @@ dev-cpp/plustache 0.3.0: Mustache templating for C++
 dev-db/arangodb 1.4.3: The universal nosql database
 dev-lang/luajit 2.0.3: Just-In-Time Compiler for the Lua programming language
 dev-lang/v8 3.21.12.1: Google's open source JavaScript engine
-dev-libs/flatbuffers 1.1.0: FlatBuffers is a serialization library for memory constrained apps.
+dev-libs/flatbuffers 1.1.0-r1: FlatBuffers is a serialization library for memory constrained apps.
 dev-libs/hhvm-libevent 1.4.14b: A customized dev-libs/libevent used by HipHop Virtual Manager
 dev-libs/jsoncpp 1.4.4: C++ JSON reader and writer
 dev-libs/libcss 0.3.0 0.4.0-r10: CSS parser and selection engine, written in C
