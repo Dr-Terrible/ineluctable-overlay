@@ -14,6 +14,7 @@ dev-cpp/ETL 0.04.17-r1: ETL is a multi-platform class and template library
 dev-cpp/cereal 1.0.0: Cereal is a header-only C++11 serialization library
 dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
 dev-cpp/ctemplate 2.3: A simple but powerful template language for C++
+dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
 dev-cpp/folly 0.57.0: An open-source C++ library developed and used at Facebook
 dev-cpp/gflags 2.1.1: Google's C++ argument parsing library
 dev-cpp/gmock 1.7.0-r99: Google's C++ mocking framework
