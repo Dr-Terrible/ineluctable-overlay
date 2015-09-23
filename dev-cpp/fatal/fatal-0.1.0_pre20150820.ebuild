@@ -8,7 +8,7 @@ inherit eutils
 ECOMMIT="17e882f50009ea5839cba20255515b2de1770406"
 
 DESCRIPTION="Fatal is a library for fast prototyping software in modern C++"
-HOMEPAGE="https://google.github.io/${PN}"
+HOMEPAGE="https://facebook.com/groups/lib${PN}"
 SRC_URI="https://github.com/facebook/${PN}/archive/${ECOMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
