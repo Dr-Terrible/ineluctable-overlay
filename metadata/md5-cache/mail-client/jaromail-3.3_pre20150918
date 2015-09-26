@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=sys-devel/bison sys-devel/flex gnome-base/libgnome-keyring:0
+DESCRIPTION=A command-line MUA to easily and privately handle your e-mails.
+EAPI=5
+HOMEPAGE=https://dyne-org/software/jaro-mail
+IUSE=+sasl doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=mail-client/mutt[imap,mbox,sasl?,smime] net-mail/fetchmail[ssl,kerberos] mail-mta/msmtp[ssl,sasl?] net-mail/notmuch[crypt] >=app-misc/abook-0.6.1_pre1 app-misc/wipe app-crypt/pinentry[gnome-keyring,ncurses,caps] mail-client/mutt[gpg] app-crypt/gnupg[readline,tools] dev-db/sqlite[secure-delete] app-shells/zsh[pcre]
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/dyne/jaromail/archive/e3c34f9020ba5ba2da783ce56849a1ccd0a11e8d.tar.gz -> jaromail-3.3_pre20150918.tar.gz
+_eclasses_=eutils	95613dd6157fb4a3b225eafdc56bd441	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
+_md5_=cca7dfe42c50f453aa0d4ec623b2345d
