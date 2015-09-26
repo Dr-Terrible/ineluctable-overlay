@@ -6,6 +6,7 @@ app-doc/zeal 0.1.1-r1: Offline documentation browser inspired by Dash
 app-editors/atom-bin 1.0.0: A hackable text editor for the 21st Century
 app-emulation/ganeti-webmgr 0.7.2 0.8: Ganeti Web Manager is an application for Ganeti clusters administration
 app-emulation/vagrant 1.7.2: A tool for building and distributing virtual machines
+app-misc/abook 0.6.1_pre1: Abook is a text-based addressbook program designed to use with mutt mail client
 app-misc/recoll 1.19.14 1.19.14-r2: A personal full text search package
 app-misc/watchman 3.8.0: A file watching service
 app-text/FlightCrew 0.7.2: FlightCrew is a C++, cross-platform, native code EPUB validator.
@@ -73,15 +74,16 @@ dev-vcs/git-extras 3.0.0: Little git extras
 dev-vcs/gitflow-avh 1.7.0: Git extensions to provide repository operations for Vincent Driessen's branching model (AVH edition)
 games-engines/Torque3D 3.5 3.5.1: Torque3D is an cross-platform and open-source game engine
 games-engines/featherkit 1.0.0_rc4 9999: Feather Kit is a lightweight, open source framework for game development in C++
-games-engines/flare 0.19 0.19-r118: Free/Libre Action Roleplaying game
+games-engines/flare 0.19 0.19-r119: Free/Libre Action Roleplaying game
 games-engines/gameplay3d 2.0.0 3.0.0 9999: GamePlay3D is an open-source, cross-platform 3D game framework written in C++.
 games-engines/godot 1.0-r99 1.1: Godot is a fully featured, open source, MIT licensed, game engine
 games-engines/panda3d 1.8.1 9999: Panda3D is a framework for 3D rendering and game development
 games-engines/redpanda 0.1.0: An open-source 3D framework
 games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
-games-rpg/flare 0.19 0.19-r118: Free/Libre Action Roleplaying game
+games-rpg/flare 0.19 0.19-r119: Free/Libre Action Roleplaying game
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 games-strategy/wesnoth 1.12.1-r10 1.13.1-r10: Battle for Wesnoth - A fantasy turn-based strategy game
+mail-client/jaromail 3.2 3.3_pre20150918: A command-line MUA to easily and privately handle your e-mails.
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
 media-gfx/synfig 0.64.1 0.64.3: Film-Quality Vector Animation (core engine)
 media-gfx/synfigstudio 0.64.1 0.64.3: Main UI of synfig: Film-Quality Vector Animation
