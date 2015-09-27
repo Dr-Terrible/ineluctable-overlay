@@ -39,6 +39,7 @@ RDEPEND="dev-libs/boost
 	dev-qt/qtsensors:5
 	dev-qt/qtsql:5
 	dev-qt/qtwebkit:5
+	dev-qt/qtwebchannel:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-libs/fontconfig:1.0
@@ -81,7 +82,7 @@ src_prepare() {
 	rm -r libGLEW.so* || die
 	rm -r libboost* || die
 	rm -r libQt* || die
-	rm -r libstdc++* || die
+	rm -r RuntimeLibs/libstdc++* || die
 	rm -r x86_64/libstdc++* || die
 	rm -r x86/libstdc++* || die
 #	rm -r libqscintilla* || die
@@ -96,12 +97,15 @@ src_install() {
 	# installing documentation
 	dodoc "${DOCS[@]}"
 	if use doc; then
-		dodoc AMDTActivityLogger/doc/AMDTActivityLogger.pdf
-		dodoc Help/CodeXL_Quick_Start_Guide.pdf
+		dodoc \
+			SDK/AMDTActivityLogger/doc/AMDTActivityLogger.pdf \
+			SDK/AMDTPowerProfile/doc/AMDTPowerProfileAPI.pdf \
+			Help/CodeXL_Quick_Start_Guide.pdf
 		dohtml -r "${S}"/webhelp/*
 	fi
-	rm "${S}"/AMDTActivityLogger/doc/AMDTActivityLogger.pdf || die
-	rm "${S}"/Help/CodeXL_Quick_Start_Guide.pdf || die
+	rm SDK/AMDTActivityLogger/doc/AMDTActivityLogger.pdf || die
+	rm SDK/AMDTPowerProfile/doc/AMDTPowerProfileAPI.pdf || die\
+	rm Help/CodeXL_Quick_Start_Guide.pdf || die
 	rm -r "${DOCS[@]}" || die
 	rm -r "${S}"/webhelp/ || die
 

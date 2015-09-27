@@ -5,9 +5,9 @@ HOMEPAGE=http://developer.amd.com/tools/heterogeneous-computing/codexl/
 IUSE=opencl doc
 KEYWORDS=-* ~amd64
 LICENSE=AMD LGPL-2.1
-RDEPEND=dev-libs/boost dev-db/sqlite:3 dev-util/oprofile dev-libs/glib:2 dev-libs/libxml2:2 dev-libs/libxslt:0 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtpositioning:5 dev-qt/qtprintsupport:5 dev-qt/qtsensors:5 dev-qt/qtsql:5 dev-qt/qtwebkit:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/fontconfig:1.0 media-libs/freetype:2 media-libs/glu:0 media-libs/mesa:0 media-sound/pulseaudio:0 media-libs/libpng:1.2 sys-libs/zlib:0 x11-libs/gtk+:2 x11-libs/libICE:0 x11-libs/libSM:0 x11-libs/libX11:0 x11-libs/libXcursor:0 x11-libs/libXext:0 x11-libs/libXfixes:0 x11-libs/libXft:0 x11-libs/libXi:0 x11-libs/libXinerama:0 x11-libs/libXrender:0 >=dev-util/perf-3.15.0[unwind] opencl? ( >=x11-drivers/ati-drivers-14.12 )
+RDEPEND=dev-libs/boost dev-db/sqlite:3 dev-util/oprofile dev-libs/glib:2 dev-libs/libxml2:2 dev-libs/libxslt:0 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtpositioning:5 dev-qt/qtprintsupport:5 dev-qt/qtsensors:5 dev-qt/qtsql:5 dev-qt/qtwebkit:5 dev-qt/qtwebchannel:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/fontconfig:1.0 media-libs/freetype:2 media-libs/glu:0 media-libs/mesa:0 media-sound/pulseaudio:0 media-libs/libpng:1.2 sys-libs/zlib:0 x11-libs/gtk+:2 x11-libs/libICE:0 x11-libs/libSM:0 x11-libs/libX11:0 x11-libs/libXcursor:0 x11-libs/libXext:0 x11-libs/libXfixes:0 x11-libs/libXft:0 x11-libs/libXi:0 x11-libs/libXinerama:0 x11-libs/libXrender:0 >=dev-util/perf-3.15.0[unwind] opencl? ( >=x11-drivers/ati-drivers-14.12 )
 RESTRICT=strip mirror test
 SLOT=0
 SRC_URI=http://developer.amd.com/download/AMD_CodeXL_Linux_x86_64_1.8.9654.tar.gz -> codexl-1.8.9654.x86_64.tar.gz
 _eclasses_=eutils	95613dd6157fb4a3b225eafdc56bd441	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d	user	906f3c8eb3a2350a4f1191a89baa3e46
-_md5_=fc03cd756104c6824f754430ee5f998b
+_md5_=1b3eb2ca0e1b59eb91471e1e359744e7
