@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DESCRIPTION=Git extensions to provide repository operations for Vincent Driessen's branching model (AVH edition)
+EAPI=5
+HOMEPAGE=https://github.com/petervanderdoes/gitflow-avh
+IUSE=bash-completion zsh-completion fish-completion
+KEYWORDS=amd64 x86
+LICENSE=HPND
+RDEPEND=bash-completion? ( app-shells/bash-completion ) zsh-completion? ( app-shells/gentoo-zsh-completions ) fish-completion? ( app-shells/fish ) sys-apps/util-linux >=dev-util/shflags-1.0.3
+SLOT=0
+SRC_URI=https://github.com/petervanderdoes/gitflow-avh/archive/1.8.0.tar.gz -> gitflow-avh-1.8.0.tar.gz https://github.com/petervanderdoes/git-flow-completion/archive/0.5.1.tar.gz -> gitflow-avh-completion-0.5.1.tar.gz
+_eclasses_=bash-completion-r1	b1fc4d30333bb528c8abb4332bb70ea6	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
+_md5_=c04ca25f97acf88fb8e9c9ba48791489
