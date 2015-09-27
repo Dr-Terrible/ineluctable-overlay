@@ -1,0 +1,9 @@
+--- featherkit/src/ui/sfmlinputbackend.cpp
++++ featherkit/src/ui/sfmlinputbackend.cpp
+@@ -1,5 +1,6 @@
+ #include <fea/ui/sfmlinputbackend.hpp>
+ 
++#include <SFML/Window/Joystick.hpp>
+ namespace fea
+ {
+     SFMLInputBackend::SFMLInputBackend(sf::Window& window) : mWindow(window)

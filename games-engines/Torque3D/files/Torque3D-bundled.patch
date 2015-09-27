@@ -1,0 +1,36 @@
+--- Torque3D-3.5.1/Tools/CMake/torque3d.cmake
++++ Torque3D-3.5.1/Tools/CMake/torque3d.cmake
+@@ -266,10 +266,10 @@
+ 
+ # Vorbis
+ if(TORQUE_SFX_VORBIS)
+-    addInclude(${libDir}/libvorbis/include)
++#    addInclude(${libDir}/libvorbis/include)
+     addDef(TORQUE_OGGVORBIS)
+-    addLib(libvorbis)
+-    addLib(libogg)
++#    addLib(libvorbis)
++#    addLib(libogg)
+ endif()
+ 
+ # Theora
+@@ -280,8 +280,8 @@
+     
+     addDef(TORQUE_OGGTHEORA)
+     addDef(TORQUE_OGGVORIBS)
+-    addInclude(${libDir}/libtheora/include)
+-    addLib(libtheora)
++#    addInclude(${libDir}/libtheora/include)
++#    addLib(libtheora)
+ endif()
+ 
+ # Include tools for non-tool builds (or define player if a tool build)
+@@ -530,7 +530,7 @@
+ addInclude("${libDir}/tinyxml")
+ addInclude("${libDir}/squish")
+ addInclude("${libDir}/convexDecomp")
+-addInclude("${libDir}/libogg/include")
++#addInclude("${libDir}/libogg/include")
+ addInclude("${libDir}/opcode")
+ addInclude("${libDir}/collada/include")
+ addInclude("${libDir}/collada/include/1.4")

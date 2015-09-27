@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<use>
+		<flag name="sfml">Build <pkg>media-libs/libsfml</pkg> backend.</flag>
+		<flag name="json">Build the json (de)serialization functions.</flag>
+		<flag name="audio">Build the audio module.</flag>
+		<flag name="structure">Build the structure module.</flag>
+		<flag name="entity">Build the entity module.</flag>
+		<flag name="rendering">Build the rendering module.</flag>
+		<flag name="ui">Build the UI module.</flag>
+		<flag name="util">Build the util module.</flag>
+		<flag name="freetype">Build the text rendering (using <pkg>media-libs/freetype:2</pkg>).</flag>
+	</use>
+</pkgmetadata>

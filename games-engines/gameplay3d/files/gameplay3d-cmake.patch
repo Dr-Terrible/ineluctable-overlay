@@ -1,0 +1,56 @@
+--- GamePlay-3.0.0/samples/CMakeLists.txt	2014-08-05 17:11:03.471111575 +0200
++++ GamePlay-3.0.0/samples/CMakeLists.txt	2014-08-05 17:11:48.990906156 +0200
+@@ -5,7 +5,8 @@
+     ${CMAKE_SOURCE_DIR}/external-deps/lua/include
+     ${CMAKE_SOURCE_DIR}/external-deps/bullet/include
+     ${CMAKE_SOURCE_DIR}/external-deps/png/include
+-    ${CMAKE_SOURCE_DIR}/external-deps/oggvorbis/include
++    ${CMAKE_SOURCE_DIR}/external-deps/ogg/include
++    ${CMAKE_SOURCE_DIR}/external-deps/vorbis/include
+     ${CMAKE_SOURCE_DIR}/external-deps/zlib/include
+     ${CMAKE_SOURCE_DIR}/external-deps/openal/include
+     ${CMAKE_SOURCE_DIR}/external-deps/glew/include
+@@ -18,7 +19,8 @@
+     ${CMAKE_SOURCE_DIR}/external-deps/zlib/lib/linux/${ARCH_DIR}
+     ${CMAKE_SOURCE_DIR}/external-deps/png/lib/linux/${ARCH_DIR}
+     ${CMAKE_SOURCE_DIR}/external-deps/bullet/lib/linux/${ARCH_DIR}
+-    ${CMAKE_SOURCE_DIR}/external-deps/oggvorbis/lib/linux/${ARCH_DIR}
++    ${CMAKE_SOURCE_DIR}/external-deps/ogg/lib/linux/${ARCH_DIR}
++    ${CMAKE_SOURCE_DIR}/external-deps/vorbis/lib/linux/${ARCH_DIR}
+     ${CMAKE_SOURCE_DIR}/external-deps/openal/lib/linux/${ARCH_DIR}
+     ${CMAKE_SOURCE_DIR}/external-deps/glew/lib/linux/${ARCH_DIR}
+ )
+--- GamePlay-3.0.0/gameplay/CMakeLists.txt.orig	2014-08-05 17:08:52.704831696 +0200
++++ GamePlay-3.0.0/gameplay/CMakeLists.txt	2014-08-05 17:09:18.723284988 +0200
+@@ -623,7 +623,8 @@
+     ../external-deps/bullet/include
+     ../external-deps/png/include
+     ../external-deps/zlib/include
+-    ../external-deps/oggvorbis/include
++    ../external-deps/ogg/include
++    ../external-deps/vorbis/include
+     ../external-deps/openal/include
+     ../external-deps/glew/include
+ )
+--- GamePlay-3.0.0/samples/browser/CMakeLists.txt.orig	2014-08-05 17:13:48.625996875 +0200
++++ GamePlay-3.0.0/samples/browser/CMakeLists.txt	2014-08-05 17:14:40.008895749 +0200
+@@ -4,7 +4,8 @@
+     ${CMAKE_SOURCE_DIR}/external-deps/lua/include
+     ${CMAKE_SOURCE_DIR}/external-deps/bullet/include
+     ${CMAKE_SOURCE_DIR}/external-deps/png/include
+-    ${CMAKE_SOURCE_DIR}/external-deps/oggvorbis/include
++    ${CMAKE_SOURCE_DIR}/external-deps/ogg/include
++    ${CMAKE_SOURCE_DIR}/external-deps/vorbis/include
+     ${CMAKE_SOURCE_DIR}/external-deps/zlib/include
+     ${CMAKE_SOURCE_DIR}/external-deps/openal/include
+     ${CMAKE_SOURCE_DIR}/external-deps/glew/include
+@@ -17,7 +18,8 @@
+     ${CMAKE_SOURCE_DIR}/external-deps/zlib/lib/linux/${ARCH_DIR}
+     ${CMAKE_SOURCE_DIR}/external-deps/png/lib/linux/${ARCH_DIR}
+     ${CMAKE_SOURCE_DIR}/external-deps/bullet/lib/linux/${ARCH_DIR}
+-    ${CMAKE_SOURCE_DIR}/external-deps/oggvorbis/lib/linux/${ARCH_DIR}
++    ${CMAKE_SOURCE_DIR}/external-deps/ogg/lib/linux/${ARCH_DIR}
++    ${CMAKE_SOURCE_DIR}/external-deps/vorbis/lib/linux/${ARCH_DIR}
+     ${CMAKE_SOURCE_DIR}/external-deps/openal/lib/linux/${ARCH_DIR}
+     ${CMAKE_SOURCE_DIR}/external-deps/glew/lib/linux/${ARCH_DIR}
+ )

@@ -10,5 +10,5 @@ RDEPEND=virtual/opengl virtual/glu >=media-libs/glew-1.10.0[static-libs] >=media
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/blackberry/GamePlay/archive/v3.0.0.tar.gz -> gameplay3d-3.0.0.tar.gz https://github.com/blackberry/GamePlay/releases/download/v3.0.0/gameplay-deps.zip -> gameplay3d-3.0.0-deps.zip
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	9fb270e417e0e83d64ca52586c4a79de	flag-o-matic	c9602887773166fe300444712fc7ff98	multilib	62927b3db3a589b0806255f3a002d5d3	toolchain-funcs	42408102d713fbad60ca21349865edb4
-_md5_=c46ca209713ce19d9d05b412d4e75172
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	cmake-utils	f474224ef49d530640a43a04ae94928e	eutils	95613dd6157fb4a3b225eafdc56bd441	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
+_md5_=89dfb9e7de6641a2a8b284701bae5b4b

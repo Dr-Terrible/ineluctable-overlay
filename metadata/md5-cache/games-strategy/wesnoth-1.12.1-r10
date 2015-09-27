@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=>=media-libs/libsdl-1.2.7:0[joystick,video,X] media-libs/sdl-net !dedicated? ( >=media-libs/sdl-ttf-2.0.8 >=media-libs/sdl-mixer-1.2[vorbis] >=media-libs/sdl-image-1.2[jpeg,png] fribidi? ( dev-libs/fribidi ) dbus? ( sys-apps/dbus ) sys-libs/zlib x11-libs/pango media-libs/fontconfig ) >=dev-libs/boost-1.48[nls?,threads] virtual/libintl games-misc/games-envd
 SLOT=0
 SRC_URI=https://github.com/wesnoth/wesnoth/archive/1.12.1.tar.gz -> wesnoth-1.12.1.tar.gz
-_eclasses_=base	87f7447ccfc06fd0729ff4684e11e0d6	cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	9fb270e417e0e83d64ca52586c4a79de	flag-o-matic	c9602887773166fe300444712fc7ff98	games	1ad3205dbf62a2c98249f2f59b0a2d39	multilib	62927b3db3a589b0806255f3a002d5d3	toolchain-funcs	42408102d713fbad60ca21349865edb4	user	f54e098dd38ba1c0847a13e685b87747
-_md5_=794b4f2f0706621dcdba1363d8ca3549
+_eclasses_=base	84d9f879f57a8316ff02be0373a3d6f9	cmake-utils	f474224ef49d530640a43a04ae94928e	eutils	95613dd6157fb4a3b225eafdc56bd441	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	games	ce18d731b1dfae17561d847a24ca08c2	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d	user	906f3c8eb3a2350a4f1191a89baa3e46
+_md5_=ba05b64dacd8bec1ffa52349c84b6be1

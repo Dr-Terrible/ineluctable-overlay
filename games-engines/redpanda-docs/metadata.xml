@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<upstream>
+		<doc>https://github.com/Dr-Terrible/redpanda/wiki</doc>
+		<bugs-to>https://github.com/Dr-Terrible/redpanda/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="manual">Generate RedPanda's Manual</flag>
+		<flag name="api">Generates RedPanda's Application Program Interface (API) documentation</flag>
+	</use>
+</pkgmetadata>

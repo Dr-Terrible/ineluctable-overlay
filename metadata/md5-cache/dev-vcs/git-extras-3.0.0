@@ -7,5 +7,5 @@ LICENSE=MIT
 RDEPEND=dev-vcs/git
 SLOT=0
 SRC_URI=https://github.com/tj/git-extras/archive/3.0.0.tar.gz -> git-extras-3.0.0.tar.gz
-_eclasses_=bash-completion-r1	c8399c7c7ecbcf7ed6e5bd3abb3d4af3	multilib	62927b3db3a589b0806255f3a002d5d3	toolchain-funcs	42408102d713fbad60ca21349865edb4
-_md5_=e785146608ca56980692c8c03dda035a
+_eclasses_=bash-completion-r1	b1fc4d30333bb528c8abb4332bb70ea6	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
+_md5_=d311334fd83ec5ce6157f09e321a2ffd
