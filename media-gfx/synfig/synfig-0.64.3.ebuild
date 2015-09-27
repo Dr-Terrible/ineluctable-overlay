@@ -11,7 +11,7 @@ DESCRIPTION="Film-Quality Vector Animation (core engine)"
 HOMEPAGE="http://www.synfig.org"
 SRC_URI="mirror://sourceforge/synfig/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="|| (Apache-2.0 GPL-2)"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="imagemagick ffmpeg dv openexr truetype jpeg tiff fontconfig debug static-libs nls examples ffmpeg avcodec swscale"
