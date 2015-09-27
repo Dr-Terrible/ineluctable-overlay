@@ -1,5 +1,5 @@
 DEFINED_PHASES=install unpack
-DEPEND=sys-libs/readline:0 sys-devel/bison dev-lang/ruby[ncurses] dev-vcs/git
+DEPEND=sys-libs/readline:0 sys-devel/bison dev-lang/ruby[ncurses] >=dev-vcs/git-1.8.2.1
 DESCRIPTION=mruby is the lightweight implementation of the Ruby language complying to part of the ISO standard
 EAPI=5
 HOMEPAGE=http://www.mruby.org
@@ -7,5 +7,5 @@ IUSE=test static-libs
 LICENSE=MIT
 RDEPEND=sys-libs/readline:0
 SLOT=0
-_eclasses_=eutils	9fb270e417e0e83d64ca52586c4a79de	git-2	e28f0d8a9b321431b1e699782851b827	multilib	62927b3db3a589b0806255f3a002d5d3	toolchain-funcs	42408102d713fbad60ca21349865edb4
-_md5_=9ee548203e107ddb40b1552618a86fa4
+_eclasses_=eutils	95613dd6157fb4a3b225eafdc56bd441	git-r3	1502b9838d043db47700b8120083e637	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
+_md5_=19d249fa3813ec9d64772a938b84f7d0

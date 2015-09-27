@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 inherit eutils base
@@ -33,8 +33,7 @@ src_install() {
 	use static-libs && dolib.a build/host/lib/libmruby.a build/host/lib/libmruby_core.a
 
 	# installing headers
-	insinto /usr/include/
-	doins -r include/mrbconf.h include/mruby include/mruby.h
+	doheader -r include/mrbconf.h include/mruby include/mruby.h
 
 	# installing docs
 	einstalldocs
