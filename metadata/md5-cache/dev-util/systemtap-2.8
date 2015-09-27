@@ -4,12 +4,12 @@ DESCRIPTION=A linux trace/probe tool
 EAPI=5
 HOMEPAGE=http://www.sourceware.org/systemtap/
 IUSE=crash +sqlite nls pie hardened +server libvirt selinux java examples test doc python_targets_python2_7
-KEYWORDS=~amd64 ~arm ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2
 RDEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_jython2_5(-),-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_python3_3(-),-python_single_target_python3_4(-),python_single_target_python2_7(+)] || ( >=dev-libs/elfutils-0.142 dev-libs/libelf ) libvirt? ( app-emulation/libvirt dev-libs/libxml2:2 ) server? ( dev-libs/nss net-dns/avahi ) java? ( >=virtual/jre-1.6:* ) sqlite? ( dev-db/sqlite:3 ) crash? ( dev-util/crash )
 REQUIRED_USE=python_targets_python2_7
 RESTRICT=mirror
 SLOT=0
-SRC_URI=http://www.sourceware.org/systemtap/ftp/releases/systemtap-2.7.tar.gz
-_eclasses_=autotools	2264f05fbbbaaf83d34ec81e72b38ffd	autotools-utils	dbce0f7913bd240fdf0ef428149855c0	eutils	9fb270e417e0e83d64ca52586c4a79de	libtool	52d0e17251d04645ffaa61bfdd858944	linux-info	8cbc678e083c23e4ad546ca6509cf304	multilib	62927b3db3a589b0806255f3a002d5d3	python-single-r1	351da1aa73960a282591217fb57c1bb8	python-utils-r1	68e010c13e97b7b2c7bf403ee9c51e1b	toolchain-funcs	42408102d713fbad60ca21349865edb4	user	f54e098dd38ba1c0847a13e685b87747	versionator	cd0bcdb170807e4a1984115e9d53a26f
-_md5_=6260412fcd80fd6c1ff3f52637ee41cd
+SRC_URI=http://www.sourceware.org/systemtap/ftp/releases/systemtap-2.8.tar.gz
+_eclasses_=autotools	7d16e72a943b4803ca9691b2ecf89216	autotools-utils	0bf099a6e3dfeaf20a7a94504d8dd896	eutils	95613dd6157fb4a3b225eafdc56bd441	libtool	7f78cd7d403808a350c9ae23f5821fb4	linux-info	8f92e5ac1a1da684c5450b1b21a1f56a	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	python-single-r1	612c783d1a1a182ad7ea4f2eb0b79e86	python-utils-r1	39c6b012a0512678e698e712b5b7ecc2	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=ea6d68c9c5b58174f8cea11cdceecf43
