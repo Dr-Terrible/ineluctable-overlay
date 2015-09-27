@@ -5,10 +5,10 @@ EAPI=5
 HOMEPAGE=https://tls.mbed.org
 IUSE=doc havege programs cpu_flags_x86_sse2 static-libs test threads zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_ppc_32 abi_ppc_64 abi_s390_32 abi_s390_64
 KEYWORDS=~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd
-LICENSE=GPL-2
+LICENSE=|| ( Apache-2.0 GPL-2 )
 RDEPEND=programs? ( dev-libs/openssl:0 ) zlib? ( >=sys-libs/zlib-1.2.8-r1[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_ppc_32(-)?,abi_ppc_64(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 RESTRICT=mirror
-SLOT=0/7
-SRC_URI=https://tls.mbed.org/download/mbedtls-1.3.11-gpl.tgz
-_eclasses_=cmake-utils	0430c386d85cec959d72640afd63ea91	eutils	9fb270e417e0e83d64ca52586c4a79de	flag-o-matic	c9602887773166fe300444712fc7ff98	multibuild	6d4858dc00f8bc51caf3f957f8430eb0	multilib	62927b3db3a589b0806255f3a002d5d3	multilib-build	e733e978b7fa70607cc221fd9c070db6	multilib-minimal	13dd976916c35a1e2c8d170e840c7018	toolchain-funcs	42408102d713fbad60ca21349865edb4
-_md5_=43431053efbeae024a9edf41853f1417
+SLOT=0/2.0
+SRC_URI=https://tls.mbed.org/download/mbedtls-2.1.1-gpl.tgz
+_eclasses_=cmake-utils	f474224ef49d530640a43a04ae94928e	eutils	95613dd6157fb4a3b225eafdc56bd441	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	multibuild	ce2c2ede0c914b77f5dfc4e2ff2d0249	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	multilib-build	c47eec09e82c8a750127ff2abf0745b1	multilib-minimal	a93a9b4153a5f1c746bdd3b20ef9d834	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
+_md5_=500fcea4b4ecdef611d5165ca14c579e

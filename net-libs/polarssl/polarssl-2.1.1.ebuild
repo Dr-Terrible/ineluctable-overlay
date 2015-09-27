@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /$
+# $Id$
 
 EAPI=5
 inherit eutils multilib cmake-utils multilib-minimal
@@ -9,8 +9,8 @@ DESCRIPTION="Cryptographic library for embedded systems"
 HOMEPAGE="https://tls.mbed.org"
 SRC_URI="https://tls.mbed.org/download/mbedtls-${PV}-gpl.tgz"
 
-LICENSE="GPL-2"
-SLOT="0/7"
+LICENSE="|| ( Apache-2.0 GPL-2 )"
+SLOT="0/2.0"
 KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
 IUSE="doc havege programs cpu_flags_x86_sse2 static-libs test threads zlib"
 
@@ -30,7 +30,7 @@ enable_polarssl_option() {
 	# check that config.h syntax is the same at version bump
 	sed -i \
 		-e "s://#define ${myopt}:#define ${myopt}:" \
-		include/polarssl/config.h || die
+		include/mbedtls/config.h || die
 }
 
 src_prepare() {
