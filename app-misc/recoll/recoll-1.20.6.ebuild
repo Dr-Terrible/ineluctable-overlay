@@ -1,32 +1,34 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
+AUTOTOOLS_IN_SOURCE_BUILD=1
 AUTOTOOLS_AUTORECONF=1
-inherit toolchain-funcs qt4-r2 linux-info python-r1 readme.gentoo autotools-utils
+inherit toolchain-funcs qmake-utils linux-info python-r1 readme.gentoo autotools-utils
 
 DESCRIPTION="A personal full text search package"
 HOMEPAGE="http://www.recoll.org"
-SRC_URI="http://www.lesbonscomptes.com/recoll/${P}p1.tar.gz"
+SRC_URI="http://www.lesbonscomptes.com/${PN}/${P}.tar.gz"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 INDEX_HELPERS="audio chm djvu dvi exif postscript ics info lyx msdoc msppt msxls pdf rtf tex wordperfect xml"
-IUSE="+spell inotify +qt4 +session camelcase xattr webkit fam threads ${INDEX_HELPERS}"
+IUSE="+spell inotify +qt5 +session camelcase xattr webkit fam threads ${INDEX_HELPERS}"
 
-S="${WORKDIR}/${P}p1"
+RESTRICT+=" mirror"
 
 DEPEND="virtual/libiconv
 	>=dev-libs/xapian-1.0.12
 	sys-libs/zlib
 	spell? ( app-text/aspell )
 	!inotify? ( fam? ( virtual/fam ) )
-	qt4? (
-		dev-qt/qtcore:4
-		webkit? ( dev-qt/qtwebkit:4 )
+	qt5? (
+		dev-qt/qtcore:5
+		webkit? ( dev-qt/qtwebkit:5 )
 	)
 	session? (
 		inotify? ( x11-libs/libX11 x11-libs/libSM x11-libs/libICE )
@@ -95,7 +97,7 @@ src_prepare() {
 
 	DOC_CONTENTS="Default configuration files located at
 		/usr/share/${PN}/examples. Either edit these files to match
-		your needs or copy them to ~/.recoll/ and edit these files
+		your needs or copy them to ~/.${PN}/ and edit these files
 		instead."
 
 	use xattr && DOC_CONTENTS+="
@@ -121,7 +123,7 @@ src_prepare() {
 src_configure() {
 	local qtconf
 
-	if use qt4 || use webkit; then
+	if use qt5 || use webkit; then
 		qtconf="QMAKEPATH=/usr/bin/qmake"
 	fi
 
@@ -129,9 +131,9 @@ src_configure() {
 		$(use_with spell aspell)
 		$(use_with inotify)
 		$(use_with fam)
-		$(use_with qt4 x)
+		$(use_with qt5 x)
 		$(use_enable xattr)
-		$(use_enable qt4 qtgui)
+		$(use_enable qt5 qtgui)
 		$(use_enable webkit)
 		$(use_enable camelcase)
 		$(use_enable threads idxthreads)
@@ -140,8 +142,7 @@ src_configure() {
 	)
 	autotools-utils_src_configure
 
-	# NOTE: this is required to honor cflags
-	if use qt4 || use webkit; then
+	if use qt5 || use webkit; then
 		cd qtgui || die
 		eqmake4 ${PN}.pro
 	fi
@@ -157,15 +158,15 @@ pkg_postinst() {
 
 	if [[ -n ${REPLACING_VERSIONS} ]]; then
 		elog
-		elog "1.18 introduces significant index formats changes to support optional"
-		elog "character case and diacritics sensitivity, and it will be advisable"
-		elog "to reset the index in most cases."
+		elog "Recoll ${PV} introduces significant index formats changes, and it"
+		elog "will be advisable to reset the index in most cases."
 		elog
-		elog "This will be best done by destroying the index directory:"
-		elog "  $ rm -rf ~/.recoll/xapiandb"
+		elog "The best method is to quit all Recoll programs and entirely"
+		elog "delete the index directory:"
+		elog "  $ rm -rf ~/.${PN}/xapiandb"
+		elog "then start /usr/bin/recoll or /usr/bin/recollindex."
 		elog
-		elog "If 1.18 is not configured for case and diacritics sensitivity, it is"
-		elog "mostly compatible with 1.17 indexes."
-		elog
+		elog "Always reset the index if you do not know by which Recoll version"
+		elog "it was created."
 	fi
 }

@@ -1,6 +1,6 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -19,6 +19,8 @@ INDEX_HELPERS="audio chm djvu dvi exif postscript ics info lyx msdoc msppt msxls
 IUSE="+spell inotify +qt4 +session camelcase xattr webkit fam threads ${INDEX_HELPERS}"
 
 S="${WORKDIR}/${P}p2"
+
+RESTRICT+=" mirror"
 
 DEPEND="virtual/libiconv
 	>=dev-libs/xapian-1.0.12
