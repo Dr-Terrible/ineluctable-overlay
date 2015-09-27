@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 CMAKE_IN_SOURCE_BUILD=1
@@ -62,7 +62,7 @@ RDEPEND="
 	>=net-misc/curl-7.28.0
 	net-nds/openldap
 	sys-libs/libcap
-	sys-libs/ncurses
+	sys-libs/ncurses:0
 	sys-libs/readline:0
 	sys-libs/zlib
 	app-arch/lz4
