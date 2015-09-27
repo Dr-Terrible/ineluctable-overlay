@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /$
+# $Id$
 
 EAPI=5
 inherit eutils
@@ -11,11 +11,8 @@ SRC_URI="http://people.redhat.com/anderson/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
 IUSE="extensions"
-
-DEPEND=""
-RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PN}-5.1.1-install-fix.patch
