@@ -1,13 +1,13 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 inherit eutils multilib
 
 DESCRIPTION="Mongrel is an agnostic web server that focuses on web applications using modern browser technologies"
 HOMEPAGE="http://mongrel2.org"
-SRC_URI="https://github.com/zedshaw/${PN}2/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}2/${PN}2/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="2"
@@ -23,7 +23,7 @@ DEPEND="dev-util/ragel
 	dev-tex/tex4ht
 	dev-texlive/texlive-fontsextra
 )"
-RDEPEND="!www-servers/mongrel:0
+RDEPEND="!www-servers/${PN}:0
 	dev-db/sqlite:3
 	>=net-libs/zeromq-2.1.4"
 
@@ -32,14 +32,14 @@ S="${WORKDIR}/${PN}2-${PV}"
 RESTRICT="mirror"
 
 src_prepare() {
-	epatch "${FILESDIR}"/mongrel-makefile.patch
-	epatch "${FILESDIR}"/mongrel-makefile2a.patch
-	epatch "${FILESDIR}"/mongrel-makefile3.patch
-	epatch "${FILESDIR}"/mongrel-makefile4.patch
-	epatch "${FILESDIR}"/mongrel-makefile5.patch
-	epatch "${FILESDIR}"/mongrel-makefile6.patch
-	#epatch "${FILESDIR}"/mongrel-makefile7.patch
-	epatch "${FILESDIR}"/mongrel-latex.patch
+	epatch "${FILESDIR}"/${PN}-makefile.patch
+	epatch "${FILESDIR}"/${PN}-makefile2a.patch
+	epatch "${FILESDIR}"/${PN}-makefile3.patch
+	epatch "${FILESDIR}"/${PN}-makefile4.patch
+	epatch "${FILESDIR}"/${PN}-makefile5.patch
+	epatch "${FILESDIR}"/${PN}-makefile6.patch
+	#epatch "${FILESDIR}"/${PN}-makefile7.patch
+	epatch "${FILESDIR}"/${PN}-latex.patch
 }
 src_install(){
 	emake \
@@ -47,8 +47,8 @@ src_install(){
 		PREFIX="${EPREFIX}/usr" \
 		LIBDIR="/$(get_libdir)" \
 		install || die
-	newconfd "${FILESDIR}"/mongrel2.confd mongrel2 || die
-	newinitd "${FILESDIR}"/mongrel2.initd mongrel2 || die
+	newconfd "${FILESDIR}"/${PN}2.confd ${PN}2 || die
+	newinitd "${FILESDIR}"/${PN}2.initd ${PN}2 || die
 
 	if use doc; then
 		${PYTHON} dexy setup || die
