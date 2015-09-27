@@ -1,9 +1,9 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 inherit distutils-r1
 
 DESCRIPTION="Cheat allows you to create and view interactive cheatsheets on the command-line"
@@ -12,10 +12,10 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-RESTRICT="mirror"
+RESTRICT+=" mirror"
 
-RDEPEND="dev-python/pygments
-	dev-python/docopt"
+RDEPEND="dev-python/pygments[${PYTHON_USEDEP}]
+	dev-python/docopt[${PYTHON_USEDEP}]"
