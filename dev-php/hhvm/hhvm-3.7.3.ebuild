@@ -45,7 +45,7 @@ RDEPEND="
 	dev-libs/icu
 	jemalloc? ( >=dev-libs/jemalloc-3.0.0[stats] )
 	jsonc? ( dev-libs/json-c )
-	=dev-libs/libdwarf-20120410
+	dev-libs/libdwarf
 	>=dev-libs/libevent-2.0.9[threads]
 	dev-libs/libmcrypt
 	>=dev-libs/libmemcached-1.0.8-r2[libevent]

@@ -11,7 +11,7 @@ SRC_URI="http://www.prevanders.net/${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
 IUSE=""
 
 DOCS=(NEWS README CHANGES)
