@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install
+DEPEND=media-gfx/inkscape dev-python/lesscpy dev-util/scons
+DESCRIPTION=Dynamic Tracing with DTrace and SystemTap
+EAPI=5
+HOMEPAGE=http://myaut.github.io/dtrace-stap-book
+KEYWORDS=amd64 x86
+LICENSE=CC-BY-SA-3.0
+RESTRICT=binchecks strip test mirror
+SLOT=0
+SRC_URI=https://github.com/myaut/dtrace-stap-book/archive/5b4259f6228955e74a9a0d9030563916328928e0.tar.gz -> dtrace-systemtap-book-20150923.tar.gz
+_eclasses_=scons-utils	b7d634f772db55c8af429f50aeec6ee0
+_md5_=ecc9d010b5168becf269c6b3789e85ad

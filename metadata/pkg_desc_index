@@ -1,6 +1,7 @@
 app-admin/fluentd 0.10.6 0.10.39: Fluentd is a log collector daemon written in Ruby
 app-arch/archivemount 0.6.1 0.8.3: mount an archive as filesystem using fuse and libarchive
 app-doc/dexy 0.6.0 0.9.9.7 1.0.5: Dexy is a tool for writing documents which relate to code
+app-doc/dtrace-systemtap-book 20150923: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20150516: Game Programming Patterns
 app-doc/zeal 0.1.1-r1: Offline documentation browser inspired by Dash
 app-editors/atom-bin 1.0.0: A hackable text editor for the 21st Century
