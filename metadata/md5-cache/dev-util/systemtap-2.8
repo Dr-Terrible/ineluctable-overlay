@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_jython2_5(-),-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_python3_3(-),-python_single_target_python3_4(-),python_single_target_python2_7(+)] || ( >=dev-libs/elfutils-0.142 dev-libs/libelf ) libvirt? ( app-emulation/libvirt dev-libs/libxml2:2 ) server? ( dev-libs/nss net-dns/avahi ) java? ( >=virtual/jre-1.6:* ) sqlite? ( dev-db/sqlite:3 ) dev-libs/boost doc? ( virtual/latex-base dev-texlive/texlive-latexextra dev-tex/latex2html dev-texlive/texlive-fontsrecommended app-text/xmlto ) nls? ( >=sys-devel/gettext-0.18.2 ) test? ( dev-tcltk/expect dev-util/dejagnu ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEPEND=dev-libs/nspr:0 || ( >=dev-libs/elfutils-0.162:= dev-libs/libelf ) libvirt? ( app-emulation/libvirt dev-libs/libxml2:2 ) server? ( dev-libs/nss net-dns/avahi ) java? ( >=virtual/jre-1.6:* ) sqlite? ( dev-db/sqlite:3 ) dev-libs/boost doc? ( virtual/latex-base dev-texlive/texlive-latexextra dev-tex/latex2html dev-texlive/texlive-fontsrecommended app-text/xmlto ) nls? ( >=sys-devel/gettext-0.18.2 ) test? ( python_single_target_python3_3? ( >=dev-lang/python-3.3.2-r2:3.3 ) python_single_target_python3_4? ( dev-lang/python:3.4 ) python_single_target_python2_7? ( >=dev-lang/python-2.7.5-r2:2.7 ) >=dev-lang/python-exec-2:=[python_targets_python3_3(-)?,python_targets_python3_4(-)?,python_targets_python2_7(-)?,-python_single_target_jython2_5(-),-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),python_single_target_python3_3(+)?,python_single_target_python3_4(+)?,python_single_target_python2_7(+)?] dev-tcltk/expect dev-util/dejagnu ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DESCRIPTION=A linux trace/probe tool
 EAPI=5
-HOMEPAGE=http://www.sourceware.org/systemtap/
-IUSE=crash +sqlite nls pie hardened +server libvirt selinux java examples test doc python_targets_python2_7
+HOMEPAGE=http://sourceware.org/systemtap
+IUSE=crash +sqlite nls pie hardened +server libvirt selinux java examples test doc python_targets_python3_3 python_targets_python3_4 python_targets_python2_7 python_single_target_python3_3 python_single_target_python3_4 python_single_target_python2_7
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=>=dev-lang/python-2.7.5-r2:2.7 >=dev-lang/python-exec-2:=[python_targets_python2_7(-)?,-python_single_target_jython2_5(-),-python_single_target_jython2_7(-),-python_single_target_pypy(-),-python_single_target_pypy3(-),-python_single_target_python3_3(-),-python_single_target_python3_4(-),python_single_target_python2_7(+)] || ( >=dev-libs/elfutils-0.142 dev-libs/libelf ) libvirt? ( app-emulation/libvirt dev-libs/libxml2:2 ) server? ( dev-libs/nss net-dns/avahi ) java? ( >=virtual/jre-1.6:* ) sqlite? ( dev-db/sqlite:3 ) crash? ( dev-util/crash )
-REQUIRED_USE=python_targets_python2_7
+RDEPEND=dev-libs/nspr:0 || ( >=dev-libs/elfutils-0.162:= dev-libs/libelf ) libvirt? ( app-emulation/libvirt dev-libs/libxml2:2 ) server? ( dev-libs/nss net-dns/avahi ) java? ( >=virtual/jre-1.6:* ) sqlite? ( dev-db/sqlite:3 ) crash? ( dev-util/crash )
+REQUIRED_USE=^^ ( python_single_target_python3_3 python_single_target_python3_4 python_single_target_python2_7 ) python_single_target_python3_3? ( python_targets_python3_3 ) python_single_target_python3_4? ( python_targets_python3_4 ) python_single_target_python2_7? ( python_targets_python2_7 )
 RESTRICT=mirror
 SLOT=0
-SRC_URI=http://www.sourceware.org/systemtap/ftp/releases/systemtap-2.8.tar.gz
+SRC_URI=http://sourceware.org/systemtap/ftp/releases/systemtap-2.8.tar.gz
 _eclasses_=autotools	7d16e72a943b4803ca9691b2ecf89216	autotools-utils	0bf099a6e3dfeaf20a7a94504d8dd896	eutils	95613dd6157fb4a3b225eafdc56bd441	libtool	7f78cd7d403808a350c9ae23f5821fb4	linux-info	8f92e5ac1a1da684c5450b1b21a1f56a	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	python-single-r1	612c783d1a1a182ad7ea4f2eb0b79e86	python-utils-r1	39c6b012a0512678e698e712b5b7ecc2	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=ea6d68c9c5b58174f8cea11cdceecf43
+_md5_=3b710519ef0a35bb255b77a2b7a78840
