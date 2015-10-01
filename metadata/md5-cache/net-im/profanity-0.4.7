@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/glib:2 dev-libs/libstrophe net-misc/curl sys-apps/util-linux:0 sys-libs/ncurses:0/5 sys-libs/readline:0 libnotify? ( x11-libs/libnotify ) otr? ( net-libs/libotr ) pgp? ( app-crypt/gpgme ) xscreensaver? ( x11-libs/libXScrnSaver ) virtual/pkgconfig test? ( dev-util/cmocka ) !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DESCRIPTION=Profanity is a console based XMPP client inspired by irssi
+EAPI=5
+HOMEPAGE=http://profanity.im
+IUSE=libnotify +otr +themes xscreensaver pgp test
+KEYWORDS=amd64 x86 ~arm
+LICENSE=GPL-3
+RDEPEND=dev-libs/glib:2 dev-libs/libstrophe net-misc/curl sys-apps/util-linux:0 sys-libs/ncurses:0/5 sys-libs/readline:0 libnotify? ( x11-libs/libnotify ) otr? ( net-libs/libotr ) pgp? ( app-crypt/gpgme ) xscreensaver? ( x11-libs/libXScrnSaver ) libnotify? ( virtual/notification-daemon )
+SLOT=0
+SRC_URI=https://github.com/boothj5/profanity/archive/0.4.7.tar.gz -> profanity-0.4.7.tar.gz
+_eclasses_=autotools	542bf3f83917668f3893f4da1ca238ff	autotools-utils	0bf099a6e3dfeaf20a7a94504d8dd896	eutils	43da5163ba106e87d22d2e7d6d67537f	libtool	7f78cd7d403808a350c9ae23f5821fb4	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
+_md5_=70a824e88dd4b95bc3fb13c4da3ad3b8
