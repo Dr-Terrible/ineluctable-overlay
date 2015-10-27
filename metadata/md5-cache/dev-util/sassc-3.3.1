@@ -1,12 +1,11 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=!<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
-DESCRIPTION=LibSaas is a C/C++ port of the Sass engine.
+DEPEND==dev-libs/libsass-3.3.1 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.15:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DESCRIPTION=SaasC is an implementer for LibSaas
 EAPI=5
-HOMEPAGE=http://libsass.org
-IUSE=static-libs test
+HOMEPAGE=http://github.com/sass/sassc
 KEYWORDS=amd64 x86
 LICENSE=BSD
 SLOT=0
-SRC_URI=https://github.com/sass/libsass/archive/3.2.5.tar.gz -> libsass-3.2.5.tar.gz
+SRC_URI=https://github.com/sass/sassc/archive/3.3.1.tar.gz -> sassc-3.3.1.tar.gz
 _eclasses_=autotools	07e71b3b5690738ef7e8bc097077e00c	autotools-utils	0bf099a6e3dfeaf20a7a94504d8dd896	eutils	43da5163ba106e87d22d2e7d6d67537f	libtool	7f78cd7d403808a350c9ae23f5821fb4	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
-_md5_=48958b7ba74b901cecf6b038731dcb87
+_md5_=eda18a31e884c770405184a473e4ec96
