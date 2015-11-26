@@ -7,9 +7,12 @@ EAPI=5
 AUTOTOOLS_AUTORECONF=1
 inherit autotools-multilib
 
+MY_PN="${PN//oogle-}"
+
 DESCRIPTION="Fast, multi-threaded malloc() and nifty performance analysis tools"
-HOMEPAGE="https://code.google.com/p/gperftools"
-SRC_URI="https://googledrive.com/host/0B6NtGsLhIcf7MWxMMF9JdTN3UVk/${P//oogle-}.tar.gz"
+HOMEPAGE="https://github.com/gperftools/gperftools"
+SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/${MY_PN}-${PV}.tar.gz -> ${P}.tar.gz"
+#SRC_URI="https://googledrive.com/host/0B6NtGsLhIcf7MWxMMF9JdTN3UVk/${P//oogle-}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -18,9 +21,9 @@ IUSE="+cpu-profiler -debug heap-profiler heap-checker static-libs test minimal d
 
 RDEPEND="sys-libs/libunwind"
 
-S="${WORKDIR}/${PN//oogle-}-${PV}"
+S="${WORKDIR}/${MY_PN}-${MY_PN}-${PV}"
 
-RESTRICT="mirror"
+RESTRICT+=" mirror"
 
 DOCS=( AUTHORS ChangeLog NEWS README TODO)
 PATCHES=(
