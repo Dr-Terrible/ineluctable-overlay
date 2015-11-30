@@ -40,11 +40,17 @@ DEPEND="sys-devel/bison
 
 DOCS=(README.md TODO.md KNOWN_BUGS.md ChangeLog.md)
 
+PATCHES=(
+
+)
+
 src_prepare() {
 	sed -i \
 		-e "s:cc=\"gcc -O3\":cc=\"\${CC}\":" \
 		-e "s:which:#which:" \
 		build/build-gnu.sh || die
+
+	epatch "${FILESDIR}"/${PN}-filters.patch
 }
 
 src_configure() { :; }
@@ -64,7 +70,6 @@ src_install() {
 
 	# Installing the executables
 	exeinto /usr/share/${PN}/bin
-	exeopts -m0644
 	doexe build/gnu/*
 	doexe src/jaro
 
@@ -72,20 +77,34 @@ src_install() {
 	insinto /usr/share/${PN}/zlibs
 	doins -r src/zlibs/*
 
+	# Installing docs
+	if use doc; then
+		dodoc \
+			doc/howto_gmail_fetchmail_procmail.txt \
+			doc/*.pdf
+
+		rm doc/howto_gmail_fetchmail_procmail.txt || die
+	fi
+	einstalldocs
+
+	# Installing configuration files
+	insinto /usr/share/${PN}
+	doins -r doc/Accounts
+	doins doc/*.txt
+
 	# Installing jaromail wrapper
 	cat <<EOF > "${T}"/jaro
 #!/usr/bin/env zsh
 export JAROWORKDIR=/usr/share/${PN}
-/usr/bin/jaro \${=@}
+\${JAROWORKDIR}/bin/jaro \${=@}
 EOF
 	dobin "${T}"/jaro
 
-	# Installing docs
-	use doc && dodoc -r doc/*
-	einstalldocs
 }
 
 pkg_postinst() {
-	einfo "To initialize your Mail directory use: jaro init"
+	einfo "As a user, initialize your Mail directory by running:"
+	einfo "  $ jaro init"
+	einfo
 	einfo "Default is '\$HOME/Mail', but it can be changed via environment variable JAROMAILDIR."
 }

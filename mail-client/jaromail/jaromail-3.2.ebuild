@@ -63,7 +63,6 @@ src_install() {
 
 	# Installing the executables
 	exeinto /usr/share/${PN}/bin
-	exeopts -m0644
 	doexe build/gnu/*
 	doexe src/jaro
 
@@ -75,7 +74,7 @@ src_install() {
 	cat <<EOF > "${T}"/jaro
 #!/usr/bin/env zsh
 export JAROWORKDIR=/usr/share/${PN}
-/usr/bin/jaro \${=@}
+\${JAROWORKDIR}/bin/jaro \${=@}
 EOF
 	dobin "${T}"/jaro
 
