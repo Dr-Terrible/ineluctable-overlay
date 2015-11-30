@@ -29,6 +29,13 @@ DEPEND="!system-librsync? ( dev-util/patchelf )"
 RDEPEND="
 	X? (
 		dev-libs/glib:2
+		dev-qt/qtdbus:5
+		dev-qt/qtgui:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtprintsupport:5
+		dev-qt/qtquick1:5
+		dev-qt/qtwebkit:5
+		dev-qt/qtwidgets:5
 		media-libs/libpng:1.2
 		sys-libs/zlib
 		virtual/jpeg
@@ -41,10 +48,15 @@ RDEPEND="
 	)
 	sys-apps/coreutils
 	app-arch/bzip2
+	dev-lang/python:2.7
 	dev-libs/popt
 	net-misc/wget
 	>=sys-devel/gcc-4.2.0
 	sys-libs/zlib
+	|| (
+		sys-libs/ncurses:5/5
+		sys-libs/ncurses:0/5
+	)
 	systemd? ( >=sys-apps/systemd-219 )
 	cli? ( >=net-misc/dropbox-cli-1.6.2 )
 	system-librsync? ( net-libs/librsync )"
@@ -65,26 +77,27 @@ src_unpack() {
 src_prepare() {
 	pushd "${PN}-lnx.x86_64-${PV}"
 
-#	rm libpopt.so.0 || die
-	if use X ; then
-		mv images/hicolor/16x16/status "${T}" || die
-	fi
-#	else
-#		rm -r *wx* images || die
-#	fi
-	if ! use system-librsync ; then
-		patchelf --set-rpath '$ORIGIN' _librsync.so || die
-	fi
-#	else
-#		rm librsync.so.1 || die
-#	fi
+#		rm -vf libbz2* libpopt.so.0 libpng12.so.0 || die
+#		rm -vf libdrm.so.2 libffi.so.6 libGL.so.1 libX11* || die
+#		rm -vf libQt5* libicu* qt.conf || die
+#		rm -vf wmctrl || die
 
-	#mv cffi-0.7.2-py2.7-*.egg dropbox_sqlite_ext-0.0-py2.7.egg distribute-0.6.26-py2.7.egg "${T}" || die
-	#rm -rf *.egg library.zip || die
-	#mv "${T}"/cffi-0.7.2-py2.7-*.egg "${T}"/dropbox_sqlite_ext-0.0-py2.7.egg "${T}"/distribute-0.6.26-py2.7.egg "${S}" || die
-	#ln -s dropbox library.zip || die
-	pax-mark cm dropbox
-	mv README ACKNOWLEDGEMENTS "${T}" || die
+		if use X ; then
+			mv images/hicolor/16x16/status "${T}" || die
+#		else
+#			rm -vrf PyQt5* *pyqt5* images || die
+		fi
+
+		if ! use system-librsync ; then
+			patchelf --set-rpath '$ORIGIN' _librsync.so || die
+#		else
+#			rm -vf librsync.so.1 || die
+		fi
+
+		pax-mark cm dropbox
+		mv README ACKNOWLEDGEMENTS "${T}" || die
+
+	popd
 }
 
 src_install() {
@@ -95,6 +108,10 @@ src_install() {
 	# installing dropbox
 	insinto "${targetdir}"
 	doins -r "${PN}-lnx.x86_64-${PV}"/*
+
+	# installing icons and menus
+	use X && doicon -s 16 -c status "${T}"/status
+	make_desktop_entry "${PN}" "Dropbox"
 
 	# fixing perms
 	fperms 755 "${targetdir}/${PN}"
@@ -130,11 +147,11 @@ src_install() {
 }
 
 pkg_preinst() {
-	use X && gnome2_icon_savelist
+	gnome2_icon_savelist
 }
 
 pkg_postinst() {
-	use X && gnome2_icon_cache_update
+	gnome2_icon_cache_update
 
 	elog
 	elog "You must be in the 'dropbox' group to use DropBox."
@@ -185,5 +202,5 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	use X && gnome2_icon_cache_update
+	gnome2_icon_cache_update
 }

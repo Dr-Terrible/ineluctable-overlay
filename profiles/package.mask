@@ -19,10 +19,11 @@ dev-php/hhvm
 
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
-# Hard masked all the testing branches of dropbox.
-# They are notoriously buggy and unpredictable,
+# Hard masked all deprecated and testing branches of Dropbox.
+# Testing branches are notoriously buggy and unpredictable,
 # use them at your own risk.
->=net-misc/dropbox-3.5.0
+<net-misc/dropbox-3.8.0
+>=net-misc/dropbox-3.11.0
 
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (30 Oct 2010)
