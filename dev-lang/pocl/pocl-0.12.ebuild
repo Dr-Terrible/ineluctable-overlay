@@ -14,7 +14,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="dev-libs/ocl-icd
-	=sys-devel/llvm-3.6*
+	=sys-devel/llvm-3.7*
 	sys-apps/hwloc"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
