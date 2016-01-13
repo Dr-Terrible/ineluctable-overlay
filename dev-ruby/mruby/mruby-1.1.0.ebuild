@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
-inherit eutils base
+inherit eutils
 
 DESCRIPTION="mruby is the lightweight implementation of the Ruby language complying to part of the ISO standard"
 HOMEPAGE="http://www.mruby.org"
@@ -23,9 +23,10 @@ RDEPEND="${CDEPEND}"
 RESTRICT="mirror"
 
 DOCS=(AUTHORS ChangeLog NEWS README.md TODO CONTRIBUTING.md)
-PATCHES=(
-	"${FILESDIR}"/${P}-termcap.patch
-)
+
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-termcap.patch
+}
 
 src_install() {
 	# installing binaries and libraries
