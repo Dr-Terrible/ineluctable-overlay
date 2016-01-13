@@ -21,7 +21,6 @@ src_prepare() {
 	# Fix makefiles
 	rm Makefile || die
 	sed -i \
-		-e "s:-Wall -fPIC::" \
 		-e "s:-Wall::" \
 		Makefile.am || die
 

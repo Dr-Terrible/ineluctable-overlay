@@ -4,26 +4,26 @@
 
 EAPI=5
 AUTOTOOLS_AUTORECONF=1
-AUTOTOOLS_IN_SOURCE_BUILD=1 # Fix versioning
+AUTOTOOLS_IN_SOURCE_BUILD=1  # Fix versioning
 inherit autotools-utils
 
-DESCRIPTION="SaasC is an implementer for LibSaas"
-HOMEPAGE="http://github.com/sass/sassc"
+DESCRIPTION="LibSaas is a C/C++ port of the Sass engine."
+HOMEPAGE="http://libsass.org"
 SRC_URI="https://github.com/sass/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86"
-
-DEPEND="=dev-libs/libsass-${PV}"
+IUSE="static-libs test"
 
 src_prepare() {
 	# Fix makefiles
 	rm Makefile || die
 	sed -i \
-		-e "s:-Wall -fPIC::" \
 		-e "s:-Wall::" \
-		Makefile.am || die
+		GNUmakefile.am \
+		src/GNUmakefile.am \
+		|| die
 
 	# Fix versioning
 	cat <<EOF > VERSION
@@ -32,12 +32,4 @@ EOF
 
 	# Fix autoconf
 	autotools-utils_src_prepare
-}
-
-src_configure() {
-	local myeconfargs=(
-		--disable-shared
-		--enable-static
-	)
-	autotools-utils_src_configure
 }
