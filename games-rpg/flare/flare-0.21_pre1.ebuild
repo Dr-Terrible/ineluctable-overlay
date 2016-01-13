@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -6,7 +6,7 @@ EAPI=5
 inherit cmake-utils gnome2-utils games
 
 EGIT_PN="${PN}-game"
-EGIT_COMMIT="37213bc763e791406e2594a46e512fc9a6f2239c"
+EGIT_COMMIT="611bfb648af57ac82aa63887b93b0020c69f17c7"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-game"

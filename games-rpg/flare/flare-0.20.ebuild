@@ -3,8 +3,9 @@
 # $Id$
 
 EAPI=5
-
 inherit cmake-utils gnome2-utils games
+
+EGIT_PN="${PN}-game"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-game"
@@ -14,16 +15,13 @@ LICENSE="CC-BY-SA-3.0 GPL-2 GPL-3 OFL-1.1"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
+RESTRICT="mirror"
 
-RDEPEND="~games-engines/flare-${PV}"
+RDEPEND="~games-engines/${P}"
 
 S="${WORKDIR}/${PN}-game-${PV}"
 
-src_prepare() {
-	sed -i \
-		-e "/Exec/s#@FLARE_EXECUTABLE_PATH@#flare-game#" \
-		distribution/flare.desktop.in || die
-}
+DOCS=()
 
 src_configure() {
 	local mycmakeargs=(
@@ -39,8 +37,11 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
+
 	games_make_wrapper "flare-game" "flare --game=flare-game"
 	make_desktop_entry "flare-game" "Flare (game)"
+
+	docinto game
 	dodoc README
 	prepgamesdirs
 }

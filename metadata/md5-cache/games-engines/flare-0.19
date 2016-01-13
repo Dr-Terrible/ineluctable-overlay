@@ -8,5 +8,5 @@ LICENSE=CC-BY-SA-3.0 GPL-3 OFL-1.1
 RDEPEND=>=media-libs/libsdl-1.2.15-r5[X,sound,joystick,video] media-libs/sdl-image[png] media-libs/sdl-mixer[vorbis] media-libs/sdl-ttf games-misc/games-envd
 SLOT=0
 SRC_URI=https://github.com/clintbellanger/flare-engine/archive/v0.19.tar.gz -> flare-0.19-engine.tar.gz
-_eclasses_=base	9fc6743731ec1d8d8a5eb88ccd5944b6	cmake-utils	34a43631b1edbd429618149bc986d524	eutils	43da5163ba106e87d22d2e7d6d67537f	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	games	4dae170e58f773c484e07d18ef441804	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	user	906f3c8eb3a2350a4f1191a89baa3e46
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	cmake-utils	b657a2689df4f46725711250cf9c8a32	eutils	d9bd2ddd85a58e470b49ca997e255a4c	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	games	4dae170e58f773c484e07d18ef441804	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
 _md5_=6d033eace40f513d0ebbe192a47ae2cf
