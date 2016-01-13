@@ -1,6 +1,9 @@
 [Unit]
 Description=Dropbox service (sandboxed for user @%i)
+
 After=local-fs.target network.target
+Requires=network.target
+
 AssertPathIsDirectory=/home/%i
 AssertPathIsDirectory=/home/%i/Dropbox
 AssertPathIsReadWrite=/home/%i/Dropbox

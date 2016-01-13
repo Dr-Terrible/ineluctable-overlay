@@ -7,5 +7,5 @@ IUSE=doc examples fmod generator
 LICENSE=MIT
 RDEPEND=x11-libs/cairo sys-libs/zlib[minizip] media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0 media-libs/freeimage media-libs/freetype media-libs/fontconfig media-libs/libsndfile virtual/opengl virtual/libudev dev-libs/openssl x11-libs/gtk+:3 media-libs/rtaudio media-libs/openal[pulseaudio,alsa] fmod? ( media-libs/fmod:1 )
 SLOT=0
-_eclasses_=eutils	9fb270e417e0e83d64ca52586c4a79de	flag-o-matic	c9602887773166fe300444712fc7ff98	git-r3	727a612b4c6247766904e3f74a326e2b	multilib	62927b3db3a589b0806255f3a002d5d3	toolchain-funcs	42408102d713fbad60ca21349865edb4
-_md5_=f13935154b23964fff05a6acb1647622
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	git-r3	0961ca04f93a7ae0e4c4a0b2b8c3be99	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=85d89c1ac776c37f6ac1d94cdc3f71fb

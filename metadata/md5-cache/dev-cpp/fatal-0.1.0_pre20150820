@@ -8,5 +8,5 @@ LICENSE=BSD
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/facebook/fatal/archive/17e882f50009ea5839cba20255515b2de1770406.tar.gz -> fatal-0.1.0_pre20150820.tar.gz
-_eclasses_=eutils	351a78113be5b393c09a2c948701ad36	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	toolchain-funcs	4b8d3388c0a6e798504e20ba30b49361
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
 _md5_=b43e04f833b8bb4a8796756f564f4ba3

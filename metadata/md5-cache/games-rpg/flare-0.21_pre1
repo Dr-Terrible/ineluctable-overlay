@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DEPEND=sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 ) >=sys-apps/sed-4
+DESCRIPTION=Free/Libre Action Roleplaying game
+EAPI=5
+HOMEPAGE=https://github.com/clintbellanger/flare-game
+KEYWORDS=~amd64 ~x86
+LICENSE=CC-BY-SA-3.0 GPL-2 GPL-3 OFL-1.1
+RDEPEND=~games-engines/flare-0.21_pre1 games-misc/games-envd
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/clintbellanger/flare-game/archive/611bfb648af57ac82aa63887b93b0020c69f17c7.tar.gz -> flare-game-611bfb648af57ac82aa63887b93b0020c69f17c7.tar.gz
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	cmake-utils	b657a2689df4f46725711250cf9c8a32	eutils	d9bd2ddd85a58e470b49ca997e255a4c	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	games	4dae170e58f773c484e07d18ef441804	gnome2-utils	2a93a5fe31c2295077e190059f4cf88d	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c	xdg-utils	e2b2bd56125ce8cf59ce30c642b59d48
+_md5_=73121736d25a450bd10c1fd6e32016a7

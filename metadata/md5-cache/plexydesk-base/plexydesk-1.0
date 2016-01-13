@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DESCRIPTION=PlexyDesk is an advanced multi-platform desktop manager to track time, tasks, and your social life
+EAPI=5
+HOMEPAGE=http://plexydesk.org
+IUSE=static-libs test
+KEYWORDS=amd64 x86 arm
+LICENSE=BSD
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/plexydesk/plexydesk/archive/ce3422aebbaed33ff5da66d07b148261d05da224.tar.gz -> plexydesk-1.0.tar.gz
+_eclasses_=cmake-utils	b657a2689df4f46725711250cf9c8a32	eutils	d9bd2ddd85a58e470b49ca997e255a4c	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=d55863680202f86fd3f69e7645cbf77e

@@ -9,5 +9,5 @@ LICENSE=MIT
 RDEPEND=media-libs/alsa-lib x11-libs/libX11 x11-libs/libXcursor squirrel? ( dev-lang/squirrel ) lua? ( dev-lang/lua:0 ) vorbis? ( media-libs/libvorbis media-libs/libogg ) minizip? ( sys-libs/zlib[minizip] ) opengl? ( virtual/opengl ) theora? ( >=media-libs/libtheora-1.1.1[encode] media-libs/libogg ) truetype? ( media-libs/freetype:2 ) speex? ( >=media-libs/speex-1.2_beta3 ) png? ( media-libs/libpng:0 ) jpeg? ( virtual/jpeg:0 ) webp? ( media-libs/libwebp ) musepack? ( >=media-sound/musepack-tools-444:0 )
 REQUIRED_USE=examples? ( doc )
 SLOT=0
-_eclasses_=eutils	95613dd6157fb4a3b225eafdc56bd441	git-r3	1502b9838d043db47700b8120083e637	multilib	df4e4d5cfd3d137d0c248e1991c0e4d6	scons-utils	b7d634f772db55c8af429f50aeec6ee0	toolchain-funcs	1dfcad7b3f439dbc511d76c49f23da0d
+_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	git-r3	0961ca04f93a7ae0e4c4a0b2b8c3be99	multilib	3972ca401cf7dbb430df9995f5d8d580	scons-utils	6a35944612b7ecb18a3803359554badc	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
 _md5_=57929076101fc6342d5d2cfe55722be3

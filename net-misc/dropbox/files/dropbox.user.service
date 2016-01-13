@@ -1,5 +1,6 @@
 [Unit]
 Description=Dropbox service (sandboxed for user @%u)
+
 AssertPathIsDirectory=%h
 AssertPathIsDirectory=%h/Dropbox
 AssertPathIsReadWrite=%h/Dropbox
