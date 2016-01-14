@@ -82,6 +82,7 @@ dev-ruby/shoulda-matchers 2.8.0-r1: Making tests easy on the fingers and eyes
 dev-ruby/stringex 2.5.2-r1: Extensions for Ruby's String class
 dev-ruby/toml 0.1.2-r1: A sane configuration format
 dev-ruby/webmock 1.22.6-r1: Allows stubbing HTTP requests and setting expectations on HTTP requests
+dev-util/bats 0.4.0: Bash Automated Testing System
 dev-util/codexl 1.3.3487-r1 1.4.5728 1.6.7247 1.7.7300 1.8.9654: CPU/GPU debugging and profiling suite by AMD
 dev-util/crash 7.1.3: Red Hat crash utility. Used for analyzing kernel core dumps
 dev-util/cxxtest 4.0.3 4.3: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
