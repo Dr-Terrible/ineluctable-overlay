@@ -17,6 +17,12 @@ RESTRICT+=" test mirror"
 
 RDEPEND="dev-vcs/git"
 
+src_prepare() {
+	sed -i \
+		-e "s:\$(DESTDIR)\$(SYSCONFDIR)/bash_completion.d:\$(DESTDIR)$(get_bashcompdir):" \
+	Makefile || die
+}
+
 src_compile() {
 	# we skip this because the first target of the
 	# Makefile is "install" and plain "make" would
