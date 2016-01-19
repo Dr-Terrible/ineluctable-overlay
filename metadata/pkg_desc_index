@@ -93,7 +93,7 @@ dev-util/oprofile 1.0.0-r10 1.1.0-r10: A transparent low-overhead system-wide pr
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
 dev-util/sassc 3.2.5 3.3.1 3.3.2: SaasC is an implementer for LibSaas
 dev-util/systemtap 2.8 2.9-r10: A linux trace/probe tool
-dev-vcs/git-extras 3.0.0: Little git extras
+dev-vcs/git-extras 3.0.0 4.0.0: Little git extras
 dev-vcs/gitflow-avh 1.8.0: Git extensions to provide repository operations for Vincent Driessen's branching model (AVH edition)
 games-engines/Torque3D 3.5 3.5.1: Torque3D is an cross-platform and open-source game engine
 games-engines/featherkit 1.0.0_rc4 9999: Feather Kit is a lightweight, open source framework for game development in C++
@@ -118,6 +118,7 @@ net-im/profanity 0.4.7: Profanity is a console based XMPP client inspired by irs
 net-libs/polarssl 1.3.13 2.1.1: Cryptographic library for embedded systems
 net-misc/dropbox 2.10.51 3.0.5 3.2.9 3.3.42 3.4.6 3.8.9 3.10.11: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2015.10.28: Cli interface for dropbox (python), part of nautilus-dropbox
+net-misc/remmina 1.2.0_rc8: A GTK+ RDP, VNC, XDMCP and SSH client
 net-misc/vde 2.3.2: vde2 is a virtual distributed ethernet emulator for emulators like qemu, bochs, and uml
 plexydesk-base/plexydesk 1.0: PlexyDesk is an advanced multi-platform desktop manager to track time, tasks, and your social life
 sys-apps/nix 1.7: A purely functional package manager

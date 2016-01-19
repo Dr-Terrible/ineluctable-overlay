@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=dev-libs/glib-2.31.18:2 >=net-libs/libvncserver-0.9.8.2 crypt? ( >=net-libs/libvncserver-0.9.8.2[gcrypt] ) x11-libs/libxkbfile x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11 virtual/freedesktop-icon-theme ayatana? ( dev-libs/libappindicator:3 ) crypt? ( dev-libs/libgcrypt:0= ) freerdp? ( >=net-misc/freerdp-1.2 ) gnome-keyring? ( gnome-base/libgnome-keyring ) libsecret? ( app-crypt/libsecret ) ssh? ( net-libs/libssh[sftp] ) telepathy? ( net-libs/telepathy-glib ) vte? ( x11-libs/vte:2.91 ) zeroconf? ( net-dns/avahi[gtk3] ) dev-util/intltool virtual/pkgconfig nls? ( sys-devel/gettext ) >=sys-apps/sed-4 sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DESCRIPTION=A GTK+ RDP, VNC, XDMCP and SSH client
+EAPI=5
+HOMEPAGE=http://remmina.org/ https://github.com/FreeRDP/Remmina
+IUSE=ayatana crypt debug freerdp gnome-keyring libsecret nls ssh telepathy vte zeroconf
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.31.18:2 >=net-libs/libvncserver-0.9.8.2 crypt? ( >=net-libs/libvncserver-0.9.8.2[gcrypt] ) x11-libs/libxkbfile x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11 virtual/freedesktop-icon-theme ayatana? ( dev-libs/libappindicator:3 ) crypt? ( dev-libs/libgcrypt:0= ) freerdp? ( >=net-misc/freerdp-1.2 ) gnome-keyring? ( gnome-base/libgnome-keyring ) libsecret? ( app-crypt/libsecret ) ssh? ( net-libs/libssh[sftp] ) telepathy? ( net-libs/telepathy-glib ) vte? ( x11-libs/vte:2.91 ) zeroconf? ( net-dns/avahi[gtk3] ) x11-base/xorg-server[kdrive] !net-misc/remmina-plugins
+REQUIRED_USE=ssh? ( vte )
+SLOT=0
+SRC_URI=https://github.com/FreeRDP/Remmina/archive/1.2.0-rcgit.8.tar.gz -> remmina-1.2.0_rc8.tar.gz
+_eclasses_=cmake-utils	b657a2689df4f46725711250cf9c8a32	eutils	d9bd2ddd85a58e470b49ca997e255a4c	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	gnome2-utils	2a93a5fe31c2295077e190059f4cf88d	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c	xdg-utils	e2b2bd56125ce8cf59ce30c642b59d48
+_md5_=a8c16799eb4c3ed522b680de225238f0
