@@ -13,6 +13,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+RESTRICT+=" test mirror"
+
 RDEPEND="dev-vcs/git"
 
 src_compile() {
@@ -24,6 +26,5 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" install || die "emake install fail"
-	nonfatal dodoc Readme.md
-	nonfatal newbashcomp "${D}/etc/bash_completion.d/${PN}" ${PN}
+	dodoc Readme.md
 }
