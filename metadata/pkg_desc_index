@@ -8,6 +8,7 @@ app-emulation/ganeti-webmgr 0.7.2 0.8: Ganeti Web Manager is an application for 
 app-emulation/vagrant 1.7.4: A tool for building and distributing virtual machines
 app-misc/abook 0.6.1_pre1: Abook is a text-based addressbook program designed to use with mutt mail client
 app-misc/khal 0.7.0: CLI calendar application
+app-misc/powerline 2.3: Python-based statusline/prompt utility
 app-misc/recoll 1.19.14-r2 1.20.6: A personal full text search package
 app-misc/watchman 3.8.0-r1 4.1.0 4.3.0: A file watching service
 app-text/FlightCrew 0.7.2: FlightCrew is a C++, cross-platform, native code EPUB validator.
