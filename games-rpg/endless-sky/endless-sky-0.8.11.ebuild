@@ -5,11 +5,9 @@
 EAPI=5
 inherit scons-utils gnome2-utils games
 
-ECOMMIT="d1591721e171a511013981ca608bb1c1e61f4d14"
-
 DESCRIPTION="Space exploration, trading, and combat game"
 HOMEPAGE="http://endless-sky.github.io"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${ECOMMIT}.tar.gz -> ${PF}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -24,8 +22,6 @@ DEPEND="media-libs/glew:0/1.10
 	virtual/opengl
 	media-libs/openal:0"
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-${ECOMMIT}"
 
 src_prepare(){
 	sed -i \
