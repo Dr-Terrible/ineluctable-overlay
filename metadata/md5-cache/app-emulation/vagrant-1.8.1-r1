@@ -9,6 +9,6 @@ LICENSE=MIT
 RDEPEND=!<app-emulation/vagrant-1.7.0 net-misc/curl:0 virtualbox? ( || ( app-emulation/virtualbox >=app-emulation/virtualbox-bin-2.2.0 ) )
 RESTRICT=mirror strip
 SLOT=0
-SRC_URI=amd64? ( https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.rpm ) x86? ( https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_i686.rpm )
+SRC_URI=amd64? ( https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.rpm ) x86? ( https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_i686.rpm )
 _eclasses_=eutils	28fb3e5852485af1c348d446b0b98389	multilib	3972ca401cf7dbb430df9995f5d8d580	rpm	514a1840ee796656311a029ea952faa9	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
-_md5_=7e8738f4fc734771eac2808765c2374f
+_md5_=a4bdc5ff74e14bb2087d393d3ba9b829
