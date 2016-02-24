@@ -5,7 +5,7 @@
 EAPI=5
 inherit bash-completion-r1
 
-DESCRIPTION="Bash function to run tasks in parallel and display pretty output as they complete"
+DESCRIPTION="Run tasks in parallel and display pretty output as they complete"
 HOMEPAGE="https://github.com/themattrix/${PN}"
 SRC_URI="https://github.com/themattrix/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
