@@ -9,10 +9,10 @@ app-emulation/ganeti-webmgr 0.7.2 0.8: Ganeti Web Manager is an application for 
 app-emulation/vagrant 1.7.4 1.8.1-r1: A tool for building and distributing virtual machines
 app-misc/abook 0.6.1_pre1: Abook is a text-based addressbook program designed to use with mutt mail client
 app-misc/khal 0.7.0: CLI calendar application
-app-misc/powerline 2.3: Python-based statusline/prompt utility
+app-misc/powerline 2.3-r1: Python-based statusline/prompt utility
 app-misc/recoll 1.19.14-r2 1.20.6: A personal full text search package
 app-misc/watchman 3.8.0-r1 4.1.0 4.3.0: A file watching service
-app-shells/bash-concurrent 2.0.0: Bash function to run tasks in parallel and display pretty output as they complete
+app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
 app-text/FlightCrew 0.7.2: FlightCrew is a C++, cross-platform, native code EPUB validator.
 app-text/sigil 0.7.4: Sigil is a multi-platform WYSIWYG ebook editor for ePub format.
 dev-cpp/ETL 0.04.17-r1: ETL is a multi-platform class and template library

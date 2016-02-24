@@ -4,7 +4,7 @@
 EAPI="5"
 
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
-inherit eutils readme.gentoo distutils-r1
+inherit eutils systemd readme.gentoo distutils-r1
 
 DESCRIPTION="Python-based statusline/prompt utility"
 HOMEPAGE="https://pypi.python.org/pypi/powerline-status"
@@ -39,12 +39,15 @@ RDEPEND="${CDEPEND}
 	rc? ( app-shells/rc )
 	zsh? ( app-shells/zsh )"
 
-MY_PN="powerline-status"
+MY_PN="${PN}-status"
 MY_P="${MY_PN}-${PV}"
-SRC_URI="mirror://pypi/p/${MY_PN}/${MY_P}.tar.gz"
+#SRC_URI="mirror://pypi/p/${MY_PN}/${MY_P}.tar.gz"
+
+ECOMMIT="7ed55bb25c8d9ab3f96d63e83d11772c2fd07c9e"
+SRC_URI="https://github.com/${PN}/${PN}/archive/${ECOMMIT}.tar.gz -> ${PF}.tar.gz"
 KEYWORDS="~amd64 ~x86"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}-${ECOMMIT}"
 
 # Source directory containing application-specific Powerline bindings, from
 # which all non-Python files will be removed. See python_prepare_all().
@@ -135,6 +138,11 @@ python_compile_all() {
 python_install_all() {
 	# Install man pages.
 	use man && doman man_pages/*.1
+
+	# Install init scripts
+	#systemd_dounit "${FILESDIR}/systemd/${PN}.service"
+	einfo "${S}/powerline/powerline/dist/systemd/powerline-daemon.service"
+	systemd_douserunit "${S}"/powerline/dist/systemd/powerline-daemon.service || die
 
 	# Contents of the "/usr/share/doc/${P}/README.gentoo" file to be installed.
 	DOC_CONTENTS=""
