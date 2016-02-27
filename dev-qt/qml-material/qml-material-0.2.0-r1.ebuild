@@ -52,5 +52,5 @@ src_install() {
 	fi
 
 	# remove bundled fonts
-#	rm -r "${ED}"/$( qt5_get_libdir )/qt5/qml/Material/fonts/roboto || die
+	rm -r "${ED}"/$( qt5_get_libdir )/qt5/qml/Material/fonts/roboto || die
 }
