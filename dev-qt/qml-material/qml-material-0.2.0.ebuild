@@ -1,10 +1,10 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
-inherit qmake-utils base python-any-r1
+inherit qmake-utils python-any-r1
 
 EDOC_COMMIT="7787a8677df40da76e66f2aea20567b4ca0434c1"
 
@@ -35,7 +35,8 @@ src_configure() {
 }
 
 src_install() {
-	base_src_install INSTALL_ROOT="${D}"
+	#cmake-utils_src_install
+	emake INSTALL_ROOT="${D}" install
 	einstalldocs
 
 	# Install HTML documentation
@@ -51,5 +52,5 @@ src_install() {
 	fi
 
 	# remove bundled fonts
-	rm -r "${ED}"/$( qt5_get_libdir )/qt5/qml/Material/fonts/roboto || die
+#	rm -r "${ED}"/$( qt5_get_libdir )/qt5/qml/Material/fonts/roboto || die
 }

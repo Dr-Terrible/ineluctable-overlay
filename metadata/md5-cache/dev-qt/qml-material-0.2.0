@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install setup
+DEPEND=doc? ( dev-qt/qdoc:5 dev-python/jinja dev-python/pygments )
+DESCRIPTION=Material Design implemented in QML
+EAPI=5
+HOMEPAGE=http://papyros.io
+IUSE=doc test
+KEYWORDS=amd64 ~x86 ~arm
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtdeclarative:5 dev-qt/qtquickcontrols:5[widgets] dev-qt/qtgraphicaleffects:5 media-fonts/roboto
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/papyros/qml-material/archive/v0.2.0.tar.gz -> qml-material-0.2.0.tar.gz doc? ( https://github.com/papyros/docmaker/archive/7787a8677df40da76e66f2aea20567b4ca0434c1.tar.gz -> qml-material-0.2.0-docmaker.tar.gz )
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	multilib	3972ca401cf7dbb430df9995f5d8d580	python-any-r1	8eb13cdf35f6e43c48107b911900b2cc	python-utils-r1	2e6826f6a93ad2acf904eecf5b5fb6d2	qmake-utils	0a242e7177789b0028b4045f336dd4db	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_md5_=f7dbd1bda85f3a843794d7993cbbc7db
