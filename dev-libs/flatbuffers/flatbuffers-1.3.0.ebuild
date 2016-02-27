@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="doc examples java test"
 
-CDEPEND="java? ( >=dev-java/antlr-2.7.7:0[java] )"
+CDEPEND="java? ( >=dev-java/antlr-2.7.7:0 )"
 DEPEND="${CDEPEND}
 	java? ( >=virtual/jdk-1.6 )"
 RDEPEND="${CDEPEND}
@@ -73,7 +73,11 @@ src_install() {
 	# Installs C++ libraries, compiler, and docs
 	cmake-utils_src_install
 
-	# Fix C++ doc nomenclature
+	# Installs CMake macros
+	insinto /usr/share/cmake/Modules
+	doins CMake/FindFlatBuffers.cmake
+
+	# Fixes C++ doc nomenclature
 	if use doc; then
 		mv \
 			"${ED}"/usr/share/doc/${PF}/html/html \
