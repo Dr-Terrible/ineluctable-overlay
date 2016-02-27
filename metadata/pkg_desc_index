@@ -141,4 +141,3 @@ www-client/vimb 2.11: a fast, lightweight, vim-like browser based on webkit
 www-servers/lwan 20150703: Experimental, scalable, high performance HTTP server
 www-servers/mongrel 1.8.1 1.9.3: Mongrel is an agnostic web server that focuses on web applications using modern browser technologies
 www-servers/wsgid 0.6.0 0.7.1: Wsgid is a generic WSGI handler for mongrel2 web server
-x11-base/xynth 0.8.20 0.10.82: Xynth is a portable embedded windowing system
