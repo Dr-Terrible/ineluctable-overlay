@@ -125,8 +125,8 @@ media-libs/artoolkit 2.72.1-r10: The ARToolKit library
 media-libs/libsfml 2.1-r10 2.2-r10 2.3-r10 2.3.2-r10: Simple and Fast Multimedia Library (SFML)
 net-im/profanity 0.4.7: Profanity is a console based XMPP client inspired by irssi
 net-libs/polarssl 1.3.13 2.1.1: Cryptographic library for embedded systems
-net-misc/dropbox 2.10.51 3.0.5 3.2.9 3.3.42 3.4.6 3.8.9 3.10.11: Dropbox daemon (pretends to be GUI-less)
-net-misc/dropbox-cli 2015.10.28: Cli interface for dropbox (python), part of nautilus-dropbox
+net-misc/dropbox 2.10.51 3.0.5 3.2.9 3.3.42 3.4.6 3.8.9 3.10.11 3.14.7: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox-cli 2015.10.28 2015.10.28-r1: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/remmina 1.2.0_rc8: A GTK+ RDP, VNC, XDMCP and SSH client
 net-misc/vde 2.3.2: vde2 is a virtual distributed ethernet emulator for emulators like qemu, bochs, and uml
 plexydesk-base/plexydesk 1.0: PlexyDesk is an advanced multi-platform desktop manager to track time, tasks, and your social life
