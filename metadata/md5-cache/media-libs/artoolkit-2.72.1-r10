@@ -10,5 +10,5 @@ RDEPEND=media-libs/freeglut virtual/opengl jpeg? ( virtual/jpeg:0 ) gstreamer? (
 REQUIRED_USE=dv? ( ieee1394 ) ieee1394? ( gstreamer )
 SLOT=0
 SRC_URI=mirror://sourceforge/artoolkit/ARToolKit-2.72.1.tgz
-_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	linux-info	8f92e5ac1a1da684c5450b1b21a1f56a	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=60a6ddcab67d76bf46e06b0452452647
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	linux-info	fd1e29abbb02cbc49f1a14299846e9c4	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=05adc69830efed2be4aba60d258feabf

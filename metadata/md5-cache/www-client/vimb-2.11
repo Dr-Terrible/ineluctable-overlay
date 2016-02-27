@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RDEPEND=>=net-libs/libsoup-2.38:2.4 !gtk3? ( >=net-libs/webkit-gtk-1.5.0:2 x11-libs/gtk+:2 ) gtk3? ( >=net-libs/webkit-gtk-1.5.0:3 x11-libs/gtk+:3 )
 SLOT=0
 SRC_URI=https://github.com/fanglingsu/vimb/archive/2.11.tar.gz -> vimb-2.11.tar.gz
-_eclasses_=eutils	7332d4dd366dcd51c0014dde21f21897	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
 _md5_=0d24ffb317e116faed3391692c3bdff5

@@ -8,4 +8,4 @@ LICENSE=MIT
 RDEPEND=dev-libs/ocl-icd =sys-devel/llvm-3.7* sys-apps/hwloc
 SLOT=0
 SRC_URI=http://portablecl.org/downloads/pocl-0.12.tar.gz
-_md5_=818c29d7de77ed967f046b6cb6797ba8
+_md5_=af07863cad8e43d9bc3edd3f06378b70

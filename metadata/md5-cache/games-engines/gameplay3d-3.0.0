@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DEPEND=virtual/pkgconfig doc? ( app-doc/doxygen ) sys-devel/make >=dev-util/cmake-2.8.12
 DESCRIPTION=GamePlay3D is an open-source, cross-platform 3D game framework written in C++.
 EAPI=5
 HOMEPAGE=http://www.gameplay3d.org
@@ -10,5 +10,5 @@ RDEPEND=virtual/opengl virtual/glu >=media-libs/glew-1.10.0[static-libs] >=media
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/blackberry/GamePlay/archive/v3.0.0.tar.gz -> gameplay3d-3.0.0.tar.gz https://github.com/blackberry/GamePlay/releases/download/v3.0.0/gameplay-deps.zip -> gameplay3d-3.0.0-deps.zip
-_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	cmake-utils	b657a2689df4f46725711250cf9c8a32	eutils	d9bd2ddd85a58e470b49ca997e255a4c	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=89dfb9e7de6641a2a8b284701bae5b4b
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	cmake-utils	c67ce9708a9c02be2d296cf547740e9c	eutils	9d81603248f2ba3ec59124320d123e5e	flag-o-matic	d270fa247153df66074f795fa42dba3e	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=6381dabfd8c9ece255da3958f15e3223

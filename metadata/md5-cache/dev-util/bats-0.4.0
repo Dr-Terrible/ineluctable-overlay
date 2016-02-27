@@ -7,5 +7,5 @@ KEYWORDS=amd64 x86 arm
 LICENSE=BSD
 SLOT=0
 SRC_URI=https://github.com/sstephenson/bats/archive/v0.4.0.tar.gz -> bats.tar.gz
-_eclasses_=eutils	d9bd2ddd85a58e470b49ca997e255a4c	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
+_eclasses_=eutils	9d81603248f2ba3ec59124320d123e5e	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85
 _md5_=0da7d20d6085ed06674e25dd266e8eba

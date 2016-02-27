@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=media-libs/freetype:2 media-libs/glew:= media-libs/libpng:0= media-libs/libsndfile media-libs/mesa media-libs/openal sys-libs/zlib virtual/jpeg:0 virtual/udev x11-libs/libX11 x11-libs/libXrandr doc? ( app-doc/doxygen ) sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DEPEND=media-libs/freetype:2 media-libs/glew:= media-libs/libpng:0= media-libs/libsndfile media-libs/mesa media-libs/openal sys-libs/zlib virtual/jpeg:0 virtual/udev x11-libs/libX11 x11-libs/libXrandr doc? ( app-doc/doxygen ) sys-devel/make >=dev-util/cmake-2.8.12
 DESCRIPTION=Simple and Fast Multimedia Library (SFML)
 EAPI=5
 HOMEPAGE=http://sfml.sourceforge.net/ https://github.com/LaurentGomila/SFML
@@ -9,5 +9,5 @@ LICENSE=ZLIB
 RDEPEND=media-libs/freetype:2 media-libs/glew:= media-libs/libpng:0= media-libs/libsndfile media-libs/mesa media-libs/openal sys-libs/zlib virtual/jpeg:0 virtual/udev x11-libs/libX11 x11-libs/libXrandr
 SLOT=0
 SRC_URI=https://github.com/LaurentGomila/SFML/archive/2.2.tar.gz -> libsfml-2.2.tar.gz
-_eclasses_=cmake-utils	b657a2689df4f46725711250cf9c8a32	eutils	d9bd2ddd85a58e470b49ca997e255a4c	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=c2699ba0c598b35a44454d899702074d
+_eclasses_=cmake-utils	c67ce9708a9c02be2d296cf547740e9c	eutils	9d81603248f2ba3ec59124320d123e5e	flag-o-matic	d270fa247153df66074f795fa42dba3e	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=e4c3918b9957a7163bde35f9c96db5b8

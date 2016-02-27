@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst preinst prepare pretend setup test unpack
-DEPEND=>=media-libs/libsdl-1.2.7:0[joystick,video,X] media-libs/sdl-net !dedicated? ( >=media-libs/sdl-ttf-2.0.8 >=media-libs/sdl-mixer-1.2[vorbis] >=media-libs/sdl-image-1.2[jpeg,png] fribidi? ( dev-libs/fribidi ) dbus? ( sys-apps/dbus ) sys-libs/zlib x11-libs/pango media-libs/fontconfig ) >=dev-libs/boost-1.48[nls?,threads] virtual/libintl !dedicated? ( || ( dev-lang/lua:0 dev-lang/lua:5.1 ) ) virtual/pkgconfig sys-devel/gettext sys-devel/make >=dev-util/cmake-2.8.12 userland_GNU? ( >=sys-apps/findutils-4.4.0 )
+DEPEND=>=media-libs/libsdl-1.2.7:0[joystick,video,X] media-libs/sdl-net !dedicated? ( >=media-libs/sdl-ttf-2.0.8 >=media-libs/sdl-mixer-1.2[vorbis] >=media-libs/sdl-image-1.2[jpeg,png] fribidi? ( dev-libs/fribidi ) dbus? ( sys-apps/dbus ) sys-libs/zlib x11-libs/pango media-libs/fontconfig ) >=dev-libs/boost-1.48[nls?,threads] virtual/libintl !dedicated? ( || ( dev-lang/lua:0 dev-lang/lua:5.1 ) ) virtual/pkgconfig sys-devel/gettext sys-devel/make >=dev-util/cmake-2.8.12
 DESCRIPTION=Battle for Wesnoth - A fantasy turn-based strategy game
 EAPI=5
 HOMEPAGE=http://www.wesnoth.org/
@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=>=media-libs/libsdl-1.2.7:0[joystick,video,X] media-libs/sdl-net !dedicated? ( >=media-libs/sdl-ttf-2.0.8 >=media-libs/sdl-mixer-1.2[vorbis] >=media-libs/sdl-image-1.2[jpeg,png] fribidi? ( dev-libs/fribidi ) dbus? ( sys-apps/dbus ) sys-libs/zlib x11-libs/pango media-libs/fontconfig ) >=dev-libs/boost-1.48[nls?,threads] virtual/libintl games-misc/games-envd
 SLOT=0
 SRC_URI=https://github.com/wesnoth/wesnoth/archive/1.12.1.tar.gz -> wesnoth-1.12.1.tar.gz
-_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	cmake-utils	b657a2689df4f46725711250cf9c8a32	eutils	d9bd2ddd85a58e470b49ca997e255a4c	flag-o-matic	85dc1eac3c64d8141374490ed64122e5	games	4dae170e58f773c484e07d18ef441804	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
-_md5_=ba05b64dacd8bec1ffa52349c84b6be1
+_eclasses_=base	3fe4f8980633fd7bc69e9887209ba2fe	cmake-utils	c67ce9708a9c02be2d296cf547740e9c	eutils	9d81603248f2ba3ec59124320d123e5e	flag-o-matic	d270fa247153df66074f795fa42dba3e	games	2cf0d67d765e6358b435ccda30c13ad8	multilib	3972ca401cf7dbb430df9995f5d8d580	toolchain-funcs	7a212e5e01adfa4805c9978366e6ee85	user	906f3c8eb3a2350a4f1191a89baa3e46	versionator	99ae9d758cbe7cfed19170e7d48f5a9c
+_md5_=5ab0feb8b3b83ca1c152b2c8da5112ec
