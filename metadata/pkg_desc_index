@@ -44,12 +44,14 @@ dev-python/django-haystack 1.2.6: Modular search for django
 dev-python/django-muddle-users 0.5: Muddle Users is an django app that provides management interface for Users and Groups
 dev-python/django-object-log 0.7: This app provides the ability to log user actions on model instances
 dev-python/django-object-permissions 1.4.2 9999: This is an implementation of Django Object Permissions
+dev-python/future 0.15.2: Clean single-source support for Python 3 and 2
 dev-python/ganeti-webmgr-layout 0.8: Muddled layout for Ganeti Web Manager
 dev-python/idiopidae 0.5.4: A book compiler for programmers where code and prose are separate
 dev-python/inflection 0.2.0: A port of Ruby on Rails inflector to Python
 dev-python/muddle 0.1 9999: Muddle is set of tools that aid building pluggable django apps
 dev-python/ordereddict 1.1: A drop-in substitute for Py2.7's new collections.OrderedDict that works in Python 2.4-2.6
 dev-python/plugnplay 0.4.2: A Generic plug-in system for python
+dev-python/proselint 0.4.0: A linter for prose
 dev-python/python-modargs 1.7: modargs is a command line argument parsing library that infers arguments from functions in a module
 dev-python/requests-toolbelt 0.5.1: toolbelt of useful classes and functions to be used with python-requests
 dev-python/smartypants 1.8.6: A port of SmartyPants PHP to Python
@@ -104,14 +106,14 @@ dev-vcs/git-extras 3.0.0 4.0.0: Little git extras
 dev-vcs/gitflow-avh 1.8.0: Git extensions to provide repository operations for Vincent Driessen's branching model (AVH edition)
 games-engines/Torque3D 3.5 3.5.1: Torque3D is an cross-platform and open-source game engine
 games-engines/featherkit 1.0.0_rc4 9999: Feather Kit is a lightweight, open source framework for game development in C++
-games-engines/flare 0.19 0.20 0.21_pre1: Free/Libre Action Roleplaying game
+games-engines/flare 0.19 0.20 0.21_pre2: Free/Libre Action Roleplaying game
 games-engines/gameplay3d 2.0.0 3.0.0 9999: GamePlay3D is an open-source, cross-platform 3D game framework written in C++.
 games-engines/godot 1.0-r99 1.1: Godot is a fully featured, open source, MIT licensed, game engine
 games-engines/panda3d 1.8.1 9999: Panda3D is a framework for 3D rendering and game development
 games-engines/redpanda 0.1.0: An open-source 3D framework
 games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
 games-rpg/endless-sky 0.8.8 0.8.9 0.8.10 0.8.11: Space exploration, trading, and combat game
-games-rpg/flare 0.19 0.19-r121 0.20 0.21_pre1: Free/Libre Action Roleplaying game
+games-rpg/flare 0.19 0.20 0.21_pre2: Free/Libre Action Roleplaying game
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 games-strategy/wesnoth 1.12.1-r10 1.13.1-r10: Battle for Wesnoth - A fantasy turn-based strategy game
 mail-client/jaromail 3.2 3.3_pre20150918: A command-line MUA to easily and privately handle your e-mails.
