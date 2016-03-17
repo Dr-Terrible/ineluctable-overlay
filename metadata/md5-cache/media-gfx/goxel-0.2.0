@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=media-libs/glfw-3.1.1 dev-libs/atk:0 dev-libs/glib:2 virtual/opengl sys-libs/zlib:0 x11-libs/cairo:0 x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango:0 dev-util/scons
+DESCRIPTION=Open source 3D voxel editor
+EAPI=6
+HOMEPAGE=https://github.com/guillaumechereau/goxel
+IUSE=debug
+KEYWORDS=amd64 x86
+LICENSE=GPL-3
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/guillaumechereau/goxel/archive/v0.2.0.tar.gz -> goxel-0.2.0.tar.gz
+_eclasses_=scons-utils	6a35944612b7ecb18a3803359554badc
+_md5_=a4738bb9f3a7ef5f02d19b6ba6eadc50
