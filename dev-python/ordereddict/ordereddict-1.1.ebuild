@@ -6,8 +6,7 @@ EAPI=5
 PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1
 
-DESCRIPTION="A drop-in substitute for Py2.7's new collections.OrderedDict that
-works in Python 2.4-2.6"
+DESCRIPTION="A drop-in substitute for Py2.7's new collections.OrderedDict that works in Python 2.4-2.6"
 HOMEPAGE="http://pypi.python.org/pypi/${PN}"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

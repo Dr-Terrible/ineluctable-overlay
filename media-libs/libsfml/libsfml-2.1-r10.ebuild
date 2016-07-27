@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug doc examples static-libs"
 
 RDEPEND="media-libs/freetype:2
-	media-libs/glew
+	media-libs/glew:0
 	media-libs/libpng:0=
 	media-libs/libsndfile
 	media-libs/mesa

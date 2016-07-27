@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit base
+inherit eutils
 
 DESCRIPTION="Mongrel is an agnostic web server that focuses on web applications using modern browser technologies"
 HOMEPAGE="http://mongrel2.org"
@@ -42,6 +42,10 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.9.2-system-polarssl.patch
 )
 
+src_prepare() {
+	epatch "${PATCHES[@]}"
+	epatch_user
+}
 src_configure() { :; }
 
 src_compile() {

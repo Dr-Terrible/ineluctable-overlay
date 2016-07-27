@@ -22,7 +22,7 @@ IUSE=""
 ruby_add_rdepend "dev-ruby/coolio
 	dev-ruby/iobuffer
 	>=dev-ruby/jeweler-2.0.1
-	>=dev-ruby/json-1.5.4
+	dev-ruby/json:0
 	>=dev-ruby/msgpack-0.5.6
 	dev-ruby/yajl-ruby"
 
