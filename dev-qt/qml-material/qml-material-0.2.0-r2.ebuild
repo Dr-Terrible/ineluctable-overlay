@@ -3,15 +3,11 @@
 # $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_7 )
-inherit qmake-utils python-any-r1
-
-EDOC_COMMIT="7787a8677df40da76e66f2aea20567b4ca0434c1"
+inherit eutils qmake-utils
 
 DESCRIPTION="Material Design implemented in QML"
 HOMEPAGE="http://papyros.io"
-SRC_URI="https://github.com/papyros/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	doc? ( https://github.com/papyros/docmaker/archive/${EDOC_COMMIT}.tar.gz -> ${P}-docmaker.tar.gz )"
+SRC_URI="https://github.com/papyros/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -30,12 +26,15 @@ RDEPEND="dev-qt/qtdeclarative:5
 	dev-qt/qtgraphicaleffects:5
 	media-fonts/roboto"
 
+src_prepare(){
+	epatch "${FILESDIR}/${PN}-doc.patch"
+}
+
 src_configure() {
 	eqmake5 ${PN}.pro
 }
 
 src_install() {
-	#cmake-utils_src_install
 	emake INSTALL_ROOT="${D}" install
 	einstalldocs
 
@@ -45,8 +44,6 @@ src_install() {
 			mkdir html || die
 			QT_SELECT="qt5" qdoc \
 				material.qdocconf || die
-			${EPYTHON} "${WORKDIR}"/docmaker-${EDOC_COMMIT}/docmaker.py \
-				ditaxml html || die
 			dohtml -A dita,index -r html/*
 		popd
 	fi
