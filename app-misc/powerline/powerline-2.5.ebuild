@@ -4,14 +4,19 @@
 EAPI="5"
 
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
-inherit eutils systemd readme.gentoo distutils-r1
+inherit font systemd readme.gentoo-r1 distutils-r1
+
+ECOMMIT="6e2e0b2f9221fbff117be3d190f9293b40ba64cd"
 
 DESCRIPTION="Python-based statusline/prompt utility"
 HOMEPAGE="https://pypi.python.org/pypi/powerline-status"
+SRC_URI="https://github.com/${PN}/${PN}/archive/${ECOMMIT}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="awesome busybox +bash dash doc +extra fish +man mksh rc qtile tmux +zsh"
+
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Some optional dependencies are only available for a limited subset of
@@ -28,7 +33,7 @@ DEPEND="
 	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
 	man? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
 RDEPEND="${CDEPEND}
-	media-fonts/powerline-symbols
+	!media-fonts/powerline-symbols
 	awesome? ( >=x11-wm/awesome-3.5.1 )
 	bash? ( app-shells/bash )
 	busybox? ( sys-apps/busybox )
@@ -39,15 +44,12 @@ RDEPEND="${CDEPEND}
 	rc? ( app-shells/rc )
 	zsh? ( app-shells/zsh )"
 
-MY_PN="${PN}-status"
-MY_P="${MY_PN}-${PV}"
-#SRC_URI="mirror://pypi/p/${MY_PN}/${MY_P}.tar.gz"
-
-ECOMMIT="7ed55bb25c8d9ab3f96d63e83d11772c2fd07c9e"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${ECOMMIT}.tar.gz -> ${PF}.tar.gz"
-KEYWORDS="~amd64 ~x86"
-
 S="${WORKDIR}/${PN}-${ECOMMIT}"
+
+# OpenType Unicode font with symbols for Powerline/Airline
+FONT_S="${S}/font"
+FONT_SUFFIX="otf"
+FONT_CONF=( 10-powerline-symbols.conf )
 
 # Source directory containing application-specific Powerline bindings, from
 # which all non-Python files will be removed. See python_prepare_all().
@@ -275,6 +277,20 @@ python_install_all() {
 	distutils-r1_python_install_all
 }
 
+pkg_setup() {
+	font_pkg_setup
+}
+
+src_install() {
+	distutils-r1_src_install
+	font_src_install
+}
+
 pkg_postinst() {
+	font_pkg_postinst
 	readme.gentoo_print_elog
+}
+
+pkg_postrm() {
+	font_pkg_postrm
 }
