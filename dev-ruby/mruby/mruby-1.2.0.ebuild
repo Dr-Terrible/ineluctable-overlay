@@ -24,10 +24,6 @@ RESTRICT="mirror"
 
 DOCS=(AUTHORS ChangeLog NEWS README.md TODO CONTRIBUTING.md)
 
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-termcap.patch
-}
-
 src_install() {
 	# installing binaries and libraries
 	dobin bin/{mirb,mrbc,mruby}

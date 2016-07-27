@@ -7,7 +7,7 @@ inherit eutils git-r3
 
 EGIT_REPO_URI="git://github.com/mruby/mruby.git"
 
-DESCRIPTION="mruby is the lightweight implementation of the Ruby language complying to part of the ISO standard"
+DESCRIPTION="A lightweight implementation of Ruby complying to part of the ISO standard"
 HOMEPAGE="http://www.mruby.org"
 
 LICENSE="MIT"
