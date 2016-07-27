@@ -5,9 +5,9 @@
 EAPI=5
 inherit eutils
 
-DESCRIPTION="Mongrel is an agnostic web server that focuses on web applications using modern browser technologies"
+DESCRIPTION="A web server that focuses on web applications using modern browser technologies"
 HOMEPAGE="http://mongrel2.org"
-SRC_URI="https://github.com/${PN}2/${PN}2/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}2/${PN}2/archive/v${PV}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="BSD"
 SLOT="2"

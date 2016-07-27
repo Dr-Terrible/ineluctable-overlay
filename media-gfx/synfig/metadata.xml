@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	
 	<maintainer>
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
@@ -10,5 +9,6 @@
 	<use>
 		<flag name="swscale">Enables image scaling and conversion via libswscale (part of FFmpeg).</flag>
 		<flag name="avcodec">Enables libavcodec support for video/audio encoding/decoding. libavcodec is part of FFmpeg.</flag>
+		<flag name="opencl">Enable OpenCL support</flag>
 	</use>
 </pkgmetadata>
