@@ -11,7 +11,7 @@ inherit user python-single-r1 autotools-utils
 
 DESCRIPTION="A file watching service"
 HOMEPAGE="https://facebook.github.io/watchman"
-SRC_URI="https://github.com/facebook/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/facebook/${PN}/archive/v${PV}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -20,12 +20,11 @@ IUSE="debug +pcre python ssp test doc"
 
 RESTRICT="mirror"
 
-CDEPEND="pcre? ( dev-libs/libpcre )"
-DEPEND="${CDEPEND}
-	doc? ( www-apps/jekyll )"
-RDEPEND="${CDEPEND}"
-
-DOCS=()
+RDEPEND="pcre? ( dev-libs/libpcre )"
+DEPEND="doc? (
+	www-apps/jekyll
+	dev-ruby/pygments_rb
+)"
 
 pkg_setup() {
 	enewgroup ${PN}
