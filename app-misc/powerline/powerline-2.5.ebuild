@@ -49,7 +49,7 @@ S="${WORKDIR}/${PN}-${ECOMMIT}"
 # OpenType Unicode font with symbols for Powerline/Airline
 FONT_S="${S}/font"
 FONT_SUFFIX="otf"
-FONT_CONF=( 10-powerline-symbols.conf )
+FONT_CONF=( ${FONT_S}/10-powerline-symbols.conf )
 
 # Source directory containing application-specific Powerline bindings, from
 # which all non-Python files will be removed. See python_prepare_all().
@@ -283,6 +283,8 @@ pkg_setup() {
 
 src_install() {
 	distutils-r1_src_install
+
+	# Install Powerline fontset
 	font_src_install
 }
 
