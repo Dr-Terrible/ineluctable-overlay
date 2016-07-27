@@ -26,7 +26,8 @@
 		<flag name="webp">Enable support for the webp image format</flag>
 		<flag name="dds">Enable support for the DDS Texture loader</flag>
 		<flag name="pvr">Enable support for the PVR (PowerVR) Texture loader</flag>
-		<flag name="nedmalloc">Enable support for nedmalloc</flag>
 		<flag name="etc">Enable support for texture compression</flag>
+		<flag name="squish">Enable support for DXT1, DXT3 and DXT5 formats using libsquish</flag>
+		<flag name="3d">Enable support for the 3D API. Disable it if you are going to use only the 2D API</flag>
 	</use>
 </pkgmetadata>
