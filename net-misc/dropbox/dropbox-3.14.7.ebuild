@@ -32,7 +32,6 @@ RDEPEND="
 		dev-qt/qtgui:5
 		dev-qt/qtnetwork:5
 		dev-qt/qtprintsupport:5
-		dev-qt/qtquick1:5
 		dev-qt/qtwebkit:5
 		dev-qt/qtwidgets:5
 		media-libs/libpng:1.2
@@ -115,7 +114,7 @@ src_install() {
 
 	# installing init scripts
 	newinitd "${FILESDIR}"/${PN}.initd dropbox
-	newconfd "${FILESDIR}"/${PN}.confd dropbox
+	newconfd "${FILESDIR}"/${PN}.conf dropbox
 
 	systemd_newunit "${FILESDIR}"/${PN}.system.service "${PN}.service"
 	systemd_newunit "${FILESDIR}"/${PN}.system.service "${PN}@.service"
