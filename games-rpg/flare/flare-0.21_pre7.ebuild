@@ -3,10 +3,10 @@
 # $Id$
 
 EAPI=5
-inherit cmake-utils gnome2-utils games
+inherit cmake-utils gnome2-utils
 
 EGIT_PN="${PN}-game"
-EGIT_COMMIT="4996ad83408fe73e6eaa20304e1a56773b3bf5a4"
+EGIT_COMMIT="4e586dea9867b3e236af621d156f109b59fa78f8"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-game"
@@ -25,8 +25,8 @@ DOCS=()
 
 src_configure() {
 	local mycmakeargs=(
-		-DBINDIR="${GAMES_BINDIR}"
-		-DDATADIR="${GAMES_DATADIR}/${PN}"
+		-DBINDIR="/usr/bin"
+		-DDATADIR="/usr/share/${PN}"
 	)
 	cmake-utils_src_configure
 }

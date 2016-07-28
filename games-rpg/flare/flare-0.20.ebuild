@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit cmake-utils gnome2-utils games
+inherit cmake-utils gnome2-utils
 
 EGIT_PN="${PN}-game"
 
@@ -25,8 +25,8 @@ DOCS=()
 
 src_configure() {
 	local mycmakeargs=(
-		-DBINDIR="${GAMES_BINDIR}"
-		-DDATADIR="${GAMES_DATADIR}/${PN}"
+		-DBINDIR="/usr/bin"
+		-DDATADIR="/usr/share/${PN}"
 	)
 	cmake-utils_src_configure
 }

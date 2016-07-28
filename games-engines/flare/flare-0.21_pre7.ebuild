@@ -4,10 +4,10 @@
 
 EAPI=5
 CMAKE_IN_SOURCE_BUILD=1
-inherit cmake-utils games
+inherit cmake-utils
 
 EGIT_PN="${PN}-engine"
-EGIT_COMMIT="3daed8d7b3db2eb268f4b18c0bf37b7176be4eee"
+EGIT_COMMIT="e8d0dab83f9b963a792d129d5f6e791d61af1966"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
@@ -32,8 +32,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DUSE_SDL2=ON
 		-DSDL1_FALLBACK=FALSE
-		-DBINDIR="${GAMES_BINDIR}"
-		-DDATADIR="${GAMES_DATADIR}/${PN}"
+		-DBINDIR="/usr/bin"
+		-DDATADIR="/usr/share/${PN}"
 	)
 	cmake-utils_src_configure
 }

@@ -3,8 +3,7 @@
 # $Id$
 
 EAPI=5
-
-inherit cmake-utils gnome2-utils games
+inherit cmake-utils gnome2-utils
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-game"
@@ -27,8 +26,8 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBINDIR="${GAMES_BINDIR}"
-		-DDATADIR="${GAMES_DATADIR}/${PN}"
+		-DBINDIR="/usr/bin"
+		-DDATADIR="/usr/share/${PN}"
 	)
 	cmake-utils_src_configure
 }

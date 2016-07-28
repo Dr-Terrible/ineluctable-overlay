@@ -4,7 +4,7 @@
 
 EAPI=5
 CMAKE_IN_SOURCE_BUILD=1
-inherit cmake-utils games
+inherit cmake-utils
 
 EGIT_PN="${PN}-engine"
 
@@ -32,8 +32,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DUSE_SDL2=ON
 		-DSDL1_FALLBACK=FALSE
-		-DBINDIR="${GAMES_BINDIR}"
-		-DDATADIR="${GAMES_DATADIR}/${PN}"
+		-DBINDIR="/usr/bin"
+		-DDATADIR="/usr/share/${PN}"
 	)
 	cmake-utils_src_configure
 }
