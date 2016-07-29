@@ -16,7 +16,6 @@
 		folders with others across the Internet using file synchronization.
 	</longdescription>
 	<use>
-		<flag name="librsync-bundled">Use bundled librsync library</flag>
 		<flag name="system-librsync">Use the system-wide <pkg>net-libs/librsync</pkg> instead of bundled</flag>
 		<flag name="cli">Install the official Dropbox Command Line Interface</flag>
 	</use>

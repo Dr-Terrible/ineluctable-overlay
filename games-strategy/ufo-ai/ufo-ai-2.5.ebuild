@@ -4,7 +4,7 @@
 
 EAPI=5
 AUTOTOOLS_IN_SOURCE_BUILD=1
-inherit autotools-utils flag-o-matic games
+inherit autotools-utils flag-o-matic
 
 MY_PN=${PN/o-a/oa}
 MY_P=${P/o-a/oa}
@@ -73,11 +73,11 @@ src_configure() {
 		$(use_enable dedicated ufoded)
 		--enable-game
 		--target-os=linux
-		--bindir="${GAMES_BINDIR}"
+		--bindir="/bin/dir"
 		--libdir="$(games_get_libdir)"
-		--datadir="${GAMES_DATADIR}/${PN/-}"
+		--datadir="/usr/share/${PN/-}"
 		--localedir="${EPREFIX}/usr/share/locale/"
-		--prefix="${GAMES_PREFIX}"
+		--prefix="/usr/games"
 	)
 	./configure ${myeconfargs[@]} || die
 }
@@ -107,12 +107,12 @@ src_install() {
 	use game && make_desktop_entry ufo "UFO: Alien Invasion" ${PN}
 
 	if ! use dedicated; then
-		rm "${ED}/${GAMES_BINDIR}"/ufoded || die
+		rm "${ED}"/usr/bin/ufoded || die
 	fi
 	use dedicated && make_desktop_entry ufoded "UFO: Alien Invasion Server" ${PN}
 
 	if ! use editor; then
-		rm "${ED}/${GAMES_BINDIR}"/uforadiant || die
+		rm "${ED}"/usr/bin/uforadiant || die
 	fi
 
 	prepgamesdirs

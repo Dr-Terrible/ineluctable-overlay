@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit base flag-o-matic cmake-utils git-r3
+inherit eutils flag-o-matic cmake-utils git-r3
 
 MY_PN="GamePlay"
 
@@ -48,7 +48,8 @@ src_unpack() {
 }
 
 src_prepare() {
-	base_src_prepare
+	epatch "${PATCHES[@]}"
+	epatch_user
 
 	# TODO: remove bundled libs
 	# NOTE: GamePlay3D's deps are statically linked against libgameplay.so, so we need to rely on external USE 'static-libs' (which are missing for some packages, such as bullet and freetype2) and then patch CMake files.

@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit base flag-o-matic cmake-multilib
+inherit eutils flag-o-matic cmake-multilib
 
 MY_PN="GamePlay"
 
@@ -45,7 +45,8 @@ PATCHES=(
 )
 
 src_prepare() {
-	base_src_prepare
+	epatch "${PATCHES[@]}"
+	epatch_user
 
 	# FIX: external deps should be inside $S
 	mv "${WORKDIR}"/{bin,external-deps} "${S}" || die

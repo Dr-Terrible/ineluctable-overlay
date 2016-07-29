@@ -4,7 +4,7 @@
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
-inherit base flag-o-matic eutils multiprocessing python-single-r1
+inherit eutils flag-o-matic eutils multiprocessing python-single-r1
 
 DESCRIPTION="Panda3D is a framework for 3D rendering and game development"
 HOMEPAGE="http://www.panda3d.org"
@@ -89,7 +89,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	base_src_prepare
+	epatch "${PATCHES[@]}"
+	epatch_user
 
 	# move bullet samples together with all the other examples
 	if use examples; then
