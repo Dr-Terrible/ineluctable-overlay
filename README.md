@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Dr-Terrible/ineluctable-overlay.png)](https://travis-ci.org/Dr-Terrible/ineluctable-overlay)
 
-Ineluctable Overlay offers a repository of Gentoo ebuilds made by me (Mauro Toffanin, official Gentoo/FreeBSD Arch Tester) for projects that I am interested in and are not yet available through Portage tree.
+Ineluctable Overlay offers a repository of Gentoo ebuilds maintained by me for projects that are not yet available through the Portage tree.
 
 ## Managing This Overlay
 
@@ -10,7 +10,7 @@ This section will show you how to install the _Ineluctable Overlay_ into your Ge
 
 ### Disclaimer
 
-Keep in mind that this overlay provides packages that aren't in the Portage tree.
+Keep in mind that this overlay provides packages that differ from the ones in the Portage tree.
 
 > **If you do have troubles with an ebuild provided by this overlay, please take it up with the ebuild provider (the owner of this GitHub account) and not with the official Gentoo's developers. In short, in case of issues, please DO NOT report bugs at bugs.gentoo.org for these ebuilds.**
 
@@ -70,112 +70,3 @@ This repository offers packages that are known to work on the following architec
 This overlay is still under development. Feedbacks and pull requests are very welcome and I encourage you to use the [issues list](https://github.com/Dr-Terrible/ineluctable-overlay/issues) on GitHub to provide your contributions.
 
 I rarely reject pull requests.
-
-
-## Overlay Package Tree
-
-```
-├── app-admin
-│   └── fluentd
-├── app-arch
-│   └── archivemount
-├── app-doc
-│   └── dexy
-├── app-emulation
-│   ├── ganeti-webmgr
-│   └── lxc
-├── app-misc
-│   └── recoll
-├── dev-cpp
-│   ├── ctemplate
-│   ├── ETL
-│   ├── gflags
-│   ├── gmock
-│   ├── gtest
-│   └── plustache
-├── dev-db
-│   └── arangodb
-├── dev-lang
-│   ├── efene
-│   ├── reia
-│   └── v8
-├── dev-libs
-│   ├── hhvm-libevent
-│   ├── libdwarf
-│   ├── oniguruma
-│   └── shflags
-├── dev-php
-│   └── ZendFramework
-├── dev-python
-│   ├── cashew
-│   ├── dexy-viewer
-│   ├── django-fields
-│   ├── django-haystack
-│   ├── django-muddle-users
-│   ├── django-object-log
-│   ├── django-object-permissions
-│   ├── ganeti-webmgr-layout
-│   ├── idiopidae
-│   ├── inflection
-│   ├── muddle
-│   ├── ordereddict
-│   ├── plugnplay
-│   ├── python-modargs
-│   └── zapps
-├── dev-ruby
-│   ├── configliere
-│   ├── feedzirra
-│   ├── god
-│   ├── gorillib
-│   ├── jeweler
-│   ├── loofah
-│   ├── mruby
-│   ├── msgpack
-│   ├── rspec
-│   └── sax-machine
-├── dev-util
-│   ├── codexl
-│   ├── cxxtest
-│   ├── google-perftools
-│   ├── google-styleguide
-│   └── oprofile
-├── dev-vcs
-│   └── gitflow-avh
-├── games-engines
-│   ├── flare
-│   ├── godot
-│   └── openjk
-├── games-rpg
-│   └── flare
-├── media-gfx
-│   ├── printdesign
-│   ├── synfig
-│   ├── synfigstudio
-│   ├── uniconvertor
-│   └── wings
-├── net-libs
-│   └── zeromq
-├── net-misc
-│   ├── dropbox
-│   └── vde
-├── olpc-glucose
-│   ├── sugar
-│   ├── sugar-artwork
-│   ├── sugar-base
-│   ├── sugar-datastore
-│   ├── sugar-presence-service
-│   └── sugar-toolkit
-├── sys-libs
-│   └── hoard
-├── www-apache
-│   ├── mod_atom
-│   └── mod_qos
-├── www-servers
-│   ├── mongrel
-│   ├── thin
-│   └── wsgid
-├── x11-base
-│   └── xynth
-└── x11-wm
-    └── scrotwm
-```
