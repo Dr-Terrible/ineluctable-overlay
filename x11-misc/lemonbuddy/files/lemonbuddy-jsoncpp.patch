@@ -1,0 +1,11 @@
+--- lemonbuddy-2.0.0-beta/lib/i3ipcpp/src/ipc.cpp
++++ lemonbuddy-2.0.0-beta/lib/i3ipcpp/src/ipc.cpp
+@@ -3,7 +3,7 @@
+ #include <stdexcept>
+ #include <iostream>
+ 
+-#include <json/json.h>
++#include <jsoncpp/json/json.h>
+ 
+ #include "auss.hpp"
+ #include "log.hpp"
