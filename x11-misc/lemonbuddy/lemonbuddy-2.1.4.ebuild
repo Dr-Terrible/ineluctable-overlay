@@ -8,12 +8,12 @@ DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 cmake-utils toolchain-funcs versionator
 
-XPP_ECOMMIT="58d0fe30b41c4ad4aad215868e7f265ba07b50ca"
-I3IPCPP_ECOMMIT="13a8118c45eb213a67a2349d92969f85666afb3c"
+XPP_ECOMMIT="bf55ef910846851d9b98084f7e82da5860951b87"
+I3IPCPP_ECOMMIT="0bc92dc34aa7406ddec2787c53d4c9ddcca7d590"
 
 DESCRIPTION="A fast and easy-to-use tool for Lemonbar"
 HOMEPAGE="https://github.com/jaagr/${PN}"
-SRC_URI="https://github.com/jaagr/${PN}/archive/${PV}-beta.tar.gz -> ${PF}.tar.gz
+SRC_URI="https://github.com/jaagr/${PN}/archive/${PV}.tar.gz -> ${PF}.tar.gz
 	https://github.com/jaagr/xpp/archive/${XPP_ECOMMIT}.tar.gz -> xpp-${XPP_ECOMMIT}.tar.gz
 	https://github.com/jaagr/i3ipcpp/archive/${I3IPCPP_ECOMMIT}.tar.gz -> i3ipcpp-${I3IPCPP_ECOMMIT}.tar.gz"
 
@@ -41,8 +41,6 @@ RDEPEND="media-libs/freetype:2
 	mpd? ( media-libs/libmpdclient )"
 DEPEND="dev-libs/boost[threads]"
 
-S="${WORKDIR}/${P}-beta"
-
 PATCHES=(
 	"${FILESDIR}"/${PN}-jsoncpp.patch
 )
@@ -63,6 +61,9 @@ src_prepare() {
 	mv "${WORKDIR}"/i3ipcpp-${I3IPCPP_ECOMMIT} "${S}"/lib/i3ipcpp || die
 
 	default
+
+	# remove bundled libs
+	#rm -r lib/i3ipcpp/libs/jsoncpp-1.7.7 || die
 }
 
 src_configure() {
