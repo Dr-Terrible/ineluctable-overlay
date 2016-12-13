@@ -18,7 +18,7 @@ KEYWORDS="amd64 x86 ~arm"
 IUSE="libnotify +otr +themes xscreensaver pgp test"
 
 CDEPEND="dev-libs/glib:2
-	dev-libs/libstrophe
+	>=dev-libs/libstrophe-0.9.1[tls]
 	net-misc/curl
 	sys-apps/util-linux:0
 	sys-libs/ncurses:0
