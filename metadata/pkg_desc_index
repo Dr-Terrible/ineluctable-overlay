@@ -11,12 +11,15 @@ app-misc/powerline 2.5: Python-based statusline/prompt utility
 app-misc/recoll 1.19.14-r2 1.20.6: A personal full text search package
 app-misc/watchman 4.6.0: A file watching service
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
+app-shells/zshdb 0.92: Debugger for zsh
+app-text/FlightCrew 0.7.2: FlightCrew is a C++, cross-platform, native code EPUB validator.
+app-text/sigil 0.7.4: Sigil is a multi-platform WYSIWYG ebook editor for ePub format.
 dev-cpp/ETL 0.04.17-r1 0.04.19 0.04.20: ETL is a multi-platform class and template library
 dev-cpp/cereal 1.0.0: Cereal is a header-only C++11 serialization library
 dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
 dev-cpp/ctemplate 2.3: A simple but powerful template language for C++
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
-dev-cpp/folly 0.57.0: An open-source C++ library developed and used at Facebook
+dev-cpp/folly 0.57.0-r1: An open-source C++ library developed and used at Facebook
 dev-cpp/gflags 2.1.1: Google's C++ argument parsing library
 dev-cpp/gmock 1.7.0-r99: Google's C++ mocking framework
 dev-cpp/gtest 1.7.0-r99: Google C++ Testing Framework
@@ -26,18 +29,22 @@ dev-lang/pocl 0.12: PortableCL: opensource implementation of the OpenCL standard
 dev-libs/flatbuffers 1.3.0: FlatBuffers is a serialization library for memory constrained apps.
 dev-libs/hhvm-libevent 1.4.14b: A customized dev-libs/libevent used by HipHop Virtual Manager
 dev-libs/libdwarf 20120410 20150915: Library to deal with DWARF Debugging Information Format
+dev-libs/libgit2 0.24.3 0.25.0: A linkable library for Git
 dev-libs/libsass 3.2.5 3.3.1 3.3.2 3.3.3: LibSaas is a C/C++ port of the Sass engine.
-dev-libs/libstrophe 0.8.8: A simple, lightweight C library for writing XMPP clients
+dev-libs/libstrophe 0.8.8 0.9.1: A simple, lightweight C library for writing XMPP clients
 dev-php/hhvm 3.7.3: Virtual Machine, Runtime, and JIT for PHP
+dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
 dev-python/atomicwrites 0.1.8: Atomic file writes.
 dev-python/cashew 0.2.7: Cashew is a plugin system for python
 dev-python/cheat 2.1.15: Cheat allows you to create and view interactive cheatsheets on the command-line
 dev-python/click-log 0.1.3: Logging integration for Click
 dev-python/click-threading 0.1.2: Atomic file writes.
 dev-python/dexy-viewer 0.0.5: A Dexy's plugin for runnning a local web server for previewing your docs and snippets
+dev-python/fusepy 2.0.4: Simple ctypes bindings for FUSE
 dev-python/future 0.15.2: Clean single-source support for Python 3 and 2
 dev-python/idiopidae 0.5.4: A book compiler for programmers where code and prose are separate
 dev-python/inflection 0.2.0: A port of Ruby on Rails inflector to Python
+dev-python/markdown2 2.3.1: Python Markdown language reimplementation
 dev-python/ordereddict 1.1: A drop-in substitute for Py2.7's new collections.OrderedDict that works in Python 2.4-2.6
 dev-python/plugnplay 0.4.2: A Generic plug-in system for python
 dev-python/proselint 0.4.0: A linter for prose
@@ -62,15 +69,17 @@ dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
 dev-util/sassc 3.2.5 3.3.1 3.3.2 3.3.3: SaasC is an implementer for LibSaas
 dev-util/systemtap 2.8 2.9-r10: A linux trace/probe tool
 dev-vcs/git-extras 3.0.0 4.0.0: Little git extras
+dev-vcs/gitfs 0.4.5.1: gitfs is a FUSE file system that fully integrates with git
 games-engines/Torque3D 3.5 3.5.1: Torque3D is an cross-platform and open-source game engine
 games-engines/featherkit 1.0.0_rc4 9999: Feather Kit is a lightweight, open source framework for game development in C++
-games-engines/flare 0.19 0.20 0.21_pre7: Free/Libre Action Roleplaying game
+games-engines/flare 0.19 0.20 0.21_pre7 0.21_pre8: Free/Libre Action Roleplaying game
 games-engines/gameplay3d 2.0.0 3.0.0 9999: GamePlay3D is an open-source, cross-platform 3D game framework written in C++.
-games-engines/godot 2.0.4.1: Godot is a fully featured, open source, MIT licensed, game engine
-games-engines/panda3d 1.8.1 9999: Panda3D is a framework for 3D rendering and game development
+games-engines/godot 2.0.4.1 2.1: Godot is a fully featured, open source, MIT licensed, game engine
+games-engines/panda3d 1.8.1: Panda3D is a framework for 3D rendering and game development
 games-engines/redpanda 0.1.0: An open-source 3D framework
 games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
-games-rpg/flare 0.19 0.20 0.21_pre7: Free/Libre Action Roleplaying game
+games-rpg/flare 0.19 0.20 0.21_pre7 0.21_pre8: Free/Libre Action Roleplaying game
+games-strategy/endless-sky 0.9.3 0.9.4: Space exploration, trading & combat in the tradition of Terminal Velocity
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 mail-client/jaromail 3.2 3.3_pre20150918: A command-line MUA to easily and privately handle your e-mails.
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
@@ -79,15 +88,26 @@ media-gfx/synfig 0.64.3 1.1.7: Film-Quality Vector Animation (core engine)
 media-gfx/synfigstudio 0.64.1 0.64.3 1.1.7: Main UI of synfig: Film-Quality Vector Animation
 media-libs/artoolkit 2.72.1-r10: The ARToolKit library
 media-libs/glfw 3.2: The Portable OpenGL FrameWork
-media-libs/libsfml 2.1-r10 2.2-r10 2.3-r10 2.3.2-r10: Simple and Fast Multimedia Library (SFML)
-net-im/profanity 0.4.7: Profanity is a console based XMPP client inspired by irssi
+media-libs/libsfml 2.3.2-r10 2.4.0-r10 2.4.1: Simple and Fast Multimedia Library (SFML)
+net-im/profanity 0.4.7 0.5.0: Profanity is a console based XMPP client inspired by irssi
 net-libs/polarssl 1.3.13 2.1.1: Cryptographic library for embedded systems
-net-misc/dropbox 3.14.7 6.3.13-r50: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox 3.14.7 6.3.13-r50 16.3.24-r50: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2015.10.28 2015.10.28-r1: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/remmina 1.2.0_rc8: A GTK+ RDP, VNC, XDMCP and SSH client
 net-misc/vde 2.3.2: A virtual distributed ethernet emulator for qemu, bochs, and uml
+net-p2p/tribler 6.5.2: Bittorrent client that does not require a website to discover content
+plexydesk-base/plexydesk 1.0: PlexyDesk is an advanced multi-platform desktop manager to track time, tasks, and your social life
 sys-apps/nix 1.7: A purely functional package manager
+sys-devel/rr 4.0.1: RR is a lightweight tool for recording and replaying execution of applications
 sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
 www-apache/mod_qos 11.7: A QOS module for the apache webserver
+www-client/elinks 0.12_pre6-r3: Advanced and well-established text-mode web browser
+www-servers/lwan 20150703: Experimental, scalable, high performance HTTP server
 www-servers/mongrel 1.9.3: A web server that focuses on web applications using modern browser technologies
 www-servers/wsgid 0.6.0 0.7.1: Wsgid is a generic WSGI handler for mongrel2 web server
+x11-libs/vte 0.46.0-r666: Library providing a virtual terminal emulator widget
+x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
+x11-misc/lemonbuddy 1.4.6 2.1.4: A fast and easy-to-use tool for Lemonbar
+x11-misc/xdo 0.5.3: Small X utility to perform elementary actions on windows
+x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
+x11-terms/termite 12: A keyboard-centric terminal aimed at use within a tiling window manager

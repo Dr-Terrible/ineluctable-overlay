@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	
-	<maintainer>
+	<maintainer type="person">
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
@@ -13,7 +12,8 @@
 		composed of five modules: system, window, graphics, audio and network.
 	</longdescription>
 	<use>
-		<flag name="gles1">Enables OpenGL ES 1.x backend for
-    acceleration instead of standard desktop OpenGL</flag>
+		<flag name="gles1">
+			Enables OpenGL ES 1.x backend for acceleration instead of standard desktop OpenGL
+		</flag>
 	</use>
 </pkgmetadata>
