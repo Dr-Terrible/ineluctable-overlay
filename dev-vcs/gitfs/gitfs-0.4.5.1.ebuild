@@ -13,24 +13,16 @@ SRC_URI="https://github.com/PressLabs/${PN}/archive/${PV}.tar.gz -> ${PF}.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="doc"
+KEYWORDS="~amd64 ~x86"
 
 RESTRICT+=" mirror"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-deps.patch
+	"${FILESDIR}"/${P}-deps.patch
 )
 
-DEPEND="doc? ( dev-python/mkdocs[${PYTHON_USEDEP}] )"
 RDEPEND="dev-python/atomiclong[${PYTHON_USEDEP}]
-	>=dev-python/pygit2-0.24.0[${PYTHON_USEDEP}]
+	>=dev-python/pygit2-0.24.1[${PYTHON_USEDEP}]
 	>=dev-python/fusepy-2.0.2[${PYTHON_USEDEP}]
-	dev-python/six[${PYTHON_USEDEP}]"
-
-src_install() {
-	distutils-r1_src_install
-
-	mkdocs build || die
-	exit
-}
+	>=dev-python/six-1.10.0[${PYTHON_USEDEP}]
+	>=dev-python/raven-5.27.0[${PYTHON_USEDEP}]"
