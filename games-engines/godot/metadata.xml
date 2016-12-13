@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	
-	<maintainer>
+	<maintainer type="person">
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
@@ -29,5 +28,6 @@
 		<flag name="etc">Enable support for texture compression</flag>
 		<flag name="squish">Enable support for DXT1, DXT3 and DXT5 formats using libsquish</flag>
 		<flag name="3d">Enable support for the 3D API. Disable it if you are going to use only the 2D API</flag>
+		<flag name="opus">Enable support for the Opus Audio Format</flag>
 	</use>
 </pkgmetadata>
