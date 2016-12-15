@@ -18,7 +18,7 @@ IUSE="crash +sqlite nls pie hardened +server libvirt selinux java examples test 
 
 CDEPEND="dev-libs/nspr:0
 	|| (
-		>=dev-libs/elfutils-0.162:=
+		>=dev-libs/elfutils-0.162
 		dev-libs/libelf
 	)
 	libvirt? (
