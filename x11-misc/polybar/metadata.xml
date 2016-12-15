@@ -10,5 +10,9 @@
 		<flag name="network">Enables networking features</flag>
 		<flag name="mpd">Enables support for display of mpd controlled music</flag>
 		<flag name="i3">Enable support for i3bar protocol</flag>
+		<flag name="xrender">Enables XRender window extension support (transparency)</flag>
+		<flag name="xdamage">Enables XDamage window extension support</flag>
+		<flag name="xsync">Enables XSync window extension support</flag>
+		<flag name="xkb">Enables XCB Keyboard extension support</flag>
 	</use>
 </pkgmetadata>
