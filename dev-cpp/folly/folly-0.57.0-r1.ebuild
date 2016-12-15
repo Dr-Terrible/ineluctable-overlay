@@ -15,7 +15,7 @@ SRC_URI="https://github.com/facebook/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="static-libs test"
+IUSE="static-libs test libressl"
 
 CDEPEND="dev-libs/double-conversion
 	!elibc_uclibc? ( dev-libs/boost:=[threads,context] )
@@ -26,7 +26,8 @@ CDEPEND="dev-libs/double-conversion
 	dev-cpp/glog:0
 	dev-libs/jemalloc:0
 	dev-libs/libevent:0
-	dev-libs/openssl:0
+	!libressl? ( dev-libs/openssl:0= )
+	libressl? ( dev-libs/libressl:0= )
 	sys-libs/zlib:0"
 DEPEND="${CDEPEND}
 	test? ( dev-cpp/gtest )"

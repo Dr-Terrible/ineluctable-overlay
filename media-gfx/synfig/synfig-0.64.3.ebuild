@@ -17,7 +17,7 @@ IUSE="imagemagick ffmpeg dv openexr truetype jpeg tiff fontconfig debug static-l
 
 REQUIRED_USE="ffmpeg? ( avcodec swscale )"
 DEPEND="dev-libs/libsigc++:2
-	>=dev-cpp/libxmlpp-2.6.1
+	dev-cpp/libxmlpp:2.6
 	media-libs/libpng:0
 	>=dev-cpp/ETL-0.04.17
 	dev-cpp/glibmm:2

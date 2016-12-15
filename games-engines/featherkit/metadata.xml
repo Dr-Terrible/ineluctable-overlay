@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	
-	<maintainer>
+	<maintainer type="person">
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
@@ -16,6 +16,6 @@
 		<flag name="rendering">Build the rendering module.</flag>
 		<flag name="ui">Build the UI module.</flag>
 		<flag name="util">Build the util module.</flag>
-		<flag name="freetype">Build the text rendering (using <pkg>media-libs/freetype:2</pkg>).</flag>
+		<flag name="freetype">Build the text rendering (using <pkg>media-libs/freetype</pkg>).</flag>
 	</use>
 </pkgmetadata>

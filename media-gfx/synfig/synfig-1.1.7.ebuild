@@ -20,7 +20,7 @@ IUSE="imagemagick +ffmpeg libav dv opengl opencl +openexr +truetype +jpeg +tiff 
 
 REQUIRED_USE="ffmpeg? ( swscale )"
 DEPEND="dev-libs/libsigc++:2
-	>=dev-cpp/libxmlpp-2.6.1
+	dev-cpp/libxmlpp:2.6
 	dev-libs/libxml2:2
 	media-libs/libpng:0
 	>=dev-cpp/ETL-0.04.20

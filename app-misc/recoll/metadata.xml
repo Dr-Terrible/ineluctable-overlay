@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	
-	<maintainer>
+	<maintainer type="person">
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
@@ -24,7 +24,6 @@
 		<flag name='wordperfect'>Index wordperfect documents</flag>
 		<flag name='session'>Stop monitoring file alterations when X11 session terminates</flag>
 		<flag name='tex'>Index TeX files</flag>
-		<flag name='wordperfect'>Index WordPerfect documents</flag>
 		<flag name='xml'>Index several XML-based formats (Abiword, FictionBook, Kword, Office OpenXML, OpenDocument, SVG)</flag>
 	</use>
 </pkgmetadata>
