@@ -12,8 +12,6 @@ app-misc/recoll 1.19.14-r2 1.20.6: A personal full text search package
 app-misc/watchman 4.6.0: A file watching service
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
 app-shells/zshdb 0.92: Debugger for zsh
-app-text/FlightCrew 0.7.2: FlightCrew is a C++, cross-platform, native code EPUB validator.
-app-text/sigil 0.7.4: Sigil is a multi-platform WYSIWYG ebook editor for ePub format.
 dev-cpp/ETL 0.04.17-r1 0.04.19 0.04.20: ETL is a multi-platform class and template library
 dev-cpp/cereal 1.0.0: Cereal is a header-only C++11 serialization library
 dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
@@ -96,18 +94,16 @@ net-misc/dropbox-cli 2015.10.28 2015.10.28-r1: Cli interface for dropbox (python
 net-misc/remmina 1.2.0_rc8: A GTK+ RDP, VNC, XDMCP and SSH client
 net-misc/vde 2.3.2: A virtual distributed ethernet emulator for qemu, bochs, and uml
 net-p2p/tribler 6.5.2: Bittorrent client that does not require a website to discover content
-plexydesk-base/plexydesk 1.0: PlexyDesk is an advanced multi-platform desktop manager to track time, tasks, and your social life
 sys-apps/nix 1.7: A purely functional package manager
-sys-devel/rr 4.0.1: RR is a lightweight tool for recording and replaying execution of applications
 sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
 www-apache/mod_qos 11.7: A QOS module for the apache webserver
 www-client/elinks 0.12_pre6-r3: Advanced and well-established text-mode web browser
 www-servers/lwan 20150703: Experimental, scalable, high performance HTTP server
 www-servers/mongrel 1.9.3: A web server that focuses on web applications using modern browser technologies
 www-servers/wsgid 0.6.0 0.7.1: Wsgid is a generic WSGI handler for mongrel2 web server
-x11-libs/vte 0.46.0-r666: Library providing a virtual terminal emulator widget
+x11-libs/vte 0.46.0-r666 0.46.1-r666: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
-x11-misc/polybar 2.3.13: A fast and easy-to-use tool for Lemonbar
+x11-misc/polybar 2.3.13: A fast and easy-to-use status bar
 x11-misc/xdo 0.5.3: Small X utility to perform elementary actions on windows
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
 x11-terms/termite 12: A keyboard-centric terminal aimed at use within a tiling window manager

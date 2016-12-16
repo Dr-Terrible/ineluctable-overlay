@@ -11,7 +11,7 @@ inherit distutils-r1 cmake-utils toolchain-funcs versionator
 XPP_ECOMMIT="49ed2c142109fe92932ae906fc4b40b5138b2809"
 I3IPCPP_ECOMMIT="9882c038746cff8e3d4979b557cc277e7f6b4416"
 
-DESCRIPTION="A fast and easy-to-use tool for Lemonbar"
+DESCRIPTION="A fast and easy-to-use status bar"
 HOMEPAGE="https://github.com/jaagr/${PN}"
 SRC_URI="https://github.com/jaagr/${PN}/archive/${PV}.tar.gz -> ${PF}.tar.gz
 	https://github.com/jaagr/xpp/archive/${XPP_ECOMMIT}.tar.gz -> xpp-${XPP_ECOMMIT}.tar.gz
