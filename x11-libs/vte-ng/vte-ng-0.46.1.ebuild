@@ -59,8 +59,12 @@ src_configure() {
 		export ac_cv_header_stropts_h=no
 	fi
 
+	# NOTE: we force LINGUAS to 'en' to avoid affecting autoconf
+	# macros that install gettext catalog files (*.mo), otherwise
+	# (*.mo) files are installed even when --disable-nls is used
+	export LINGUAS="en"
+
 	gnome2_src_configure \
-		PACKAGE="${PN}" \
 		--libdir="${EPREFIX}/usr/$(get_libdir)/${PN}" \
 		--includedir="${EPREFIX}/usr/include/${PN}" \
 		--disable-test-application \
@@ -75,8 +79,7 @@ src_configure() {
 }
 
 src_install() {
-	gnome2_src_install PACAKGE="${PN}"
-	#mv "${D}"/etc/profile.d/vte{,-ng-${SLOT}}.sh || die
+	gnome2_src_install
 
 	# fix pkg-config
 	mkdir -p "${D}"/usr/$(get_libdir)/pkgconfig || die
@@ -85,6 +88,5 @@ src_install() {
 		"${D}"/usr/$(get_libdir)/pkgconfig/${PN}-${SLOT}.pc || die
 
 	# remove nls/profile files
-	rm -r "${D}"/usr/share/locale || die
 	rm -r "${D}"/etc/profile.d || die
 }
