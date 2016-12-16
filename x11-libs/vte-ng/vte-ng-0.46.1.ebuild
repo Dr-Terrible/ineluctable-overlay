@@ -13,7 +13,7 @@ SRC_URI="https://github.com/thestinger/${PN}/archive/${PV}.a.tar.gz -> ${PF}.tar
 
 LICENSE="LGPL-2+"
 SLOT="2.91"
-IUSE="crypt debug static-libs test"
+IUSE="crypt debug"
 KEYWORDS="~amd64 ~arm ~x86"
 
 RDEPEND="
@@ -76,7 +76,7 @@ src_configure() {
 
 src_install() {
 	gnome2_src_install PACAKGE="${PN}"
-	mv "${D}"/etc/profile.d/vte{,-ng-${SLOT}}.sh || die
+	#mv "${D}"/etc/profile.d/vte{,-ng-${SLOT}}.sh || die
 
 	# fix pkg-config
 	mkdir -p "${D}"/usr/$(get_libdir)/pkgconfig || die
@@ -84,12 +84,7 @@ src_install() {
 		"${D}"/usr/$(get_libdir)/${PN}/pkgconfig/${PN//-ng/}-${SLOT}.pc \
 		"${D}"/usr/$(get_libdir)/pkgconfig/${PN}-${SLOT}.pc || die
 
-	# fix include dir
-	#mv \
-	#	"${D}"/usr/include/${PN//-ng/}-${SLOT} \
-	#	"${D}"/usr/include/${PN}-${SLOT} || die
-
 	# remove nls/profile files
 	rm -r "${D}"/usr/share/locale || die
-	#rm -r "${D}"/etc/profile.d || die
+	rm -r "${D}"/etc/profile.d || die
 }
