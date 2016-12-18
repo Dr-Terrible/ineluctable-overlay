@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 RDEPEND="${RDEPEND}
-	!x11-libs/vte:2.90
+	!x11-libs/vte:2.90[glade]
 "
 
 S="${WORKDIR}/${P}.a"
