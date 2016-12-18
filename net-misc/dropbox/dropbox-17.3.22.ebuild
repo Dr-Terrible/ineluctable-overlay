@@ -53,8 +53,8 @@ RDEPEND="
 	>=sys-devel/gcc-4.2.0
 	sys-libs/zlib
 	|| (
-		sys-libs/ncurses:5/5
-		sys-libs/ncurses:0/5
+		sys-libs/ncurses:5/6
+		sys-libs/ncurses:0/6
 	)
 	cli? ( >=net-misc/dropbox-cli-1.6.2 )
 	system-librsync? ( net-libs/librsync )"

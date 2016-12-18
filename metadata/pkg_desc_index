@@ -89,7 +89,7 @@ media-libs/glfw 3.2: The Portable OpenGL FrameWork
 media-libs/libsfml 2.3.2-r10 2.4.0-r10 2.4.1: Simple and Fast Multimedia Library (SFML)
 net-im/profanity 0.4.7 0.5.0: Profanity is a console based XMPP client inspired by irssi
 net-libs/polarssl 1.3.13 2.1.1: Cryptographic library for embedded systems
-net-misc/dropbox 3.14.7 6.3.13-r50 16.3.24-r50: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox 3.14.7 6.3.13-r50 17.3.22: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2015.10.28 2015.10.28-r1: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/remmina 1.2.0_rc8: A GTK+ RDP, VNC, XDMCP and SSH client
 net-misc/vde 2.3.2: A virtual distributed ethernet emulator for qemu, bochs, and uml
