@@ -4,7 +4,7 @@ app-arch/archivemount 0.6.1 0.8.3: mount an archive as filesystem using fuse and
 app-doc/dexy 0.6.0 0.9.9.7 1.0.5: Dexy is a tool for writing documents which relate to code
 app-doc/dtrace-systemtap-book 20150923: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20150516: Game Programming Patterns
-app-emulation/vagrant 1.7.4 1.8.1-r1: A tool for building and distributing virtual machines
+app-emulation/vagrant 1.9.1-r50: A tool for building and distributing virtual machines
 app-misc/abook 0.6.1_pre1: Abook is a text-based addressbook program designed to use with mutt mail client
 app-misc/khal 0.7.0: CLI calendar application
 app-misc/powerline 2.5: Python-based statusline/prompt utility
