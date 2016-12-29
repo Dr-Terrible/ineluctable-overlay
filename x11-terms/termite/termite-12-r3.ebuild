@@ -26,7 +26,10 @@ DEPEND="$CDEPEND"
 
 RESTRICT="test strip mirror"
 
-PATCHES=( "${FILESDIR}/${PN}-vte-deprecated-api.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-vte-deprecated-api.patch"
+	"${FILESDIR}/${PN}-client-side-decorations.patch"
+)
 
 pkg_pretend() {
 	if ! version_is_at_least 4.7 $(gcc-version); then

@@ -103,7 +103,7 @@ www-servers/mongrel 1.9.3: A web server that focuses on web applications using m
 www-servers/wsgid 0.6.0 0.7.1: Wsgid is a generic WSGI handler for mongrel2 web server
 x11-libs/vte-ng 0.46.1-r1: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
-x11-misc/polybar 2.3.13: A fast and easy-to-use status bar
+x11-misc/polybar 2.3.13 2.4.3: A fast and easy-to-use status bar
 x11-misc/xdo 0.5.3: Small X utility to perform elementary actions on windows
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
-x11-terms/termite 12-r2: A keyboard-centric terminal aimed at use within a tiling window manager
+x11-terms/termite 12-r3: A keyboard-centric terminal aimed at use within a tiling window manager

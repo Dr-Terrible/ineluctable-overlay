@@ -1,0 +1,46 @@
+From a365b998255545a9e481c39f1dd38c1bf324e0fc Mon Sep 17 00:00:00 2001
+From: Aleksa Sarai <cyphar@cyphar.com>
+Date: Wed, 28 Dec 2016 19:12:09 +1100
+Subject: [PATCH] termite: disable decorations
+
+GTK+3 on Wayland does not allow users (or window managers) to forcefully
+disable client-side decorations[1]. So, we have to manually set
+ourselves to not be decorated. This is exposed as an option in the
+configuration, so that users of non-tiling window managers can still
+have CSDs.
+
+[1]: https://bugzilla.gnome.org/show_bug.cgi?id=776290
+Signed-off-by: Aleksa Sarai <cyphar@cyphar.com>
+---
+ man/termite.config.5 | 4 ++++
+ termite.cc           | 2 ++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/man/termite.config.5 b/man/termite.config.5
+index 3de52ec..247d415 100644
+--- a/man/termite.config.5
++++ b/man/termite.config.5
+@@ -18,6 +18,10 @@ Set the default browser for opening links. If its not set,
+ .IP \fIclickable_url\fR
+ Auto-detected URLs can be clicked on to open them in your browser. Only
+ enabled if a browser is configured or detected.
++.IP \fIclient_side_decoration\fR
++Sets whether client side decorations should be enabled for the termite window.
++In most cases, it is not necessary to set this option explicitly, unless you're
++using Wayland or a similar display server.
+ .IP \fIcursor_blink\fR
+ Specify the how the terminal's cursor should behave. Accepts
+ \fBsystem\fR to respect the gtk global configuration, \fBon\fR and
+diff --git a/termite.cc b/termite.cc
+index c8ca152..fade7b9 100644
+--- a/termite.cc
++++ b/termite.cc
+@@ -1423,6 +1423,8 @@ static void set_config(GtkWindow *window, VteTerminal *vte, config_info *info,
+         info->tag = -1;
+     }
+ 
++    gtk_window_set_decorated(window, cfg_bool("client_side_decoration", TRUE));
++
+     if (auto s = get_config_string(config, "options", "font")) {
+         PangoFontDescription *font = pango_font_description_from_string(*s);
+         vte_terminal_set_font(vte, font);
