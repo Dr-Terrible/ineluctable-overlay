@@ -50,7 +50,6 @@ RDEPEND="
 	app-arch/bzip2
 	dev-libs/popt
 	net-misc/wget
-	>=sys-devel/gcc-4.2.0
 	sys-libs/zlib
 	|| (
 		sys-libs/ncurses:5/6
