@@ -67,6 +67,59 @@ This repository offers packages that are known to work on the following architec
 
 ## Contributing
 
-This overlay is still under development. Feedbacks and pull requests are very welcome and I encourage you to use the [issues list](https://github.com/Dr-Terrible/ineluctable-overlay/issues) on GitHub to provide your contributions.
+I welcome issue reports, feedbacks, and ebuild requests; I encourage you to use
+the [issues list](https://github.com/Dr-Terrible/ineluctable-overlay/issues) on GitHub to
+provide them.
 
-I rarely reject pull requests.
+Code contributions and bug fixes are welcome too, and I encourage the use of
+pull requests to _discuss_ and _review_ your ebuild code changes. Before
+proposing a large change, please discuss it by raising an issue.
+
+### Before You Begin
+
+This overlay assumes that you have read, and properly understood, the
+[Gentoo Developer Manual](https://devmanual.gentoo.org).
+
+### Code of Conduct
+
+Help me to keep this overlay open and inclusive for everyone. Please, read and
+follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+### Making and Submitting Changes
+
+To make the process of pull requests submission as seamless as possible, I ask
+for the following:
+
+1. Go ahead and fork this project and make your changes.
+2. When your code changes are ready, make sure to run `repoman fix -d`,
+   `repoman full -d`, and `repoman -vx full` in the root of the repository to
+   ensure that all the Gentoo's QA tests pass. This is necessary to assure
+   nothing was accidentally broken by your changes; for the purpose, this GitHub
+   repository integrates Travis for Continuous Integration of repoman tests.
+   **I only take pull requests with passing repoman tests**.
+3. Squash your commits into a single one with `git rebase -i`. It's okay to
+   force update your pull request.
+4. Make sure your git commit messages are in the proper format to make reading
+   history easier. Commit message should look like:
+
+   ```
+   [category/package-name] Short description
+
+   Long description
+   ```
+
+   If you have questions about how to write the short / long descriptions, please
+   read these blog articles: [How to Write a Commit Message](http://chris.beams.io/posts/git-commit),
+   [5 Useful Tips For A Better Commit Message](https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message). Both of them are excellent resources for learning how to write a
+   well-crafted git commit message. If your commit references one or more GitHub
+   issues, always end your commit message body with _See #1234_ or _Fixes #1234_
+   (replace 1234 with the desired GitHub issue ID).
+5. GPG signing your changes is a good idea, but not mandatory.
+6. Push your changes to your branch in your fork, and then submit a
+   [pull request](https://help.github.com/send-pull-requests) agains this
+   repository.
+7. Comment in the pull request when you are ready for the changes to be
+   reviewed: `PR ready for review`.
+
+At this point you are waiting for my feedbacks. I look at pull requests within
+few days. I may suggest some improvements or alternatives.
