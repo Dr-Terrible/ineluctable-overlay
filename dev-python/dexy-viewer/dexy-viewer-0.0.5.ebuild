@@ -6,7 +6,7 @@ EAPI=5
 PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1
 
-DESCRIPTION="A Dexy's plugin for runnning a local web server for previewing your docs and snippets"
+DESCRIPTION="Dexy's plugin for runnning a web server for previewing your docs and snippets"
 HOMEPAGE="http://dexy.github.io/cashew"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN//-/_}/${PN//-/_}-${PV}.tar.gz"
 
