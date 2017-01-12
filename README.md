@@ -97,8 +97,9 @@ for the following:
    nothing was accidentally broken by your changes; for the purpose, this GitHub
    repository integrates Travis for Continuous Integration of repoman tests.
    **I only take pull requests with passing repoman tests**.
-3. Squash your commits into a single one with `git rebase -i`. It's okay to
-   force update your pull request.
+3. If your commits are all related to the same ebuild, it's advisable to squash
+   then into a single one with `git rebase -i`. It's okay to force update your
+   pull request with git `push -f`, if necessary.
 4. Make sure your git commit messages are in the proper format to make reading
    history easier. Commit message should look like:
 
