@@ -1,0 +1,60 @@
+From 58a720a28e55baeb723358cdc2af763a8f91f523 Mon Sep 17 00:00:00 2001
+From: Roman Lebedev <lebedev.ri@gmail.com>
+Date: Fri, 30 Dec 2016 10:46:39 +0300
+Subject: [PATCH] CMake: use threads if allowed and found, not just if found.
+
+If the user's cmakelists.txt first look for threads using
+find_package(Threads), then set(gtest_disable_pthreads ON),
+and then include googletest. GoogleTest will not look for
+threads. But since they have already been found before in
+user's cmakelists, it will use them regardless.
+
+This helped me fix build issue in darktable-org/rawspeed
+on windows/MSYS2, even though there are threads, and they
+are usable, googletest build was failing with issues
+about AutoHandle. I was first looking for threads, and only
+then including googletest, so no matter the value of
+gtest_disable_pthreads, it failed.
+
+The other obvious solution is for user to first include
+googletest, and only then look for threads by himself.
+---
+ googlemock/CMakeLists.txt             | 2 +-
+ googletest/cmake/internal_utils.cmake | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/googlemock/CMakeLists.txt b/googlemock/CMakeLists.txt
+index 9fb96a4..dc86354 100644
+--- a/googlemock/CMakeLists.txt
++++ b/googlemock/CMakeLists.txt
+@@ -143,7 +143,7 @@ if (gmock_build_tests)
+   cxx_test(gmock_link_test gmock_main test/gmock_link2_test.cc)
+   cxx_test(gmock_test gmock_main)
+ 
+-  if (CMAKE_USE_PTHREADS_INIT)
++  if (NOT gtest_disable_pthreads AND NOT MINGW AND CMAKE_USE_PTHREADS_INIT)
+     cxx_test(gmock_stress_test gmock)
+   endif()
+ 
+diff --git a/googletest/cmake/internal_utils.cmake b/googletest/cmake/internal_utils.cmake
+index 8878dc1..2a4b146 100644
+--- a/googletest/cmake/internal_utils.cmake
++++ b/googletest/cmake/internal_utils.cmake
+@@ -125,7 +125,7 @@ macro(config_compiler_and_linker)
+     set(cxx_no_rtti_flags "")
+   endif()
+ 
+-  if (CMAKE_USE_PTHREADS_INIT)  # The pthreads library is available and allowed.
++  if (NOT gtest_disable_pthreads AND NOT MINGW AND CMAKE_USE_PTHREADS_INIT)  # The pthreads library is available and allowed.
+     set(cxx_base_flags "${cxx_base_flags} -DGTEST_HAS_PTHREAD=1")
+   else()
+     set(cxx_base_flags "${cxx_base_flags} -DGTEST_HAS_PTHREAD=0")
+@@ -157,7 +157,7 @@ function(cxx_library_with_type name type cxx_flags)
+       PROPERTIES
+       COMPILE_DEFINITIONS "GTEST_CREATE_SHARED_LIBRARY=1")
+   endif()
+-  if (CMAKE_USE_PTHREADS_INIT)
++  if (NOT gtest_disable_pthreads AND NOT MINGW AND CMAKE_USE_PTHREADS_INIT)
+     target_link_libraries(${name} ${CMAKE_THREAD_LIBS_INIT})
+   endif()
+ endfunction()
