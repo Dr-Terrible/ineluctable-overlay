@@ -19,7 +19,7 @@ dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping softwar
 dev-cpp/folly 0.57.0-r1: An open-source C++ library developed and used at Facebook
 dev-cpp/gflags 2.1.1: Google's C++ argument parsing library
 dev-cpp/gmock 1.7.0-r99: Google's C++ mocking framework
-dev-cpp/gtest 1.7.0-r99: Google C++ Testing Framework
+dev-cpp/gtest 1.8.0-r50: Google C++ Testing Framework
 dev-cpp/plustache 0.3.0: Mustache templating for C++
 dev-db/arangodb 1.4.3: The universal nosql database
 dev-lang/pocl 0.12: PortableCL: opensource implementation of the OpenCL standard
