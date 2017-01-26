@@ -16,9 +16,8 @@ dev-cpp/cereal 1.0.0: Cereal is a header-only C++11 serialization library
 dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
 dev-cpp/ctemplate 2.3: A simple but powerful template language for C++
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
-dev-cpp/folly 0.57.0-r1: An open-source C++ library developed and used at Facebook
+dev-cpp/folly 2016.12.19.00: An open-source C++ library developed and used at Facebook
 dev-cpp/gflags 2.1.1: Google's C++ argument parsing library
-dev-cpp/gmock 1.8.0-r50: Google C++ Mocking Framework
 dev-cpp/gtest 1.8.0-r50: Google C++ Testing Framework
 dev-cpp/plustache 0.3.0: Mustache templating for C++
 dev-db/arangodb 1.4.3: The universal nosql database

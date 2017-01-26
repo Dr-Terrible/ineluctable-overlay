@@ -1,11 +1,11 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
-inherit flag-o-matic autotools-utils
+inherit flag-o-matic autotools-utils versionator
 
 DESCRIPTION="An open-source C++ library developed and used at Facebook"
 HOMEPAGE="https://github.com/facebook/folly"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/facebook/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	test? ( http://googletest.googlecode.com/files/gtest-1.7.0.zip )"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="0/57.0"
 KEYWORDS="~amd64 ~x86"
 IUSE="static-libs test libressl"
 
@@ -34,6 +34,14 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}"
 
 S="${WORKDIR}/${P}/${PN}"
+
+pkg_pretend() {
+	# A C++14 compliant compiler is required
+	if ! version_is_at_least 5.1 $(gcc-version); then
+		eerror "${PN} passes -std=c++14 to \${CXX} and requires a version"
+		eerror "of gcc newer than 5.1.0"
+	fi
+}
 
 src_prepare() {
 	# FIX: gtest's source code must be moved inside the test/ directory
