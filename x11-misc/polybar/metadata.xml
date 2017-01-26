@@ -10,11 +10,11 @@
 		<flag name="alsa">Enables support for ALSA volume controls</flag>
 		<flag name="curl">Enables support for HTTP dependent modules</flag>
 		<flag name="i3">Enable support for i3bar protocol</flag>
-		<flag name="wifi">Enables wifi monitoring features</flag>
 		<flag name="mpd">Enables support for display of mpd controlled music</flag>
+		<flag name="network">Enables network monitoring features</flag>
+		<flag name="verbose-debug">Enables verbose debug messages</flag>
 		<flag name="xrender">Enables XRender window extension support (transparency)</flag>
 		<flag name="xdamage">Enables XDamage window extension support</flag>
 		<flag name="xsync">Enables XSync window extension support</flag>
-		<flag name="xkb">Enables XCB Keyboard extension support</flag>
 	</use>
 </pkgmetadata>
