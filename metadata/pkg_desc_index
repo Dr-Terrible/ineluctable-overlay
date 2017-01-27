@@ -42,7 +42,6 @@ dev-python/markdown2 2.3.1: Python Markdown language reimplementation
 dev-python/ordereddict 1.1: A polyfill for Py2.7's new collections.OrderedDict that works in Python 2.4-2.6
 dev-python/plugnplay 0.4.2: A Generic plug-in system for python
 dev-python/proselint 0.4.0: A linter for prose
-dev-python/python-modargs 1.7: A CLI argument parsing library that infers arguments from functions in a module
 dev-python/requests-toolbelt 0.5.1: toolbelt of useful classes and functions to be used with python-requests
 dev-python/smartypants 1.8.6: A port of SmartyPants PHP to Python
 dev-python/vdirsyncer 0.7.5: synchronization tool for vdir
