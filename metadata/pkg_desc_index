@@ -43,7 +43,6 @@ dev-python/proselint 0.4.0: A linter for prose
 dev-python/requests-toolbelt 0.5.1: toolbelt of useful classes and functions to be used with python-requests
 dev-python/smartypants 1.8.6: A port of SmartyPants PHP to Python
 dev-python/vdirsyncer 0.7.5: synchronization tool for vdir
-dev-python/zapps 0.5.1: A book compiler for programmers where code and prose are separate (a Yapps fork)
 dev-qt/qml-material 0.2.0-r2: Material Design implemented in QML
 dev-ruby/certificate_authority 0.1.6-r1: Managing the core functions outlined in RFC-3280 for PKI
 dev-ruby/mruby 1.1.0 1.2.0 9999: A lightweight implementation of Ruby complying to part of the ISO standard
