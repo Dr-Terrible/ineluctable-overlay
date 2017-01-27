@@ -1,4 +1,0 @@
-# Mauro Toffanin <toffanin.mauro@gmail.com> (07 May 2014)
-# unmasked because of Manuel Rüger's moronic choices when
-# masking ebuild for www-servers/mongrel:0
->=www-servers/mongrel-1.8.0

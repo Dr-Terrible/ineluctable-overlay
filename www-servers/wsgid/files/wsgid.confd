@@ -1,8 +1,0 @@
-# Startup options for wsgid applications instances.
-# To start a new instance on ${APP_BASE_PATH}/appname 
-# just create a symlink with name "appname" pointing to /etc/init.d/wsgid, eg:
-# $ ln -sf /etc/init.d/mongrel2 /etc/init.d/appname
-# Now you just run /etc/init.d/appname {start,stop}
-
-# Base path os app apps, one app per folder.
-APP_BASE_PATH="/var/mongrel2/apps"

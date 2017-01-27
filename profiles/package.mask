@@ -61,6 +61,5 @@ dev-games/libndofdev
 =games-engines/panda3d-9999
 =games-engines/gameplay3d-9999
 =games-engines/featherkit-9999
-=www-servers/mongrel-9999
 =app-editors/liteide-9999
 dev-util/flint
