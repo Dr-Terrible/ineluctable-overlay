@@ -37,7 +37,6 @@ dev-python/fusepy 2.0.4: Simple ctypes bindings for FUSE
 dev-python/future 0.15.2: Clean single-source support for Python 3 and 2
 dev-python/inflection 0.2.0: A port of Ruby on Rails inflector to Python
 dev-python/markdown2 2.3.1: Python Markdown language reimplementation
-dev-python/ordereddict 1.1: A polyfill for Py2.7's new collections.OrderedDict that works in Python 2.4-2.6
 dev-python/plugnplay 0.4.2: A Generic plug-in system for python
 dev-python/proselint 0.4.0: A linter for prose
 dev-python/requests-toolbelt 0.5.1: toolbelt of useful classes and functions to be used with python-requests
