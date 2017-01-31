@@ -25,7 +25,7 @@ dev-libs/flatbuffers 1.3.0: FlatBuffers is a serialization library for memory co
 dev-libs/hhvm-libevent 1.4.14b: A customized dev-libs/libevent used by HipHop Virtual Manager
 dev-libs/libdwarf 20120410 20150915: Library to deal with DWARF Debugging Information Format
 dev-libs/libgit2 0.24.3 0.25.0: A linkable library for Git
-dev-libs/libsass 3.2.5 3.3.1 3.3.2 3.3.3: LibSaas is a C/C++ port of the Sass engine.
+dev-libs/libsass 3.4.3: LibSaas is a C/C++ port of the Sass engine.
 dev-libs/libstrophe 0.8.8 0.9.1: A simple, lightweight C library for writing XMPP clients
 dev-php/hhvm 3.7.3: Virtual Machine, Runtime, and JIT for PHP
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
@@ -53,7 +53,7 @@ dev-util/google-styleguide 132: Style guides for Google-originated open-source p
 dev-util/heroku-toolbelt 3.43.5: Client library and CLI to deploy apps on Heroku
 dev-util/oprofile 1.0.0-r10 1.1.0-r10: A transparent low-overhead system-wide profiler
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
-dev-util/sassc 3.2.5 3.3.1 3.3.2 3.3.3: SaasC is an implementer for LibSaas
+dev-util/sassc 3.2.5 3.3.1 3.3.2 3.3.3 3.4.2: SaasC is an implementer for LibSaas
 dev-util/systemtap 2.8 2.9-r10 3.0: A linux trace/probe tool
 dev-vcs/git-extras 4.2.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
