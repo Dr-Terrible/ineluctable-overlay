@@ -89,7 +89,7 @@ sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
 www-apache/mod_qos 11.7: A QOS module for the apache webserver
 www-client/elinks 0.12_pre6-r3: Advanced and well-established text-mode web browser
 www-client/vimb 2.12_pre20161228: a fast, lightweight, vim-like browser based on webkit
-www-servers/lwan 20150703: Experimental, scalable, high performance HTTP server
+www-servers/lwan 0.1.0_pre20170131: Experimental, scalable, high performance HTTP server
 x11-libs/vte-ng 0.46.1-r1: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
 x11-misc/polybar 3.0.2: A fast and easy-to-use status bar
