@@ -10,7 +10,7 @@ HOMEPAGE="http://libsass.org"
 SRC_URI="https://github.com/sass/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/0.0.9"
 KEYWORDS="amd64 arm x86"
 IUSE="doc static-libs test"
 

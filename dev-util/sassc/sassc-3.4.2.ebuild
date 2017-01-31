@@ -1,11 +1,9 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-AUTOTOOLS_AUTORECONF=1
-AUTOTOOLS_IN_SOURCE_BUILD=1 # Fix versioning
-inherit autotools-utils
+EAPI=6
+inherit autotools multilib-build
 
 DESCRIPTION="SaasC is an implementer for LibSaas"
 HOMEPAGE="http://github.com/sass/sassc"
@@ -13,15 +11,14 @@ SRC_URI="https://github.com/sass/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 arm x86"
 
-DEPEND="=dev-libs/libsass-${PV}"
+DEPEND=">=dev-libs/libsass-3.4.0:0/0.0.9"
 
 src_prepare() {
 	# Fix makefiles
 	rm Makefile || die
 	sed -i \
-		-e "s:-Wall -fPIC::" \
 		-e "s:-Wall::" \
 		Makefile.am || die
 
@@ -31,13 +28,7 @@ ${PV}
 EOF
 
 	# Fix autoconf
-	autotools-utils_src_prepare
-}
-
-src_configure() {
-	local myeconfargs=(
-		--disable-shared
-		--enable-static
-	)
-	autotools-utils_src_configure
+	default
+	eautoreconf
+	multilib_copy_sources
 }
