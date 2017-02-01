@@ -15,6 +15,7 @@
 		<flag name="verbose-debug">Enables verbose debug messages</flag>
 		<flag name="xrender">Enables XRender window extension support (transparency)</flag>
 		<flag name="xdamage">Enables XDamage window extension support</flag>
+		<flag name="xkb">Enables XCB Keyboard extension support</flag>
 		<flag name="xsync">Enables XSync window extension support</flag>
 	</use>
 </pkgmetadata>
