@@ -92,7 +92,7 @@ www-client/vimb 2.12_pre20161228: a fast, lightweight, vim-like browser based on
 www-servers/lwan 0.1.0_pre20170131: Experimental, scalable, high performance HTTP server
 x11-libs/vte-ng 0.46.1-r1: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
-x11-misc/polybar 2.5.2 3.0.3: A fast and easy-to-use status bar
+x11-misc/polybar 2.5.2-r1 3.0.3-r1: A fast and easy-to-use status bar
 x11-misc/xdo 0.5.3: Small X utility to perform elementary actions on windows
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
 x11-terms/termite 12-r3: A keyboard-centric terminal aimed at use within a tiling window manager

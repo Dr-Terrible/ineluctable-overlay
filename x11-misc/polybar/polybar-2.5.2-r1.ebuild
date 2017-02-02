@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -8,7 +8,7 @@ DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 cmake-utils toolchain-funcs versionator
 
-XPP_ECOMMIT="49ed2c142109fe92932ae906fc4b40b5138b2809"
+XPP_ECOMMIT="9d410a963e7e2673a87b200b7560a3d83747e900"
 I3IPCPP_ECOMMIT="8ed783100bbc8053fd7d8e19cef58cd097ff23f7"
 
 DESCRIPTION="A fast and easy-to-use status bar"
@@ -62,7 +62,8 @@ src_prepare() {
 	default
 
 	# remove bundled libs
-	#rm -r lib/i3ipcpp/libs/jsoncpp-1.7.7 || die
+	rm -r lib/i3ipcpp/libs/jsoncpp-1.7.7 || die
+	rm -r lib/jsoncpp-1.7.7.tar.gz || die
 }
 
 src_configure() {
