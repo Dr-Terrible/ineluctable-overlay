@@ -69,7 +69,7 @@ games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
 games-rpg/flare 0.19 0.20 0.21_pre7 0.21_pre8: Free/Libre Action Roleplaying game
 games-strategy/endless-sky 0.9.3 0.9.4: Space exploration, trading & combat in the tradition of Terminal Velocity
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
-mail-client/jaromail 3.2 3.3_pre20150918: A command-line MUA to easily and privately handle your e-mails.
+mail-client/jaromail 4.2: A command-line MUA to easily and privately handle your e-mails.
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
 media-gfx/goxel 0.2.0 0.3.0: Open source 3D voxel editor
 media-gfx/synfig 0.64.3 1.1.7: Film-Quality Vector Animation (core engine)

@@ -1,23 +1,22 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 inherit flag-o-matic
 
 MY_PN="${PN/jarom/JaroM}"
-ECOMMIT="e3c34f9020ba5ba2da783ce56849a1ccd0a11e8d"
 
 DESCRIPTION="A command-line MUA to easily and privately handle your e-mails."
-HOMEPAGE="https://dyne-org/software/jaro-mail"
-SRC_URI="https://github.com/dyne/${PN}/archive/${ECOMMIT}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://dyne.org/software/jaro-mail"
+SRC_URI="https://github.com/dyne/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+sasl doc"
 
-S="${WORKDIR}/${MY_PN}-${ECOMMIT}"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 RESTRICT="mirror"
 
@@ -41,7 +40,7 @@ DEPEND="sys-devel/bison
 DOCS=(README.md TODO.md KNOWN_BUGS.md ChangeLog.md)
 
 PATCHES=(
-
+	"${FILESDIR}"/${PN}-filters.patch
 )
 
 src_prepare() {
@@ -50,7 +49,8 @@ src_prepare() {
 		-e "s:which:#which:" \
 		build/build-gnu.sh || die
 
-	epatch "${FILESDIR}"/${PN}-filters.patch
+	default
+	#epatch "${FILESDIR}"/${PN}-filters.patch
 }
 
 src_configure() { :; }
@@ -79,11 +79,13 @@ src_install() {
 
 	# Installing docs
 	if use doc; then
+		pwd
+		ls -la
 		dodoc \
-			doc/howto_gmail_fetchmail_procmail.txt \
+			doc/howto_gmail_fetchmail_and_procmail.txt
 			doc/*.pdf
 
-		rm doc/howto_gmail_fetchmail_procmail.txt || die
+		rm doc/howto_gmail_fetchmail_and_procmail.txt || die
 	fi
 	einstalldocs
 
