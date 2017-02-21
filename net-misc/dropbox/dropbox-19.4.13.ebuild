@@ -2,25 +2,27 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 PYTHON_COMPAT=( python2_7)
-inherit user python-r1 gnome2-utils pax-utils systemd
+inherit user gnome2-utils pax-utils systemd python-single-r1
 
 DESCRIPTION="Dropbox daemon (pretends to be GUI-less)"
-HOMEPAGE="http://dropbox.com/"
+HOMEPAGE="http://dropbox.com"
 SRC_URI="
 	x86? ( http://dl-web.dropbox.com/u/17/${PN}-lnx.x86-${PV}.tar.gz )
 	amd64? ( http://dl-web.dropbox.com/u/17/${PN}-lnx.x86_64-${PV}.tar.gz )"
 
 LICENSE="CC-BY-ND-3.0 FTL MIT LGPL-2 openssl dropbox"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE+=" system-librsync X cli"
 
 RESTRICT+=" mirror strip"
 
 QA_PREBUILT="opt/.*"
 QA_EXECSTACK="opt/dropbox/dropbox"
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Be sure to have GLIBCXX_3.4.9, #393125
 # USE=X require wxGTK's dependencies. system-library cannot be used due to
@@ -46,14 +48,12 @@ RDEPEND="
 	)
 	sys-apps/coreutils
 	app-arch/bzip2
-	dev-lang/python:2.7
 	dev-libs/popt
 	net-misc/wget
-	>=sys-devel/gcc-4.2.0
 	sys-libs/zlib
 	|| (
-		sys-libs/ncurses:5/5
-		sys-libs/ncurses:0/5
+		sys-libs/ncurses:5/6
+		sys-libs/ncurses:0/6
 	)
 	cli? ( >=net-misc/dropbox-cli-1.6.2 )
 	system-librsync? ( net-libs/librsync )"
@@ -72,6 +72,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	eapply_user
 	pushd "${PN}-lnx.x86_64-${PV}"
 
 #		rm -vf libbz2* libpopt.so.0 libpng12.so.0 || die
