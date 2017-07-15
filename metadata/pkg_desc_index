@@ -23,6 +23,7 @@ dev-db/arangodb 1.4.3: The universal nosql database
 dev-lang/pocl 0.12: PortableCL: opensource implementation of the OpenCL standard
 dev-libs/flatbuffers 1.3.0: FlatBuffers is a serialization library for memory constrained apps.
 dev-libs/hhvm-libevent 1.4.14b: A customized dev-libs/libevent used by HipHop Virtual Manager
+dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library
 dev-libs/libdwarf 20120410 20150915: Library to deal with DWARF Debugging Information Format
 dev-libs/libgit2 0.24.3 0.25.0: A linkable library for Git
 dev-libs/libsass 3.4.3: LibSaas is a C/C++ port of the Sass engine.
@@ -67,7 +68,6 @@ games-engines/panda3d 1.8.1: Panda3D is a framework for 3D rendering and game de
 games-engines/redpanda 0.1.0: An open-source 3D framework
 games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
 games-rpg/flare 0.19 0.20 0.21_pre7 0.21_pre8: Free/Libre Action Roleplaying game
-games-strategy/endless-sky 0.9.3 0.9.4: Space exploration, trading & combat in the tradition of Terminal Velocity
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 mail-client/jaromail 4.2: A command-line MUA to easily and privately handle your e-mails.
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
@@ -86,7 +86,6 @@ net-p2p/tribler 6.5.2: Bittorrent client that does not require a website to disc
 sys-apps/nix 1.7: A purely functional package manager
 sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
 www-apache/mod_qos 11.7: A QOS module for the apache webserver
-www-client/elinks 0.12_pre6-r3: Advanced and well-established text-mode web browser
 www-client/vimb 2.12_pre20161228: a fast, lightweight, vim-like browser based on webkit
 www-servers/lwan 0.1.0_pre20170131: Experimental, scalable, high performance HTTP server
 x11-libs/vte-ng 0.46.1-r1: Library providing a virtual terminal emulator widget
