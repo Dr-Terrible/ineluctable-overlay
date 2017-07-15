@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 inherit cmake-utils eutils python-r1 multilib-minimal
@@ -43,7 +43,7 @@ multilib_src_configure() {
 	)
 
 	if multilib_is_native_abi ; then
-		mycmakeargs+=( $(cmake-utils_use_build samples SAMPLES) )
+		mycmakeargs+=( -DBUILD_SAMPLES="$(usex samples)" )
 	else
 		mycmakeargs+=( -DBUILD_SAMPLES=OFF )
 	fi
