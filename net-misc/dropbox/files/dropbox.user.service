@@ -20,10 +20,10 @@ ReadOnlyDirectories=/opt/dropbox
 ExecStart=/opt/dropbox/dropbox
 SendSIGHUP=yes
 Restart=on-failure
-User=%i
+#User=%i
 NoNewPrivileges=true
 DevicePolicy=closed
-#PrivateTmp=true
+PrivateTmp=true
 #Nice=5
 
 [Install]
