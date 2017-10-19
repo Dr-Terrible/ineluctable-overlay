@@ -10,6 +10,7 @@ app-misc/recoll 1.19.14-r2 1.20.6: A personal full text search package
 app-misc/watchman 4.7.0: A file watching service
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
 app-shells/zshdb 0.92: Debugger for zsh
+app-text/bookworm 0.9.0-r10 0.10.0_pre20170819: A simple ebook reader originally intended for Elementary OS
 dev-cpp/ETL 0.04.17-r1 0.04.19 0.04.20: ETL is a multi-platform class and template library
 dev-cpp/cereal 1.0.0: Cereal is a header-only C++11 serialization library
 dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
@@ -77,7 +78,7 @@ media-gfx/synfigstudio 0.64.1 0.64.3 1.1.7: Main UI of synfig: Film-Quality Vect
 media-libs/artoolkit 2.72.1-r10: The ARToolKit library
 media-libs/glfw 3.2: The Portable OpenGL FrameWork
 net-im/profanity 0.4.7 0.5.0: Profanity is a console based XMPP client inspired by irssi
-net-misc/dropbox 19.4.13 20.3.18: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox 30.4.22 32.4.23: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2015.10.28 2015.10.28-r1: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/ephemeral-port-reserve 1.0.1: Find an unused port, reliably
 net-misc/remmina 1.2.0_rc8: A GTK+ RDP, VNC, XDMCP and SSH client
@@ -86,11 +87,13 @@ net-p2p/tribler 6.5.2: Bittorrent client that does not require a website to disc
 sys-apps/nix 1.7: A purely functional package manager
 sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
 www-apache/mod_qos 11.7: A QOS module for the apache webserver
+www-client/google-chrome 60.0.3112.113: The web browser from Google
 www-client/vimb 2.12_pre20161228: a fast, lightweight, vim-like browser based on webkit
+www-plugins/chrome-binary-plugins 60.0.3112.113: Binary plugins from Google Chrome for use in Chromium
 www-servers/lwan 0.1.0_pre20170131: Experimental, scalable, high performance HTTP server
 x11-libs/vte-ng 0.46.1-r1: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
-x11-misc/polybar 2.5.2-r2 3.0.4: A fast and easy-to-use status bar
+x11-misc/polybar 2.5.2-r2 3.0.6_pre20171018: A fast and easy-to-use status bar
 x11-misc/xdo 0.5.3: Small X utility to perform elementary actions on windows
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
 x11-terms/termite 12-r3: A keyboard-centric terminal aimed at use within a tiling window manager
