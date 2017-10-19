@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit cmake-utils gnome2-utils
@@ -38,19 +37,15 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
-	games_make_wrapper "flare-game" "flare --game=flare-game"
 	make_desktop_entry "flare-game" "Flare (game)"
 	dodoc README
-	prepgamesdirs
 }
 
 pkg_preinst() {
-	games_pkg_preinst
 	gnome2_icon_savelist
 }
 
 pkg_postinst() {
-	games_pkg_postinst
 	gnome2_icon_cache_update
 }
 

@@ -1,12 +1,11 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit cmake-utils gnome2-utils
 
 EGIT_PN="${PN}-game"
-EGIT_COMMIT="4e586dea9867b3e236af621d156f109b59fa78f8"
+EGIT_COMMIT="f5f6c17610f604cda9babe818bc2a9076f255b98"
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-game"
@@ -38,21 +37,17 @@ src_compile() {
 src_install() {
 	cmake-utils_src_install
 
-	games_make_wrapper "flare-game" "flare --game=flare-game"
 	make_desktop_entry "flare-game" "Flare (game)"
 
 	docinto game
 	dodoc README
-	prepgamesdirs
 }
 
 pkg_preinst() {
-	games_pkg_preinst
 	gnome2_icon_savelist
 }
 
 pkg_postinst() {
-	games_pkg_postinst
 	gnome2_icon_cache_update
 }
 
