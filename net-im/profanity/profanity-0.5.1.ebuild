@@ -1,12 +1,11 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI=5
+EAPI=6
 
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
-inherit autotools-utils
+inherit autotools
 
 DESCRIPTION="Profanity is a console based XMPP client inspired by irssi"
 HOMEPAGE="http://profanity.im"
@@ -37,6 +36,11 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	libnotify? ( virtual/notification-daemon )"
 
+src_prepare() {
+	default
+	eautoreconf
+}
+
 src_configure() {
 	local myeconfargs=(
 		--with-libxml2
@@ -46,7 +50,7 @@ src_configure() {
 		$(use_with themes)
 		$(use_with xscreensaver)
 	)
-	autotools-utils_src_configure
+	econf "${myeconfargs[@]}"
 }
 
 pkg_postinst() {
