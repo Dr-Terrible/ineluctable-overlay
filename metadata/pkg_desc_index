@@ -53,7 +53,7 @@ dev-util/heroku-toolbelt 3.43.5: Client library and CLI to deploy apps on Heroku
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
 dev-util/sassc 3.4.2: SaasC is an implementer for LibSaas
 dev-util/systemtap 2.8 2.9-r10 3.0: A linux trace/probe tool
-dev-vcs/diff-so-fancy 0.11.4: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
+dev-vcs/diff-so-fancy 1.1.1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 dev-vcs/git-extras 4.2.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
 dev-vcs/gitfs 0.4.5.1: gitfs is a FUSE file system that fully integrates with git

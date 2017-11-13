@@ -16,6 +16,6 @@ DEPEND="${RDEPEND}"
 
 src_install() {
 	dobin diff-so-fancy
-	exeinto /usr/bin/libexec
-	doexe libexec/diff-so-fancy.pl
+	exeinto /usr/bin/lib
+	doexe lib/DiffHighlight.pm
 }
