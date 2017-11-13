@@ -1,13 +1,12 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
 PYTHON_COMPAT=( python{2_7,3_3,3_4} )
-inherit user python-single-r1 autotools-utils
+inherit user flag-o-matic python-single-r1 autotools-utils
 
 DESCRIPTION="A file watching service"
 HOMEPAGE="https://facebook.github.io/watchman"
@@ -20,9 +19,13 @@ IUSE="debug +pcre python ssp test doc"
 
 RESTRICT="mirror"
 
-RDEPEND="pcre? ( dev-libs/libpcre )"
+RDEPEND="pcre? ( dev-libs/libpcre )
+	dev-cpp/glog"
 DEPEND="doc? (
-	www-apps/jekyll
+	>=www-apps/jekyll-3.6.0
+	www-apps/jekyll-feed
+	www-apps/jekyll-seo-tag
+	www-apps/jekyll-sitemap
 	dev-ruby/pygments_rb
 )"
 
@@ -31,6 +34,8 @@ pkg_setup() {
 }
 
 src_configure() {
+	append-libs -lglog
+
 	STATEDIR="${EPREFIX}/var/lib/${PN}"
 
 	local myeconfargs=(
