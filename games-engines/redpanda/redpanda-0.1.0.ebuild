@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
@@ -37,7 +36,7 @@ CDEPEND="opengl? ( virtual/opengl )
 	media-libs/glm
 	media-libs/glfw[egl?]
 	media-libs/assimp[tools]
-	>=dev-cpp/cereal-1.0.0
+	>=dev-libs/cereal-1.0.0
 	sdl? ( >=media-libs/libsdl2-2.0.3[cpu_flags_x86_sse2?,opengl?,gles?,threads] )
 	sfml? ( media-libs/libsfml )
 	aio? ( >=dev-libs/libuv-0.11.27 )"
