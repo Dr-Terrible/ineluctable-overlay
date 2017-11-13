@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 AUTOTOOLS_AUTORECONF=1
@@ -13,7 +12,7 @@ SRC_URI="mirror://sourceforge/synfig/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="imagemagick ffmpeg dv openexr truetype jpeg tiff fontconfig debug static-libs nls examples ffmpeg avcodec swscale"
+IUSE="imagemagick dv openexr truetype jpeg tiff fontconfig debug static-libs nls examples ffmpeg avcodec swscale"
 
 REQUIRED_USE="ffmpeg? ( avcodec swscale )"
 DEPEND="dev-libs/libsigc++:2

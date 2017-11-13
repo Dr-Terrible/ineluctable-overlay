@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	
 	<maintainer type="person">
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
@@ -9,10 +8,10 @@
 	</maintainer>
 	<use>
 		<flag name="xen">Enables support for <pkg>app-emulation/xen</pkg> backends</flag>
-        <flag name="jemalloc">Uses <pkg>dev-libs/jemalloc</pkg> for allocation</flag>
-        <flag name="jsonc">Uses <pkg>dev-libs/json-c</pkg></flag>
-        <flag name="hack">Includes support for the HACK language</flag>
-        <flag name="hack-tools">Includes support for the HACK tools</flag>
-        <flag name="zend-compat">Enables Zend source compatibility</flag>
+		<flag name="jemalloc">Uses <pkg>dev-libs/jemalloc</pkg> for allocation</flag>
+		<flag name="jsonc">Uses <pkg>dev-libs/json-c</pkg></flag>
+		<flag name="hack">Includes support for the HACK language</flag>
+		<flag name="hack-tools">Includes support for the HACK tools</flag>
+		<flag name="zend-compat">Enables Zend source compatibility</flag>
 	</use>
 </pkgmetadata>

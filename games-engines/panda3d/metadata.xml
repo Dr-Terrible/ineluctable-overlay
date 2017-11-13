@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	
 	<maintainer type="person">
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
@@ -21,8 +20,7 @@
 		<flag name="eigen">Enables optimised linear algebra library through package <pkg>dev-cpp/eigen</pkg></flag>
 		<flag name="fmod">Enables support for package <pkg>media-libs/fmod</pkg></flag>
 		<flag name="opencv">Enables support for package <pkg>media-libs/opencv</pkg></flag>
-		<flag name="pstats">Builts the PStats viewer for graphical analysis of
-  real-time performance</flag>
+		<flag name="pstats">Builts the PStats viewer for graphical analysis of real-time performance</flag>
 		<flag name="xrandr">Enables XRandR window extension support</flag>
 		<flag name="egl">Uses EGL instead of default GLX to manage OpenGL</flag>
 		<flag name="ode">Enables physics support through package Open Dynamics Engine SDK <pkg>dev-games/ode</pkg></flag>

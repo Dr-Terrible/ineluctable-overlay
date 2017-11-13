@@ -1,12 +1,11 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 PYTHON_COMPAT=( python2_7 )
 DISTUTILS_SINGLE_IMPL=1
 
-inherit eutils distutils-r1 fdo-mime
+inherit eutils distutils-r1 xdg-utils
 
 DESCRIPTION="Bittorrent client that does not require a website to discover content"
 HOMEPAGE="http://www.tribler.org"
@@ -29,7 +28,7 @@ RDEPEND="dev-python/pyasn1[${PYTHON_USEDEP}]
 	dev-python/twisted-core[crypt,${PYTHON_USEDEP}]
 	dev-python/twisted-web[${PYTHON_USEDEP}]
 	dev-python/wxpython:2.8[${PYTHON_USEDEP}]
-	net-libs/rb_libtorrent:0/8[dht,python,${PYTHON_USEDEP}]
+	net-libs/libtorrent-rasterbar:0/8[dht,python,${PYTHON_USEDEP}]
 	vlc? (
 		media-video/vlc
 	)"
@@ -71,10 +70,7 @@ src_install() {
 	doins -r Tribler
 }
 
-pkg_postinst() {
-	fdo-mime_desktop_database_update
-}
-
 pkg_postrm() {
-	fdo-mime_desktop_database_update
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }

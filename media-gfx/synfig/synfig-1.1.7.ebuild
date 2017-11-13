@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 AUTOTOOLS_AUTORECONF=1
@@ -18,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="imagemagick +ffmpeg libav dv opengl opencl +openexr +truetype +jpeg +tiff fontconfig debug static-libs nls examples avcodec +swscale"
 
-REQUIRED_USE="ffmpeg? ( swscale )"
+REQUIRED_USE="ffmpeg? ( avcodec swscale )"
 DEPEND="dev-libs/libsigc++:2
 	dev-cpp/libxmlpp:2.6
 	dev-libs/libxml2:2
@@ -41,13 +40,9 @@ DEPEND="dev-libs/libsigc++:2
 	jpeg? ( virtual/jpeg:0 )
 	tiff? ( media-libs/tiff:0 )"
 RDEPEND="${DEPEND}
-	!<media-video/ffmpeg-1.2:0
 	avcodec? (
-		!libav? (
-			>=media-video/ffmpeg-2.2:0=
-			<=media-video/ffmpeg-2.9:0=
-		)
-		libav? ( >=media-video/libav-11:0= )
+		!libav? ( media-video/ffmpeg:0= )
+		libav? ( media-video/libav:0= )
 	)
 	swscale? (
 		!libav? ( media-video/ffmpeg:0= )

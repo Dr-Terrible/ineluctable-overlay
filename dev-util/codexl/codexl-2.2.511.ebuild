@@ -1,6 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 inherit eutils user
@@ -11,7 +10,7 @@ DESCRIPTION="CPU/GPU debugging and profiling suite by AMD"
 HOMEPAGE="http://developer.amd.com/tools/heterogeneous-computing/codexl/"
 SRC_URI="https://github.com/GPUOpen-Tools/${PN}/releases/download/v2.2/${APP_NAME}_Linux_x86_64_${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="AMD LGPL-2.1"
+LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
@@ -125,7 +124,7 @@ src_install() {
 
 	# installing executables
 	dodir /opt/bin
-	dosym /opt/AMD/${APP_NAME}/${APP_NAME} /opt/bin/${APP_NAME} || die
+	dosym /opt/AMD/${APP_NAME}/${APP_NAME} /opt/bin${APP_NAME} || die
 
 	# Fixing owners and permissions
 	fowners -R root:amdcxl /opt/AMD/${APP_NAME}
