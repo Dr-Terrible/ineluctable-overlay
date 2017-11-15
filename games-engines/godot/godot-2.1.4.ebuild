@@ -1,18 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 inherit eutils scons-utils toolchain-funcs
 
-EDOC_COMMIT="8df317bc9c57c7c454da17dfc4f9d9e9f95b1fdf"
-EEXAMPLE_COMMIT="210bd8d8c49458078541475a7a4c01d39cc99cfd"
+EDOC_COMMIT="ddf70575db552a0112cdd6583096e9c5db3a8ce8"
 
 DESCRIPTION="Godot is a fully featured, open source, MIT licensed, game engine"
 HOMEPAGE="http://www.godotengine.org"
 SRC_URI="https://github.com/${PN}engine/${PN}/archive/${PV}-stable.tar.gz -> ${PF}.tar.gz
 doc? ( https://github.com/${PN}engine/${PN}-docs/archive/${EDOC_COMMIT}.tar.gz -> ${PF/godot/godot-docs}.tar.gz )
-examples? ( https://github.com/${PN}engine/${PN}-demo-projects/archive/${EEXAMPLE_COMMIT}.tar.gz -> ${PF/godot/godot-examples}.tar.gz )"
+examples? ( https://github.com/${PN}engine/${PN}-demo-projects/archive/${PN}-stable.tar.gz -> ${PF/godot/godot-examples}.tar.gz )"
 
 LICENSE="MIT"
 SLOT="0"
