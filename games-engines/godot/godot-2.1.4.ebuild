@@ -5,6 +5,7 @@ EAPI=5
 inherit eutils scons-utils toolchain-funcs
 
 EDOC_COMMIT="ddf70575db552a0112cdd6583096e9c5db3a8ce8"
+EEXAMPLE_COMMIT="210bd8d8c49458078541475a7a4c01d39cc99cfd"
 
 DESCRIPTION="Godot is a fully featured, open source, MIT licensed, game engine"
 HOMEPAGE="http://www.godotengine.org"

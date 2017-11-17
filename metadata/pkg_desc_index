@@ -2,30 +2,23 @@ app-admin/dotfiler 0.5.0: Shell agnostic git based dotfiles package manager
 app-arch/archivemount 0.8.3: mount an archive as filesystem using fuse and libarchive
 app-doc/dtrace-systemtap-book 20150923: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20150516: Game Programming Patterns
-app-misc/abook 0.6.1_pre1: Abook is a text-based addressbook program designed to use with mutt mail client
-app-misc/khal 0.7.0: CLI calendar application
-app-misc/powerline 2.5: Python-based statusline/prompt utility
-app-misc/watchman 4.7.0: A file watching service
+app-misc/powerline 2.6: Python-based statusline/prompt utility
+app-misc/watchman 4.9.0: A file watching service
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
 app-shells/zshdb 0.92: Debugger for zsh
 app-text/bookworm 0.9.0-r10 0.10.0_pre20170819: A simple ebook reader originally intended for Elementary OS
 dev-cpp/ETL 0.04.17-r1 0.04.19 0.04.20: ETL is a multi-platform class and template library
-dev-cpp/cereal 1.0.0: Cereal is a header-only C++11 serialization library
 dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
 dev-cpp/ctemplate 2.3: A simple but powerful template language for C++
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
 dev-cpp/folly 2016.12.19.00: An open-source C++ library developed and used at Facebook
-dev-cpp/gflags 2.1.1: Google's C++ argument parsing library
-dev-cpp/gtest 1.8.0-r50: Google C++ Testing Framework
 dev-cpp/plustache 0.3.0: Mustache templating for C++
 dev-db/arangodb 1.4.3: The universal nosql database
 dev-lang/pocl 0.12: PortableCL: opensource implementation of the OpenCL standard
-dev-libs/flatbuffers 1.3.0: FlatBuffers is a serialization library for memory constrained apps.
 dev-libs/hhvm-libevent 1.4.14b: A customized dev-libs/libevent used by HipHop Virtual Manager
 dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library
 dev-libs/libdwarf 20120410 20150915: Library to deal with DWARF Debugging Information Format
-dev-libs/libgit2 0.24.3 0.25.0: A linkable library for Git
-dev-libs/libsass 3.4.3: LibSaas is a C/C++ port of the Sass engine.
+dev-libs/libsass 3.4.7: A C/C++ implementation of a Sass CSS compiler
 dev-libs/libstrophe 0.8.8 0.9.1: A simple, lightweight C library for writing XMPP clients
 dev-php/hhvm 3.7.3: Virtual Machine, Runtime, and JIT for PHP
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
@@ -34,36 +27,29 @@ dev-python/cheat 2.1.15: Cheat allows you to create and view interactive cheatsh
 dev-python/click-log 0.1.3: Logging integration for Click
 dev-python/click-threading 0.1.2: Atomic file writes.
 dev-python/fusepy 2.0.4: Simple ctypes bindings for FUSE
-dev-python/future 0.15.2: Clean single-source support for Python 3 and 2
 dev-python/markdown2 2.3.1: Python Markdown language reimplementation
 dev-python/plugnplay 0.4.2: A Generic plug-in system for python
-dev-python/proselint 0.4.0: A linter for prose
-dev-python/requests-toolbelt 0.5.1: toolbelt of useful classes and functions to be used with python-requests
+dev-python/proselint 0.8.0: A linter for prose
 dev-python/smartypants 1.8.6: A port of SmartyPants PHP to Python
-dev-python/vdirsyncer 0.7.5: synchronization tool for vdir
 dev-qt/qml-material 0.2.0-r2: Material Design implemented in QML
 dev-ruby/mruby 1.1.0 1.2.0 9999: A lightweight implementation of Ruby complying to part of the ISO standard
 dev-util/codexl 2.2.511: CPU/GPU debugging and profiling suite by AMD
-dev-util/crash 7.1.3: Red Hat crash utility. Used for analyzing kernel core dumps
 dev-util/cxxtest 4.0.3 4.3: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
 dev-util/flint++ 2015.12.03: Flint++ is cross-platform, zero-dependency port of Facebook's flint
 dev-util/google-perftools 2.4: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-util/google-styleguide 132: Style guides for Google-originated open-source projects
 dev-util/heroku-toolbelt 3.43.5: Client library and CLI to deploy apps on Heroku
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
-dev-util/sassc 3.4.2: SaasC is an implementer for LibSaas
-dev-util/systemtap 2.8 2.9-r10 3.0: A linux trace/probe tool
+dev-util/sassc 3.4.7: SaasC is an implementer for LibSaas
 dev-vcs/diff-so-fancy 1.1.1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 dev-vcs/git-extras 4.2.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
 dev-vcs/gitfs 0.4.5.1: gitfs is a FUSE file system that fully integrates with git
-games-engines/Torque3D 3.5 3.5.1: Torque3D is an cross-platform and open-source game engine
+games-engines/Torque3D 3.5 3.5.1 3.10: Torque3D is an cross-platform and open-source game engine
 games-engines/flare 0.19 0.20 0.21_pre9: Free/Libre Action Roleplaying game
 games-engines/gameplay3d 2.0.0 3.0.0 9999: GamePlay3D is an open-source, cross-platform 3D game framework written in C++.
-games-engines/godot 2.0.4.1 2.1: Godot is a fully featured, open source, MIT licensed, game engine
+games-engines/godot 2.1.4: Godot is a fully featured, open source, MIT licensed, game engine
 games-engines/panda3d 1.8.1: Panda3D is a framework for 3D rendering and game development
-games-engines/redpanda 0.1.0: An open-source 3D framework
-games-engines/redpanda-docs 0.1.0: HTML documentation for RedPanda
 games-rpg/flare 0.19 0.20 0.21_pre9: Free/Libre Action Roleplaying game
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 mail-client/jaromail 4.2: A command-line MUA to easily and privately handle your e-mails.
@@ -72,23 +58,21 @@ media-gfx/goxel 0.2.0 0.3.0: Open source 3D voxel editor
 media-gfx/synfig 0.64.3 1.1.7: Film-Quality Vector Animation (core engine)
 media-gfx/synfigstudio 0.64.1 0.64.3 1.1.7: Main UI of synfig: Film-Quality Vector Animation
 media-libs/artoolkit 2.72.1-r10: The ARToolKit library
-media-libs/glfw 3.2: The Portable OpenGL FrameWork
 net-im/profanity 0.5.1: Profanity is a console based XMPP client inspired by irssi
 net-misc/dropbox 30.4.22 32.4.23: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2015.10.28 2015.10.28-r1: Cli interface for dropbox (python), part of nautilus-dropbox
-net-misc/ephemeral-port-reserve 1.0.1: Find an unused port, reliably
-net-misc/remmina 1.2.0_rc8: A GTK+ RDP, VNC, XDMCP and SSH client
+net-misc/ephemeral-port-reserve 1.1.0: Find an unused port, reliably
 net-misc/vde 2.3.2: A virtual distributed ethernet emulator for qemu, bochs, and uml
 net-p2p/tribler 6.5.2: Bittorrent client that does not require a website to discover content
 sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
-www-apache/mod_qos 11.7: A QOS module for the apache webserver
+www-apps/jekyll-feed 0.9.2: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
+www-apps/jekyll-seo-tag 2.3.0: A Jekyll plugin to add metadata tags for search engines
 www-client/google-chrome 60.0.3112.113: The web browser from Google
 www-plugins/chrome-binary-plugins 60.0.3112.113: Binary plugins from Google Chrome for use in Chromium
 www-servers/lwan 0.1.0_pre20170131: Experimental, scalable, high performance HTTP server
 x11-libs/vte-ng 0.46.1-r1: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
 x11-misc/polybar 2.5.2-r2 3.0.6_pre20171018: A fast and easy-to-use status bar
-x11-misc/xdo 0.5.3: Small X utility to perform elementary actions on windows
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
 x11-terms/termite 12-r3: A keyboard-centric terminal aimed at use within a tiling window manager
 x11-wm/orbment 0_pre20160813: Orbment is a dynamic window manager and compositor for Wayland

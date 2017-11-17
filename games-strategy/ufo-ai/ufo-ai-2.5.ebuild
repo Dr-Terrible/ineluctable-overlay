@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 AUTOTOOLS_IN_SOURCE_BUILD=1
@@ -8,10 +7,10 @@ inherit autotools-utils flag-o-matic
 
 MY_PN=${PN/o-a/oa}
 MY_P=${P/o-a/oa}
-SRC_HOME="http://sourceforge.net/projects/${MY_PN}/files/UFO_AI%202.x/${PV}"
+SRC_HOME="https://sourceforge.net/projects/${MY_PN}/files/UFO_AI%202.x/${PV}"
 
 DESCRIPTION="UFO: Alien Invasion - X-COM inspired strategy game"
-HOMEPAGE="http://ufoai.sourceforge.net"
+HOMEPAGE="https://ufoai.sourceforge.net"
 SRC_URI="${SRC_HOME}/${MY_P}-source.tar.bz2
 	${SRC_HOME}/${MY_P}-data.tar"
 

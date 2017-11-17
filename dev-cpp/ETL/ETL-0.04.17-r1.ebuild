@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -6,8 +6,8 @@ AUTOTOOLS_AUTORECONF=1
 inherit autotools-multilib
 
 DESCRIPTION="ETL is a multi-platform class and template library"
-HOMEPAGE="http://synfig.org"
-SRC_URI="http://sourceforge.net/projects/synfig/files/releases/0.64.3/source/${P}.tar.gz"
+HOMEPAGE="https://synfig.org"
+SRC_URI="https://sourceforge.net/projects/synfig/files/releases/0.64.3/source/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

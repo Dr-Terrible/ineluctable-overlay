@@ -1,11 +1,9 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
-EAPI=5
+EAPI=6
 inherit eutils multiprocessing
 
-#EGIT_REPO_URI="git://github.com/9fans/plan9port"
 EGIT_COMMIT="71de840f054e52a8a077b2333edc1f4243480359"
 
 DESCRIPTION="Port of many Plan 9 programs and libraries"
@@ -30,8 +28,8 @@ src_prepare() {
 
 	# Fix paths, done in place of ./INSTALL -c
 	einfo "Fixing hard-coded /usr/local/plan9 paths"
-	grep  --null -l -r '/usr/local/plan9' |
-	xargs --null sed -i "s!/usr/local/plan9!${PLAN9}!g"
+	grep  --null -l -r '/usr/local/plan9' | \
+		xargs --null sed -i "s!/usr/local/plan9!${PLAN9}!g" || die
 }
 
 src_configure() {
