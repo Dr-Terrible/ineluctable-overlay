@@ -1,29 +1,34 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-AUTOTOOLS_AUTORECONF=1
-inherit eutils flag-o-matic autotools-multilib
+EAPI=6
+inherit eutils autotools multilib-minimal
 
 DESCRIPTION="Film-Quality Vector Animation (core engine)"
-HOMEPAGE="http://www.synfig.org"
-SRC_URI="mirror://sourceforge/synfig/${P}.tar.gz"
+HOMEPAGE="https://www.synfig.org"
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz -> ${PF}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="imagemagick dv openexr truetype jpeg tiff fontconfig debug static-libs nls examples ffmpeg avcodec swscale"
+KEYWORDS="amd64 x86"
+IUSE="imagemagick +ffmpeg libav dv opengl opencl +openexr +truetype +jpeg +tiff fontconfig debug static-libs nls examples +swscale"
 
-REQUIRED_USE="ffmpeg? ( avcodec swscale )"
+REQUIRED_USE="ffmpeg? ( swscale )"
 DEPEND="dev-libs/libsigc++:2
 	dev-cpp/libxmlpp:2.6
+	dev-libs/libxml2:2
 	media-libs/libpng:0
-	>=dev-cpp/ETL-0.04.17
+	>=dev-cpp/ETL-${PV}
 	dev-cpp/glibmm:2
 	dev-libs/boost:0
 	dev-libs/glib:2
 	dev-libs/libltdl:0
 	media-libs/ilmbase:0
+	media-libs/libmng:0/2
+	>=media-libs/mlt-6.0.0
+	sys-libs/zlib:0
+	x11-libs/cairo:0
+	x11-libs/pango:0
 	openexr? ( media-libs/openexr:0 )
 	ffmpeg? ( virtual/ffmpeg )
 	truetype? ( media-libs/freetype )
@@ -31,16 +36,16 @@ DEPEND="dev-libs/libsigc++:2
 	jpeg? ( virtual/jpeg:0 )
 	tiff? ( media-libs/tiff:0 )"
 RDEPEND="${DEPEND}
-	!<media-video/ffmpeg-1.2:0
-	avcodec? ( virtual/ffmpeg:0 )
-	swscale? ( virtual/ffmpeg:0 )
+	swscale? (
+		!libav? ( media-video/ffmpeg:0= )
+		libav? ( media-video/libav:0= )
+	)
+	opengl? ( virtual/opengl )
+	opencl? ( virtual/opencl )
 	dv? ( media-libs/libdv )
 	imagemagick? ( media-gfx/imagemagick[cxx] )"
 
-PATCHES=(
-	# use ltdl from system
-	#"${FILESDIR}"/synfig-ltdl.patch
-)
+RESTRICT+=" mirror"
 
 src_prepare() {
 	# build with external system libltdl
@@ -50,33 +55,43 @@ src_prepare() {
 		   -e 's/CFLAGS="`echo $CFLAGS | sed s:-g::` $debug_flags"//'     \
 		m4/subs.m4
 
-	autotools-utils_src_prepare
+	eapply_user
+	eautoreconf
 }
 
-src_configure() {
+multilib_src_configure() {
 	local warnings_level="none"
 	use debug && warnings_level="hardcore"
-	local myeconfargs=(
+
+	local myconf=(
 		--without-included-ltdl
 		--disable-rpath
+		--disable-option-checking
+		--disable-dependency-tracking
+		--disable-update-mimedb
+		--enable-branch-probabilities
 		--enable-warnings="${warnings_level}"
+
 		$(use_with ffmpeg)
+		$(use_with libav ffmpeg)
 		$(use_with fontconfig)
 		$(use_with imagemagick)
 		$(use_with dv libdv)
 		$(use_with openexr )
+		$(use_with opengl)
+		$(use_with opencl)
 		$(use_with truetype freetype)
 		$(use_with jpeg)
 		$(use_with swscale libswscale)
-		$(use_with avcodec libavcodec)
 		$(use_enable static-libs static)
 		$(use_enable nls)
+		$(use_enable debug)
 	)
-	autotools-multilib_src_configure
+	ECONF_SOURCE=${S} econf "${myconf[@]}"
 }
 
-src_install() {
-	autotools-multilib_src_install
+multilib_src_install_all() {
+	prune_libtool_files --all
 
 	if use examples; then
 		insinto /usr/share/${PN}/examples
