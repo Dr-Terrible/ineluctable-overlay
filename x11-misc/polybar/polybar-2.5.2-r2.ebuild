@@ -36,6 +36,7 @@ RDEPEND="media-libs/freetype:2
 	alsa? ( media-libs/alsa-lib:0 )
 	curl? ( net-misc/curl )
 	i3? (
+		x11-wm/i3
 		>=dev-libs/jsoncpp-1.8.0
 		dev-libs/libsigc++:2
 	)

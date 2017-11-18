@@ -36,6 +36,7 @@ RDEPEND="media-libs/fontconfig
 	alsa? ( media-libs/alsa-lib )
 	curl? ( net-misc/curl )
 	i3? (
+		x11-wm/i3
 		>=dev-libs/jsoncpp-1.8.0
 	)
 	mpd? ( media-libs/libmpdclient )
