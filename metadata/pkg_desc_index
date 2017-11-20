@@ -4,6 +4,7 @@ app-doc/dtrace-systemtap-book 20150923: Dynamic Tracing with DTrace and SystemTa
 app-doc/game-programming-patterns 20150516: Game Programming Patterns
 app-misc/powerline 2.6: Python-based statusline/prompt utility
 app-misc/watchman 4.9.0: A file watching service
+app-portage/cargo-ebuild 0.1.5-r50: Generates an ebuild for a package using the in-tree eclasses.
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
 app-shells/zshdb 0.92: Debugger for zsh
 app-text/bookworm 0.9.0-r10 0.10.0_pre20170819: A simple ebook reader originally intended for Elementary OS
