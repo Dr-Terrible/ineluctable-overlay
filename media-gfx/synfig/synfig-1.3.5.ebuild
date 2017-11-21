@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit eutils autotools multilib-minimal
+inherit eutils ltprune autotools multilib-minimal
 
 DESCRIPTION="Film-Quality Vector Animation (core engine)"
 HOMEPAGE="https://www.synfig.org"
-SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.gz -> ${PF}.tar.gz"
+SRC_URI="https://github.com/synfig/synfig/archive/v${PV}.tar.gz -> synfig-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -47,16 +47,12 @@ RDEPEND="${DEPEND}
 
 RESTRICT+=" mirror"
 
+S="${WORKDIR}/synfig-${PV}/${PN}-core"
+
 src_prepare() {
-	# build with external system libltdl
-	#rm -r libltdl || die
-
-	sed -i -e 's/CXXFLAGS="`echo $CXXFLAGS | sed s:-g::` $debug_flags"//' \
-		   -e 's/CFLAGS="`echo $CFLAGS | sed s:-g::` $debug_flags"//'     \
-		m4/subs.m4
-
 	eapply_user
 	eautoreconf
+	multilib_copy_sources
 }
 
 multilib_src_configure() {
@@ -87,7 +83,7 @@ multilib_src_configure() {
 		$(use_enable nls)
 		$(use_enable debug)
 	)
-	ECONF_SOURCE=${S} econf "${myconf[@]}"
+	econf "${myconf[@]}"
 }
 
 multilib_src_install_all() {

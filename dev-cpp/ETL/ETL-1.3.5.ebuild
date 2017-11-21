@@ -6,7 +6,7 @@ inherit autotools multilib-minimal
 
 DESCRIPTION="ETL is a multi-platform class and template library"
 HOMEPAGE="https://synfig.org"
-SRC_URI="https://github.com/synfig/synfig/releases/download/v${PV}/${P}.tar.gz -> ${PF}.tar.gz"
+SRC_URI="https://github.com/synfig/synfig/archive/v${PV}.tar.gz -> synfig-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -15,14 +15,12 @@ IUSE="debug"
 
 RESTRICT+=" mirror"
 
-src_prepare() {
-	einfo "Fixing FLAGS"
-	sed -i -e 's/CXXFLAGS="`echo $CXXFLAGS | sed s:-g::` $debug_flags"//' \
-		   -e 's/CFLAGS="`echo $CFLAGS | sed s:-g::` $debug_flags"//'     \
-		m4/subs.m4
+S="${WORKDIR}/synfig-${PV}/${PN}"
 
-	eapply_user
+src_prepare() {
+	default
 	eautoreconf
+	multilib_copy_sources
 }
 
 multilib_src_configure() {
@@ -30,13 +28,9 @@ multilib_src_configure() {
 	use debug && warnings_level="hardcore"
 
 	local myconf=(
+		--disable-dependency-tracking
 		--enable-warnings="${warnings_level}"
 		$(use_enable debug)
 	)
-
-	ECONF_SOURCE=${S} econf "${myconf[@]}"
-}
-
-multilib_src_install_all() {
-	prune_libtool_files --all
+	econf "${myconf[@]}"
 }
