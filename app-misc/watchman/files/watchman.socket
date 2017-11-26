@@ -1,0 +1,12 @@
+[Unit]
+Description=Watchman socket for user %i
+
+[Socket]
+ListenStream=/var/run/watchman/%i-state/sock
+Accept=false
+SocketMode=0664
+SocketUser=%i
+SocketGroup=nobody
+
+[Install]
+WantedBy=sockets.target
