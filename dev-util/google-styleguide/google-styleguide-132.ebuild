@@ -17,6 +17,7 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE=""
 
 src_prepare() {
+	default
 	rm -r cpplint || die
 }
 
