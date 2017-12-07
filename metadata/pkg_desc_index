@@ -41,6 +41,7 @@ dev-util/sassc 3.4.7: SaasC is an implementer for LibSaas
 dev-vcs/diff-so-fancy 1.1.1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 dev-vcs/git-extras 4.2.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
+dev-vcs/git-secrets 1.2.1: Prevents you from committing secrets and credentials into git repositories
 dev-vcs/gitfs 0.4.5.1: gitfs is a FUSE file system that fully integrates with git
 games-engines/Torque3D 3.5 3.5.1 3.10: Torque3D is an cross-platform and open-source game engine
 games-engines/flare 0.19 0.20 0.21_pre9: Free/Libre Action Roleplaying game
