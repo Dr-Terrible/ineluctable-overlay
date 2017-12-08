@@ -1,7 +1,7 @@
 app-admin/dotfiler 0.5.0: Shell agnostic git based dotfiles package manager
 app-arch/archivemount 0.8.3: mount an archive as filesystem using fuse and libarchive
 app-doc/dtrace-systemtap-book 20150923: Dynamic Tracing with DTrace and SystemTap
-app-doc/game-programming-patterns 20150516: Game Programming Patterns
+app-doc/game-programming-patterns 20170103: Game Programming Patterns
 app-misc/powerline 2.6: Python-based statusline/prompt utility
 app-misc/watchman 4.9.0-r1: A file watching service
 app-portage/cargo-ebuild 0.1.5-r50: Generates an ebuild for a package using the in-tree eclasses.
