@@ -67,7 +67,7 @@ www-apps/jekyll-feed 0.9.2: A Jekyll plugin to generate an Atom (RSS-like) feed 
 www-apps/jekyll-seo-tag 2.3.0: A Jekyll plugin to add metadata tags for search engines
 www-client/google-chrome 60.0.3112.113: The web browser from Google
 www-plugins/chrome-binary-plugins 60.0.3112.113: Binary plugins from Google Chrome for use in Chromium
-www-servers/lwan 0.1.0_pre20170131: Experimental, scalable, high performance HTTP server
+www-servers/lwan 0.1: Experimental, scalable, high performance HTTP server
 x11-libs/vte-ng 0.46.1-r1: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
 x11-misc/polybar 2.5.2-r2 3.0.6_pre20171018: A fast and easy-to-use status bar

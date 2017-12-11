@@ -4,20 +4,20 @@
 EAPI=6
 inherit systemd cmake-utils
 
-ECOMMIT="1beed44f7e4b2d953075dd96cdb432123b29b4da"
+#ECOMMIT="1beed44f7e4b2d953075dd96cdb432123b29b4da"
 
 DESCRIPTION="Experimental, scalable, high performance HTTP server"
 HOMEPAGE="http://lwan.ws"
-SRC_URI="https://github.com/lpereira/${PN}/archive/${ECOMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/lpereira/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm"
+KEYWORDS="amd64 x86 arm"
 IUSE="asan ubsan"
 
 RESTRICT="mirror"
 
-S="${WORKDIR}/${PN}-${ECOMMIT}"
+#S="${WORKDIR}/${PN}-${ECOMMIT}"
 
 DEPEND="sys-libs/zlib
 	dev-util/google-perftools:0
