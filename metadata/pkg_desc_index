@@ -22,7 +22,6 @@ dev-libs/libsass 3.4.7: A C/C++ implementation of a Sass CSS compiler
 dev-libs/libstrophe 0.8.8 0.9.1: A simple, lightweight C library for writing XMPP clients
 dev-php/hhvm 3.7.3: Virtual Machine, Runtime, and JIT for PHP
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
-dev-python/atomicwrites 0.1.8: Atomic file writes.
 dev-python/cheat 2.1.15: Cheat allows you to create and view interactive cheatsheets on the command-line
 dev-python/markdown2 2.3.1: Python Markdown language reimplementation
 dev-python/plugnplay 0.4.2: A Generic plug-in system for python
