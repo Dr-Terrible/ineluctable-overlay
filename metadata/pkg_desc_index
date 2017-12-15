@@ -35,6 +35,7 @@ dev-util/flint++ 2015.12.03: Flint++ is cross-platform, zero-dependency port of 
 dev-util/google-perftools 2.4: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-util/google-styleguide 132: Style guides for Google-originated open-source projects
 dev-util/heroku-toolbelt 3.43.5: Client library and CLI to deploy apps on Heroku
+dev-util/nq 0.2.1: Unix command line queue utility
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
 dev-util/sassc 3.4.7: SaasC is an implementer for LibSaas
 dev-vcs/diff-so-fancy 1.1.1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
