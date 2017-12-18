@@ -65,7 +65,7 @@ net-misc/ephemeral-port-reserve 1.1.0: Find an unused port, reliably
 net-misc/vde 2.3.2: A virtual distributed ethernet emulator for qemu, bochs, and uml
 net-p2p/tribler 6.5.2: Bittorrent client that does not require a website to discover content
 sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
-sys-libs/libunwind 1.2.1-r50: Portable and efficient API to determine the call-chain of a program
+sys-libs/libunwind 1.3_rc1: Portable and efficient API to determine the call-chain of a program
 www-apps/jekyll-feed 0.9.2: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
 www-apps/jekyll-seo-tag 2.3.0: A Jekyll plugin to add metadata tags for search engines
 www-client/google-chrome 60.0.3112.113: The web browser from Google

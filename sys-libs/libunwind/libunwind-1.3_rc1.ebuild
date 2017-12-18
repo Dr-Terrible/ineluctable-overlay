@@ -5,11 +5,11 @@ EAPI=6
 
 MY_PV=${PV/_/-}
 MY_P=${PN}-${MY_PV}
-inherit eutils libtool multilib-minimal
+inherit eutils libtool autotools multilib-minimal
 
 DESCRIPTION="Portable and efficient API to determine the call-chain of a program"
 HOMEPAGE="https://savannah.nongnu.org/projects/libunwind"
-SRC_URI="mirror://nongnu/libunwind/${MY_P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="7"
@@ -44,20 +44,15 @@ MULTILIB_WRAPPED_HEADERS=(
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.2-coredump-regs.patch #586092
-	"${FILESDIR}"/${PN}-1.2-ia64-undwarf.patch
 	"${FILESDIR}"/${PN}-1.2-ia64-ptrace-coredump.patch
-	"${FILESDIR}"/${PN}-1.2-ia64-missing.patch
-	"${FILESDIR}"/${PN}-1.2-version.patch
 )
 
 src_prepare() {
 	default
-	chmod +x src/ia64/mk_cursor_i || die
-	# Since we have tests disabled via RESTRICT, disable building in the subdir
-	# entirely.  This worksaround some build errors too. #484846
-	sed -i -e '/^SUBDIRS/s:tests::' Makefile.in || die
+	eautoreconf
 
-	elibtoolize
+	# only sane way to deal with various version-related scripts, env variables etc.
+	multilib_copy_sources
 }
 
 multilib_src_configure() {
@@ -74,27 +69,17 @@ multilib_src_configure() {
 		--enable-coredump \
 		--enable-ptrace \
 		--enable-setjmp \
+		--disable-tests \
+		--disable-dependency-tracking \
 		$(use_enable debug-frame) \
 		$(use_enable doc documentation) \
 		$(use_enable lzma minidebuginfo) \
 		$(use_enable static-libs static) \
-		$(use_enable debug conservative_checks) \
+		$(use_enable debug conservative-checks) \
 		$(use_enable debug)
 }
 
-multilib_src_compile() {
-	# Bug 586208
-	CCACHE_NODIRECT=1 default
-}
-
-multilib_src_test() {
-	# Explicitly allow parallel build of tests.
-	# Sandbox causes some tests to freak out.
-	SANDBOX_ON=0 emake check
-}
-
-multilib_src_install() {
-	default
+multilib_src_install_all() {
 	# libunwind-ptrace.a (and libunwind-ptrace.h) is separate API and without
 	# shared library, so we keep it in any case
 	use static-libs || find "${ED}"usr '(' -name 'libunwind-generic.a' -o -name 'libunwind*.la' ')' -delete
