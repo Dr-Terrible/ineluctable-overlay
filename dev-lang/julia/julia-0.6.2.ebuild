@@ -8,16 +8,12 @@ RESTRICT="test"
 inherit llvm pax-utils toolchain-funcs
 
 DESCRIPTION="High-performance programming language for technical computing"
-HOMEPAGE="https://julialang.org/"
-SRC_URI="
-	https://github.com/JuliaLang/${PN}/releases/download/v${PV}/${P}.tar.gz
-	https://dev.gentoo.org/~tamiko/distfiles/${P}-bundled.tar.gz
-"
+HOMEPAGE="https://julialang.org"
+SRC_URI="https://github.com/JuliaLang/${PN}/releases/download/v${PV}/${P}-full.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE=""
 
 # julia 0.6* is compatible with llvm-4
 RDEPEND="
@@ -40,7 +36,7 @@ RDEPEND+="
 	>=dev-libs/libpcre2-10.23:0=[jit]
 	sci-libs/umfpack:0=
 	sci-mathematics/glpk:0=
-	>=sys-libs/libunwind-1.2.1:7=[libatomic]
+	>=sys-libs/libunwind-1.2.2:7=[libatomic]
 	sys-libs/readline:0=
 	sys-libs/zlib:0=
 	>=virtual/blas-3.6
@@ -52,17 +48,10 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.6.0-fix_build_system.patch
+	"${FILESDIR}"/${PN}-0.6.2-fix_build_system.patch
 )
 
-S="${WORKDIR}/julia"
-
 src_prepare() {
-	mv "${WORKDIR}"/bundled/UnicodeData.txt doc || die
-	mkdir deps/srccache || die
-	mv "${WORKDIR}"/bundled/* deps/srccache || die
-	rmdir "${WORKDIR}"/bundled || die
-
 	default
 
 	# Sledgehammer:
@@ -86,6 +75,13 @@ src_prepare() {
 	liblapack="lib${liblapack#-l}"
 
 	sed -i \
+		-e "s|WGET=.*|WGET=${EPREFIX}/bin/true|" \
+		-e "s|CURL=.*|CURL=${EPREFIX}/bin/true|" \
+		-e "s|FETCH=.*|FETCH=${EPREFIX}/bin/true|" \
+		deps/tools/jldownload || die
+
+	sed -i \
+		-e "s|SHIPFLAGS := .*|SHIPFLAGS := ${CFLAGS}|" \
 		-e "s|\(JULIA_EXECUTABLE = \)\(\$(JULIAHOME)/julia\)|\1 LD_LIBRARY_PATH=\$(BUILD)/$(get_libdir) \2|" \
 		-e "s|GENTOOCFLAGS|${CFLAGS}|g" \
 		-e "s|LIBDIR = lib|LIBDIR = $(get_libdir)|" \
@@ -144,7 +140,6 @@ src_configure() {
 		VERBOSE=1
 		libdir="${EROOT}/usr/$(get_libdir)"
 	EOF
-
 }
 
 src_compile() {
