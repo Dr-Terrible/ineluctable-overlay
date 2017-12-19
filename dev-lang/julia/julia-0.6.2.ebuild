@@ -39,8 +39,8 @@ RDEPEND+="
 	>=sys-libs/libunwind-1.2.2:7=[libatomic]
 	sys-libs/readline:0=
 	sys-libs/zlib:0=
-	>=virtual/blas-3.6
-	virtual/lapack"
+	>=virtual/blas-3.7
+	>=virtual/lapack-3.7"
 
 DEPEND="${RDEPEND}
 	dev-vcs/git
