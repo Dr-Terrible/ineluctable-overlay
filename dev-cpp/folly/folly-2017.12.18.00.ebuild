@@ -34,14 +34,6 @@ RDEPEND="${CDEPEND}"
 
 S="${WORKDIR}/${P}/${PN}"
 
-pkg_pretend() {
-	# A C++14 compliant compiler is required
-	if ! version_is_at_least 5.1 $(gcc-version); then
-		eerror "${PN} passes -std=c++14 to \${CXX} and requires a version"
-		eerror "of gcc newer than 5.1.0"
-	fi
-}
-
 src_prepare() {
 	# FIX: gtest's source code must be moved inside the test/ directory
 	if use test; then
