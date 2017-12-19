@@ -1,17 +1,19 @@
 [Unit]
 Description=Watchman for user %i
-After=remote-fs.target
+After=local-fs.target remote-fs.target
 Conflicts=shutdown.target
 
 [Service]
 ExecStart=/usr/bin/watchman --foreground --inetd
-ExecStop=pkill -u %i -x watchman
+ExecStop=/usr/bin/watchman --no-spawn p shutdown-server
 Restart=on-failure
 User=%i
-Group=users
+Group=watchman
 StandardInput=socket
-StandardOutput=syslog
-SyslogIdentifier=watchman-%i
+DevicePolicy=closed
+CapabilityBoundingSet=~CAP_SYS_ADMIN
+PrivateTmp=true
+ProtectSystem=full
 
 [Install]
 WantedBy=multi-user.target
