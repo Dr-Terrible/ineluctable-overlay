@@ -1,5 +1,5 @@
 [Unit]
-Description=Watchman socket for user %i
+Description=Watchman socket for user %u
 
 [Socket]
 ListenStream=/run/watchman/%i-state/sock
