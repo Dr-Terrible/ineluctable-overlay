@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -36,7 +36,7 @@ RDEPEND+="
 	>=dev-libs/libpcre2-10.23:0=[jit]
 	sci-libs/umfpack:0=
 	sci-mathematics/glpk:0=
-	>=sys-libs/libunwind-1.2.2:7=[libatomic]
+	>=sys-libs/libunwind-1.2.2:7
 	sys-libs/readline:0=
 	sys-libs/zlib:0=
 	>=virtual/blas-3.7
