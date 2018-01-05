@@ -21,7 +21,7 @@ RESTRICT="mirror"
 
 # 	mail-client/alot
 RDEPEND="mail-client/mutt[imap,mbox,sasl?,smime]
-	net-mail/fetchmail[ssl,kerberos]
+	net-mail/fetchmail[ssl]
 	mail-mta/msmtp[ssl,sasl?]
 	net-mail/notmuch[crypt]
 	>=app-misc/abook-0.6.1_pre1
