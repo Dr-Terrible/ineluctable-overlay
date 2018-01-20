@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,7 +11,7 @@ inherit gnome2 python-any-r1 vala cmake-utils
 DESCRIPTION="A simple ebook reader originally intended for Elementary OS"
 HOMEPAGE="http://babluboy.github.io/bookworm"
 
-ECOMMIT="5ad8a7acca001cbf98d16f948854e948d25b5882"
+ECOMMIT="7225a30de9346767f2ea26b69ac59c21382f6872"
 SRC_URI="https://github.com/babluboy/${PN}/archive/${ECOMMIT}.tar.gz -> ${P}.tar.gz"
 
 KEYWORDS="~amd64 ~x86 ~arm"
