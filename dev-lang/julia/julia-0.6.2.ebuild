@@ -16,8 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 # julia 0.6* is compatible with llvm-4
-RDEPEND="
-	sys-devel/llvm:4=
+RDEPEND="sys-devel/llvm:4=
 	sys-devel/clang:4="
 LLVM_MAX_SLOT=4
 
@@ -50,6 +49,10 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.6.2-fix_build_system.patch
 )
+
+pkg_setup() {
+	llvm_pkg_setup
+}
 
 src_prepare() {
 	default
