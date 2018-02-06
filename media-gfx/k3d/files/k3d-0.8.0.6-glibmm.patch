@@ -1,0 +1,11 @@
+--- a/k3dsdk/ngui/utility.cpp
++++ b/k3dsdk/ngui/utility.cpp
+@@ -28,6 +28,8 @@
+ #include <gdkmm/pixbuf.h>
+ #include <gtkmm/main.h>
+ 
++#include <glibmm/main.h>
++
+ namespace k3d
+ {
+ 

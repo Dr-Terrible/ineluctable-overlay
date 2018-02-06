@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<use>
+		<flag name="3ds">Enable support for 3D Studio models</flag>
+		<flag name="cuda">Use nvidia cuda toolkit for speeding up computations</flag>
+		<flag name="cgal">Use <pkg>sci-mathematics/cgal</pkg> instead of bundled algorithms</flag>
+		<flag name="collada">Add support for Collada interchange format through <pkg>media-libs/opencollada</pkg></flag>
+		<flag name="osmesa">Adds support for OpenGL in bitmaps using libOSMesa from <pkg>media-libs/mesa</pkg></flag>
+		<flag name="gts">Add Support for the GNU Triangulated Surface Library <pkg>sci-libs/gts</pkg></flag>
+	</use>
+	<upstream>
+		<remote-id type="sourceforge">k3d</remote-id>
+		<remote-id type="github">K-3D/k3d</remote-id>
+	</upstream>
+</pkgmetadata>

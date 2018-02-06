@@ -1,0 +1,355 @@
+From c9cf45cf59c60e4ba7dde2941b8d6fe77923f779 Mon Sep 17 00:00:00 2001
+From: Bart Janssens <bart@bartjanssens.org>
+Date: Sun, 23 Jul 2017 23:34:15 +0200
+Subject: [PATCH] ENH: Use libgio instead of gnome-vfs
+
+Issue #28
+---
+ CMakeLists.txt                               |  5 ++---
+ cmake/modules/K3DFindGiomm.cmake             | 21 ++++++++++++++++++
+ cmake/modules/K3DFindGlibmm.cmake            |  2 +-
+ cmake/modules/K3DFindGnomeVFS.cmake          | 21 ------------------
+ modules/CMakeLists.txt                       |  2 +-
+ modules/gio/CMakeLists.txt                   |  9 ++++++++
+ modules/{gnome => gio}/mime_type_handler.cpp | 23 +++++++++-----------
+ modules/{gnome => gio}/module.cpp            | 10 ++++-----
+ modules/{gnome => gio}/uri_handler.cpp       | 32 ++++++----------------------
+ modules/gnome/CMakeLists.txt                 |  9 --------
+ 10 files changed, 56 insertions(+), 78 deletions(-)
+ create mode 100644 cmake/modules/K3DFindGiomm.cmake
+ delete mode 100644 cmake/modules/K3DFindGnomeVFS.cmake
+ create mode 100644 modules/gio/CMakeLists.txt
+ rename modules/{gnome => gio}/mime_type_handler.cpp (78%)
+ rename modules/{gnome => gio}/module.cpp (78%)
+ rename modules/{gnome => gio}/uri_handler.cpp (62%)
+ delete mode 100644 modules/gnome/CMakeLists.txt
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a989c8ac..14969136 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -41,9 +41,9 @@ INCLUDE(K3DFindCollada)
+ INCLUDE(K3DFindDBus)
+ INCLUDE(K3DFindFreetype2)
+ INCLUDE(K3DFindFTGL)
++INCLUDE(K3DFindGiomm)
+ INCLUDE(K3DFindGlibmm)
+ INCLUDE(K3DFindGMM)
+-INCLUDE(K3DFindGnomeVFS)
+ INCLUDE(K3DFindGPerftools)
+ INCLUDE(K3DFindGtkGLExt)
+ INCLUDE(K3DFindGtkmm)
+@@ -113,9 +113,9 @@ OPTION(K3D_BUILD_DOUBLE_MODULE "Build the double module" ON)
+ OPTION(K3D_BUILD_EULER_OPERATIONS_MODULE "Build the module that exposes the Euler mesh operations as mesh modifiers" OFF)
+ OPTION(K3D_BUILD_FILE_MAGIC_MODULE "Build the file-identification-magic module" ON)
+ OPTION(K3D_BUILD_FREETYPE2_MODULE "Build the freetype2 module" ON)
++OPTION(K3D_BUILD_GIO_MODULE "Build the GIO module for mime type support" ${K3D_GIOMM_FOUND})
+ OPTION(K3D_BUILD_GLX_MODULE "Build the GLX offscreen rendering module" OFF)
+ OPTION(K3D_BUILD_GMSH_IO_MODULE "Build the Gmsh file format module" ON)
+-OPTION(K3D_BUILD_GNOME_MODULE "Build the GNOME integration module" ${K3D_GNOME_VFS_FOUND})
+ OPTION(K3D_BUILD_GPERFTOOLS_MODULE "Build the GPerftools profiling module" ${K3D_GPERFTOOLS_FOUND})
+ OPTION(K3D_BUILD_GRAPHVIZ_MODULE "Build the GraphViz integration module" ON)
+ OPTION(K3D_BUILD_GTS_IO_MODULE "Build the GNU Triangulated Surfaces file format module" ON)
+@@ -269,7 +269,6 @@ K3D_CHECK(K3D_BUILD_CGAL_MODULE REQUIRES K3D_CGAL_FOUND RESOURCE "CGAL")
+ K3D_CHECK(K3D_BUILD_COLLADA_MODULE REQUIRES K3D_COLLADA_FOUND RESOURCE "Collada DOM")
+ K3D_CHECK(K3D_BUILD_COMPIZ_MODULE REQUIRES K3D_DBUS_FOUND RESOURCE "libdbus")
+ K3D_CHECK(K3D_BUILD_FREETYPE2_MODULE REQUIRES K3D_FREETYPE2_FOUND RESOURCE "freetype2")
+-K3D_CHECK(K3D_BUILD_GNOME_MODULE REQUIRES K3D_GNOME_VFS_FOUND RESOURCE "Gnome VFS")
+ K3D_CHECK(K3D_BUILD_GTS_MODULE REQUIRES K3D_GTS_FOUND RESOURCE "GNU Triangulated Surface")
+ K3D_CHECK(K3D_BUILD_IMAGEMAGICK_IO_MODULE REQUIRES K3D_IMAGEMAGICK_FOUND RESOURCE "ImageMagick")
+ K3D_CHECK(K3D_BUILD_JPEG_IO_MODULE REQUIRES K3D_JPEG_FOUND RESOURCE "JPEG")
+diff --git a/cmake/modules/K3DFindGiomm.cmake b/cmake/modules/K3DFindGiomm.cmake
+new file mode 100644
+index 00000000..fad06a69
+--- /dev/null
++++ b/cmake/modules/K3DFindGiomm.cmake
+@@ -0,0 +1,21 @@
++SET(K3D_GIOMM_FOUND 0)
++
++INCLUDE(K3DFindPkgConfig)
++PKG_CHECK_MODULES(GIOMM giomm-2.4)
++
++IF(GIOMM_FOUND)
++	SET(K3D_GIOMM_INCLUDE_DIRS
++		${GIOMM_INCLUDE_DIRS}
++		)
++
++	SET(K3D_GIOMM_LIB_DIRS
++		${GIOMM_LIBRARY_DIRS}
++		)
++
++	SET(K3D_GIOMM_LIBS
++		${GIOMM_LIBRARIES}
++		)
++
++	SET(K3D_GIOMM_FOUND 1)
++ENDIF(GIOMM_FOUND)
++
+diff --git a/cmake/modules/K3DFindGlibmm.cmake b/cmake/modules/K3DFindGlibmm.cmake
+index 5fc4d1d1..18f9ca1c 100644
+--- a/cmake/modules/K3DFindGlibmm.cmake
++++ b/cmake/modules/K3DFindGlibmm.cmake
+@@ -1,7 +1,7 @@
+ SET(K3D_GLIBMM_FOUND 0)
+ 
+ INCLUDE(K3DFindPkgConfig)
+-PKG_CHECK_MODULES(GLIBMM glibmm-2.4)
++PKG_CHECK_MODULES(GLIBMM glibmm-2.4>=2.26)
+ 
+ IF(GLIBMM_FOUND)
+ 	SET(K3D_GLIBMM_INCLUDE_DIRS
+diff --git a/cmake/modules/K3DFindGnomeVFS.cmake b/cmake/modules/K3DFindGnomeVFS.cmake
+deleted file mode 100644
+index c879db15..00000000
+--- a/cmake/modules/K3DFindGnomeVFS.cmake
++++ /dev/null
+@@ -1,21 +0,0 @@
+-SET(K3D_GNOME_VFS_FOUND 0)
+-
+-INCLUDE(K3DFindPkgConfig)
+-PKG_CHECK_MODULES(GNOMEVFS gnome-vfs-2.0)
+-
+-IF(GNOMEVFS_FOUND)
+-	SET(K3D_GNOME_VFS_INCLUDE_DIRS
+-		${GNOMEVFS_INCLUDE_DIRS}
+-		)
+-
+-	SET(K3D_GNOME_VFS_LIB_DIRS
+-		${GNOMEVFS_LIBRARY_DIRS}
+-		)
+-
+-	SET(K3D_GNOME_VFS_LIBS
+-		${GNOMEVFS_LIBRARIES}
+-		)
+-
+-	SET(K3D_GNOME_VFS_FOUND 1)
+-ENDIF(GNOMEVFS_FOUND)
+-
+diff --git a/modules/CMakeLists.txt b/modules/CMakeLists.txt
+index 2eed5acf..d62b7670 100644
+--- a/modules/CMakeLists.txt
++++ b/modules/CMakeLists.txt
+@@ -140,9 +140,9 @@ K3D_ADD_SUBDIRECTORY(double REQUIRES K3D_BUILD_DOUBLE_MODULE)
+ K3D_ADD_SUBDIRECTORY(euler_operations REQUIRES K3D_BUILD_EULER_OPERATIONS_MODULE)
+ K3D_ADD_SUBDIRECTORY(file_magic REQUIRES K3D_BUILD_FILE_MAGIC_MODULE)
+ K3D_ADD_SUBDIRECTORY(freetype2 REQUIRES K3D_BUILD_FREETYPE2_MODULE)
++K3D_ADD_SUBDIRECTORY(gio REQUIRES K3D_BUILD_GIO_MODULE)
+ K3D_ADD_SUBDIRECTORY(glx REQUIRES K3D_BUILD_GLX_MODULE)
+ K3D_ADD_SUBDIRECTORY(gmsh_io REQUIRES K3D_BUILD_GMSH_IO_MODULE)
+-K3D_ADD_SUBDIRECTORY(gnome REQUIRES K3D_BUILD_GNOME_MODULE)
+ K3D_ADD_SUBDIRECTORY(gperftools REQUIRES K3D_BUILD_GPERFTOOLS_MODULE K3D_ENABLE_PROFILING)
+ K3D_ADD_SUBDIRECTORY(graphviz REQUIRES K3D_BUILD_GRAPHVIZ_MODULE)
+ K3D_ADD_SUBDIRECTORY(gts_io REQUIRES K3D_BUILD_GTS_IO_MODULE)
+diff --git a/modules/gio/CMakeLists.txt b/modules/gio/CMakeLists.txt
+new file mode 100644
+index 00000000..29db5eee
+--- /dev/null
++++ b/modules/gio/CMakeLists.txt
+@@ -0,0 +1,9 @@
++INCLUDE_DIRECTORIES(${K3D_GIOMM_INCLUDE_DIRS})
++
++LINK_DIRECTORIES(${GIOMM_LIBRARY_DIRS})
++
++K3D_BUILD_MODULE(k3d-gio)
++K3D_CREATE_MODULE_PROXY(k3d-gio)
++
++TARGET_LINK_LIBRARIES(k3d-gio ${K3D_GIOMM_LIBS})
++
+diff --git a/modules/gnome/mime_type_handler.cpp b/modules/gio/mime_type_handler.cpp
+similarity index 78%
+rename from modules/gnome/mime_type_handler.cpp
+rename to modules/gio/mime_type_handler.cpp
+index 355d197b..26faff61 100644
+--- a/modules/gnome/mime_type_handler.cpp
++++ b/modules/gio/mime_type_handler.cpp
+@@ -30,24 +30,21 @@
+ 
+ #include <boost/assign/list_of.hpp>
+ 
+-#include <libgnomevfs/gnome-vfs.h>
+-#include <libgnomevfs/gnome-vfs-mime-handlers.h>
++#include <giomm/contenttype.h>
+ 
+ namespace module
+ {
+ 
+-namespace gnome
++namespace gio
+ {
+ 
+-/// Uses the Gnome API to identify MIME types.
++/// Uses the GIO API to identify MIME types.
+ class mime_type_handler :
+ 	public k3d::imime_type_handler
+ {
+ public:
+ 	mime_type_handler()
+ 	{
+-		if(!gnome_vfs_initialized())
+-			return_if_fail(gnome_vfs_init());
+ 	}
+ 
+ 	~mime_type_handler()
+@@ -56,10 +53,10 @@ class mime_type_handler :
+ 
+ 	k3d::bool_t identify_mime_type(const k3d::filesystem::path& File, k3d::string_t& FileType)
+ 	{
+-		const char* const mime_type = gnome_vfs_get_mime_type_for_name(File.native_filesystem_string().c_str());
+-		return_val_if_fail(mime_type, false);
++		bool uncertain = false;
++		Glib::ustring mime_type = Gio::content_type_guess(File.native_filesystem_string(), std::string(), uncertain);
+ 
+-		if(k3d::string_t(mime_type) == k3d::string_t(GNOME_VFS_MIME_TYPE_UNKNOWN))
++		if(uncertain)
+ 			return false;
+ 
+ 		FileType = mime_type;
+@@ -78,11 +75,11 @@ class mime_type_handler :
+ 		static k3d::application_plugin_factory<mime_type_handler,
+ 			k3d::interface_list<k3d::imime_type_handler> > factory(
+ 				k3d::uuid(0x8939ae52, 0x0342a2fc, 0x7976e5b5, 0xd6873980),
+-				"GnomeMIMETypeHandler",
+-				_("Identifies a file's MIME Type using the Gnome API"),
++				"GioMIMETypeHandler",
++				_("Identifies a file's MIME Type using the GIO API"),
+ 				"Desktop",
+ 				k3d::iplugin_factory::STABLE,
+-				boost::assign::map_list_of("k3d:load-order", "8"));
++				boost::assign::map_list_of("k3d:load-order", "129"));
+ 
+ 		return factory;
+ 	}
+@@ -96,7 +93,7 @@ k3d::iplugin_factory& mime_type_handler_factory()
+ 	return mime_type_handler::get_factory();
+ }
+ 
+-} // namespace gnome
++} // namespace gio
+ 
+ } // namespace module
+ 
+diff --git a/modules/gnome/module.cpp b/modules/gio/module.cpp
+similarity index 78%
+rename from modules/gnome/module.cpp
+rename to modules/gio/module.cpp
+index c970c2b8..1a6ff2df 100644
+--- a/modules/gnome/module.cpp
++++ b/modules/gio/module.cpp
+@@ -26,19 +26,19 @@
+ namespace module
+ {
+ 
+-/// Namespace reserved for the gnome plugin module, to protect public symbols from name clashes with other modules
+-namespace gnome
++/// Namespace reserved for the gio plugin module, to protect public symbols from name clashes with other modules
++namespace gio
+ {
+ 
+ extern k3d::iplugin_factory& mime_type_handler_factory();
+ extern k3d::iplugin_factory& uri_handler_factory();
+ 
+-} // namespace gnome
++} // namespace gio
+ 
+ } // namespace module
+ 
+ K3D_MODULE_START(Registry)
+-	Registry.register_factory(module::gnome::mime_type_handler_factory());
+-	Registry.register_factory(module::gnome::uri_handler_factory());
++	Registry.register_factory(module::gio::mime_type_handler_factory());
++	Registry.register_factory(module::gio::uri_handler_factory());
+ K3D_MODULE_END
+ 
+diff --git a/modules/gnome/uri_handler.cpp b/modules/gio/uri_handler.cpp
+similarity index 62%
+rename from modules/gnome/uri_handler.cpp
+rename to modules/gio/uri_handler.cpp
+index b36c9c64..6b648b41 100644
+--- a/modules/gnome/uri_handler.cpp
++++ b/modules/gio/uri_handler.cpp
+@@ -29,24 +29,21 @@
+ 
+ #include <iostream>
+ 
+-#include <libgnomevfs/gnome-vfs.h>
+-#include <libgnomevfs/gnome-vfs-mime-handlers.h>
++#include <giomm/appinfo.h>
+ 
+ namespace module
+ {
+ 
+-namespace gnome
++namespace gio
+ {
+ 
+-/// Uses the Gnome API to open a URI in the user's preferred application
++/// Uses the GIO API to open a URI in the user's preferred application
+ class uri_handler :
+ 	public k3d::iuri_handler
+ {
+ public:
+ 	uri_handler()
+ 	{
+-		if(!gnome_vfs_initialized())
+-			return_if_fail(gnome_vfs_init());
+ 	}
+ 
+ 	~uri_handler()
+@@ -56,20 +53,7 @@ class uri_handler :
+ 
+ 	bool open_uri(const std::string& URI)
+ 	{
+-		const char* const mime_type = gnome_vfs_get_mime_type(URI.c_str());
+-		return_val_if_fail(mime_type, false);
+-
+-		GnomeVFSMimeApplication* const application = gnome_vfs_mime_get_default_application(mime_type);
+-		return_val_if_fail(application, false);
+-
+-		k3d::log() << info << "URI: [" << URI << "] MIME type: [" << mime_type << "] Application: [" << application->name << "] Command: [" << application->command << "]" << std::endl;
+-
+-		GList* const uris = g_list_append(0, const_cast<char*>(URI.c_str()));
+-		const bool result = GNOME_VFS_OK == gnome_vfs_mime_application_launch(application, uris);
+-		g_list_free(uris);
+-		gnome_vfs_mime_application_free(application);
+-		
+-		return result;
++		return Gio::AppInfo::launch_default_for_uri(URI);
+ 	}
+ 	
+ 	static k3d::iplugin_factory& get_factory()
+@@ -77,8 +61,8 @@ class uri_handler :
+ 		static k3d::application_plugin_factory<uri_handler,
+ 			k3d::interface_list<k3d::iuri_handler> > factory(
+ 				k3d::uuid(0xac560e92, 0x1d31478b, 0x9139ace8, 0x1bb0ae31),
+-				"GnomeURIHandler",
+-				_("Opens a URI using the Gnome libraries"),
++				"GioURIHandler",
++				_("Opens a URI using the GIO libraries"),
+ 				"Desktop",
+ 				k3d::iplugin_factory::STABLE);
+ 
+@@ -94,8 +78,6 @@ k3d::iplugin_factory& uri_handler_factory()
+ 	return uri_handler::get_factory();
+ }
+ 
+-} // namespace gnome
++} // namespace gio
+ 
+ } // namespace module
+-
+-
+diff --git a/modules/gnome/CMakeLists.txt b/modules/gnome/CMakeLists.txt
+deleted file mode 100644
+index bb852924..00000000
+--- a/modules/gnome/CMakeLists.txt
++++ /dev/null
+@@ -1,9 +0,0 @@
+-INCLUDE_DIRECTORIES(${K3D_GNOME_VFS_INCLUDE_DIRS})
+-
+-LINK_DIRECTORIES(${K3D_GNOME_VFS_LIB_DIRS})
+-
+-K3D_BUILD_MODULE(k3d-gnome)
+-K3D_CREATE_MODULE_PROXY(k3d-gnome)
+-
+-TARGET_LINK_LIBRARIES(k3d-gnome ${K3D_GNOME_VFS_LIBS})
+-

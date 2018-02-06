@@ -1,0 +1,105 @@
+From 7111d0ef96dd1caf5d3cdbc435b8c1820f72e95a Mon Sep 17 00:00:00 2001
+From: Bart Janssens <bart@bartjanssens.org>
+Date: Sat, 13 Jan 2018 23:49:34 +0100
+Subject: [PATCH] COMP: Fix clang v. 5 compilation on Linux
+
+Hopefully helps for issue #31
+---
+ k3dsdk/gil/boost/uuid/seed_rng.hpp |  2 +-
+ k3dsdk/utility_gl.h                |  2 +-
+ modules/nurbs/nurbs_curves.cpp     | 10 +++++-----
+ modules/stl_io/binary_stl.h        |  8 ++++----
+ 4 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/k3dsdk/gil/boost/uuid/seed_rng.hpp b/k3dsdk/gil/boost/uuid/seed_rng.hpp
+index 30901971..6967f3e2 100644
+--- a/k3dsdk/gil/boost/uuid/seed_rng.hpp
++++ b/k3dsdk/gil/boost/uuid/seed_rng.hpp
+@@ -140,7 +140,7 @@ class seed_rng
+         }
+ 
+         {
+-            unsigned int rn[] = { std::rand(), std::rand(), std::rand() };
++            unsigned int rn[] = { static_cast<unsigned int>(std::rand()), static_cast<unsigned int>(std::rand()), static_cast<unsigned int>(std::rand()) };
+             sha.process_bytes( (unsigned char const*)rn, sizeof( rn ) );
+         }
+ 
+diff --git a/k3dsdk/utility_gl.h b/k3dsdk/utility_gl.h
+index 45e7eb32..3809143e 100644
+--- a/k3dsdk/utility_gl.h
++++ b/k3dsdk/utility_gl.h
+@@ -104,7 +104,7 @@ inline void color3d(const color& Color)
+ /// Passes a k3d::color to glMaterialfv()
+ inline void material(GLenum Face, GLenum PName, const color& Color, double Alpha = 1.0)
+ {
+-	GLfloat color[] = { Color.red, Color.green, Color.blue, Alpha };
++	GLfloat color[] = { static_cast<GLfloat>(Color.red), static_cast<GLfloat>(Color.green), static_cast<GLfloat>(Color.blue), static_cast<GLfloat>(Alpha) };
+ 	glMaterialfv(Face, PName, color);
+ }
+ 
+diff --git a/modules/nurbs/nurbs_curves.cpp b/modules/nurbs/nurbs_curves.cpp
+index c3a7fed1..3a2df4c7 100644
+--- a/modules/nurbs/nurbs_curves.cpp
++++ b/modules/nurbs/nurbs_curves.cpp
+@@ -738,7 +738,7 @@ void elevate_curve_degree(curve_arrays& Curve, const k3d::uint_t Elevations)
+ 					for (int k = power; k >= s; k--)
+ 					{
+ 						k3d::double_t weights[] = {alphas[k - s], (1.0 - alphas[k - s])};
+-						k3d::uint_t indices[] = {k, k-1};
++						k3d::uint_t indices[] = {static_cast<k3d::uint_t>(k), static_cast<k3d::uint_t>(k-1)};
+ 						bpts_self_copier.copy(2, indices, weights, k);
+ 					}
+ 					next_bpts_bpts_copier.copy(power, save);
+@@ -777,7 +777,7 @@ void elevate_curve_degree(curve_arrays& Curve, const k3d::uint_t Elevations)
+ 						if (i < cind)
+ 						{
+ 							double alf = (ub - new_curve.knots[i]) / (ua - new_curve.knots[i]);
+-							k3d::uint_t indices[] = {i, i-1};
++							k3d::uint_t indices[] = {static_cast<k3d::uint_t>(i), static_cast<k3d::uint_t>(i-1)};
+ 							k3d::double_t weights[] = {alf, (1.0 - alf)};
+ 							new_point_self_copier.copy(2, indices, weights, i);
+ 						}
+@@ -786,13 +786,13 @@ void elevate_curve_degree(curve_arrays& Curve, const k3d::uint_t Elevations)
+ 							if (j - tr <= kind - power - t + oldr)
+ 							{
+ 								double gam = (ub - new_curve.knots[j - tr]) / den;
+-								k3d::uint_t indices[] = {kj, kj+1};
++								k3d::uint_t indices[] = {static_cast<k3d::uint_t>(kj), static_cast<k3d::uint_t>(kj+1)};
+ 								k3d::double_t weights[] = {gam, 1.0-gam};
+ 								ebpts_self_copier.copy(2, indices, weights, kj);
+ 							}
+ 							else
+ 							{
+-								k3d::uint_t indices[] = {kj, kj+1};
++								k3d::uint_t indices[] = {static_cast<k3d::uint_t>(kj), static_cast<k3d::uint_t>(kj+1)};
+ 								k3d::double_t weights[] = {bet, 1.0-bet};
+ 								ebpts_self_copier.copy(2, indices, weights, kj);
+ 							}
+@@ -1159,7 +1159,7 @@ void insert_knot(curve_arrays& Curve, const k3d::double_t u, const k3d::uint_t r
+ 		for (k3d::uint_t i = 0; i <= Curve.order - 1 - j - s; i++)
+ 		{
+ 			alpha = (u - Curve.knots[L + i]) / (Curve.knots[i + k + 1] - Curve.knots[L + i]);
+-			k3d::uint_t indices[] = {i + 1, i};
++			k3d::uint_t indices[] = {static_cast<k3d::uint_t>(i + 1), static_cast<k3d::uint_t>(i)};
+ 			k3d::double_t weights[] = {alpha, 1.0 - alpha};
+ 			tmp_self_copier.copy(2, indices, weights, i);
+ 		}
+diff --git a/modules/stl_io/binary_stl.h b/modules/stl_io/binary_stl.h
+index 12cc4539..60124fee 100644
+--- a/modules/stl_io/binary_stl.h
++++ b/modules/stl_io/binary_stl.h
+@@ -68,10 +68,10 @@ struct binary_stl
+ 	/// Magics format constructor, writes material info into the header
+ 	binary_stl(const k3d::color& Color, const k3d::color& Diffuse, const k3d::color& Specular, const k3d::color& Ambient)
+ 	{
+-		const k3d::uint8_t color[] = {Color.red*255, Color.green*255, Color.blue*255, 0};
+-		const k3d::uint8_t diffuse[] = {Diffuse.red*255, Diffuse.green*255, Diffuse.blue*255, 0};
+-		const k3d::uint8_t specular[] = {Specular.red*255, Specular.green*255, Specular.blue*255, 0};
+-		const k3d::uint8_t ambient[] = {Ambient.red*255, Ambient.green*255, Ambient.blue*255, 0};
++		const k3d::uint8_t color[] = {static_cast<k3d::uint8_t>(Color.red*255), static_cast<k3d::uint8_t>(Color.green*255), static_cast<k3d::uint8_t>(Color.blue*255), 0};
++		const k3d::uint8_t diffuse[] = {static_cast<k3d::uint8_t>(Diffuse.red*255), static_cast<k3d::uint8_t>(Diffuse.green*255), static_cast<k3d::uint8_t>(Diffuse.blue*255), 0};
++		const k3d::uint8_t specular[] = {static_cast<k3d::uint8_t>(Specular.red*255), static_cast<k3d::uint8_t>(Specular.green*255), static_cast<k3d::uint8_t>(Specular.blue*255), 0};
++		const k3d::uint8_t ambient[] = {static_cast<k3d::uint8_t>(Ambient.red*255), static_cast<k3d::uint8_t>(Ambient.green*255), static_cast<k3d::uint8_t>(Ambient.blue*255), 0};
+ 		const k3d::string_t color_str(reinterpret_cast<const char*>(color));
+ 		const k3d::string_t diffuse_str(reinterpret_cast<const char*>(diffuse));
+ 		const k3d::string_t specular_str(reinterpret_cast<const char*>(specular));
