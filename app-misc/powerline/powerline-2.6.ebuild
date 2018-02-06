@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI=6
+PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
 
-PYTHON_COMPAT=( python{2_7,3_3,3_4} )
 inherit font systemd readme.gentoo-r1 distutils-r1
 
 ECOMMIT="6e2e0b2f9221fbff117be3d190f9293b40ba64cd"
