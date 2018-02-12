@@ -77,10 +77,10 @@ www-apps/jekyll-sitemap 1.1.1: Automatically generate a sitemap.xml for your Jek
 www-client/google-chrome 60.0.3112.113: The web browser from Google
 www-plugins/chrome-binary-plugins 60.0.3112.113: Binary plugins from Google Chrome for use in Chromium
 www-servers/lwan 0.1: Experimental, scalable, high performance HTTP server
-x11-libs/vte-ng 0.46.1-r1: Library providing a virtual terminal emulator widget
+x11-libs/vte-ng 0.46.1-r1 0.50.2: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
 x11-misc/polybar 2.5.2-r2 3.0.6_pre20171018: A fast and easy-to-use status bar
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
 x11-terms/alacritty 0.1.0_pre20171214: GPU-accelerated terminal emulator
-x11-terms/termite 12-r3: A keyboard-centric terminal aimed at use within a tiling window manager
+x11-terms/termite 12-r3 13: A keyboard-centric terminal aimed at use within a tiling window manager
 x11-wm/orbment 0_pre20160813: Orbment is a dynamic window manager and compositor for Wayland
