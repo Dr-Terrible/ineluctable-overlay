@@ -1,5 +1,5 @@
---- requirements.txt
-+++ requirements.txt
+--- a/requirements.txt
++++ b/requirements.txt
 @@ -1,5 +1,5 @@
 -fusepy==2.0.2
 -pygit2==0.24.1

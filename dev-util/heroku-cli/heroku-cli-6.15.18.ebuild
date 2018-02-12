@@ -12,7 +12,7 @@ SRC_URI="https://cli-assets.heroku.com/${PN}/channels/stable/${PN}-v${PV}-${ECOM
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64-linux"
+KEYWORDS="~amd64"
 
 RDEPEND="!dev-util/heroku-toolbelt
 	net-libs/nodejs[npm]
