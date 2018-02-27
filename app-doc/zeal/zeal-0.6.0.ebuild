@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit xdg qmake-utils gnome2-utils
+CMAKE_MAKEFILE_GENERATOR="ninja"
+inherit xdg gnome2-utils cmake-utils
 
 DESCRIPTION="Offline documentation browser inspired by Dash"
 HOMEPAGE="https://zealdocs.org"
@@ -12,26 +13,17 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="app-arch/libarchive
+RDEPEND="app-arch/libarchive
+	dev-db/sqlite:3
 	dev-qt/qtconcurrent:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtsql:5[sqlite]
 	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
-	>=x11-libs/xcb-util-keysyms-0.3.9"
-
-RDEPEND="${DEPEND}
-	x11-themes/hicolor-icon-theme"
-
-src_configure() {
-	eqmake5 PREFIX="${EPREFIX}/usr"
-}
-
-src_install() {
-	emake INSTALL_ROOT="${D}" PREFIX="${EPREFIX}/usr" install
-}
+	x11-libs/libX11:0
+	x11-libs/libxcb:0
+	x11-libs/xcb-util-keysyms:0"
 
 pkg_postinst() {
 	xdg_pkg_postinst
