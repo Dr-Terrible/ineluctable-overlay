@@ -5,13 +5,13 @@ EAPI=6
 
 VALA_USE_DEPEND="vapigen"
 PYTHON_COMPAT=( python3_{4,5,6} )
-
 inherit gnome2 python-any-r1 vala cmake-utils
 
 DESCRIPTION="A simple ebook reader originally intended for Elementary OS"
 HOMEPAGE="http://babluboy.github.io/bookworm"
 SRC_URI="https://github.com/babluboy/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86 ~arm"
+
+KEYWORDS="amd64 x86 ~arm"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -19,16 +19,21 @@ IUSE="debug"
 
 DEPEND="${PYTHON_DEPS}
 	$(vala_depend)
-	>=dev-libs/granite-0.2.0
+	dev-libs/glib:2
+	>=dev-libs/granite-0.5
+	dev-libs/libgee:0.8
+	dev-libs/libxml2:2
+	net-libs/libsoup:2.4
 	app-text/poppler[cairo]
 	app-arch/unzip
 	app-arch/unrar
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:3
+	x11-libs/pango:0
 	net-libs/webkit-gtk:4/37
 	x11-libs/gtk+:3
 	dev-db/sqlite:3"
 RDEPEND="${DEPEND}"
-
-#DOCS="AUTHORS"
 
 pkg_setup(){
 	python-any-r1_pkg_setup
@@ -45,6 +50,7 @@ src_configure(){
 		-DGSETTINGS_COMPILE="OFF"
 		-DVALA_EXECUTABLE="$( type -p valac-$(vala_best_api_version) )"
 	)
+	use debug && mycmakeargs+=(-DCMAKE_BUILD_TYPE="RelWithDebInfo")
 	cmake-utils_src_configure
 }
 
