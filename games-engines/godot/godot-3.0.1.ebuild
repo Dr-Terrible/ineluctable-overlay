@@ -147,7 +147,7 @@ src_install() {
 		popd || die
 	fi
 	if use examples; then
-		pushd "${WORKDIR}/${PN}-demo-projects-${PV}-${EXAMPLES}" || die
+		pushd "${WORKDIR}/${PN}-demo-projects-${SLOT}-${EXAMPLES}" || die
 			insinto /usr/share/${PF}/examples
 			dodir /usr/share/doc/${PF}/examples
 			doins -r *
