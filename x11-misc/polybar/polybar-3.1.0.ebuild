@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -7,22 +7,19 @@ DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 cmake-utils toolchain-funcs versionator
 
-POLYBAR_ECOMMIT="5737156ae5ea1b179032609dac29d3e60f0773c2"
-XPP_ECOMMIT="61f42bbca835b3cf9968de42fd46ffe404b73dca"
-I3IPCPP_ECOMMIT="8ed783100bbc8053fd7d8e19cef58cd097ff23f7"
+XPP_ECOMMIT="c73db50f3020b7abe294631b25a2d302fcd9e1cb"
+I3IPCPP_ECOMMIT="a6aa7a19786bdf7b96a02900510b3b3c325c8bdf"
 
 DESCRIPTION="A fast and easy-to-use status bar"
 HOMEPAGE="https://github.com/jaagr/${PN}"
-SRC_URI="https://github.com/jaagr/${PN}/archive/${POLYBAR_ECOMMIT}.tar.gz -> ${PF}.tar.gz
+SRC_URI="https://github.com/jaagr/${PN}/archive/${PV}.tar.gz -> ${PF}.tar.gz
 	https://github.com/jaagr/xpp/archive/${XPP_ECOMMIT}.tar.gz -> xpp-${XPP_ECOMMIT}.tar.gz
 	https://github.com/jaagr/i3ipcpp/archive/${I3IPCPP_ECOMMIT}.tar.gz -> i3ipcpp-${I3IPCPP_ECOMMIT}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="amd64 ~arm x86"
 IUSE="+alsa curl i3 mpd network test xcomposite xrender debug verbose-debug"
-
-S="${WORKDIR}/${PN}-${POLYBAR_ECOMMIT}"
 
 RESTRICT="mirror"
 
