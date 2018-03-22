@@ -13,7 +13,6 @@ dev-cpp/ETL 1.3.5: ETL is a multi-platform class and template library
 dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
 dev-cpp/folly 2016.12.19.00 2017.12.18.00: An open-source C++ library developed and used at Facebook
-dev-cpp/plustache 0.3.0: Mustache templating for C++
 dev-db/arangodb 1.4.3: The universal nosql database
 dev-lang/julia 0.6.2: High-performance programming language for technical computing
 dev-lang/pocl 0.12: PortableCL: opensource implementation of the OpenCL standard
