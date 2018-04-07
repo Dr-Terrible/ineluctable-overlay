@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>toffanin.mauro@gmail.com</email>
+		<name>Mauro Toffanin</name>
+		<description>Maintainer. Assign bugs to him</description>
+	</maintainer>
+	<use>
+		<flag name="elogind">Use <pkg>sys-auth/elogind</pkg> for session tracking</flag>
+		<flag name="wallpapers">Install the default wallpaper.</flag>
+		<flag name="zsh-completion">Install zsh shell completions.</flag>
+	</use>
+</pkgmetadata>
