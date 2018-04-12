@@ -15,7 +15,7 @@ dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping softwar
 dev-cpp/folly 2016.12.19.00 2017.12.18.00: An open-source C++ library developed and used at Facebook
 dev-db/arangodb 1.4.3: The universal nosql database
 dev-lang/julia 0.6.2: High-performance programming language for technical computing
-dev-lang/pocl 0.12: PortableCL: opensource implementation of the OpenCL standard
+dev-lang/pocl 1.1: PortableCL: opensource implementation of the OpenCL standard
 dev-libs/granite 0.5: A development library for elementary development
 dev-libs/hhvm-libevent 1.4.14b: A customized dev-libs/libevent used by HipHop Virtual Manager
 dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library

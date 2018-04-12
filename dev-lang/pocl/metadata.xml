@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	
 	<maintainer type="person">
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
+	<use>
+		<flag name="cuda">Use nvidia CUDA toolkit</flag>
+		<flag name="asan">Enable clang's Address Sanitizer functionality</flag>
+		<flag name="tsan">Enable clang's Thread Sanitizer functionality</flag>
+		<flag name="lsan">Enable clang's Leak Sanitizer functionality</flag>
+		<flag name="ubsan">Enable clang's Undefined Behavior Sanitizer functionality</flag>
+	</use>
 </pkgmetadata>
