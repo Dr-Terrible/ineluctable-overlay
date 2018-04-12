@@ -17,11 +17,9 @@ dev-db/arangodb 1.4.3: The universal nosql database
 dev-lang/julia 0.6.2: High-performance programming language for technical computing
 dev-lang/pocl 1.1: PortableCL: opensource implementation of the OpenCL standard
 dev-libs/granite 0.5: A development library for elementary development
-dev-libs/hhvm-libevent 1.4.14b: A customized dev-libs/libevent used by HipHop Virtual Manager
 dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library
 dev-libs/libsass 3.4.7: A C/C++ implementation of a Sass CSS compiler
 dev-libs/libstrophe 0.8.8 0.9.1: A simple, lightweight C library for writing XMPP clients
-dev-php/hhvm 3.7.3: Virtual Machine, Runtime, and JIT for PHP
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
 dev-python/cheat 2.1.15: Cheat allows you to create and view interactive cheatsheets on the command-line
 dev-python/markdown2 2.3.1: Python Markdown language reimplementation
@@ -33,7 +31,6 @@ dev-ruby/mruby 1.1.0 1.2.0 9999: A lightweight implementation of Ruby complying 
 dev-util/codexl 2.2.511: CPU/GPU debugging and profiling suite by AMD
 dev-util/cxxtest 4.0.3 4.3: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
 dev-util/flint++ 2015.12.03: Flint++ is cross-platform, zero-dependency port of Facebook's flint
-dev-util/google-perftools 2.4: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-util/google-styleguide 132: Style guides for Google-originated open-source projects
 dev-util/heroku-cli 6.15.18: Client library and CLI to deploy apps on Heroku
 dev-util/nq 0.2.1: Unix command line queue utility

@@ -25,11 +25,9 @@ dev-php/hhvm
 
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (1 May 2015)
-# Hard masked all deprecated and testing branches of Dropbox.
-# Testing branches are notoriously buggy and unpredictable,
-# use them at your own risk.
-<net-misc/dropbox-3.14.0
-
+# This package is specifically tailored to my needs; you should not use it.
+# Instead, you should use the ones provided by Portage.
+net-misc/dropbox
 
 # Toffanin Mauro <toffanin.mauro@gmail.com> (30 Oct 2010)
 # Mask libndofdev because is a dead project and not more maintained by
