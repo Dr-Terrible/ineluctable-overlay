@@ -42,10 +42,10 @@ dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what yo
 dev-vcs/git-secrets 1.2.1: Prevents you from committing secrets and credentials into git repositories
 dev-vcs/gitfs 0.4.5.1: gitfs is a FUSE file system that fully integrates with git
 dev-vcs/gitless 0.8.6: A version control system built on top of Git
-games-engines/flare 0.19 0.20 0.21_pre9: Free/Libre Action Roleplaying game
+games-engines/flare 0.19 0.20 1.02: Free/Libre Action Roleplaying game
 games-engines/godot 3.0 3.0.1: Godot is a fully featured, open source, MIT licensed, game engine
 games-engines/panda3d 1.8.1: Panda3D is a framework for 3D rendering and game development
-games-rpg/flare 0.19 0.20 0.21_pre9: Free/Libre Action Roleplaying game
+games-rpg/flare 0.19 0.20 1.02: Free/Libre Action Roleplaying game
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 mail-client/jaromail 4.2: A command-line MUA to easily and privately handle your e-mails.
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
