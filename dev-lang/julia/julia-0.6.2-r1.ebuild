@@ -3,8 +3,8 @@
 
 EAPI=6
 
-RESTRICT="test"
-
+LLVM_MAX_SLOT=4
+LLVM_SLOT=4
 inherit llvm pax-utils toolchain-funcs
 
 DESCRIPTION="High-performance programming language for technical computing"
@@ -13,14 +13,12 @@ SRC_URI="https://github.com/JuliaLang/${PN}/releases/download/v${PV}/${P}-full.t
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 
-# julia 0.6* is compatible with llvm-4
+RESTRICT="test mirror"
+
+# julia 0.6* is compatible with llvm v4.
 RDEPEND="sys-devel/llvm:4=
-	sys-devel/clang:4="
-LLVM_MAX_SLOT=4
-
-RDEPEND+="
 	dev-libs/double-conversion:0=
 	dev-libs/gmp:0=
 	dev-libs/libgit2:0=
@@ -152,7 +150,10 @@ src_compile() {
 
 	emake cleanall
 	emake VERBOSE=1 julia-release \
-		prefix="/usr" DESTDIR="${D}" CC="$(tc-getCC)" CXX="$(tc-getCXX)"
+		prefix="/usr" \
+		DESTDIR="${D}" \
+		CC="$(tc-getCC)" \
+		CXX="$(tc-getCXX)"
 	pax-mark m $(file usr/bin/julia-* | awk -F : '/ELF/ {print $1}')
 	emake
 }
@@ -171,7 +172,10 @@ src_install() {
 		git commit -a --allow-empty -m "initial" || die "git failed"
 
 	emake install \
-		prefix="/usr" DESTDIR="${D}" CC="$(tc-getCC)" CXX="$(tc-getCXX)"
+		prefix="/usr" \
+		DESTDIR="${D}" \
+		CC="$(tc-getCC)" \
+		CXX="$(tc-getCXX)"
 	cat > 99julia <<-EOF
 		LDPATH=${EROOT%/}/usr/$(get_libdir)/julia
 	EOF
