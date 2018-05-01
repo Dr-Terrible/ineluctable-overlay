@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -27,8 +27,8 @@ RESTRICT="mirror"
 # see also https://bugs.gentoo.org/show_bug.cgi?id=601204
 RDEPEND="media-libs/freetype:2
 	media-libs/fontconfig
+	x11-base/xcb-proto
 	x11-libs/libX11
-	x11-proto/xcb-proto
 	x11-libs/libXft:0
 	x11-libs/libxcb[xkb?]
 	x11-libs/xcb-util-wm

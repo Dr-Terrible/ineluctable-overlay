@@ -39,7 +39,7 @@ RDEPEND="media-libs/fontconfig
 	mpd? ( media-libs/libmpdclient )
 	network? ( net-wireless/wireless-tools )"
 DEPEND="${RDEPEND}
-	>=x11-proto/xcb-proto-1.12-r2"
+	>=x11-base/xcb-proto-1.12-r2"
 
 pkg_pretend() {
 	# A C++14 compliant compiler is required
