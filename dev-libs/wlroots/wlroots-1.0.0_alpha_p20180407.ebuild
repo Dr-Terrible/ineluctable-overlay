@@ -29,13 +29,13 @@ caps? ( sys-libs/libcap )
 elogind? ( sys-auth/elogind )
 systemd? ( sys-apps/systemd )
 xwayland? (
+	x11-base/xcb-proto
 	x11-base/xorg-server[wayland]
 	x11-libs/libxcb
-	x11-proto/xcb-proto
 )
 X? (
+	x11-base/xcb-proto
 	x11-libs/libxcb
-	x11-proto/xcb-proto
 )
 "
 
