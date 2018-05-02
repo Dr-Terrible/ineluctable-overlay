@@ -1,8 +1,6 @@
 app-admin/dotfiler 0.5.0: Shell agnostic git based dotfiles package manager
-app-arch/archivemount 0.8.3: mount an archive as filesystem using fuse and libarchive
 app-doc/dtrace-systemtap-book 20150923: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20170103: Game Programming Patterns
-app-doc/zeal 0.5.0 0.6.0: Offline documentation browser inspired by Dash
 app-misc/powerline 2.6: Python-based statusline/prompt utility
 app-misc/watchman 4.9.0-r3: A file watching service
 app-portage/cargo-ebuild 0.1.5-r50: Generates an ebuild for a package using the in-tree eclasses.
@@ -14,11 +12,8 @@ dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
 dev-cpp/folly 2016.12.19.00 2017.12.18.00: An open-source C++ library developed and used at Facebook
 dev-db/arangodb 1.4.3: The universal nosql database
-dev-lang/julia 0.6.2-r1: High-performance programming language for technical computing
 dev-lang/pocl 1.1: PortableCL: opensource implementation of the OpenCL standard
-dev-libs/granite 0.5: A development library for elementary development
 dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library
-dev-libs/libsass 3.4.7: A C/C++ implementation of a Sass CSS compiler
 dev-libs/libstrophe 0.8.8 0.9.1: A simple, lightweight C library for writing XMPP clients
 dev-libs/sway 1.0_alpha2 9999: i3-compatible Wayland window manager
 dev-libs/wlroots 1.0.0_alpha_p20180513 9999: A modular Wayland compositor library
@@ -37,7 +32,6 @@ dev-util/google-styleguide 132: Style guides for Google-originated open-source p
 dev-util/heroku-cli 6.15.18: Client library and CLI to deploy apps on Heroku
 dev-util/nq 0.2.1: Unix command line queue utility
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
-dev-util/sassc 3.4.7: SaasC is an implementer for LibSaas
 dev-vcs/diff-so-fancy 1.1.1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 dev-vcs/git-extras 4.2.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
@@ -51,7 +45,6 @@ games-rpg/flare 0.19 0.20 1.02: Free/Libre Action Roleplaying game
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 mail-client/jaromail 4.2: A command-line MUA to easily and privately handle your e-mails.
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
-media-gfx/blender 2.72b-r4: 3D Creation/Animation/Publishing System
 media-gfx/goxel 0.2.0 0.3.0: Open source 3D voxel editor
 media-gfx/k3d 0.8.0.6: A free 3D modeling, animation, and rendering system
 media-gfx/synfig 1.3.5: Film-Quality Vector Animation (core engine)
@@ -59,7 +52,7 @@ media-gfx/synfigstudio 1.3.5: Main UI of synfig: Film-Quality Vector Animation
 media-libs/artoolkit 2.72.1-r10: The ARToolKit library
 net-im/profanity 0.5.1: Profanity is a console based XMPP client inspired by irssi
 net-im/qtox 1.13.0: Most feature-rich GUI for net-libs/tox using Qt5
-net-misc/dropbox 44.4.58: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox 30.4.22 32.4.23 39.4.49: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2015.10.28-r1: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/ephemeral-port-reserve 1.1.0: Find an unused port, reliably
 net-misc/vde 2.3.2: A virtual distributed ethernet emulator for qemu, bochs, and uml
@@ -74,7 +67,6 @@ www-servers/lwan 0.1: Experimental, scalable, high performance HTTP server
 x11-libs/lcui 1.0_beta2: A small C library for building user interfaces with C, XML and CSS<Paste>
 x11-libs/vte-ng 0.46.1-r1 0.50.2: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
-x11-misc/polybar 2.5.2-r2 3.1.0: A fast and easy-to-use status bar
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
 x11-terms/alacritty 0.1.0_pre20171214: GPU-accelerated terminal emulator
 x11-terms/termite 12-r3 13: A keyboard-centric terminal aimed at use within a tiling window manager

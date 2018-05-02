@@ -11,7 +11,7 @@ DESCRIPTION="A simple ebook reader originally intended for Elementary OS"
 HOMEPAGE="http://babluboy.github.io/bookworm"
 SRC_URI="https://github.com/babluboy/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="amd64 x86 ~arm"
+KEYWORDS="~amd64 ~x86 ~arm"
 
 LICENSE="GPL-3"
 SLOT="0"
