@@ -8,7 +8,7 @@ inherit meson
 DESCRIPTION="i3-compatible Wayland window manager"
 HOMEPAGE="http://swaywm.org/"
 
-UPSTREAM_VERSION="1.0-alpha.1"
+UPSTREAM_VERSION="1.0-alpha.2"
 SRC_URI="https://github.com/swaywm/${PN}/archive/${UPSTREAM_VERSION}.tar.gz"
 S="${WORKDIR}/${PN}-${UPSTREAM_VERSION}"
 
@@ -33,7 +33,7 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}
-doc? ( app-text/asciidoc )
+	doc? ( app-text/scdoc )
 "
 
 src_configure() {

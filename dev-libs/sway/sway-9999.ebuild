@@ -30,7 +30,7 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}
-doc? ( app-text/asciidoc )
+	doc? ( app-text/scdoc )
 "
 
 src_configure() {
