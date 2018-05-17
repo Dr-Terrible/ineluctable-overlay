@@ -9,7 +9,7 @@ DESCRIPTION="A modular Wayland compositor library"
 HOMEPAGE="https://github.com/swaywm/wlroots"
 
 EGIT_REPO_URI="https://github.com/swaywm/wlroots"
-EGIT_COMMIT="ba5c0903f9c288e7b617e537ef80eed2a42e08ed"
+EGIT_COMMIT="383ce3d5b73c54c3f9f1c90576df3277ebd2eee7"
 
 LICENSE="MIT"
 SLOT="0"
