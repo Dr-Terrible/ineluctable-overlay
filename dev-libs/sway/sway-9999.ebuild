@@ -33,6 +33,10 @@ DEPEND="${RDEPEND}
 	doc? ( app-text/scdoc )
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-swaybar-fix.patch"
+)
+
 src_configure() {
 	local emesonargs=(
 		-Ddefault_wallpaper=$(usex wallpapers true false)
