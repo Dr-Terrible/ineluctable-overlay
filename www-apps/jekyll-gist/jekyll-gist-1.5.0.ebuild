@@ -1,8 +1,8 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-USE_RUBY="ruby22 ruby23"
+USE_RUBY="ruby22 ruby23 ruby24 ruby25"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 RUBY_FAKEGEM_TASK_DOC=""
@@ -21,7 +21,7 @@ IUSE=""
 
 ruby_add_rdepend ">=dev-ruby/octokit-4.2"
 ruby_add_bdepend "test? ( dev-ruby/webmock
-	>=www-apps/jekyll-3.6.0 )"
+	>=www-apps/jekyll-3 )"
 
 all_ruby_prepare() {
 	rm Rakefile || die
