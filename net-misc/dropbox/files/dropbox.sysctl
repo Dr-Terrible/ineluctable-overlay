@@ -1,7 +1,0 @@
-# Dropbox's speed may decrease as the number of files in your account increases.
-# This is a well known issue with Dropbox, see: https://dropbox.com/help/14/en
-# TIP: found your average number of files in your account with
-#      $ find /path/to/your/account/Dropbox | wc -l
-#      and then increase accordling the value of fs.inotify.max_user_watches.
-#      (100000 is the default value)
-fs.inotify.max_user_watches = 100000
