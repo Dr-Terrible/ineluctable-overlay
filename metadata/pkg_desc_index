@@ -1,78 +1,63 @@
 app-admin/dotfiler 0.5.0: Shell agnostic git based dotfiles package manager
-app-arch/archivemount 0.8.3: mount an archive as filesystem using fuse and libarchive
 app-doc/dtrace-systemtap-book 20150923: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20170103: Game Programming Patterns
-app-doc/zeal 0.5.0 0.6.0: Offline documentation browser inspired by Dash
-app-misc/powerline 2.6: Python-based statusline/prompt utility
 app-misc/watchman 4.9.0-r3: A file watching service
 app-portage/cargo-ebuild 0.1.5-r50: Generates an ebuild for a package using the in-tree eclasses.
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
 app-shells/zshdb 0.92: Debugger for zsh
-app-text/bookworm 1.0.0: A simple ebook reader originally intended for Elementary OS
 dev-cpp/ETL 1.3.5: ETL is a multi-platform class and template library
-dev-cpp/clang-tags 9999: http://ffevotte.github.io/clang-tags/
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
-dev-cpp/folly 2016.12.19.00 2017.12.18.00: An open-source C++ library developed and used at Facebook
-dev-db/arangodb 1.4.3: The universal nosql database
-dev-lang/julia 0.6.2-r1: High-performance programming language for technical computing
+dev-cpp/folly 2017.12.18.00: An open-source C++ library developed and used at Facebook
 dev-lang/pocl 1.1: PortableCL: opensource implementation of the OpenCL standard
-dev-libs/granite 0.5: A development library for elementary development
 dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library
-dev-libs/libsass 3.4.7: A C/C++ implementation of a Sass CSS compiler
-dev-libs/libstrophe 0.8.8 0.9.1: A simple, lightweight C library for writing XMPP clients
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
 dev-python/cheat 2.1.15: Cheat allows you to create and view interactive cheatsheets on the command-line
+dev-python/epub 0.5.2: Library to open and read files in the epub version 2
 dev-python/markdown2 2.3.1: Python Markdown language reimplementation
 dev-python/plugnplay 0.4.2: A Generic plug-in system for python
 dev-python/proselint 0.8.0: A linter for prose
 dev-python/smartypants 1.8.6: A port of SmartyPants PHP to Python
 dev-qt/qml-material 0.2.0-r2: Material Design implemented in QML
 dev-ruby/mruby 1.1.0 1.2.0 9999: A lightweight implementation of Ruby complying to part of the ISO standard
+dev-util/bloaty 1.0: A size profiler for binaries
 dev-util/codexl 2.2.511: CPU/GPU debugging and profiling suite by AMD
-dev-util/cxxtest 4.0.3 4.3: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
-dev-util/flint++ 2015.12.03: Flint++ is cross-platform, zero-dependency port of Facebook's flint
+dev-util/cxxtest 4.0.3 4.3 4.4: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
 dev-util/google-styleguide 132: Style guides for Google-originated open-source projects
-dev-util/heroku-cli 6.15.18: Client library and CLI to deploy apps on Heroku
 dev-util/nq 0.2.1: Unix command line queue utility
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
-dev-util/sassc 3.4.7: SaasC is an implementer for LibSaas
+dev-util/systemtap 4.1: A linux trace/probe tool
 dev-vcs/diff-so-fancy 1.1.1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 dev-vcs/git-extras 4.2.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
 dev-vcs/git-secrets 1.2.1: Prevents you from committing secrets and credentials into git repositories
 dev-vcs/gitfs 0.4.5.1: gitfs is a FUSE file system that fully integrates with git
-dev-vcs/gitless 0.8.6: A version control system built on top of Git
-games-engines/flare 0.19 0.20 1.02: Free/Libre Action Roleplaying game
+dev-vcs/gitless 0.8.6 0.8.8: A version control system built on top of Git
+games-engines/flare 1.02: Free/Libre Action Roleplaying game
 games-engines/godot 3.0 3.0.1: Godot is a fully featured, open source, MIT licensed, game engine
-games-engines/panda3d 1.8.1: Panda3D is a framework for 3D rendering and game development
-games-rpg/flare 0.19 0.20 1.02: Free/Libre Action Roleplaying game
+games-rpg/flare 1.02: Free/Libre Action Roleplaying game
+games-strategy/liberation-circuit 1.3: Trapped in a hostile computer system, you must make a way out
 games-strategy/ufo-ai 2.5: UFO: Alien Invasion - X-COM inspired strategy game
 mail-client/jaromail 4.2: A command-line MUA to easily and privately handle your e-mails.
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
 media-gfx/blender 2.72b-r4: 3D Creation/Animation/Publishing System
 media-gfx/goxel 0.2.0 0.3.0: Open source 3D voxel editor
 media-gfx/k3d 0.8.0.6: A free 3D modeling, animation, and rendering system
+media-gfx/piskel 0.14.0 0.15.0: A simple web-based tool for Spriting and Pixel art
 media-gfx/synfig 1.3.5: Film-Quality Vector Animation (core engine)
 media-gfx/synfigstudio 1.3.5: Main UI of synfig: Film-Quality Vector Animation
-media-libs/artoolkit 2.72.1-r10: The ARToolKit library
-net-im/profanity 0.5.1: Profanity is a console based XMPP client inspired by irssi
-net-im/qtox 1.13.0: Most feature-rich GUI for net-libs/tox using Qt5
-net-misc/dropbox 44.4.58: Dropbox daemon (pretends to be GUI-less)
-net-misc/dropbox-cli 2015.10.28-r1: Cli interface for dropbox (python), part of nautilus-dropbox
+net-mail/isync 1.3.1: MailDir mailbox synchronizer
 net-misc/ephemeral-port-reserve 1.1.0: Find an unused port, reliably
-net-misc/vde 2.3.2: A virtual distributed ethernet emulator for qemu, bochs, and uml
 sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
 sys-libs/libunwind 1.3_rc1: Portable and efficient API to determine the call-chain of a program
-www-apps/jekyll-feed 0.9.2: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
+virtual/recoll 0: Virtual for recoll
+www-apps/jekyll-feed 0.12.1: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
 www-apps/jekyll-gist 1.5.0: Liquid tag for displaying GitHub Gists in Jekyll sites
-www-apps/jekyll-seo-tag 2.4.0: A Jekyll plugin to add metadata tags for search engines
-www-apps/jekyll-sitemap 1.1.1: Automatically generate a sitemap.xml for your Jekyll site
+www-apps/jekyll-seo-tag 2.6.1: A Jekyll plugin to add metadata tags for search engines
+www-apps/jekyll-sitemap 1.3.1: Automatically generate a sitemap.xml for your Jekyll site
+www-client/surf 2.0-r50 9999: a simple web browser based on WebKit/GTK+
 www-servers/lwan 0.1: Experimental, scalable, high performance HTTP server
 x11-libs/lcui 1.0_beta2: A small C library for building user interfaces with C, XML and CSS<Paste>
 x11-libs/vte-ng 0.46.1-r1 0.50.2: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
-x11-misc/polybar 2.5.2-r2 3.1.0: A fast and easy-to-use status bar
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
-x11-terms/alacritty 0.1.0_pre20171214: GPU-accelerated terminal emulator
 x11-terms/termite 12-r3 13: A keyboard-centric terminal aimed at use within a tiling window manager
-x11-wm/orbment 0_pre20160813: Orbment is a dynamic window manager and compositor for Wayland
