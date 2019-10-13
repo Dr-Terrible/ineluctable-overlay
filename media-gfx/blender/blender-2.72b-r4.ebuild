@@ -9,12 +9,12 @@ inherit check-reqs cmake-utils xdg-utils flag-o-matic gnome2-utils \
           pax-utils python-single-r1 toolchain-funcs versionator
 
 DESCRIPTION="3D Creation/Animation/Publishing System"
-HOMEPAGE="http://www.blender.org"
-SRC_URI="http://download.blender.org/source/${P}.tar.gz"
+HOMEPAGE="https://www.blender.org"
+SRC_URI="https://download.blender.org/source/${P}.tar.gz"
 
-#if [[ -n ${PATCHSET} ]]; then
-#	SRC_URI+=" https://dev.gentoo.org/~flameeyes/${PN}/${P}-patches-${PATCHSET}.tar.xz"
-#fi
+if [[ -n ${PATCHSET} ]]; then
+	SRC_URI+=" https://dev.gentoo.org/~flameeyes/${PN}/${P}-patches-${PATCHSET}.tar.xz"
+fi
 
 SLOT="0"
 LICENSE="|| ( GPL-2 BL )"
@@ -90,6 +90,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fix-util_simd.patch
 	"${FILESDIR}"/${P}-gcc6-fixes.patch
 	"${FILESDIR}"/${P}-boost.patch
+	"${FILESDIR}"/${P}-glog-gcc7.patch
 )
 
 pkg_pretend() {
