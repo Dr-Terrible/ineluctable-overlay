@@ -46,7 +46,6 @@ media-gfx/piskel 0.14.0 0.15.0: A simple web-based tool for Spriting and Pixel a
 media-gfx/synfig 1.3.5: Film-Quality Vector Animation (core engine)
 media-gfx/synfigstudio 1.3.5: Main UI of synfig: Film-Quality Vector Animation
 net-im/profanity 0.6.0: A console based XMPP client inspired by Irssi
-net-mail/isync 1.3.1: MailDir mailbox synchronizer
 net-misc/ephemeral-port-reserve 1.1.0: Find an unused port, reliably
 sys-libs/hoard 3.8 3.9 3.10 3.11: HOARD Memory Allocator
 sys-libs/libunwind 1.3_rc1: Portable and efficient API to determine the call-chain of a program
