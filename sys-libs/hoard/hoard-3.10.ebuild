@@ -1,8 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-inherit multilib flag-o-matic
+EAPI=7
+inherit flag-o-matic
 
 DESCRIPTION="HOARD Memory Allocator"
 HOMEPAGE="http://www.hoard.org"
@@ -10,11 +10,8 @@ SRC_URI="https://github.com/emeryberger/Hoard/archive/${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc debug"
-
-DEPEND=""
-RDEPEND=""
 
 S="${WORKDIR}/emeryberger-Hoard-d065953"
 

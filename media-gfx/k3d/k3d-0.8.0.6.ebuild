@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -54,8 +54,7 @@ S="${WORKDIR}/${PN}-${P}"
 
 # k3d_use_enable()
 #
-# $1: use flag. ON|OFF is determined by this.
-# $2: part of cmake variable name which appended to the base variable name
+
 #     that is -DK3D_BUILD_$2
 #
 # e.g.) k3d_use_enable gnome GNOME_MODULE #=> -DK3D_BUILD_GNOME_MODULE=ON

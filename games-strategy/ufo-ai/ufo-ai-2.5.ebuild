@@ -1,9 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-AUTOTOOLS_IN_SOURCE_BUILD=1
-inherit autotools-utils flag-o-matic
+EAPI=6
+inherit autotools flag-o-matic
 
 MY_PN=${PN/o-a/oa}
 MY_P=${P/o-a/oa}
@@ -32,7 +31,7 @@ DEPEND="!dedicated? (
 		media-libs/libpng:0
 		media-libs/libogg
 		media-libs/libvorbis
-		x11-proto/xf86vidmodeproto
+		x11-base/xorg-proto
 	)
 	net-misc/curl
 	sys-devel/gettext
@@ -52,6 +51,7 @@ DOCS=(README)
 
 src_prepare() {
 	mv "${WORKDIR}"/base "${S}" || die
+	eautoreconf
 }
 
 src_configure() {

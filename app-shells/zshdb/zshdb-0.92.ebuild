@@ -1,10 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-
-AUTOTOOLS_AUTORECONF=1
-inherit autotools-utils
+EAPI=6
+inherit autotools
 
 DESCRIPTION="Debugger for zsh"
 HOMEPAGE="https://github.com/rocky/${PN}"
@@ -18,3 +16,8 @@ RDEPEND="app-shells/zsh"
 
 RESTRICT="mirror"
 S="${WORKDIR}/${PN}-release-${PV}"
+
+src_prepare() {
+	eautoreconf
+	default
+}

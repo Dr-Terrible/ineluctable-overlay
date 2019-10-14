@@ -1,10 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-AUTOTOOLS_AUTORECONF=1
-AUTOTOOLS_IN_SOURCE_BUILD=1
-inherit flag-o-matic autotools-utils versionator
+EAPI=7
+inherit flag-o-matic autotools multilib-minimal
 
 DESCRIPTION="An open-source C++ library developed and used at Facebook"
 HOMEPAGE="https://github.com/facebook/folly"
@@ -35,27 +33,26 @@ RDEPEND="${CDEPEND}"
 S="${WORKDIR}/${P}/${PN}"
 
 src_prepare() {
+	default
+
 	# FIX: gtest's source code must be moved inside the test/ directory
 	if use test; then
 		mv "${S}"/../../gtest-1.7.0 "${S}"/test/ || die
 	fi
 
-	autotools-utils_src_prepare
+	eautoreconf
+
+	# only sane way to deal with various version-related scripts, env variables etc.
+	multilib_copy_sources
 }
 
-src_configure() {
-	local myeconfargs=(
-		$(use_enable static-libs static)
-		$(use_with jemalloc)
-	)
-
+multilib_src_configure() {
 	# FIX: dirty hack necessary for running the unit tests.
 	#      I don't like it, but upstream refused a proper fix
 	use test && append-ldflags -lcrypto -ldl
 
-	autotools-utils_src_configure
-}
-
-src_test() {
-	autotools-utils_src_test
+	econf \
+		$(use_enable static-libs static) \
+		$(use_with jemalloc) \
+		--enable-shared
 }

@@ -1,9 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 PYTHON_COMPAT=( python2_7 )
-inherit python-any-r1 cmake-multilib
+inherit python-single-r1 cmake-multilib
 
 DESCRIPTION="Appleseed is a modern, physically-based production renderer."
 HOMEPAGE="http://appleseedhq.net"
@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${P}-beta"
 
 pkg_setup() {
-	use python && python-any-r1_pkg_setup
+	use python && python-single-r1_pkg_setup
 }
 
 src_configure() {

@@ -1,7 +1,7 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 inherit eutils qmake-utils
 
 DESCRIPTION="Material Design implemented in QML"
@@ -10,7 +10,7 @@ SRC_URI="https://github.com/papyros/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86 ~arm"
+KEYWORDS="amd64 ~arm ~x86"
 IUSE+=" doc test"
 
 RESTRICT+=" mirror"
@@ -25,9 +25,9 @@ RDEPEND="dev-qt/qtdeclarative:5
 	dev-qt/qtgraphicaleffects:5
 	media-fonts/roboto"
 
-src_prepare(){
-	epatch "${FILESDIR}/${PN}-doc.patch"
-}
+PATCHES=(
+	 "${FILESDIR}"/${PN}-doc.patch
+)
 
 src_configure() {
 	eqmake5 ${PN}.pro
@@ -43,7 +43,7 @@ src_install() {
 			mkdir html || die
 			QT_SELECT="qt5" qdoc \
 				material.qdocconf || die
-			dohtml -A dita,index -r html/*
+			dodoc -r html
 		popd
 	fi
 

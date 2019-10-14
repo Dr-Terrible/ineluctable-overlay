@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	
 	<maintainer type="person">
 		<email>toffanin.mauro@gmail.com</email>
 		<name>Mauro Toffanin</name>
@@ -14,5 +13,7 @@
 	<longdescription lang="en">
 		AMD CodeXL is a comprehensive tool suite that enables developers to harness the benefits of AMD CPUs, GPUs and APUs. It includes powerful GPU debugging, comprehensive GPU and CPU profiling, and static OpenCL™ kernel analysis capabilities, enhancing accessibility for software developers to enter the era of heterogeneous computing.
 	</longdescription>
+	<use>
+		<flag name="opencl">Enable OpenCL support</flag>
+	</use>
 </pkgmetadata>
-

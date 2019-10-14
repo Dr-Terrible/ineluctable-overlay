@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -11,12 +11,11 @@ SRC_URI="https://github.com/synfig/synfig/archive/v${PV}.tar.gz -> synfig-${PV}.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="fmod debug static-libs nls jack"
+IUSE="debug static-libs nls jack"
 
 DEPEND="dev-cpp/gtkmm:2.4
 	>=media-gfx/synfig-${PV}[ffmpeg,openexr,imagemagick]
 	dev-libs/libsigc++:2
-	fmod? ( media-libs/fmod:1 )
 	jack? ( media-sound/jack-audio-connection-kit )"
 RDEPEND=${DEPEND}
 
@@ -40,10 +39,10 @@ multilib_src_configure() {
 		--disable-option-checking
 		--disable-dependency-tracking
 		--disable-update-mimedb
+		--disable-libfmod
 		--enable-branch-probabilities
 		--enable-warnings="${warnings_level}"
 
-		$(use_with fmod libfmod )
 		$(use_enable jack)
 		$(use_enable static-libs static)
 		$(use_enable nls)

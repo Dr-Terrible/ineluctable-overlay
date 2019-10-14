@@ -7,7 +7,4 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
-	<use>
-		<flag name='fmod'>Enables support for music and sound effects</flag>
-	</use>
 </pkgmetadata>

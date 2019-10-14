@@ -13,6 +13,7 @@
 		<flag name="collada">Add support for Collada interchange format through <pkg>media-libs/opencollada</pkg></flag>
 		<flag name="osmesa">Adds support for OpenGL in bitmaps using libOSMesa from <pkg>media-libs/mesa</pkg></flag>
 		<flag name="gts">Add Support for the GNU Triangulated Surface Library <pkg>sci-libs/gts</pkg></flag>
+		<flag name="mime">Add MIME support</flag>
 	</use>
 	<upstream>
 		<remote-id type="sourceforge">k3d</remote-id>

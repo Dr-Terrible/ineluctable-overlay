@@ -1,8 +1,8 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-inherit multilib flag-o-matic
+EAPI=7
+inherit flag-o-matic
 
 HL_ECOMMIT="87f851165bfb570d3fb0b0a99a9bf44a03a26ae2"
 
@@ -13,17 +13,16 @@ SRC_URI="https://github.com/emeryberger/Hoard/archive/${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc debug"
-
-DEPEND=""
-RDEPEND=""
 
 S="${WORKDIR}/Hoard-${PV}"
 
 RESTRICT="mirror"
 
 src_prepare() {
+	default
+
 	mv "${WORKDIR}"/Heap-Layers-${HL_ECOMMIT}/* "${S}"/src/Heap-Layers/ || die
 
 	# Makefile forces hardcode cflags, so we need to substitue these values with

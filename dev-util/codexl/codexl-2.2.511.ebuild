@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -14,7 +14,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
-IUSE="doc"
+IUSE="doc opencl"
 RESTRICT="strip mirror test"
 
 # NOTE: dev-libs/boost:58, icu:54, and x11-libs/qscintilla:0/11 are no more in portage
@@ -61,7 +61,7 @@ RDEPEND="dev-libs/boost
 	x11-libs/libXinerama:0
 	x11-libs/libXrender:0
 	>=dev-util/perf-3.15.0[unwind]
-	virtual/opencl"
+	opencl? ( virtual/opencl )"
 
 S="${WORKDIR}"/${APP_NAME}_Linux_x86_64_${PV}
 

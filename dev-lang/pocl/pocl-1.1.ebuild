@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -16,12 +16,7 @@ RESTRICT="mirror"
 
 # NOTE: pocl-1.1 supports llvm v6 and v5
 RDEPEND="
-	<sys-devel/llvm-7_rc:=
-	>sys-devel/llvm-4_rc:=
-	|| (
-		sys-devel/llvm:6
-		sys-devel/llvm:5
-	)
+	sys-devel/llvm:6
 	dev-libs/ocl-icd
 	sys-apps/hwloc
 	dev-libs/libltdl:0
