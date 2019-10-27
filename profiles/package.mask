@@ -5,26 +5,11 @@
 # NOTE: Please add your entry at the top!
 
 # Toffanin Mauro <toffanin.mauro@gmail.com>
-# Hoard 3.8 and 3.9 aren't compatibile with modern glibc such as 2.14+,
-# so use them at your own risk. Please, upgrade to v3.11
-~sys-libs/hoard-3.8
-~sys-libs/hoard-3.9
-
-
-# Toffanin Mauro <toffanin.mauro@gmail.com>
 # Mask live vcs ebuilds.
 # If you're lucky the ebuild doesn't compile; if you're not lucky
 # the ebuild is gonna erase all the data on your computers.
 # I warned you to stay away from this ebuild!
 # Tron lives.
-=dev-db/vertex-db-9999
-=dev-cpp/openFrameworks-9999
-=dev-cpp/clang-tags-9999
-=dev-python/django-object-permissions-9999
-=dev-python/muddle-9999
 =dev-ruby/mruby-9999
-=games-engines/panda3d-9999
-=games-engines/gameplay3d-9999
-=games-engines/featherkit-9999
 =app-editors/liteide-9999
 dev-util/flint
