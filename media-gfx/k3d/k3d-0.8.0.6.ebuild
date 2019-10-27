@@ -4,7 +4,8 @@
 EAPI=6
 
 PYTHON_COMPAT=( python3_{4,5,6} )
-inherit eutils python-any-r1 cmake-utils flag-o-matic
+inherit python-any-r1
+inherit eutils cmake-utils flag-o-matic
 
 DESCRIPTION="A free 3D modeling, animation, and rendering system"
 HOMEPAGE="http://www.k-3d.org"
@@ -13,10 +14,11 @@ SRC_URI="https://github.com/K-3D/${PN}/archive/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="3ds cuda cgal collada doc gnome gts imagemagick jpeg mime nls openexr osmesa png python svg test tiff truetype threads"
+IUSE="3ds cuda cgal collada doc gnome gts imagemagick jpeg mime nls openexr osmesa png svg test tiff truetype threads"
 
+#	python? ( ${PYTHON_DEPS} dev-python/cgkit )
 RDEPEND="
-	dev-libs/boost[python]
+	dev-libs/boost
 	>=dev-cpp/glibmm-2.6:2
 	>=dev-cpp/gtkmm-2.6:2.4
 	dev-libs/expat
@@ -41,7 +43,6 @@ RDEPEND="
 	jpeg? ( virtual/jpeg:0 )
 	openexr? ( media-libs/openexr )
 	png? ( >=media-libs/libpng-1.2.43-r2:= )
-	python? ( ${PYTHON_DEPS} dev-python/cgkit )
 	tiff? ( media-libs/tiff:0 )
 	truetype? ( >=media-libs/freetype-2 )
 	threads? ( dev-cpp/tbb )"
@@ -99,7 +100,7 @@ src_configure() {
 		-DK3D_ENABLE_NLS=$(usex nls)
 		$(k3d_use_module openexr OPENEXR_IO)
 		$(k3d_use_module png PNG_IO)
-		-DK3D_ENABLE_PYTHON=$(usex python)
+		-DK3D_ENABLE_PYTHON=OFF
 		$(k3d_use_module python PYTHON)
 		$(k3d_use_module python PYUI)
 		$(k3d_use_module python NGUI_PYTHON_SHELL)
