@@ -10,8 +10,6 @@ dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping softwar
 dev-cpp/folly 2017.12.18.00: An open-source C++ library developed and used at Facebook
 dev-lang/pocl 1.1: PortableCL: opensource implementation of the OpenCL standard
 dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library
-dev-libs/sway 1.0_alpha2 9999: i3-compatible Wayland window manager
-dev-libs/wlroots 1.0.0_alpha_p20180513 9999: A modular Wayland compositor library
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
 dev-python/cheat 2.1.15: Cheat allows you to create and view interactive cheatsheets on the command-line
 dev-python/epub 0.5.2: Library to open and read files in the epub version 2
@@ -29,7 +27,7 @@ dev-util/nq 0.2.1: Unix command line queue utility
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
 dev-util/systemtap 4.1: A linux trace/probe tool
 dev-vcs/diff-so-fancy 1.1.1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
-dev-vcs/git-extras 4.2.0: Little git extras
+dev-vcs/git-extras 4.2.0 5.0.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
 dev-vcs/git-secrets 1.2.1: Prevents you from committing secrets and credentials into git repositories
 dev-vcs/gitfs 0.4.5.1: gitfs is a FUSE file system that fully integrates with git
@@ -59,7 +57,7 @@ www-apps/jekyll-seo-tag 2.6.1: A Jekyll plugin to add metadata tags for search e
 www-apps/jekyll-sitemap 1.3.1: Automatically generate a sitemap.xml for your Jekyll site
 www-servers/lwan 0.1: Experimental, scalable, high performance HTTP server
 x11-libs/lcui 1.0_beta2: A small C library for building user interfaces with C, XML and CSS<Paste>
-x11-libs/vte-ng 0.46.1-r1 0.50.2: Library providing a virtual terminal emulator widget
+x11-libs/vte-ng 0.46.1-r1 0.50.2 0.59.0: Library providing a virtual terminal emulator widget
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
 x11-misc/yabar 0.4.0: A modern and lightweight status bar for X window managers
-x11-terms/termite 12-r3 13: A keyboard-centric terminal aimed at use within a tiling window manager
+x11-terms/termite 12-r3 13 15: A keyboard-centric terminal aimed at use within a tiling window manager
