@@ -1,8 +1,9 @@
 # Copyright 1999-2019 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit scons-utils
+EAPI=7
+PYTHON_COMPAT=( python3_{5,6,7} )
+inherit python-any-r1 scons-utils
 
 DESCRIPTION="Open source 3D voxel editor"
 HOMEPAGE="https://github.com/guillaumechereau/goxel"
@@ -14,7 +15,7 @@ KEYWORDS="amd64 x86"
 IUSE="debug"
 RESTRICT="mirror"
 
-DEPEND=">=media-libs/glfw-3.1.1
+DEPEND="media-libs/glfw[-wayland]
 	dev-libs/atk:0
 	dev-libs/glib:2
 	virtual/opengl
@@ -25,11 +26,6 @@ DEPEND=">=media-libs/glfw-3.1.1
 	x11-libs/pango:0"
 
 src_prepare(){
-	sed -i \
-		-e "s:-Werror::" \
-		-e "s:-Wall::" \
-		SConstruct || die
-
 	# remove bundled libs
 	rm -r ext_src/glew || die
 	default
@@ -37,15 +33,15 @@ src_prepare(){
 
 src_configure() {
 	MYSCONS=(
-		CCFLAGS="$CXXFLAGS"
-#		CFLAGS="$CFLAGS"
-#		CXXFLAGS="$CXXFLAGS"
+#		CCFLAGS="$CXXFLAGS"
+		werror=0
 		debug=$(usex debug debug 0 1)
+#		sound=$(usex sound sound 0 1)
 	)
 }
 
 src_compile() {
-	escons "${MYSCONS[@]}"
+	escons "${MYSCONS[@]}" mode=release
 }
 
 src_install() {
