@@ -26,6 +26,7 @@ dev-util/google-styleguide 132: Style guides for Google-originated open-source p
 dev-util/nq 0.2.1 0.3.1: Unix command line queue utility
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
 dev-util/systemtap 4.1: A linux trace/probe tool
+dev-util/xe 0.11: simple xargs and apply replacement
 dev-vcs/diff-so-fancy 1.1.1 1.2.7: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 dev-vcs/git-extras 4.2.0 5.0.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
