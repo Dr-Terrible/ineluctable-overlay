@@ -6,4 +6,8 @@
 		<name>Mauro Toffanin</name>
 		<description>Maintainer. Assign bugs to him</description>
 	</maintainer>
+	<use>
+		<flag name="glade">Provide integration with <pkg>dev-util/glade</pkg>.</flag>
+		<flag name="termite">Provide enhanced vte terminal features.</flag>
+	</use>
 </pkgmetadata>
