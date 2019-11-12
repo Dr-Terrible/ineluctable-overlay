@@ -2,7 +2,6 @@ app-admin/dotfiler 0.5.0: Shell agnostic git based dotfiles package manager
 app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20170103: Game Programming Patterns
 app-misc/watchman 4.9.0-r3: A file watching service
-app-portage/cargo-ebuild 0.1.5-r50: Generates an ebuild for a package using the in-tree eclasses.
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
 app-shells/zshdb 0.92: Debugger for zsh
 dev-cpp/ETL 1.3.5: ETL is a multi-platform class and template library
