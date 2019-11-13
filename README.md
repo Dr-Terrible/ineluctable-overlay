@@ -15,18 +15,27 @@ Keep in mind that this overlay provides packages that differ from the ones in th
 > **If you do have troubles with an ebuild provided by this overlay, please take it up with the ebuild provider (the owner of this GitHub account) and not with the official Gentoo's developers. In short, in case of issues, please DO NOT report bugs at bugs.gentoo.org for these ebuilds.**
 
 
-### Installing the overlay
+### Installing the overlay using emaint (recommended)
 
-In order to manage the overlay, the package **app-portage/layman** must be installed into your environment:
+This repository comes with a ready [repos.conf](https://wiki.gentoo.org/wiki//etc/portage/repos.conf) file you just need to add to your `/etc/portage/repos.conf/` directory:
+
+```
+curl -sL https://raw.githubusercontent.com/Dr-Terrible/ineluctable-overlay/master/ineluctable.conf > /etc/portage/repos.conf/ineluctable.conf
+emaint sync -r ineluctable
+```
+
+### Installing the overlay using layman (deprecated)
+
+In order to manage the overlay with Layman, the package **app-portage/layman** must be installed into your environment:
 
 ```
 emerge -av app-portage/layman
 ```
 
-If the installation of _layman_ was successfully completed, then you are ready to add this overlay by fetching its remote list as showed below:
+Install this overlay by fetching its remote list as showed below:
 
 ```
-wget -q -O /etc/layman/overlays/ineluctable-overlay.xml https://raw.github.com/Dr-Terrible/ineluctable-overlay/master/overlay.xml
+curl -sL https://raw.githubusercontent.com/Dr-Terrible/ineluctable-overlay/master/overlay.xml > /etc/layman/overlays/ineluctable-overlay.xml
 ```
 
 At this point you can execute:
@@ -36,17 +45,11 @@ layman -Lk
 layman -a ineluctable-overlay
 ```
 
-
-### Updating the overlay
-
 Keep the overlay up to date with:
 
 ```
 layman -s ineluctable-overlay
 ```
-
-
-### Removing the overlay
 
 The process of removing this overlay from your Gentoo environment is quite straightforward:
 
