@@ -13,3 +13,10 @@
 =dev-ruby/mruby-9999
 =app-editors/liteide-9999
 dev-util/flint
+
+# Toffanin Mauro <toffanin.mauro@gmail.com>
+# Mask dev-util/bats ebuild.
+# The project Bats is no more maintained by upstream.
+# Please switch to dev-util/bats-core.
+# For more information, see https://github.com/bats-core/bats-core
+dev-util/bats
