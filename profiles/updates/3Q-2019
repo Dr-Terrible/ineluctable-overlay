@@ -1,0 +1,2 @@
+move app-portage/cargo-ebuild dev-util/cargo-ebuild
+move dev-qt/qml-material dev-libs/fluid
