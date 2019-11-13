@@ -18,11 +18,13 @@ dev-python/plugnplay 0.4.2: A Generic plug-in system for python
 dev-python/proselint 0.8.0: A linter for prose
 dev-python/smartypants 1.8.6: A port of SmartyPants PHP to Python
 dev-ruby/mruby 1.1.0 1.2.0 9999: A lightweight implementation of Ruby complying to part of the ISO standard
+dev-util/bats-core 1.1.0: An automated testing system for bash
 dev-util/bloaty 1.0: A size profiler for binaries
 dev-util/codexl 2.2.511: CPU/GPU debugging and profiling suite by AMD
 dev-util/cxxtest 4.0.3 4.3 4.4: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
 dev-util/google-styleguide 132: Style guides for Google-originated open-source projects
 dev-util/mdp 1.0.15: A command-line based markdown presentation tool
+dev-util/n 6.1.1: Node version management
 dev-util/nq 0.2.1 0.3.1: Unix command line queue utility
 dev-util/paper-terminal 0.3.2: Writes a file to a paper in your terminal. Especially if that file is Markdown.
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
