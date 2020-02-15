@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python2_7 python3_{6,7,8} pypy3 )
+PYTHON_COMPAT=( python2_7 )
 inherit python-single-r1
 
 ECOMMIT="d9a6e71bd2e7e1fbab7a004395cfae6873370361"
