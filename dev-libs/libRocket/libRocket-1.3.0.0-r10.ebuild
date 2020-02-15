@@ -1,14 +1,14 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-
 PYTHON_COMPAT=( python2_7 )
+
 inherit cmake-utils eutils python-r1 multilib-minimal
 
 DESCRIPTION="A HTML/CSS User Interface library"
-HOMEPAGE="http://librocket.com"
-SRC_URI="https://github.com/libRocket/libRocket/archive/release-${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/${PN}/${PN}"
+SRC_URI="https://github.com/${PN}/${PN}/archive/release-${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/1"

@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
+PYTHON_COMPAT=( python3_{6,7,8} )
 
-PYTHON_COMPAT=( python3_{4,5,6} )
 inherit python-any-r1
 inherit eutils cmake-utils flag-o-matic
 
@@ -77,6 +77,12 @@ PATCHES=(
 	"${FILESDIR}"/${P}-glibmm.patch
 )
 
+#		$(k3d_use_module python PYTHON)
+#		$(k3d_use_module python PYUI)
+#		$(k3d_use_module python NGUI_PYTHON_SHELL)
+#		$(k3d_use_module python NGUI_PYTHON_SHELL_MODULE)
+#		$(k3d_use_enable python GUIDE)
+#		$(k3d_use_module tiff TIFF_IO)
 src_configure() {
 	mycmakeargs=(
 		-DK3D_BUILD_SVG_IO_MODULE=$(usex svg)
@@ -101,12 +107,10 @@ src_configure() {
 		$(k3d_use_module openexr OPENEXR_IO)
 		$(k3d_use_module png PNG_IO)
 		-DK3D_ENABLE_PYTHON=OFF
-		$(k3d_use_module python PYTHON)
-		$(k3d_use_module python PYUI)
-		$(k3d_use_module python NGUI_PYTHON_SHELL)
-		$(k3d_use_module python NGUI_PYTHON_SHELL_MODULE)
-		$(k3d_use_enable python GUIDE)
-		$(k3d_use_module tiff TIFF_IO)
+		-DK3D_BUILD_PYTHON_MODULE=OFF
+		-DK3D_BUILD_PYUI_MODULE=OFF
+		-DK3D_BUILD_NGUI_PYTHON_SHELL=OFF
+		-DK3D_BUILD_NGUI_PYTHON_SHELL_MODULE=OFF
 		$(k3d_use_module truetype FREETYPE2)
 		-DK3D_ENABLE_PARALLEL=$(usex threads)
 		-DK3D_BUILD_DOCS=$(usex doc)

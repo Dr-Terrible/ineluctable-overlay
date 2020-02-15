@@ -1,8 +1,8 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-PYTHON_COMPAT=( python3_{5,6,7} )
+EAPI=7
+PYTHON_COMPAT=( python3_{6,7,8} )
 inherit python-any-r1 scons-utils eutils toolchain-funcs
 
 EDOCS="8b68ba5c9ebcab08ac4e8e95b486e64a88b1c4ec"
