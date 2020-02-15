@@ -1,8 +1,8 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
+EAPI=7
+PYTHON_COMPAT=( python2_7 python3_{6,7,8} pypy3 )
 inherit distutils-r1
 
 DESCRIPTION="Cheat allows you to create and view interactive cheatsheets on the command-line"
