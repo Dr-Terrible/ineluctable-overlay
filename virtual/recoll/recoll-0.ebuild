@@ -6,12 +6,16 @@ EAPI=7
 DESCRIPTION="Virtual for recoll"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="epub exif postscript"
+IUSE="epub exif lzma pdf postscript rar rtf"
 
 RDEPEND="app-misc/recoll
 	app-text/antiword
 	dev-libs/libxslt[python]
 	dev-libs/libxml2[python]
+	epub? ( dev-python/epub )
 	exif? ( media-libs/exiftool )
+	lzma? ( dev-python/pylzma )
+	pdf? ( app-text/tesseract )
 	postscript? ( app-text/pstotext )
-	epub? ( dev-python/epub )"
+	rar? ( dev-python/rarfile )
+	rtf? ( app-text/unrtf )"
