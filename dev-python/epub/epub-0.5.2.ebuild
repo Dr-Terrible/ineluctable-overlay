@@ -8,7 +8,7 @@ inherit distutils-r1
 
 DESCRIPTION="Library to open and read files in the epub version 2"
 HOMEPAGE="https://pypi.python.org/pypi/${PN}"
-SRC_URI="mirror://pypi/e/${PN}/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

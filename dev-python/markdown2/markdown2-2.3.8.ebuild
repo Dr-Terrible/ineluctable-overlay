@@ -2,13 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python2_7 python3_{4,5,6} pypy )
+PYTHON_COMPAT=( python2_7 python3_{6,7,8} pypy )
 
 inherit distutils-r1
 
 DESCRIPTION="Python Markdown language reimplementation"
-SRC_URI="mirror://pypi/m/markdown2/${P}.tar.gz"
-#SRC_URI="https://github.com/trentm/python-${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 HOMEPAGE="https://github.com/trentm/python-markdown2"
 
 LICENSE="MIT"

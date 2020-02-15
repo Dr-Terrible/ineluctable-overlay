@@ -1,8 +1,8 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
+EAPI=7
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1
 
@@ -12,9 +12,9 @@ SRC_URI="mirror://pypi/a/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="amd64 ~arm ~arm64 ~x86"
 IUSE=""
 
 RESTRICT+=" mirror"
 
-RDEPEND="dev-python/cffi[${PYTHON_USEDEP}]"
+RDEPEND=">=dev-python/cffi-1.12.3:=[${PYTHON_USEDEP}]"
