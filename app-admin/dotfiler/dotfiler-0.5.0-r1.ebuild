@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 python3_{6,7,8} pypy3 )
 inherit python-single-r1
 
-ECOMMIT="cb678f6e553dcde5b544babfe75c5d39c1de8850"
+ECOMMIT="d9a6e71bd2e7e1fbab7a004395cfae6873370361"
 
 DESCRIPTION="Shell agnostic git based dotfiles package manager"
 HOMEPAGE="https://github.com/svetlyak40wt/${PN}"
