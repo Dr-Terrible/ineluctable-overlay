@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-
+EAPI=7
 PYTHON_COMPAT=( python2_7 )
+
 inherit python-any-r1
 
 EGIT_COMMIT="54ac84a76f26b387776dc1e3e66e042f9e7c77f4"

@@ -1,8 +1,8 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit python-any-r1 scons-utils
 
@@ -15,12 +15,12 @@ SRC_URI="https://github.com/myaut/${MY_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}
 
 LICENSE="CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 S="${WORKDIR}/${MY_PN}-${EGIT_COMMIT}"
 
 RDEPEND="${PYTHON_DEPS}
-	$(python_gen_any_dep 'dev-python/lesscpy[${PYTHON_USEDEP}]')
+	$(python_gen_any_dep '>=dev-python/lesscpy-0.13.0[${PYTHON_USEDEP}]')
 	$(python_gen_any_dep 'dev-python/PyPDF2[${PYTHON_USEDEP}]')
 	$(python_gen_any_dep 'dev-python/reportlab[${PYTHON_USEDEP}]')
 	media-gfx/inkscape"

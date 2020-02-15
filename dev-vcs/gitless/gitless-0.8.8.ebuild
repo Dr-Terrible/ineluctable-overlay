@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 inherit distutils-r1
 
 DOCS_COMMIT="99c45d20ea27ff83cb379b24663ae8292dde60cf"
@@ -17,9 +17,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
-RDEPEND="dev-python/sh[${PYTHON_USEDEP}]
-	dev-python/clint[${PYTHON_USEDEP}]
-	~dev-python/pygit2-0.28.2[${PYTHON_USEDEP}]
+RDEPEND="$(python_gen_any_dep '
+		dev-python/sh[${PYTHON_USEDEP}]
+		dev-python/clint[${PYTHON_USEDEP}]
+		~dev-python/pygit2-0.28.2[${PYTHON_USEDEP}]
+	')
 	dev-vcs/git"
 
 src_install() {
