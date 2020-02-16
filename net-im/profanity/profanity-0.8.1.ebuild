@@ -1,11 +1,11 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 DESCRIPTION="A console based XMPP client inspired by Irssi"
 HOMEPAGE="http://www.profanity.im"
-SRC_URI="http://www.profanity.im/${P}.tar.gz"
+SRC_URI="https://profanity-im.github.io/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
