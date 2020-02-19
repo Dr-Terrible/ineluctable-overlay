@@ -19,7 +19,8 @@ KEYWORDS="amd64 arm x86"
 S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 
 DEPEND="${PYTHON_DEPS}
-	$(python_gen_any_dep 'dev-python/markdown[pygments,${PYTHON_USEDEP}]')
+	$(python_gen_any_dep 'dev-python/pygments[${PYTHON_USEDEP}]')
+	$(python_gen_any_dep 'dev-python/markdown[${PYTHON_USEDEP}]')
 	$(python_gen_any_dep 'dev-python/smartypants[${PYTHON_USEDEP}]')
 	>=dev-ruby/sass-3.4.0:3.4"
 

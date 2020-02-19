@@ -1,14 +1,14 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-PYTHON_COMPAT=( python3_{6,7,8} )
-inherit distutils-r1
+EAPI=7
+PYTHON_COMPAT=( python3_{6,7} )
+inherit python-r1
 
 DOCS_COMMIT="99c45d20ea27ff83cb379b24663ae8292dde60cf"
 
 DESCRIPTION="A version control system built on top of Git"
-HOMEPAGE="https://gitless.com"
+HOMEPAGE="https://gitless.com https://github.com/gitless-vcs/gitless"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
 	doc? ( https://github.com/gitless-vcs/${PN}/archive/${DOCS_COMMIT}.tar.gz -> ${P}-docs.tar.gz )"
 
@@ -17,9 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
-RDEPEND="$(python_gen_any_dep '
+RDEPEND="$(python_gen_cond_dep '
 		dev-python/sh[${PYTHON_USEDEP}]
-		dev-python/clint[${PYTHON_USEDEP}]
+		~dev-python/clint-0.5.1[${PYTHON_USEDEP}]
 		~dev-python/pygit2-0.28.2[${PYTHON_USEDEP}]
 	')
 	dev-vcs/git"
