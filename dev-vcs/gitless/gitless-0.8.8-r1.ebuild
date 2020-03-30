@@ -3,7 +3,7 @@
 
 EAPI=7
 PYTHON_COMPAT=( python3_{6,7} )
-inherit python-r1
+inherit distutils-r1
 
 DOCS_COMMIT="99c45d20ea27ff83cb379b24663ae8292dde60cf"
 
@@ -20,9 +20,20 @@ IUSE="doc"
 RDEPEND="$(python_gen_cond_dep '
 		dev-python/sh[${PYTHON_USEDEP}]
 		~dev-python/clint-0.5.1[${PYTHON_USEDEP}]
-		~dev-python/pygit2-0.28.2[${PYTHON_USEDEP}]
+		dev-python/pygit2:=[${PYTHON_USEDEP}]
 	')
 	dev-vcs/git"
+
+PATCHES=(
+	"${FILESDIR}"/pygit2-1.1.1.patch
+)
+
+#python_prepare_all() {
+#	# Loosen requirements
+#	sed -e 's|==|>=|' -i requires.txt || die
+#
+#	distutils-r1_python_prepare_all
+#}
 
 src_install() {
 	distutils-r1_src_install
