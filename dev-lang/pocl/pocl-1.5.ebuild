@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Ineluctable Overlay Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -14,9 +14,15 @@ KEYWORDS="amd64"
 IUSE="cuda debug asan tsan lsan ubsan"
 RESTRICT="mirror"
 
-# NOTE: pocl-1.1 supports llvm v6 and v5
 RDEPEND="
-	sys-devel/llvm:6
+	<sys-devel/llvm-11:=
+	|| (
+		sys-devel/llvm:10
+		sys-devel/llvm:9
+		sys-devel/llvm:8
+		sys-devel/llvm:7
+	)
+
 	dev-libs/ocl-icd
 	sys-apps/hwloc
 	dev-libs/libltdl:0
@@ -24,7 +30,9 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-pkg_pretend() {
+LLVM_MAX_SLOT=10
+
+pkg_setup() {
 	# Needs an OpenCL 1.2 ICD, mesa and nvidia are invalid
 	# Maybe ati works, feel free to add/fix if you can test
 	if [[ $(eselect opencl show) == 'ocl-icd' ]]; then
