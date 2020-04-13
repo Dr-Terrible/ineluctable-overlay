@@ -1,4 +1,4 @@
-app-admin/dotfiler 0.5.0: Shell agnostic git based dotfiles package manager
+app-admin/dotfiler 0.5.0 0.5.0-r1: Shell agnostic git based dotfiles package manager
 app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20170103: Game Programming Patterns
 app-misc/watchman 4.9.0-r3: A file watching service
@@ -7,16 +7,19 @@ app-shells/zshdb 0.92: Debugger for zsh
 dev-cpp/ETL 1.3.5: ETL is a multi-platform class and template library
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
 dev-cpp/folly 2017.12.18.00: An open-source C++ library developed and used at Facebook
-dev-lang/pocl 1.1: PortableCL: opensource implementation of the OpenCL standard
+dev-lang/pocl 1.5: PortableCL: opensource implementation of the OpenCL standard
+dev-lang/wren 0.2.0: The Wren programming language
 dev-libs/fluid 1.2.0: Cross-platform QtQuick components using Material Design guidelines
 dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
+dev-python/bibtexparser 0.6.2 1.1.0: A BibTeX parser written in python
 dev-python/cheat 2.1.15: Cheat allows you to create and view interactive cheatsheets on the command-line
 dev-python/epub 0.5.2: Library to open and read files in the epub version 2
-dev-python/markdown2 2.3.1: Python Markdown language reimplementation
-dev-python/plugnplay 0.4.2: A Generic plug-in system for python
-dev-python/proselint 0.8.0: A linter for prose
-dev-python/smartypants 1.8.6: A port of SmartyPants PHP to Python
+dev-python/markdown2 2.3.8: Python Markdown language reimplementation
+dev-python/plugnplay 0.4.2 0.5.2: A Generic plug-in system for python
+dev-python/proselint 0.8.0 0.10.2: A linter for prose
+dev-python/raven 6.10.0: Raven is a client for Sentry
+dev-python/smartypants 1.8.6 2.0.1: A port of SmartyPants PHP to Python
 dev-ruby/mruby 1.1.0 1.2.0 9999: A lightweight implementation of Ruby complying to part of the ISO standard
 dev-util/bats-core 1.1.0: An automated testing system for bash
 dev-util/bloaty 1.0: A size profiler for binaries
@@ -29,28 +32,30 @@ dev-util/nq 0.2.1 0.3.1: Unix command line queue utility
 dev-util/paper-terminal 0.3.2: Writes a file to a paper in your terminal. Especially if that file is Markdown.
 dev-util/plan9port 20150629: Port of many Plan 9 programs and libraries
 dev-util/syncat 0.2.2: Syntax aware cat
-dev-util/systemtap 4.1: A linux trace/probe tool
+dev-util/systemtap 4.1 4.2: A linux trace/probe tool
 dev-util/xe 0.11: simple xargs and apply replacement
 dev-vcs/diff-so-fancy 1.1.1 1.2.7: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 dev-vcs/git-extras 4.2.0 5.0.0: Little git extras
 dev-vcs/git-recall 0_pre20173101: Simple and handy tool to easily recall what you've done
 dev-vcs/git-secrets 1.2.1: Prevents you from committing secrets and credentials into git repositories
-dev-vcs/gitfs 0.4.5.1: gitfs is a FUSE file system that fully integrates with git
-dev-vcs/gitless 0.8.6 0.8.8: A version control system built on top of Git
+dev-vcs/gitfs 0.5.2: gitfs is a FUSE file system that fully integrates with git
+dev-vcs/gitless 0.8.8-r1: A version control system built on top of Git
 games-engines/flare 1.02: Free/Libre Action Roleplaying game
 games-engines/godot 3.0.1: Godot is a fully featured, open source, MIT licensed, game engine
 games-rpg/flare 1.02: Free/Libre Action Roleplaying game
 games-strategy/liberation-circuit 1.3: Trapped in a hostile computer system, you must make a way out
 mail-client/jaromail 4.2: A command-line MUA to easily and privately handle your e-mails.
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
-media-gfx/goxel 0.10.0: Open source 3D voxel editor
+media-gfx/goxel 0.10.0 0.10.5: Open source 3D voxel editor
 media-gfx/k3d 0.8.0.6: A free 3D modeling, animation, and rendering system
 media-gfx/synfig 1.3.5: Film-Quality Vector Animation (core engine)
 media-gfx/synfigstudio 1.3.5: Main UI of synfig: Film-Quality Vector Animation
-net-im/profanity 0.6.0: A console based XMPP client inspired by Irssi
-net-misc/ephemeral-port-reserve 1.1.0: Find an unused port, reliably
+net-im/profanity 0.8.1: A console based XMPP client inspired by Irssi
+net-im/riot-web 1.5.10: A glossy Matrix collaboration client for desktop
+net-misc/ephemeral-port-reserve 1.1.0 1.1.1: Find an unused port, reliably
+sci-mathematics/frama-c 20.0: Framework for analysis of source codes written in C
+sci-misc/pubs 0.8.3: Your bibliography on the command line
 sys-libs/hoard 3.13: HOARD Memory Allocator
-sys-libs/libunwind 1.3_rc1: Portable and efficient API to determine the call-chain of a program
 sys-power/brightnessctl 0.3.2: A program to read and control device brightness
 virtual/recoll 0: Virtual for recoll
 www-apps/jekyll-feed 0.12.1: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
