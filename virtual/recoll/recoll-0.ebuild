@@ -5,8 +5,8 @@ EAPI=7
 
 DESCRIPTION="Virtual for recoll"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="epub exif lzma pdf postscript rar rtf"
+KEYWORDS="~amd64 ~x86"
+IUSE="epub exif lzma pdf postscript rar rtf ical djvu"
 
 RDEPEND="app-misc/recoll
 	app-text/antiword
@@ -15,7 +15,12 @@ RDEPEND="app-misc/recoll
 	epub? ( dev-python/epub )
 	exif? ( media-libs/exiftool )
 	lzma? ( dev-python/pylzma )
-	pdf? ( app-text/tesseract )
+	pdf? (
+		app-text/poppler
+		app-text/tesseract
+	)
 	postscript? ( app-text/pstotext )
 	rar? ( dev-python/rarfile )
-	rtf? ( app-text/unrtf )"
+	rtf? ( app-text/unrtf )
+	ical? ( dev-python/icalendar )
+	djvu? ( app-text/djvu )"
