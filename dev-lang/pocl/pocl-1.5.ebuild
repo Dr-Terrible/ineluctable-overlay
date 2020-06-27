@@ -19,8 +19,6 @@ RDEPEND="
 	|| (
 		sys-devel/llvm:10
 		sys-devel/llvm:9
-		sys-devel/llvm:8
-		sys-devel/llvm:7
 	)
 
 	dev-libs/ocl-icd

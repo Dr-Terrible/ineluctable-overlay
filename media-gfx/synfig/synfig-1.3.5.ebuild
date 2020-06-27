@@ -36,10 +36,7 @@ DEPEND="dev-libs/libsigc++:2
 	jpeg? ( virtual/jpeg:0 )
 	tiff? ( media-libs/tiff:0 )"
 RDEPEND="${DEPEND}
-	swscale? (
-		!libav? ( media-video/ffmpeg:0= )
-		libav? ( media-video/libav:0= )
-	)
+	swscale? ( media-video/ffmpeg:0= )
 	opengl? ( virtual/opengl )
 	opencl? ( virtual/opencl )
 	dv? ( media-libs/libdv )
