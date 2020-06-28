@@ -14,13 +14,15 @@ SRC_URI="https://github.com/munificent/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${
 
 LICENSE="CC-BY-SA-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 
 S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 
+#PATCHES=( ${FILESDIR}/python3.patch )
+
 DEPEND="${PYTHON_DEPS}
-	$(python_gen_any_dep 'dev-python/pygments[${PYTHON_USEDEP}]')
-	$(python_gen_any_dep 'dev-python/markdown[${PYTHON_USEDEP}]')
+	$(python_gen_any_dep '~dev-python/pygments-2.5.2[${PYTHON_USEDEP}]')
+	$(python_gen_any_dep '~dev-python/markdown-2.6.11[${PYTHON_USEDEP}]')
 	$(python_gen_any_dep 'dev-python/smartypants[${PYTHON_USEDEP}]')
 	>=dev-ruby/sass-3.4.0:3.4"
 

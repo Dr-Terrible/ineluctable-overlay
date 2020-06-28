@@ -14,7 +14,7 @@ RDEPEND="app-misc/recoll
 	dev-libs/libxml2[python]
 	epub? ( dev-python/epub )
 	exif? ( media-libs/exiftool )
-	lzma? ( dev-python/pylzma )
+	lzma? ( >=dev-python/pylzma-0.5.0 )
 	pdf? (
 		app-text/poppler
 		app-text/tesseract

@@ -21,12 +21,12 @@ RDEPEND="pcre? ( dev-libs/libpcre )
 	cxx? ( dev-cpp/folly )"
 DEPEND="dev-cpp/glog
 	doc? (
-	>=www-apps/jekyll-3.6.0
-	www-apps/jekyll-feed
-	www-apps/jekyll-seo-tag
-	www-apps/jekyll-sitemap
-	dev-ruby/pygments_rb
-)"
+		>=www-apps/jekyll-3.6.0
+		www-apps/jekyll-feed
+		www-apps/jekyll-seo-tag
+		www-apps/jekyll-sitemap
+		dev-ruby/pygments_rb
+	)"
 
 pkg_setup() {
 	enewgroup ${PN}
