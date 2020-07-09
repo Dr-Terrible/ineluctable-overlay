@@ -7,6 +7,7 @@ app-doc/game-programming-patterns 20170103: Game Programming Patterns
 app-misc/recoll-webui 1.18.2: Library to open and read files in the epub version 2
 app-misc/watchman 4.9.0-r3: A file watching service
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
+app-shells/tasksh 1.2.0: Tasksh is a shell for Taskwarrior
 app-shells/zshdb 0.92: Debugger for zsh
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
 dev-cpp/folly 2017.12.18.00: An open-source C++ library developed and used at Facebook
