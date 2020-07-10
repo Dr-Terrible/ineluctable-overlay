@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,8 +17,10 @@ RDEPEND="x11-libs/libXScrnSaver"
 
 S="${WORKDIR}"
 
+RESTRICT="strip mirror"
+
 src_unpack() {
-	unpack_deb "${A}"
+	unpack_deb ${A}
 }
 
 src_install() {
