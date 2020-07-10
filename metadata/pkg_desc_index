@@ -4,6 +4,7 @@ app-admin/dotfiler 0.5.0 0.5.0-r1: Shell agnostic git based dotfiles package man
 app-admin/gentooadmincd-x86 20200419: The .iso image of Gentoo Admin disk, amd64 variant
 app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20170103: Game Programming Patterns
+app-editors/typora 0.9.89: A minimal Markdown reading & writing app
 app-misc/recoll-webui 1.18.2: Library to open and read files in the epub version 2
 app-misc/watchman 4.9.0-r3: A file watching service
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
