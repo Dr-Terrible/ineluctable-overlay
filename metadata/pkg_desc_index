@@ -38,7 +38,7 @@ dev-util/google-styleguide 132: Style guides for Google-originated open-source p
 dev-util/mdp 1.0.15: A command-line based markdown presentation tool
 dev-util/n 6.1.1: Node version management
 dev-util/nq 0.2.1 0.3.1: Unix command line queue utility
-dev-util/paper-terminal 0.3.2: Writes a file to a paper in your terminal. Especially if that file is Markdown.
+dev-util/paper-terminal 0.3.2 2.0.1: Writes a file to a paper in your terminal. Especially if that file is Markdown.
 dev-util/syncat 0.2.2: Syntax aware cat
 dev-util/systemtap 4.1 4.2 4.3: A linux trace/probe tool
 dev-util/xe 0.11: simple xargs and apply replacement
