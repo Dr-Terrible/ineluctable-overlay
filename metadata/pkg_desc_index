@@ -11,6 +11,8 @@ app-misc/watchman 4.9.0-r3: A file watching service
 app-shells/bash-concurrent 2.1.0: Run tasks in parallel and display pretty output as they complete
 app-shells/tasksh 1.2.0: Tasksh is a shell for Taskwarrior
 app-shells/zshdb 0.92: Debugger for zsh
+app-text/mdbook 0.4.1: Creates a book from markdown files
+app-text/mdbook-epub 0.3.0: An EPUB renderer for mdbook.
 app-text/multimarkdown 6.5.2: Lightweight markup processor to produce HTML, LaTeX, and more
 app-text/pandoc-bin 2.10: Conversion between markup formats
 dev-cpp/fatal 0.1.0_pre20150820: Fatal is a library for fast prototyping software in modern C++
@@ -54,6 +56,9 @@ games-strategy/liberation-circuit 1.3: Trapped in a hostile computer system, you
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
 media-gfx/goxel 0.10.0 0.10.5: Open source 3D voxel editor
 media-gfx/synfig 1.3.5: Film-Quality Vector Animation (core engine)
+media-sound/helio-workstation 3.0: One music sequencer for all major platforms, desktop and mobile
+media-sound/helio-workstation-bin 3.0: One music sequencer for all major platforms, desktop and mobile
+media-sound/jack2 1.9.14: Jackdmp jack implemention for multi-processor machine
 net-im/profanity 0.8.1: A console based XMPP client inspired by Irssi
 net-im/riot-web 1.5.10: A glossy Matrix collaboration client for desktop
 net-misc/ephemeral-port-reserve 1.1.0 1.1.1: Find an unused port, reliably
