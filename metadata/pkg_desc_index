@@ -70,6 +70,7 @@ sys-boot/gentooadmincd-x86-grub 0.1: Grub menu entries for the .iso image of Gen
 sys-libs/hoard 3.13: HOARD Memory Allocator
 sys-power/brightnessctl 0.3.2 0.5.1: A program to read and control device brightness
 virtual/recoll 0: Virtual for recoll
+www-apps/hugo-doc 0.74.3: Documentation for Hugo www-apps/hugo
 www-apps/jekyll-feed 0.12.1: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
 www-apps/jekyll-gist 1.5.0: Liquid tag for displaying GitHub Gists in Jekyll sites
 www-apps/jekyll-seo-tag 2.6.1: A Jekyll plugin to add metadata tags for search engines
