@@ -64,17 +64,16 @@ net-im/profanity 0.8.1: A console based XMPP client inspired by Irssi
 net-im/riot-web 1.5.10: A glossy Matrix collaboration client for desktop
 net-misc/ddgr 1.8.1: DuckDuckGo from the terminal
 net-misc/ephemeral-port-reserve 1.1.0 1.1.1: Find an unused port, reliably
-sci-mathematics/frama-c 20.0: Framework for analysis of source codes written in C
 sci-misc/pubs 0.8.3: Your bibliography on the command line
 sys-boot/gentooadmincd-x86-grub 0.1: Grub menu entries for the .iso image of Gentoo Admin disk
 sys-libs/hoard 3.13: HOARD Memory Allocator
 sys-power/brightnessctl 0.3.2 0.5.1: A program to read and control device brightness
 virtual/recoll 0: Virtual for recoll
 www-apps/hugo-doc 0.74.3: Documentation for Hugo www-apps/hugo
-www-apps/jekyll-feed 0.12.1: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
+www-apps/jekyll-feed 0.12.1 0.15.0: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
 www-apps/jekyll-gist 1.5.0: Liquid tag for displaying GitHub Gists in Jekyll sites
 www-apps/jekyll-seo-tag 2.6.1: A Jekyll plugin to add metadata tags for search engines
-www-apps/jekyll-sitemap 1.3.1: Automatically generate a sitemap.xml for your Jekyll site
+www-apps/jekyll-sitemap 1.3.1 1.4.0: Automatically generate a sitemap.xml for your Jekyll site
 www-servers/lwan 0.1: Experimental, scalable, high performance HTTP server
 x11-libs/lcui 1.0_beta2: A small C library for building user interfaces with C, XML and CSS<Paste>
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
