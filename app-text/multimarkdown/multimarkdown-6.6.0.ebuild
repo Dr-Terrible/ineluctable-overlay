@@ -20,7 +20,6 @@ DOCS=(
 	QuickStart/QuickStart.html
 	DevelopmentNotes/DevelopmentNotes.html
 	IMPORTANT
-	LICENSE.txt
 	README.md
 )
 
