@@ -1,8 +1,7 @@
 # Copyright 1999-2020 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit eutils
+EAPI=7
 
 DESCRIPTION="Prevents you from committing secrets and credentials into git repositories"
 HOMEPAGE="https://github.com/awslabs/git-secrets"
