@@ -6,7 +6,7 @@ inherit unpacker
 
 DESCRIPTION="Conversion between markup formats"
 HOMEPAGE="https://pandoc.org"
-SRC_URI="amd64? ( https://github.com/jgm/pandoc/releases/download/2.10/pandoc-2.10-1-amd64.deb )"
+SRC_URI="amd64? ( https://github.com/jgm/pandoc/releases/download/${PV}/pandoc-${PV}-1-amd64.deb )"
 
 LICENSE="GPL-2"
 SLOT="0"
