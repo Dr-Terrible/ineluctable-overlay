@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit bash-completion-r1 eutils python-r1
 
@@ -17,11 +17,6 @@ IUSE="bash-completion fish-completion zsh-completion"
 
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${DEPEND}"
-
-#src_prepare(){
-#	sed -i "s#/usr/local#/usr#" Makefile || die
-#	default
-#}
 
 src_compile() { :; }
 
