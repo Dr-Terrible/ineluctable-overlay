@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{7,8} )
 inherit distutils-r1
 
 DOCS_COMMIT="99c45d20ea27ff83cb379b24663ae8292dde60cf"
@@ -30,7 +30,7 @@ PATCHES=(
 
 #python_prepare_all() {
 #	# Loosen requirements
-#	sed -e 's|==|>=|' -i requires.txt || die
+#	sed -e 's|==|>=|' -i requirements.txt || die
 #
 #	distutils-r1_python_prepare_all
 #}
