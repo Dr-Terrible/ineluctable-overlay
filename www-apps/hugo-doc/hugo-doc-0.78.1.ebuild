@@ -11,8 +11,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="www-apps/hugo"
-RDEPEND=""
+BDEPEND=">=www-apps/hugo-$(ver_cut 1-2)"
 
 S="${WORKDIR}/${P/-doc/Docs}"
 
@@ -28,6 +27,7 @@ src_install() {
 	hugo mod vendor || die
 
 	einfo "Building documentation"
+	HUGO_IGNOREERRORS=error-remote-getjson \
 	HUGO_UGLYURLS=true \
 	HUGO_CANONIFYURLS=true \
 	hugo -d "${T}"/docs \
