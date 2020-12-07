@@ -30,7 +30,7 @@ DOCS=( AUTHORS COPYING CHANGELOG.md README.md )
 src_install() {
 	einstalldocs
 
-	local target="${ROOT}usr/share/sddm/themes/${PN}"
+	local target="${ROOT}usr/share/sddm/themes/${PN//sddm-/}"
 	insinto ${target}
 	doins -r *
 }
@@ -38,7 +38,7 @@ src_install() {
 pkg_postinst () {
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "This theme can be customised by editing"
-		elog "${ROOT}/usr/share/sddm/themes/sugar-candy/theme.conf"
+		elog "${ROOT}/usr/share/sddm/themes/${PN}/theme.conf"
 		elog "You will need to configure your ${ROOT}/etc/sddm.conf before"
 		elog "this theme will be applied. If the file does not exist"
 		elog "it is safe to create it with the following configuration:"
