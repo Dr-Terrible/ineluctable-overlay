@@ -27,6 +27,7 @@ dev-python/pylzma 0.5.0: Python bindings for the LZMA compression library
 dev-python/raven 6.10.0: Raven is a client for Sentry
 dev-python/smartypants 1.8.6 2.0.1: A port of SmartyPants PHP to Python
 dev-python/sphinx-copybutton 0.2.11 0.3.1: A small sphinx extension to add a copy button to code blocks
+dev-python/sphinxcontrib-svg2pdfconverter 1.1.0: This extension converts SVG images to PDF
 dev-ruby/mruby 1.1.0 1.2.0 9999: A lightweight implementation of Ruby complying to part of the ISO standard
 dev-util/cxxtest 4.0.3 4.3 4.4: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
 dev-util/google-styleguide 132: Style guides for Google-originated open-source projects
