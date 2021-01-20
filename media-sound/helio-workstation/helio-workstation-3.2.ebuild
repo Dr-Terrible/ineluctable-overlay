@@ -4,8 +4,8 @@
 EAPI=7
 inherit xdg
 
-JUCE_COMMIT="72f4b0d76d713d1eca4e8a851c2223be8c0bdb19"
-HMAP_COMMIT="b0de25158da691e6680bb5c6c2a12ede3a4b0f70"
+JUCE_COMMIT="27695ea1f2440af9b8983046606e0927309abd16"
+HMAP_COMMIT="29030f55ca518bb1be5113ab0a8e134772024a9d"
 
 DESCRIPTION="One music sequencer for all major platforms, desktop and mobile"
 HOMEPAGE="https://helio.fm"

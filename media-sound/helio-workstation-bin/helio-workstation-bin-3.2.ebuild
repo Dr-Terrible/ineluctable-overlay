@@ -11,12 +11,8 @@ SRC_URI="amd64? ( https://ci.helio.fm/helio-${PV}-x64.deb )"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64"
-#IUSE="latex"
 
 RDEPEND="net-misc/curl[curl_ssl_gnutls(+)]"
-#	latex? ( dev-texlive/texlive-xetex )
-#	app-text/pandoc-bin
-#"
 
 S="${WORKDIR}"
 
@@ -28,7 +24,6 @@ src_unpack() {
 
 src_install() {
 	mv "${S}"/* "${D}" || die
-#	dosym /opt/Zettlr/${PN} /usr/bin/${PN}
 }
 
 pkg_postinst() {
