@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 inherit python-any-r1 scons-utils
 
 DESCRIPTION="Open source 3D voxel editor"
@@ -33,7 +33,6 @@ src_prepare(){
 
 src_configure() {
 	MYSCONS=(
-#		CCFLAGS="$CXXFLAGS"
 		werror=0
 		debug=$(usex debug debug 0 1)
 #		sound=$(usex sound sound 0 1)
