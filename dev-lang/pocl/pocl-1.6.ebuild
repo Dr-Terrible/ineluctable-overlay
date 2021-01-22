@@ -1,8 +1,8 @@
 # Copyright 1999-2021 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit llvm cmake-utils
+EAPI=7
+inherit llvm cmake
 
 DESCRIPTION="PortableCL: opensource implementation of the OpenCL standard"
 HOMEPAGE="http://portablecl.org"
@@ -12,13 +12,14 @@ SLOT="0"
 LICENSE="MIT"
 KEYWORDS="amd64"
 IUSE="cuda debug asan tsan lsan ubsan"
+
 RESTRICT="mirror"
 
 RDEPEND="
-	<sys-devel/llvm-11:=
+	<sys-devel/llvm-12:=
 	|| (
+		sys-devel/llvm:11
 		sys-devel/llvm:10
-		sys-devel/llvm:9
 	)
 
 	dev-libs/ocl-icd
@@ -28,7 +29,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-LLVM_MAX_SLOT=10
+LLVM_MAX_SLOT=11
 
 pkg_setup() {
 	# Needs an OpenCL 1.2 ICD, mesa and nvidia are invalid
@@ -56,5 +57,5 @@ src_configure() {
 		-DENABLE_UBSAN=$(usex ubsan)
 		-DENABLE_LSAN=$(usex lsan)
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
