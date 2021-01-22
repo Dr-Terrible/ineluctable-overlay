@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit user flag-o-matic systemd autotools multilib-minimal
+inherit user flag-o-matic systemd autotools multilib-minimal tmpfiles
 
 DESCRIPTION="A file watching service"
 HOMEPAGE="https://facebook.github.io/watchman"
@@ -63,7 +63,7 @@ multilib_src_install_all() {
 	# install init files
 	systemd_newunit "${FILESDIR}"/systemd/${PN}.socket ${PN}@.socket
 	systemd_newunit "${FILESDIR}"/systemd/${PN}.service ${PN}@.service
-	systemd_dotmpfilesd "${FILESDIR}/systemd/${PN}.conf"
+	dotmpfiles "${FILESDIR}/systemd/${PN}.conf"
 
 	# install doc
 	if use doc; then
