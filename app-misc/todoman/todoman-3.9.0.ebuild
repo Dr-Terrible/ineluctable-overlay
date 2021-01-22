@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-python/atomicwrites[${PYTHON_USEDEP}]
-	>=dev-python/click-7.1[${PYTHON_USEDEP}]
+	=dev-python/click-7*[${PYTHON_USEDEP}]
 	dev-python/click-log[${PYTHON_USEDEP}]
 	dev-python/configobj[${PYTHON_USEDEP}]
 	dev-python/humanize[${PYTHON_USEDEP}]
