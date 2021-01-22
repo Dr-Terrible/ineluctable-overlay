@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python2_7 python3_{6,7,8} pypy3 )
+PYTHON_COMPAT=( python3_{7..9} pypy3 )
 inherit distutils-r1
 
 DESCRIPTION="A linter for prose"
@@ -13,7 +13,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 
-# tests require proselint to be already installed
+# NOTE: tests require proselint to be already installed
 RESTRICT="test"
 
 DEPEND=">=dev-python/future-0.16.0[${PYTHON_USEDEP}]

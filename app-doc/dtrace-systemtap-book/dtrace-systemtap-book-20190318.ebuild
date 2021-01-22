@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit python-any-r1 scons-utils
 
@@ -30,8 +30,8 @@ RESTRICT="binchecks strip test mirror"
 src_compile() {
 	# Inkscape is used to generate/convert svg files.
 	# Inkscape uses g_get_user_config_dir(), which in turn
-	# uses XDG_CONFIG_HOME to get the config directory for this
-	# user. See bug 463380
+	# uses XDG_CONFIG_HOME, to get the config directory for this
+	# user. See bug #463380
 	export XDG_CONFIG_HOME="${T}/inkscape_home"
 	escons
 }

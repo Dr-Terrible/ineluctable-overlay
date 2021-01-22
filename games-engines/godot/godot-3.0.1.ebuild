@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 inherit python-any-r1 scons-utils eutils toolchain-funcs
 
 EDOCS="8b68ba5c9ebcab08ac4e8e95b486e64a88b1c4ec"

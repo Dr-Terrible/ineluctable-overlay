@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6..8} )
+PYTHON_COMPAT=( python3_{7..8} )
 PYTHON_REQ_USE=sqlite
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -12,6 +12,7 @@ inherit distutils-r1
 DESCRIPTION="A simple, standards-based, cli todo (aka: task) manager"
 HOMEPAGE="https://github.com/pimutils/todoman"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+
 PATCHES=( "${FILESDIR}/no-pytest-coverage.patch" )
 
 LICENSE="ISC"
