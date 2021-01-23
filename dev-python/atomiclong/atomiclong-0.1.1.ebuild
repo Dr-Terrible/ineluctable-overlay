@@ -8,7 +8,7 @@ inherit distutils-r1
 
 DESCRIPTION="A CFFI using AtomicLong type for CPython and PyPy."
 HOMEPAGE="https://pypi.python.org/pypi/${PN}"
-SRC_URI="mirror://pypi/a/${PN}/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
