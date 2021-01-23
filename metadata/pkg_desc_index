@@ -6,28 +6,28 @@ app-doc/game-programming-patterns 20170103: Game Programming Patterns
 app-editors/typora 0.9.89 0.9.96: A minimal Markdown reading & writing app
 app-editors/zettlr 1.7.1 1.7.5: A Markdown Editor for the 21st century.
 app-misc/recoll-webui 1.18.2: Library to open and read files in the epub version 2
-app-misc/todoman 3.8.0: A simple, standards-based, cli todo (aka: task) manager
+app-misc/todoman 3.9.0: A simple, standards-based, cli todo (aka: task) manager
 app-misc/watchman 4.9.0-r3: A file watching service
 app-shells/bash-concurrent 2.4.0: Run tasks in parallel and display pretty output as they complete
 app-shells/tasksh 1.2.0: Tasksh is a shell for Taskwarrior
 app-shells/zshdb 1.1.2: Debugger for zsh
-app-text/mdbook 0.4.4: Creates a book from markdown files
+app-text/mdbook 0.3.7 0.4.4 0.4.6: Creates a book from markdown files
 app-text/mdbook-epub 0.3.0: An EPUB renderer for mdbook.
 app-text/multimarkdown 6.6.0: Lightweight markup processor to produce HTML, LaTeX, and more
-app-text/pandoc-bin 2.11.0.4: Conversion between markup formats
-dev-lang/pocl 1.5: PortableCL: opensource implementation of the OpenCL standard
+app-text/pandoc-bin 2.11.0.4 2.11.3.2: Conversion between markup formats
+dev-lang/pocl 1.6: PortableCL: opensource implementation of the OpenCL standard
 dev-lang/wren 0.2.0: The Wren programming language
 dev-libs/fluid 1.2.0: Cross-platform QtQuick components using Material Design guidelines
-dev-libs/libRocket 1.3.0.0-r10: A HTML/CSS User Interface library
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
 dev-python/epub 0.5.2: Library to open and read files in the epub version 2
 dev-python/plugnplay 0.5.4: A Generic plug-in system for python
-dev-python/proselint 0.8.0 0.10.2: A linter for prose
+dev-python/proselint 0.10.2: A linter for prose
 dev-python/pylzma 0.5.0: Python bindings for the LZMA compression library
+dev-python/pythonocc 7.4.1: An industrial strength 3D python package for CAD/BIM/PLM/CAM
 dev-python/raven 6.10.0: Raven is a client for Sentry
-dev-python/smartypants 1.8.6 2.0.1: A port of SmartyPants PHP to Python
-dev-python/sphinx-copybutton 0.2.11 0.3.1: A small sphinx extension to add a copy button to code blocks
-dev-python/sphinxcontrib-svg2pdfconverter 1.1.0: This extension converts SVG images to PDF
+dev-python/smartypants 2.0.1: A port of SmartyPants PHP to Python
+dev-python/sphinx-copybutton 0.3.1: A small sphinx extension to add a copy button to code blocks
+dev-python/sphinxcontrib-svg2pdfconverter 1.1.1: This extension converts SVG images to PDF
 dev-ruby/mruby 1.1.0 1.2.0 9999: A lightweight implementation of Ruby complying to part of the ISO standard
 dev-util/cxxtest 4.0.3 4.3 4.4: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
 dev-util/google-styleguide 132: Style guides for Google-originated open-source projects
@@ -36,7 +36,6 @@ dev-util/n 6.7.0: Node version management
 dev-util/nq 0.2.1 0.3.1: Unix command line queue utility
 dev-util/paper-terminal 0.3.2 2.0.1: Writes a file to a paper in your terminal. Especially if that file is Markdown.
 dev-util/syncat 0.2.2: Syntax aware cat
-dev-util/systemtap 4.1 4.2 4.3: A linux trace/probe tool
 dev-util/xe 0.11: simple xargs and apply replacement
 dev-vcs/diff-so-fancy 1.3.0: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 dev-vcs/git-extras 6.1.0: Little git extras
@@ -48,16 +47,16 @@ games-engines/godot 3.0.1: Godot is a fully featured, open source, MIT licensed,
 games-roguelike/cataclysm-dda 0.9d-r1 0.9e: Roguelike set in a post-apocalyptic world
 games-rpg/flare 1.02: Free/Libre Action Roleplaying game
 games-strategy/liberation-circuit 1.3: Trapped in a hostile computer system, you must make a way out
+media-gfx/CQ-editor 0.1.1: CadQuery GUI editor based on PyQT
 media-gfx/appleseed 1.1.0: Appleseed is a modern, physically-based production renderer.
-media-gfx/goxel 0.10.0 0.10.5: Open source 3D voxel editor
-media-gfx/synfig 1.3.5: Film-Quality Vector Animation (core engine)
+media-gfx/goxel 0.10.7: Open source 3D voxel editor
 media-sound/helio-workstation 3.0 3.2: One music sequencer for all major platforms, desktop and mobile
 media-sound/helio-workstation-bin 3.0 3.2: One music sequencer for all major platforms, desktop and mobile
 net-im/profanity 0.8.1: A console based XMPP client inspired by Irssi
 net-im/riot-web 1.5.10: A glossy Matrix collaboration client for desktop
 net-misc/ddgr 1.9: DuckDuckGo from the terminal
-net-misc/ephemeral-port-reserve 1.1.0 1.1.1: Find an unused port, reliably
-sci-mathematics/cgal 4.11.3 4.14.3: C++ library for geometric algorithms and data structures
+net-misc/ephemeral-port-reserve 1.1.1: Find an unused port, reliably
+sci-libs/cadquery 2.0: A parametric CAD scripting framework based on PythonOCC
 sci-misc/pubs 0.8.3: Your bibliography on the command line
 sys-boot/gentooadmincd-x86-grub 0.1: Grub menu entries for the .iso image of Gentoo Admin disk
 sys-libs/hoard 3.13: HOARD Memory Allocator
@@ -68,7 +67,6 @@ www-apps/jekyll-feed 0.12.1 0.15.0: A Jekyll plugin to generate an Atom (RSS-lik
 www-apps/jekyll-gist 1.5.0: Liquid tag for displaying GitHub Gists in Jekyll sites
 www-apps/jekyll-seo-tag 2.6.1: A Jekyll plugin to add metadata tags for search engines
 www-apps/jekyll-sitemap 1.3.1 1.4.0: Automatically generate a sitemap.xml for your Jekyll site
-www-servers/lwan 0.1: Experimental, scalable, high performance HTTP server
 x11-libs/lcui 1.0_beta2: A small C library for building user interfaces with C, XML and CSS<Paste>
 x11-misc/lemonbar 1.2: Minimalist bar based on xcb, support UTF-8
 x11-themes/sddm-sugar-candy 1.5 1.6: Sweetest login theme available for the SDDM display manager

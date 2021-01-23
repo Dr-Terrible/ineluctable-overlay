@@ -224,6 +224,6 @@ SRC_URI="$(cargo_crate_uris ${CRATES})"
 RESTRICT="mirror"
 LICENSE="Apache-2.0 CC0-1.0 GPL-3 ISC MIT MPL-2.0 Unlicense"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="<=app-text/mdbook-0.3.7"
