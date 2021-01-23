@@ -83,7 +83,7 @@ markup5ever-0.10.0
 markup5ever_rcdom-0.1.0
 matches-0.1.8
 memchr-2.3.3
-mdbook-0.4.4
+mdbook-0.4.6
 mime-0.3.16
 mime_guess-2.0.3
 mio-0.6.21
@@ -192,10 +192,10 @@ inherit cargo
 
 DESCRIPTION="Creates a book from markdown files"
 HOMEPAGE="https://github.com/rust-lang/mdBook"
-SRC_URI="$(cargo_crate_uris ${CRATES})
-	doc? ( https://github.com/rust-lang/mdBook/archive/v${PV}.tar.gz -> ${P}-docs.tar.gz )"
+SRC_URI="doc? ( https://github.com/rust-lang/mdBook/archive/v${PV}.tar.gz -> ${P}-docs.tar.gz )
+	$(cargo_crate_uris ${CRATES})"
 
-LICENSE="MPL-2.0"
+LICENSE="Apache-2.0 Apache-2.0 BSD BSL-1.1 CC0-1.0 ISC MIT MPL-2.0 Unlicense"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="doc"
