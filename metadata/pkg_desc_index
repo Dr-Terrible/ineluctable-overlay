@@ -20,8 +20,11 @@ dev-lang/wren 0.2.0: The Wren programming language
 dev-libs/fluid 1.2.0: Cross-platform QtQuick components using Material Design guidelines
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
 dev-python/epub 0.5.2: Library to open and read files in the epub version 2
+dev-python/pep517 0.9.1: Wrappers to build Python packages using PEP 517 hooks
 dev-python/plugnplay 0.5.4: A Generic plug-in system for python
 dev-python/proselint 0.10.2: A linter for prose
+dev-python/py7zr 0.11.3: 7zip implementation in python3 with various compression methods
+dev-python/pyannotate 1.2.0: PyAnnotate: Auto-generate PEP-484 annotations
 dev-python/pylzma 0.5.0: Python bindings for the LZMA compression library
 dev-python/pythonocc 7.4.1: An industrial strength 3D python package for CAD/BIM/PLM/CAM
 dev-python/raven 6.10.0: Raven is a client for Sentry
@@ -61,7 +64,7 @@ sci-misc/pubs 0.8.3: Your bibliography on the command line
 sys-boot/gentooadmincd-x86-grub 0.1: Grub menu entries for the .iso image of Gentoo Admin disk
 sys-libs/hoard 3.13: HOARD Memory Allocator
 sys-power/brightnessctl 0.3.2 0.5.1: A program to read and control device brightness
-virtual/recoll 0-r1: Virtual for recoll
+virtual/recoll 0-r1 1: Virtual for recoll
 www-apps/hugo-doc 0.78.1: Documentation for Hugo www-apps/hugo
 www-apps/jekyll-feed 0.12.1 0.15.0: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
 www-apps/jekyll-gist 1.5.0: Liquid tag for displaying GitHub Gists in Jekyll sites

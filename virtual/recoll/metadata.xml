@@ -8,5 +8,8 @@
 	</maintainer>
 	<use>
 		<flag name="epub">Enable parsing of epub formtas via <pkg>dev-python/epub</pkg></flag>
+		<flag name="rar">Add support for extracting rar archives</flag>
+		<flag name="rtf">Add support for indexing Microsoft RTF documents</flag>
+		<flag name="ical">Add support for indexing iCalendar (RFC 5545) archives</flag>
 	</use>
 </pkgmetadata>
