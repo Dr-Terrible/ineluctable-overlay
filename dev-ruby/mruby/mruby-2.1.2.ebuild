@@ -1,8 +1,9 @@
 # Copyright 1999-2021 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit eutils
+EAPI=7
+USE_RUBY="ruby25 ruby26 ruby27"
+inherit eutils ruby-single
 
 DESCRIPTION="A lightweight implementation of Ruby complying to part of the ISO standard"
 HOMEPAGE="http://www.mruby.org"
@@ -16,16 +17,12 @@ IUSE="test static-libs"
 CDEPEND="sys-libs/readline:0"
 DEPEND="${CDEPEND}
 	sys-devel/bison
-	dev-lang/ruby"
+	${RUBY_DEPS}"
 RDEPEND="${CDEPEND}"
 
 RESTRICT="mirror"
 
-DOCS=(AUTHORS ChangeLog NEWS README.md TODO CONTRIBUTING.md)
-
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-termcap.patch
-}
+DOCS=(AUTHORS CONTRIBUTING.md LEGAL LICENSE NEWS README.md TODO)
 
 src_install() {
 	# installing binaries and libraries
