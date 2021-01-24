@@ -1,6 +1,6 @@
 ## Ineluctable Overlay
 
-[![Build Status](https://travis-ci.org/Dr-Terrible/ineluctable-overlay.png)](https://travis-ci.org/Dr-Terrible/ineluctable-overlay)
+[![Build Status](https://travis-ci.com/Dr-Terrible/ineluctable-overlay.png)](https://travis-ci.com/Dr-Terrible/ineluctable-overlay)
 
 Ineluctable Overlay offers a repository of Gentoo ebuilds maintained by me for projects that are not yet available through the Portage tree.
 
