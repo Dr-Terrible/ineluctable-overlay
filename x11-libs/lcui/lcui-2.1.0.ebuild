@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit autotools eutils ltprune multilib-minimal
+inherit eutils autotools multilib-minimal
 
 MY_PV="${PV/_beta/-beta}"
 
@@ -11,9 +11,10 @@ DESCRIPTION="A small C library for building user interfaces with C, XML and CSS<
 HOMEPAGE="https://lcui.org https://github.com/lc-soft/LCUI"
 SRC_URI="https://github.com/lc-soft/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS="amd64 arm x86"
+KEYWORDS="amd64 arm arm64 x86"
 LICENSE="MIT"
 SLOT="0"
+
 IUSE="+png +jpeg +X +truetype debug video builder static-libs"
 
 RESTRICT="mirror"
