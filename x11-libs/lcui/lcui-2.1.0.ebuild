@@ -7,7 +7,7 @@ inherit eutils autotools multilib-minimal
 
 MY_PV="${PV/_beta/-beta}"
 
-DESCRIPTION="A small C library for building user interfaces with C, XML and CSS<Paste>"
+DESCRIPTION="A small C library for building user interfaces with C, XML and CSS"
 HOMEPAGE="https://lcui.org https://github.com/lc-soft/LCUI"
 SRC_URI="https://github.com/lc-soft/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
