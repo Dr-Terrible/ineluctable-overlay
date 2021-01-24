@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+LUA_COMPAT=( lua5-{1..3} )
+inherit lua-single
 
 DESCRIPTION="Roguelike set in a post-apocalyptic world"
 HOMEPAGE="https://cataclysmdda.org"
@@ -15,31 +17,27 @@ HOMEPAGE="https://cataclysmdda.org"
 # * In the ebuilds themselves (i.e., here), we:
 #   * Manually strip the "9" in such filenames.
 #   * Uppercase the lowercase letter in such filenames.
-REV="-2"
+REV="-3"
 MY_PV="${PV/.9/.}"
 MY_PV="${MY_PV^^}${REV}"
 SRC_URI="https://github.com/CleverRaven/Cataclysm-DDA/archive/${MY_PV}.tar.gz -> ${P}${REV}.tar.gz"
 
 LICENSE="CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
-IUSE="clang debug lto lua luajit ncurses nls +sdl +sound test"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="clang debug lua lto ncurses nls +sdl +sound test"
 
-REQUIRED_USE="
-	lua? ( sdl )
-	luajit? ( lua )
+REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} sdl )
 	sound? ( sdl )
 	^^ ( ncurses sdl )
 "
 
-RDEPEND="
-	app-arch/bzip2
+RDEPEND="app-arch/bzip2
 	sys-libs/zlib
 	dev-util/astyle
-	lua? ( dev-lang/lua:0 )
-	luajit? ( dev-lang/luajit:2 )
 	ncurses? ( sys-libs/ncurses:0 )
 	nls? ( sys-devel/gettext:0[nls] )
+	lua? ( ${LUA_DEPS} )
 	sdl? (
 		media-libs/sdl2-image:0[jpeg,png]
 		media-libs/sdl2-ttf:0
@@ -49,8 +47,7 @@ RDEPEND="
 
 # Note that, while GCC also supports LTO via the gold linker, Portage appears
 # to provide no means of validating the current GCC to link with gold. *shrug*
-BDEPEND="${RDEPEND}
-	virtual/pkgconfig
+BDEPEND="virtual/pkgconfig
 	clang? (
 		sys-devel/clang
 		debug? ( sys-devel/clang-runtime[sanitize] )
@@ -61,6 +58,8 @@ BDEPEND="${RDEPEND}
 		debug? ( sys-devel/gcc[sanitize] )
 	)
 "
+
+RESTRICT="mirror"
 
 S="${WORKDIR}/Cataclysm-DDA-${MY_PV}"
 
@@ -80,7 +79,7 @@ src_prepare() {
 	# * The makefile-specific ${BUILD_PREFIX} variable, conflicting with the
 	#   Portage-specific variable of the same name. For disambiguity, this
 	#   variable is renamed to a makefile-specific variable name.
- 	sed -i \
+	sed -i \
 		-e '/\bOPTLEVEL = /s~-O.\b~~' \
 		-e '/LDFLAGS += /s~-s\b~~' \
 		-e '/RELEASE_FLAGS = /s~-Werror\b~~' \
@@ -132,9 +131,8 @@ src_compile() {
 		USE_HOME_DIR=0
 		USE_XDG_DIR=1
 
-		# Enable LuaJIT support.
-		LUA=$(usex lua 1 0)
-		LUA_BINARY=$(usex luajit luajit '')
+		# Enable Lua support.
+		LUA=$(usex lua)
 
 		# Enable internationalization.
 		# NOTE: Gentoo's ${L10N} USE_EXPAND flag conflicts with

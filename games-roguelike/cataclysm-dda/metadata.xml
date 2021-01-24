@@ -10,7 +10,6 @@
 		<flag name="clang">Build with clang++ rather than g++ (experimental!)</flag>
 		<flag name="lto">Enable support for link time optimization (LTO)</flag>
 		<flag name="lua">Enable Lua scripting support</flag>
-		<flag name="luajit">Use <pkg>dev-lang/luajit</pkg> instead of <pkg>dev-lang/lua</pkg></flag>
 		<flag name="ncurses">Install ncurses-based terminal executable</flag>
 		<flag name="sdl">Install SDL-based X11 executable (recommended)</flag>
 		<flag name="sound">Enable SDL-based sound support</flag>
