@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++"
 HOMEPAGE="http://cxxtest.sourceforge.net"
@@ -9,7 +9,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
 IUSE="examples doc"
 
 RDEPEND="dev-lang/perl"

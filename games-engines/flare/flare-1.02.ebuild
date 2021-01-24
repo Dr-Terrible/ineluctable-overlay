@@ -1,8 +1,8 @@
 # Copyright 1999-2021 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit cmake-utils
+EAPI=7
+inherit cmake
 
 DESCRIPTION="Free/Libre Action Roleplaying game"
 HOMEPAGE="https://github.com/clintbellanger/flare-engine"
@@ -18,7 +18,6 @@ RDEPEND="media-libs/libsdl2:=[X,sound,joystick,video,cpu_flags_x86_sse?]
 	media-libs/sdl2-image[png]
 	media-libs/sdl2-mixer[vorbis]
 	media-libs/sdl2-ttf"
-DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${PN}-engine-${PV}"
 
@@ -29,11 +28,5 @@ src_configure() {
 		-DBINDIR="/usr/bin"
 		-DDATADIR="/usr/share/${PN}"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
-
-#src_install() {
-#	cmake-utils_src_install
-#
-#	dodoc README.engine.md
-#}

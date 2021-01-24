@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 PYTHON_COMPAT=( python3_{7..9} )
 inherit distutils-r1
 
@@ -14,9 +14,7 @@ SRC_URI="https://github.com/fancycode/pylzma/archive/v${PV}.tar.gz -> ${P}.gh.ta
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-RDEPEND=""
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 DOCS=(doc/USAGE.md README.md)

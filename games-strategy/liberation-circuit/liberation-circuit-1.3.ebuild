@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="Trapped in a hostile computer system, you must make a way out"
 HOMEPAGE="https://github.com/linleyh/liberation-circuit"
