@@ -6,7 +6,41 @@ Ineluctable Overlay offers a repository of Gentoo ebuilds maintained by me for p
 
 ## Managing This Overlay
 
-This section will show you how to install the _Ineluctable Overlay_ into your Gentoo system, hence the following instructions assume a certain level of expertise using [_Portage_](http://www.gentoo.org/doc/en/handbook/handbook-x86.xml?part=2&chap=1) and [_layman_]( http://layman.sourceforge.net).
+This section will show you how to install the _Ineluctable Overlay_ into your Gentoo system, hence the following instructions assume a certain level of expertise using [_Portage_](http://www.gentoo.org/doc/en/handbook/handbook-x86.xml?part=2&chap=1).
+
+### Install
+
+As per the current [Portage specifications](https://wiki.gentoo.org/wiki/Project:Portage/Sync), ebuild repositories (a.k.a. overlays) can be managed via file collections under `/etc/portage/repos.conf/`.
+
+To enable this overlay, you first need to have `git` installed:
+
+```console
+emerge --ask --verbose dev-vcs/git
+````
+
+Then you need to add this overlay to the Portage sync system, by downloading the [ineluctable-overlay.conf](metadata/ineluctable-overlay.conf) file:
+
+```console
+wget https://raw.githubusercontent.com/Dr-Terrible/ineluctable-overlay/master/ineluctable-overlay.conf \
+	-O /etc/portage/repos.conf/ineluctable-overlay.conf
+```
+
+### Using Packages from `::ineluctable-overlay`
+
+To start using this overlay, you need to download the entire ebuild repository via:
+
+```console
+emerge --sync ineluctable-overlay
+```
+
+### Uninstall
+
+To uninstall the overlay, simply run:
+
+```console
+rm /etc/portage/repos.conf/ineluctable-overlay.conf
+rm -r /var/db/repos/ineluctable-overlay
+```
 
 ### Disclaimer
 
@@ -15,48 +49,6 @@ Keep in mind that this overlay provides packages that differ from the ones in th
 > **If you do have troubles with an ebuild provided by this overlay, please take it up with the ebuild provider (the owner of this GitHub account) and not with the official Gentoo's developers. In short, in case of issues, please DO NOT report bugs at bugs.gentoo.org for these ebuilds.**
 
 
-### Installing the overlay using emaint (recommended)
-
-This repository comes with a ready [repos.conf](https://wiki.gentoo.org/wiki//etc/portage/repos.conf) file you just need to add to your `/etc/portage/repos.conf/` directory:
-
-```
-curl -sL https://raw.githubusercontent.com/Dr-Terrible/ineluctable-overlay/master/ineluctable.conf > /etc/portage/repos.conf/ineluctable.conf
-emaint sync -r ineluctable
-```
-
-### Installing the overlay using layman (deprecated)
-
-In order to manage the overlay with Layman, the package **app-portage/layman** must be installed into your environment:
-
-```
-emerge -av app-portage/layman
-```
-
-Install this overlay by fetching its remote list as showed below:
-
-```
-curl -sL https://raw.githubusercontent.com/Dr-Terrible/ineluctable-overlay/master/overlay.xml > /etc/layman/overlays/ineluctable-overlay.xml
-```
-
-At this point you can execute:
-
-```
-layman -Lk
-layman -a ineluctable-overlay
-```
-
-Keep the overlay up to date with:
-
-```
-layman -s ineluctable-overlay
-```
-
-The process of removing this overlay from your Gentoo environment is quite straightforward:
-
-```
-layman -d ineluctable-overlay
-rm -r /etc/layman/overlays/ineluctable-overlay.xml
-```
 
 ## Supported Architectures
 
@@ -65,7 +57,7 @@ This repository offers packages that are known to work on the following architec
 1. x86 (32bit)
 2. amd64 (64bit)
 3. arm
-4. x86-fbsd (experimental)
+4. arm64
 
 
 ## Contributing
