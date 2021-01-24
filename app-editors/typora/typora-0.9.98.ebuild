@@ -8,10 +8,9 @@ DESCRIPTION="A minimal Markdown reading & writing app"
 HOMEPAGE="https://typora.io"
 SRC_URI="https://www.typora.io/linux/typora_${PV}_amd64.deb"
 
-LICENSE="EULA"
+LICENSE="Typora-EULA"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE=""
 
 RDEPEND="x11-libs/libXScrnSaver"
 
