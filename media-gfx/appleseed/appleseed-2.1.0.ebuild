@@ -20,6 +20,7 @@ IUSE="cuda cli qt tools python cpu_flags_x86_sse debug ${CPU_FEATURES[@]%:*}"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
+# 	media-libs/embree
 DEPEND="dev-libs/boost:=[python?,threads]
 	media-libs/openexr
 	media-libs/openimageio
@@ -27,7 +28,6 @@ DEPEND="dev-libs/boost:=[python?,threads]
 	media-libs/libpng:0
 	dev-libs/xerces-c
 	sys-libs/zlib
-	media-libs/embree
 	cuda? ( dev-util/nvidia-cuda-toolkit )"
 RDEPEND="${DEPEND}"
 
@@ -45,6 +45,7 @@ src_configure() {
 		-DWITH_TOOLS=$(usex tools ON OFF)
 		-DWITH_GPU=$(usex cuda ON OFF)
 		-DWITH_OSL=OFF
+		-WWITH_EMBREE=OFF
 		-DWITH_DISNEY_MATERIAL=OFF
 		-DWITH_DOXYGEN=OFF
 		-DWITH_PYTHON2_BINDINGS=OFF
