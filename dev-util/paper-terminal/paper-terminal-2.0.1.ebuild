@@ -104,6 +104,6 @@ HOMEPAGE="https://github.com/foxfriends/paper-terminal"
 SRC_URI="$(cargo_crate_uris ${CRATES})"
 RESTRICT="mirror"
 
-LICENSE="Apache-2.0 BSD-2-Clause BSL-1.0 MIT Unlicense Zlib"
+LICENSE="Apache-2.0 BSD-2 BSL-1.1 MIT Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="amd64 x86"
