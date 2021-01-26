@@ -49,7 +49,6 @@ media-gfx/appleseed 2.1.0: Appleseed is a modern, physically-based production re
 media-gfx/goxel 0.10.7: Open source 3D voxel editor
 media-sound/helio-workstation 3.0 3.2: One music sequencer for all major platforms, desktop and mobile
 media-sound/helio-workstation-bin 3.0 3.2: One music sequencer for all major platforms, desktop and mobile
-net-im/profanity 0.8.1: A console based XMPP client inspired by Irssi
 net-im/riot-web 1.5.10: A glossy Matrix collaboration client for desktop
 net-misc/ddgr 1.9: DuckDuckGo from the terminal
 net-misc/ephemeral-port-reserve 1.1.1: Find an unused port, reliably
