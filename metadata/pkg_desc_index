@@ -6,6 +6,7 @@ app-misc/todoman 3.9.0: A simple, standards-based, cli todo (aka: task) manager
 app-shells/bash-concurrent 2.4.0: Run tasks in parallel and display pretty output as they complete
 app-shells/tasksh 1.2.0: Tasksh is a shell for Taskwarrior
 app-shells/zshdb 1.1.2: Debugger for zsh
+app-text/bibutils 6.10: Interconverts between various bibliography formats using common XML intermediate
 app-text/mdbook 0.3.7 0.4.4 0.4.6: Creates a book from markdown files
 app-text/mdbook-epub 0.3.0: An EPUB renderer for mdbook.
 app-text/multimarkdown 6.6.0: Lightweight markup processor to produce HTML, LaTeX, and more
