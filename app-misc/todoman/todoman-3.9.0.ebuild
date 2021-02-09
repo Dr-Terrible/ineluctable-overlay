@@ -13,8 +13,6 @@ DESCRIPTION="A simple, standards-based, cli todo (aka: task) manager"
 HOMEPAGE="https://github.com/pimutils/todoman"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-PATCHES=( "${FILESDIR}/no-pytest-coverage.patch" )
-
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -35,6 +33,8 @@ DEPEND="
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/hypothesis[${PYTHON_USEDEP}]
 	)"
+
+RESTRICT="mirror test"
 
 DOCS=( AUTHORS.rst CHANGELOG.rst README.rst todoman.conf.sample )
 
