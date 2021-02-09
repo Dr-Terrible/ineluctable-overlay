@@ -24,10 +24,6 @@ RDEPEND="
 	dev-python/pygit2:=[${PYTHON_USEDEP}]
 	dev-vcs/git"
 
-PATCHES=(
-	"${FILESDIR}"/pygit2-1.1.1.patch
-)
-
 src_install() {
 	distutils-r1_src_install
 
