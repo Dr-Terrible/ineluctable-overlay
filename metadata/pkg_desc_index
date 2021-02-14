@@ -56,7 +56,7 @@ sci-libs/cadquery 2.0: A parametric CAD scripting framework based on PythonOCC
 sci-misc/pubs 0.8.3: Your bibliography on the command line
 sys-libs/hoard 3.13: HOARD Memory Allocator
 sys-power/brightnessctl 0.5.1: A program to read and control device brightness
-virtual/recoll 0-r1 1: Virtual for recoll
+virtual/recoll 1: Virtual for recoll
 www-apps/hugo-doc 0.78.1: Documentation for Hugo www-apps/hugo
 www-apps/jekyll-feed 0.12.1 0.15.0: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts
 www-apps/jekyll-gist 1.5.0: Liquid tag for displaying GitHub Gists in Jekyll sites

@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="Virtual for recoll"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS="~amd64"
 IUSE="epub exif lzma pdf postscript rar rtf ical djvu"
 
 RDEPEND=">=app-misc/recoll-1.28.0
