@@ -4,6 +4,7 @@ app-editors/typora 0.9.98: A minimal Markdown reading & writing app
 app-editors/zettlr 1.7.1 1.7.5: A Markdown Editor for the 21st century.
 app-misc/todoman 3.9.0: A simple, standards-based, cli todo (aka: task) manager
 app-shells/bash-concurrent 2.4.0: Run tasks in parallel and display pretty output as they complete
+app-shells/fishtape 3.0.1: Fishtape is a Test Anything Protocol compliant test runner for Fish
 app-shells/tasksh 1.2.0: Tasksh is a shell for Taskwarrior
 app-shells/zshdb 1.1.2: Debugger for zsh
 app-text/bibutils 6.10: Interconverts between various bibliography formats using common XML intermediate
@@ -15,6 +16,7 @@ dev-lang/pocl 1.6: PortableCL: opensource implementation of the OpenCL standard
 dev-libs/fluid 1.2.0: Cross-platform QtQuick components using Material Design guidelines
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
 dev-python/epub 0.5.2: Library to open and read files in the epub version 2
+dev-python/kivy 2.0.0: Library for rapid development of hardware-accelerated multitouch applications
 dev-python/pep517 0.9.1: Wrappers to build Python packages using PEP 517 hooks
 dev-python/plugnplay 0.5.4: A Generic plug-in system for python
 dev-python/proselint 0.10.2: A linter for prose
