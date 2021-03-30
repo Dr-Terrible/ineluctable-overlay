@@ -37,7 +37,6 @@ dev-util/nq 0.3.1: Unix command line queue utility
 dev-util/paper-terminal 2.0.1: Writes a file to a paper in your terminal. Especially if that file is Markdown.
 dev-util/xe 0.11: simple xargs and apply replacement
 dev-vcs/diff-so-fancy 1.3.0: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
-dev-vcs/git-extras 6.1.0: Little git extras
 dev-vcs/git-recall 1.2.4: Simple and handy tool to easily recall what you've done
 dev-vcs/git-secrets 1.3.0: Prevents you from committing secrets and credentials into git repositories
 dev-vcs/gitless 0.8.8-r2: A version control system built on top of Git
