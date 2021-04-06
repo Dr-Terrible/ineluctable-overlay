@@ -1,0 +1,15 @@
+--- a/setup.py	2020-04-23 18:33:31.000000000 -0700
++++ a/setup.py	2020-12-07 22:10:12.460000000 -0800
+@@ -35,12 +35,10 @@
+         "cadquery.contrib",
+         "cadquery.occ_impl",
+         "cadquery.plugins",
+-        "tests",
+     ],
+     include_package_data=True,
+     zip_safe=False,
+     platforms="any",
+-    test_suite="tests",
+     classifiers=[
+         "Development Status :: 5 - Production/Stable",
+         #'Development Status :: 6 - Mature',
