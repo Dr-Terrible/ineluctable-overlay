@@ -18,8 +18,8 @@ IUSE="+opengl"
 S="${WORKDIR}/${PN}-core-${PV}"
 
 RDEPEND="${PYTHON_DEPS}
-	sci-libs/opencascade:7.4.0=
-	virtual/opengl"
+	sci-libs/opencascade:7.5.0=
+	opengl? ( virtual/opengl )"
 DEPEND=">=dev-lang/swig-3.0.9"
 
 src_configure() {
