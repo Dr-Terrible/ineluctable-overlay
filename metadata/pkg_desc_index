@@ -12,7 +12,6 @@ app-text/mdbook 0.3.7 0.4.4 0.4.6: Creates a book from markdown files
 app-text/mdbook-epub 0.3.0: An EPUB renderer for mdbook.
 app-text/multimarkdown 6.6.0: Lightweight markup processor to produce HTML, LaTeX, and more
 app-text/pandoc-bin 2.11.0.4 2.11.3.2: Conversion between markup formats
-dev-lang/pocl 1.6: PortableCL: opensource implementation of the OpenCL standard
 dev-libs/fluid 1.2.0: Cross-platform QtQuick components using Material Design guidelines
 dev-python/OCP 7.4.0: Python wrapper for OpenCASCADE generated using pywrap
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.

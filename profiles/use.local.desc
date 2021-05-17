@@ -2,11 +2,6 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
-dev-lang/pocl:asan - Enable clang's Address Sanitizer functionality
-dev-lang/pocl:cuda - Use nvidia CUDA toolkit
-dev-lang/pocl:lsan - Enable clang's Leak Sanitizer functionality
-dev-lang/pocl:tsan - Enable clang's Thread Sanitizer functionality
-dev-lang/pocl:ubsan - Enable clang's Undefined Behavior Sanitizer functionality
 dev-libs/fluid:demo - Install the demo files
 games-engines/godot:3d - Enable support for the 3D API. Disable it if you are going to use only the 2D API
 games-engines/godot:deprecated - Enable deprecated features
