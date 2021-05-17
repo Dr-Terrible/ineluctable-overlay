@@ -26,9 +26,24 @@ src_unpack() {
 	unpack_deb ${A}
 }
 
+src_prepare() {
+	default
+
+	# QA: fix non compliant .desktop files
+	sed -i \
+		-e "s|text/markdown;text/markdown;text/markdown;|text/markdown;|g" \
+		"${WORKDIR}"/usr/share/applications/Zettlr.desktop || die
+
+	# QA: fix pre-compressed files
+	gunzip "${WORKDIR}"/usr/share/doc/${PN}/changelog.gz || die
+
+	# QA: fix doc path
+	mv "${WORKDIR}"/usr/share/doc/${PN} "${WORKDIR}"/usr/share/doc/${PF} || die
+}
+
 src_install() {
 	mv "${S}"/* "${D}" || die
-	dosym /opt/Zettlr/${PN} /usr/bin/${PN}
+	dosym /opt/Zettlr/Zettlr /opt/bin/${PN}
 }
 
 pkg_postinst() {

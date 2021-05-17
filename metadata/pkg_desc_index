@@ -1,7 +1,7 @@
 app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20170103: Game Programming Patterns
 app-editors/typora 0.9.98: A minimal Markdown reading & writing app
-app-editors/zettlr 1.7.1 1.7.5: A Markdown Editor for the 21st century.
+app-editors/zettlr 1.8.9: A Markdown Editor for the 21st century.
 app-misc/todoman 3.9.0: A simple, standards-based, cli todo (aka: task) manager
 app-shells/bash-concurrent 2.4.0: Run tasks in parallel and display pretty output as they complete
 app-shells/fishtape 3.0.1: Fishtape is a Test Anything Protocol compliant test runner for Fish
