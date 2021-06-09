@@ -17,6 +17,7 @@ dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
 dev-python/epub 0.5.2: Library to open and read files in the epub version 2
 dev-python/kivy 2.0.0: Library for rapid development of hardware-accelerated multitouch applications
 dev-python/pep517 0.9.1: Wrappers to build Python packages using PEP 517 hooks
+dev-python/pipx 0.16.3: Execute binaries from Python packages in isolated environments
 dev-python/plugnplay 0.5.4: A Generic plug-in system for python
 dev-python/proselint 0.10.2: A linter for prose
 dev-python/py7zr 0.11.3: 7zip implementation in python3 with various compression methods
@@ -27,6 +28,7 @@ dev-python/raven 6.10.0: Raven is a client for Sentry
 dev-python/smartypants 2.0.1: A port of SmartyPants PHP to Python
 dev-python/sphinx-copybutton 0.3.1: A small sphinx extension to add a copy button to code blocks
 dev-python/sphinxcontrib-svg2pdfconverter 1.1.1: This extension converts SVG images to PDF
+dev-python/userpath 1.6.0: Cross-platform tool for adding locations to the user PATH
 dev-ruby/mruby 2.1.2: A lightweight implementation of Ruby complying to part of the ISO standard
 dev-util/cxxtest 4.4: CxxTest is a JUnit/CppUnit/xUnit-like unit testing framework for C++
 dev-util/google-styleguide 20210102: Style guides for Google-originated open-source projects
