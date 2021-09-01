@@ -23,6 +23,10 @@ virtual/recoll:epub - Enable parsing of epub formtas via dev-python/epub
 virtual/recoll:ical - Add support for indexing iCalendar (RFC 5545) archives
 virtual/recoll:rar - Add support for extracting rar archives
 virtual/recoll:rtf - Add support for indexing Microsoft RTF documents
+x11-drivers/xf86-video-intel:sna - Enable SandyBridge's New Acceleration (useful on all chipsets, not just SandyBridge)
+x11-drivers/xf86-video-intel:tools - Build the intel-virtual-output tool
+x11-drivers/xf86-video-intel:uxa - Enable UMA Acceleration Architecture
+x11-drivers/xf86-video-intel:xvmc - Enables X-Video Motion Compensation support
 x11-libs/lcui:builder - Enable builder support
 x11-libs/lcui:video - Enable video support
 x11-themes/sddm-sugar-candy:jpeg - Provide support for jpeg backgrounds.

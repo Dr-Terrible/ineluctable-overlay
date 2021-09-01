@@ -1,5 +1,6 @@
 app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20170103: Game Programming Patterns
+app-editors/neovim-qt 0.2.16.1: Neovim client library and GUI, in Qt5
 app-editors/zettlr 1.8.9: A Markdown Editor for the 21st century.
 app-misc/todoman 3.9.0: A simple, standards-based, cli todo (aka: task) manager
 app-shells/bash-concurrent 2.4.0: Run tasks in parallel and display pretty output as they complete
@@ -65,6 +66,7 @@ www-apps/jekyll-feed 0.12.1 0.15.0: A Jekyll plugin to generate an Atom (RSS-lik
 www-apps/jekyll-gist 1.5.0: Liquid tag for displaying GitHub Gists in Jekyll sites
 www-apps/jekyll-seo-tag 2.6.1: A Jekyll plugin to add metadata tags for search engines
 www-apps/jekyll-sitemap 1.3.1 1.4.0: Automatically generate a sitemap.xml for your Jekyll site
+x11-drivers/xf86-video-intel 2.99.917_p20210115: X.Org driver for Intel cards
 x11-libs/lcui 2.1.0: A small C library for building user interfaces with C, XML and CSS
 x11-misc/lemonbar 1.4: Minimalist bar based on xcb, support UTF-8
 x11-themes/sddm-sugar-candy 1.5 1.6: Sweetest login theme available for the SDDM display manager
