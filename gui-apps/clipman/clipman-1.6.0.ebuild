@@ -41,9 +41,9 @@ go-module_set_globals
 SRC_URI="https://github.com/yory8/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}"
 
-#src_compile() {
-#	go build "$@"
-#}
+src_compile() {
+	go build ${GOFLAGS}
+}
 
 src_install() {
 	dobin clipman
