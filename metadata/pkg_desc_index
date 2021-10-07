@@ -1,3 +1,4 @@
+app-admin/gopass-ui 0.8.0: gopass CLI + UI = visual cross-platform password manager for teams
 app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20170103: Game Programming Patterns
 app-editors/neovim-qt 0.2.16.1: Neovim client library and GUI, in Qt5
@@ -43,7 +44,6 @@ dev-vcs/git-recall 1.2.4: Simple and handy tool to easily recall what you've don
 dev-vcs/git-secrets 1.3.0: Prevents you from committing secrets and credentials into git repositories
 dev-vcs/gitless 0.8.8-r2: A version control system built on top of Git
 games-engines/flare 1.02 1.11: Free/Libre Action Roleplaying game
-games-engines/godot 3.0.1: Godot is a fully featured, open source, MIT licensed, game engine
 games-roguelike/cataclysm-dda 0.9e-r3: Roguelike set in a post-apocalyptic world
 games-rpg/flare 1.02 1.11: Free/Libre Action Roleplaying game
 games-strategy/liberation-circuit 1.3: Trapped in a hostile computer system, you must make a way out
@@ -61,6 +61,7 @@ sci-libs/cadquery 2.0-r1 2.1: A parametric CAD scripting framework based on Pyth
 sci-misc/pubs 0.8.3-r1: Your bibliography on the command line
 sys-libs/hoard 3.13: HOARD Memory Allocator
 sys-power/brightnessctl 0.5.1: A program to read and control device brightness
+sys-power/wluma 2.0.1: Automatic brightness adjustment based on screen contents and ALS
 virtual/recoll 1: Virtual for recoll
 www-apps/hugo-doc 0.78.1: Documentation for Hugo www-apps/hugo
 www-apps/jekyll-feed 0.12.1 0.15.0: A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts

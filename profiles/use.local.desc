@@ -3,11 +3,6 @@
 # * generated automatically using egencache *
 
 dev-libs/fluid:demo - Install the demo files
-games-engines/godot:3d - Enable support for the 3D API. Disable it if you are going to use only the 2D API
-games-engines/godot:deprecated - Enable deprecated features
-games-engines/godot:lto - Build with link time optimization enabled
-games-engines/godot:minizip - Enable support for the minizip library
-games-engines/godot:tools - Build game engines tools and game editor
 games-roguelike/cataclysm-dda:clang - Build with clang++ rather than g++ (experimental!)
 games-roguelike/cataclysm-dda:lto - Enable support for link time optimization (LTO)
 games-roguelike/cataclysm-dda:lua - Enable Lua scripting support
