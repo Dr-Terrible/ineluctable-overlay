@@ -18,7 +18,7 @@ KEYWORDS="-* ~amd64 ~arm64"
 
 S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 
-DEPEND="${PYTHON_DEPS}
+BDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/pygments[${PYTHON_USEDEP}]')
 	$(python_gen_any_dep 'dev-python/markdown[${PYTHON_USEDEP}]')
 	$(python_gen_any_dep 'dev-python/smartypants[${PYTHON_USEDEP}]')

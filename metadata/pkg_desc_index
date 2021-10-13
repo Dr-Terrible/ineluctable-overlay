@@ -1,7 +1,7 @@
 app-admin/gopass-ui 0.8.0: gopass CLI + UI = visual cross-platform password manager for teams
 app-crypt/summon 0.9.0: CLI that provides on-demand secrets access for common DevOps tools
 app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTap
-app-doc/game-programming-patterns 20210610: Game Programming Patterns
+app-doc/game-programming-patterns 20210610-r1: Game Programming Patterns
 app-editors/neovim-qt 0.2.16.1: Neovim client library and GUI, in Qt5
 app-editors/zettlr 1.8.9: A Markdown Editor for the 21st century.
 app-misc/todoman 3.9.0: A simple, standards-based, cli todo (aka: task) manager
