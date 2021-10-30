@@ -4,7 +4,7 @@ app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTa
 app-doc/game-programming-patterns 20210610-r1: Game Programming Patterns
 app-editors/neovim-qt 0.2.16.1: Neovim client library and GUI, in Qt5
 app-editors/zettlr 1.8.9: A Markdown Editor for the 21st century.
-app-misc/todoman 3.9.0: A simple, standards-based, cli todo (aka: task) manager
+app-misc/todoman 3.9.0-r1: A simple, standards-based, cli todo (aka: task) manager
 app-shells/bash-concurrent 2.4.0: Run tasks in parallel and display pretty output as they complete
 app-shells/fishtape 3.0.1: Fishtape is a Test Anything Protocol compliant test runner for Fish
 app-shells/shell-functools 0.3.0: Functional programming tools for the shell
@@ -48,7 +48,9 @@ games-engines/flare 1.02 1.11: Free/Libre Action Roleplaying game
 games-roguelike/cataclysm-dda 0.9e-r3: Roguelike set in a post-apocalyptic world
 games-rpg/flare 1.02 1.11: Free/Libre Action Roleplaying game
 games-strategy/liberation-circuit 1.3: Trapped in a hostile computer system, you must make a way out
+gnome-extra/gnome-pomodoro 0.20.0: Time management utility for GNOME based on the pomodoro technique
 gui-apps/clipman 1.6.0: A simple clipboard manager for Wayland
+gui-apps/pilorama 3.0.2: Advanced Timeboxing Tool
 media-gfx/CQ-editor 0.1.1-r1 0.2: CadQuery GUI editor based on PyQT
 media-gfx/angelcad-bin 1.5_p6: An open source 3D solid modeller
 media-gfx/appleseed 2.1.0: Appleseed is a modern, physically-based production renderer.
