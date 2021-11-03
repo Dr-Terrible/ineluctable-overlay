@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Ineluctable Overlay Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit unpacker xdg
 
 DESCRIPTION="A Markdown Editor for the 21st century."
@@ -21,6 +21,7 @@ RDEPEND="
 
 S="${WORKDIR}"
 
+QA_PREBUILT="*"
 RESTRICT="strip mirror"
 
 src_unpack() {
@@ -33,13 +34,13 @@ src_prepare() {
 	# QA: fix non compliant .desktop files
 	sed -i \
 		-e "s|text/markdown;text/markdown;text/markdown;|text/markdown;|g" \
-		"${WORKDIR}"/usr/share/applications/Zettlr.desktop || die
+		"${S}"/usr/share/applications/Zettlr.desktop || die
 
 	# QA: fix pre-compressed files
-	gunzip "${WORKDIR}"/usr/share/doc/${PN}/changelog.gz || die
+	gunzip "${S}"/usr/share/doc/${PN}/changelog.gz || die
 
 	# QA: fix doc path
-	mv "${WORKDIR}"/usr/share/doc/${PN} "${WORKDIR}"/usr/share/doc/${PF} || die
+	mv "${S}"/usr/share/doc/${PN} "${S}"/usr/share/doc/${PF} || die
 }
 
 src_install() {

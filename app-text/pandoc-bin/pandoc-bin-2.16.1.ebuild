@@ -21,6 +21,16 @@ src_unpack() {
 	unpack_deb ${A}
 }
 
+src_prepare() {
+	default
+
+	# QA: use correct FHS/Gentoo policy paths
+	mv "${S}/usr/share/doc/${PN//-bin}" "${S}/usr/share/doc/${PF}" || die
+
+	# QA: fix pre-compressed files
+	gunzip "${WORKDIR}"/usr/share/man/man1/${PN//-bin}.1.gz || die
+}
+
 src_install() {
 	mv "${S}"/* "${D}" || die
 }
