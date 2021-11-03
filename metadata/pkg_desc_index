@@ -3,7 +3,7 @@ app-crypt/summon 0.9.0: CLI that provides on-demand secrets access for common De
 app-doc/dtrace-systemtap-book 20190318: Dynamic Tracing with DTrace and SystemTap
 app-doc/game-programming-patterns 20210610-r1: Game Programming Patterns
 app-editors/neovim-qt 0.2.16.1: Neovim client library and GUI, in Qt5
-app-editors/zettlr 1.8.9: A Markdown Editor for the 21st century.
+app-editors/zettlr 1.8.9 2.0.2: A Markdown Editor for the 21st century.
 app-misc/todoman 3.9.0-r1: A simple, standards-based, cli todo (aka: task) manager
 app-shells/bash-concurrent 2.4.0: Run tasks in parallel and display pretty output as they complete
 app-shells/fishtape 3.0.1: Fishtape is a Test Anything Protocol compliant test runner for Fish
@@ -13,7 +13,7 @@ app-shells/zshdb 1.1.2: Debugger for zsh
 app-text/mdbook 0.3.7 0.4.4 0.4.6: Creates a book from markdown files
 app-text/mdbook-epub 0.3.0: An EPUB renderer for mdbook.
 app-text/multimarkdown 6.6.0: Lightweight markup processor to produce HTML, LaTeX, and more
-app-text/pandoc-bin 2.11.0.4 2.11.3.2: Conversion between markup formats
+app-text/pandoc-bin 2.11.3.2 2.16.1: Conversion between markup formats
 dev-libs/fluid 1.2.0: Cross-platform QtQuick components using Material Design guidelines
 dev-python/OCP 7.4.0: Python wrapper for OpenCASCADE generated using pywrap
 dev-python/atomiclong 0.1.1: A CFFI using AtomicLong type for CPython and PyPy.
